@@ -2,7 +2,17 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Sun, Moon, Briefcase, Target, Zap, Bot, Mail, X as TwitterIcon, Linkedin as LinkedinIcon } from 'lucide-react';
+
+// --- INLINE SVG ICONS ---
+const IconSun = () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>;
+const IconMoon = () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>;
+const IconBriefcase = () => <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>;
+const IconTarget = () => <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>;
+const IconZap = () => <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>;
+const IconBot = () => <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 8V4H8"></path><rect x="4" y="12" width="16" height="8" rx="2"></rect><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M12 18v-2"></path><path d="M12 12V8"></path></svg>;
+const IconMail = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>;
+const IconTwitter = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14.258 10.152L23.176 0h-2.113l-7.747 8.813L7.13 0H0l9.308 13.324L0 23.973h2.113l8.17-9.309 6.616 9.309H24l-9.742-13.821zM11.423 13.012L10.74 12.01l-8.58-12.003h3.207l6.837 9.569 0.682 0.956 8.976 12.553h-3.207l-7.227-10.099z"></path></svg>;
+const IconLinkedin = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>;
 
 // --- MAIN PAGE COMPONENT ---
 export default function HomePage() {
@@ -60,7 +70,7 @@ function ThemeToggle() {
             className="theme-toggle"
             aria-label="Toggle theme"
         >
-            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+            {theme === 'light' ? <IconMoon /> : <IconSun />}
         </button>
     );
 }
@@ -75,7 +85,7 @@ function Nav() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-2">
-            <Bot size={28} className="text-[var(--yellow)]" />
+            <IconBot />
             <span className="font-bold text-lg">My AI Workforce</span>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
@@ -178,9 +188,9 @@ function Hero() {
 // --- PILLARS SECTION ---
 function ThreePillars() {
   const pillars = [
-    { icon: <Briefcase size={32} />, title: "Autonomous Agents", description: "AI that thinks and acts independently to complete complex, multi-step tasks." },
-    { icon: <Target size={32} />, title: "Goal-Oriented", description: "Define your objective, and our agents will determine the best path to achieve it." },
-    { icon: <Zap size={32} />, title: "Seamless Integration", description: "Connects with your existing tools and workflows for a frictionless experience." },
+    { icon: <IconBriefcase />, title: "Autonomous Agents", description: "AI that thinks and acts independently to complete complex, multi-step tasks." },
+    { icon: <IconTarget />, title: "Goal-Oriented", description: "Define your objective, and our agents will determine the best path to achieve it." },
+    { icon: <IconZap />, title: "Seamless Integration", description: "Connects with your existing tools and workflows for a frictionless experience." },
   ];
 
   return (
@@ -277,13 +287,13 @@ function Footer() {
             </p>
             <div className="flex items-center space-x-6">
                  <a href="mailto:contact@myaiworkforce.com" className="text-[var(--text-dim)] hover:text-[var(--yellow)]">
-                    <Mail size={20} />
+                    <IconMail />
                  </a>
                  <a href="#" className="text-[var(--text-dim)] hover:text-[var(--yellow)]">
-                    <TwitterIcon size={20} />
+                    <IconTwitter />
                  </a>
                  <a href="#" className="text-[var(--text-dim)] hover:text-[var(--yellow)]">
-                    <LinkedinIcon size={20} />
+                    <IconLinkedin />
                  </a>
             </div>
         </div>
