@@ -647,7 +647,7 @@ export default function MarketplacePage() {
             AI Agent <span style={{ color: "#FFD700" }}>Marketplace</span>
           </h1>
           <p className="text-lg md:text-xl mb-8 max-w-xl mx-auto" style={{ color: "var(--muted)" }}>
-            Browse 500+ ready-made AI agents. Deploy in minutes, no code required.
+            Browse skill files, workflows, and ready-made agents for OpenClaw, n8n, and more.
           </p>
 
           {/* Search bar */}

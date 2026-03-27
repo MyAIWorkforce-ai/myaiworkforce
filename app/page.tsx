@@ -332,19 +332,19 @@ function ThreePillars() {
     {
       icon: <IconStore />,
       title: "Browse",
-      description: "Ready-made AI agents built for real business tasks. Deploy in minutes, no code required.",
+      description: "Ready-made AI agents built for real business tasks. Deploy powerful agents on frameworks like OpenClaw in minutes, no code required.",
       href: "/marketplace",
     },
     {
       icon: <IconBook />,
       title: "DIY Guides",
-      description: "Step-by-step guides to build your own AI agents. Learn, customise, and own your automation.",
+      description: "Step-by-step guides to build your own agents using powerful tools like OpenClaw. Learn, customise, and own your automation.",
       href: "/guides",
     },
     {
       icon: <IconRocket />,
       title: "Done-For-You",
-      description: "We build and run your entire AI workforce. From strategy to deployment, fully managed.",
+      description: "We build and run your entire AI workforce, specializing in robust and secure OpenClaw deployments.",
       href: "/done-for-you",
     },
   ];

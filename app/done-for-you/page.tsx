@@ -53,7 +53,7 @@ const faqs = [
   { q: "How long does setup take?", a: "Most clients are up and running within 2 weeks. Complex enterprise setups may take 4-6 weeks." },
   { q: "Do I need any technical knowledge?", a: "None at all. We handle everything technical. You just tell us your goals." },
   { q: "Can I cancel anytime?", a: "Yes. Our plans are month-to-month with 30 days notice to cancel." },
-  { q: "What tools and platforms do you integrate with?", a: "We integrate with virtually any tool — Gmail, Slack, HubSpot, Salesforce, Notion, Zapier, and hundreds more." },
+  { q: "What tools and platforms do you integrate with?", a: "We integrate with virtually any tool, with deep expertise in the OpenClaw framework and its ecosystem." },
   { q: "What if I'm not happy with the results?", a: "We offer a 30-day satisfaction guarantee. If we don't deliver, we'll refund your first month." },
 ];
 
@@ -67,7 +67,7 @@ export default function DoneForYouPage() {
           <div className="max-w-4xl mx-auto">
             <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.3)" }}>Done-For-You Service</div>
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>Your AI Workforce,<br /><span style={{ color: "var(--yellow)" }}>Built & Managed For You</span></h1>
-            <p className="text-lg max-w-2xl mx-auto mb-10" style={{ color: "var(--text-dim)" }}>Stop learning. Start growing. We build, deploy, and run your entire AI workforce while you focus on what you do best.</p>
+            <p className="text-lg max-w-2xl mx-auto mb-10" style={{ color: "var(--text-dim)" }}>Stop learning. Start growing. We build, deploy, and run your entire AI workforce, specializing in secure and scalable OpenClaw solutions.</p>
             <Link href="/contact" className="px-8 py-4 rounded-xl font-bold text-black inline-block text-lg" style={{ backgroundColor: "var(--yellow)" }}>Book Your Free Discovery Call →</Link>
           </div>
         </section>

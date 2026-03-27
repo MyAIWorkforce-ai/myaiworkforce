@@ -69,8 +69,8 @@ export default function GuidesPage() {
         <section className="py-20 px-6 text-center" style={{ backgroundColor: "var(--bg-section)" }}>
           <div className="max-w-3xl mx-auto">
             <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.3)" }}>Free Guides</div>
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>Build Your Own<br /><span style={{ color: "var(--yellow)" }}>AI Workforce</span></h1>
-            <p className="text-lg" style={{ color: "var(--text-dim)" }}>Step-by-step guides for business owners who want to automate without needing a technical team.</p>
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>Build Your Own<br /><span style={{ color: "var(--yellow)" }}>OpenClaw Agents</span></h1>
+            <p className="text-lg" style={{ color: "var(--text-dim)" }}>Step-by-step guides for business owners who want to build powerful OpenClaw agents without needing a technical team.</p>
           </div>
         </section>
 
