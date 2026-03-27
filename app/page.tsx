@@ -140,7 +140,7 @@ function Nav() {
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <a
-            href="#contact"
+            href="/contact"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
             style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
           >
@@ -181,7 +181,7 @@ function Nav() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/contact"
               className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
               style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
               onClick={() => setOpen(false)}
@@ -284,14 +284,14 @@ function Hero() {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 mb-16">
           <a
-            href="#marketplace"
+            href="/marketplace"
             className="px-8 py-4 rounded-xl text-base font-bold text-center transition-all duration-200 glow-yellow"
             style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
           >
             Browse the Marketplace →
           </a>
           <a
-            href="#contact"
+            href="/contact"
             className="px-8 py-4 rounded-xl text-base font-bold text-center border-2 transition-all duration-200 hover:bg-red-950"
             style={{ borderColor: "#E63946", color: "#E63946" }}
           >
@@ -532,14 +532,14 @@ function CTABanner() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#marketplace"
+            href="/marketplace"
             className="px-8 py-4 rounded-xl text-base font-bold text-center transition-all duration-200 glow-yellow"
             style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
           >
             Browse the Marketplace →
           </a>
           <a
-            href="#contact"
+            href="/contact"
             className="px-8 py-4 rounded-xl text-base font-bold text-center border-2 transition-all duration-200 hover:bg-red-950"
             style={{ borderColor: "#E63946", color: "#E63946" }}
           >
