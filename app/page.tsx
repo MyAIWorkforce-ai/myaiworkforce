@@ -122,16 +122,21 @@ function Nav() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
-          {["Marketplace", "Guides", "Done-For-You", "About"].map((link) => (
+          {[
+            { label: "Marketplace", href: "/marketplace" },
+            { label: "Guides", href: "#guides" },
+            { label: "Done-For-You", href: "#doneforyou" },
+            { label: "About", href: "#about" },
+          ].map((link) => (
             <a
-              key={link}
-              href={`#${link.toLowerCase().replace(/-/g, "").replace(/ /g, "")}`}
+              key={link.label}
+              href={link.href}
               className="text-sm font-medium transition-colors duration-200"
               style={{ color: "var(--text-dim)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-dim)")}
             >
-              {link}
+              {link.label}
             </a>
           ))}
         </div>
@@ -169,15 +174,20 @@ function Nav() {
           style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--mobile-menu-bg)" }}
         >
           <div className="px-6 py-4 flex flex-col gap-4">
-            {["Marketplace", "Guides", "Done-For-You", "About"].map((link) => (
+            {[
+                { label: "Marketplace", href: "/marketplace" },
+                { label: "Guides", href: "#guides" },
+                { label: "Done-For-You", href: "#doneforyou" },
+                { label: "About", href: "#about" },
+              ].map((link) => (
               <a
-                key={link}
-                href={`#${link.toLowerCase().replace(/-/g, "").replace(/ /g, "")}`}
+                key={link.label}
+                href={link.href}
                 className="text-sm font-medium transition-colors"
                 style={{ color: "var(--text-dim)" }}
                 onClick={() => setOpen(false)}
               >
-                {link}
+                {link.label}
               </a>
             ))}
             <a
@@ -284,7 +294,7 @@ function Hero() {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 mb-16">
           <a
-            href="#marketplace"
+            href="/marketplace"
             className="px-8 py-4 rounded-xl text-base font-bold text-center transition-all duration-200 glow-yellow"
             style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
           >
@@ -532,7 +542,7 @@ function CTABanner() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#marketplace"
+            href="/marketplace"
             className="px-8 py-4 rounded-xl text-base font-bold text-center transition-all duration-200 glow-yellow"
             style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
           >
@@ -570,16 +580,21 @@ function Footer() {
 
           {/* Links */}
           <div className="flex flex-wrap gap-x-8 gap-y-2">
-            {["Marketplace", "Guides", "Done-For-You", "Contact"].map((link) => (
+            {[
+                { label: "Marketplace", href: "/marketplace" },
+                { label: "Guides", href: "#guides" },
+                { label: "Done-For-You", href: "#doneforyou" },
+                { label: "Contact", href: "#contact" },
+              ].map((link) => (
               <a
-                key={link}
-                href={`#${link.toLowerCase().replace(/-/g, "").replace(/ /g, "")}`}
+                key={link.label}
+                href={link.href}
                 className="text-sm font-medium transition-colors duration-200"
                 style={{ color: "var(--muted)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </div>
