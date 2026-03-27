@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
@@ -53,13 +54,66 @@ function IconX() {
   );
 }
 
+function IconSun() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="1" x2="12" y2="3"/>
+      <line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/>
+      <line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+  );
+}
+
+function IconMoon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  );
+}
+
+// ─── Theme Toggle ─────────────────────────────────────────────────────────────
+
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) {
+    return <div style={{ width: 36, height: 36 }} />;
+  }
+
+  const isDark = theme === "dark";
+
+  return (
+    <button
+      className="theme-toggle"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+    >
+      {isDark ? <IconSun /> : <IconMoon />}
+    </button>
+  );
+}
+
 // ─── Nav ──────────────────────────────────────────────────────────────────────
 
 function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav style={{ borderBottom: "1px solid #1F1F1F" }} className="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90 backdrop-blur-md">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md"
+      style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}
+    >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
         <a href="#" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}>
@@ -72,15 +126,19 @@ function Nav() {
             <a
               key={link}
               href={`#${link.toLowerCase().replace(/-/g, "").replace(/ /g, "")}`}
-              className="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200"
+              className="text-sm font-medium transition-colors duration-200"
+              style={{ color: "var(--text-dim)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-dim)")}
             >
               {link}
             </a>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* CTA + Theme toggle */}
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <a
             href="#contact"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
@@ -90,25 +148,33 @@ function Nav() {
           </a>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-gray-400 hover:text-white"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          {open ? <IconX /> : <IconMenu />}
-        </button>
+        {/* Mobile controls */}
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="transition-colors"
+            style={{ color: "var(--text-dim)" }}
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? <IconX /> : <IconMenu />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t mobile-menu" style={{ borderColor: "#1F1F1F", backgroundColor: "#0A0A0A" }}>
+        <div
+          className="md:hidden border-t mobile-menu"
+          style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--mobile-menu-bg)" }}
+        >
           <div className="px-6 py-4 flex flex-col gap-4">
             {["Marketplace", "Guides", "Done-For-You", "About"].map((link) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase().replace(/-/g, "").replace(/ /g, "")}`}
-                className="text-sm font-medium text-gray-400 hover:text-white transition-colors"
+                className="text-sm font-medium transition-colors"
+                style={{ color: "var(--text-dim)" }}
                 onClick={() => setOpen(false)}
               >
                 {link}
@@ -158,38 +224,43 @@ function Hero() {
   }, []);
 
   return (
-    <section className="relative pt-32 pb-24 px-6 overflow-hidden" style={{ minHeight: "100vh", display: "flex", alignItems: "center" }}>
+    <section
+      className="relative pt-32 pb-24 px-6 overflow-hidden"
+      style={{ minHeight: "100vh", display: "flex", alignItems: "center", backgroundColor: "var(--bg)" }}
+    >
       {/* Background gradient */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255,215,0,0.08) 0%, transparent 70%)",
-        }}
+        style={{ background: "var(--hero-gradient)" }}
       />
       {/* Grid pattern */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-5"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "linear-gradient(#FFD700 1px, transparent 1px), linear-gradient(90deg, #FFD700 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
+          opacity: "var(--grid-opacity, 0.05)",
         }}
       />
 
       <div className="relative max-w-5xl mx-auto w-full">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full text-sm font-medium border" style={{ borderColor: "#FFD700", color: "#FFD700", backgroundColor: "rgba(255,215,0,0.05)" }}>
+        <div
+          className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full text-sm font-medium border"
+          style={{ borderColor: "#FFD700", color: "#FFD700", backgroundColor: "rgba(255,215,0,0.05)" }}
+        >
           <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "#FFD700" }} />
           AI-powered workforce automation
         </div>
 
         {/* Headline */}
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-6" style={{ letterSpacing: "-0.04em", lineHeight: "1.05" }}>
+        <h1 className="text-5xl md:text-7xl font-extrabold mb-6" style={{ letterSpacing: "-0.04em", lineHeight: "1.05", color: "var(--text)" }}>
           Build Your<br />
           <span style={{ color: "#FFD700" }}>AI Workforce.</span>
         </h1>
 
         {/* Animated rotating subtext */}
-        <div className="text-2xl md:text-3xl font-semibold mb-8" style={{ color: "#cccccc", letterSpacing: "-0.02em", minHeight: "2.5em" }}>
+        <div className="text-2xl md:text-3xl font-semibold mb-8" style={{ color: "var(--text-dim)", letterSpacing: "-0.02em", minHeight: "2.5em" }}>
           Automate your{" "}
           <span
             style={{
@@ -205,7 +276,7 @@ function Hero() {
         </div>
 
         {/* Subheadline */}
-        <p className="text-lg md:text-xl mb-10 max-w-2xl leading-relaxed" style={{ color: "#888888" }}>
+        <p className="text-lg md:text-xl mb-10 max-w-2xl leading-relaxed" style={{ color: "var(--muted)" }}>
           Browse ready-made AI agents, grab step-by-step guides, or let us build
           and run your entire AI workforce for you.
         </p>
@@ -238,7 +309,7 @@ function Hero() {
           ].map((item) => (
             <div key={item} className="flex items-center gap-2">
               <span style={{ color: "#FFD700" }}>✦</span>
-              <span className="text-sm font-medium" style={{ color: "#888888" }}>{item}</span>
+              <span className="text-sm font-medium" style={{ color: "var(--muted)" }}>{item}</span>
             </div>
           ))}
         </div>
@@ -272,13 +343,13 @@ function ThreePillars() {
   ];
 
   return (
-    <section className="py-24 px-6 section-divider" id="marketplace">
+    <section className="py-24 px-6 section-divider" id="marketplace" style={{ backgroundColor: "var(--bg-section)" }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em", color: "var(--text)" }}>
             Three ways to automate
           </h2>
-          <p className="text-lg" style={{ color: "#888888" }}>
+          <p className="text-lg" style={{ color: "var(--muted)" }}>
             Choose the path that fits where you are right now.
           </p>
         </div>
@@ -288,7 +359,7 @@ function ThreePillars() {
             <div
               key={pillar.title}
               className="relative p-8 rounded-2xl border card-hover group"
-              style={{ backgroundColor: "#111111", borderColor: "#1F1F1F" }}
+              style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}
             >
               {/* Icon */}
               <div
@@ -298,8 +369,8 @@ function ThreePillars() {
                 {pillar.icon}
               </div>
 
-              <h3 className="text-xl font-bold mb-3">{pillar.title}</h3>
-              <p className="text-base leading-relaxed mb-6" style={{ color: "#888888" }}>
+              <h3 className="text-xl font-bold mb-3" style={{ color: "var(--text)" }}>{pillar.title}</h3>
+              <p className="text-base leading-relaxed mb-6" style={{ color: "var(--muted)" }}>
                 {pillar.description}
               </p>
               <a
@@ -344,16 +415,16 @@ function WhoItsFor() {
   ];
 
   return (
-    <section className="py-24 px-6 section-divider">
+    <section className="py-24 px-6 section-divider" style={{ backgroundColor: "var(--bg)" }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-semibold uppercase tracking-widest mb-4" style={{ color: "#FFD700" }}>
             Who It&apos;s For
           </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em", color: "var(--text)" }}>
             Built for people who&apos;d<br />rather be building.
           </h2>
-          <p className="text-lg" style={{ color: "#888888" }}>
+          <p className="text-lg" style={{ color: "var(--muted)" }}>
             Whether you&apos;re a solo founder or leading a team of 50 — we&apos;ve got you.
           </p>
         </div>
@@ -363,11 +434,11 @@ function WhoItsFor() {
             <div
               key={p.title}
               className="p-7 rounded-2xl border card-hover"
-              style={{ backgroundColor: "#111111", borderColor: "#1F1F1F" }}
+              style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}
             >
               <div className="text-3xl mb-4">{p.emoji}</div>
-              <h3 className="text-lg font-bold mb-2">{p.title}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: "#888888" }}>
+              <h3 className="text-lg font-bold mb-2" style={{ color: "var(--text)" }}>{p.title}</h3>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
                 {p.desc}
               </p>
             </div>
@@ -397,16 +468,16 @@ function UseCasesGrid() {
   ];
 
   return (
-    <section className="py-24 px-6 section-divider">
+    <section className="py-24 px-6 section-divider" style={{ backgroundColor: "var(--bg-section)" }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-semibold uppercase tracking-widest mb-4" style={{ color: "#FFD700" }}>
             Use Cases
           </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em", color: "var(--text)" }}>
             What can your AI workforce do?
           </h2>
-          <p className="text-lg" style={{ color: "#888888" }}>
+          <p className="text-lg" style={{ color: "var(--muted)" }}>
             Pretty much anything. Here&apos;s where people start.
           </p>
         </div>
@@ -416,12 +487,12 @@ function UseCasesGrid() {
             <div
               key={c.label}
               className="flex flex-col items-center justify-center p-6 rounded-2xl border text-center card-hover cursor-pointer group"
-              style={{ backgroundColor: "#111111", borderColor: "#1F1F1F" }}
+              style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}
             >
               <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-200">
                 {c.emoji}
               </div>
-              <span className="text-sm font-semibold leading-tight">{c.label}</span>
+              <span className="text-sm font-semibold leading-tight" style={{ color: "var(--text)" }}>{c.label}</span>
             </div>
           ))}
         </div>
@@ -434,7 +505,7 @@ function UseCasesGrid() {
 
 function CTABanner() {
   return (
-    <section className="py-24 px-6 section-divider" id="contact">
+    <section className="py-24 px-6 section-divider" id="contact" style={{ backgroundColor: "var(--bg)" }}>
       <div className="max-w-4xl mx-auto text-center">
         {/* Glow */}
         <div
@@ -442,7 +513,7 @@ function CTABanner() {
           style={{
             width: "600px",
             height: "200px",
-            background: "radial-gradient(ellipse, rgba(255,215,0,0.12) 0%, transparent 70%)",
+            background: `radial-gradient(ellipse, var(--cta-glow) 0%, transparent 70%)`,
             filter: "blur(20px)",
           }}
         />
@@ -450,11 +521,11 @@ function CTABanner() {
         <p className="text-sm font-semibold uppercase tracking-widest mb-6" style={{ color: "#FFD700" }}>
           Get Started Today
         </p>
-        <h2 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>
+        <h2 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em", color: "var(--text)" }}>
           Ready to Build Your<br />
           <span style={{ color: "#FFD700" }}>AI Workforce?</span>
         </h2>
-        <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: "#888888" }}>
+        <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: "var(--muted)" }}>
           Join 1,000+ businesses already running on AI. Get started free or book a
           call to see what&apos;s possible.
         </p>
@@ -484,7 +555,7 @@ function CTABanner() {
 
 function Footer() {
   return (
-    <footer className="py-12 px-6 section-divider">
+    <footer className="py-12 px-6 section-divider" style={{ backgroundColor: "var(--bg)" }}>
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           {/* Logo + tagline */}
@@ -492,7 +563,7 @@ function Footer() {
             <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}>
               MyAIWorkforce
             </div>
-            <p className="text-sm" style={{ color: "#888888" }}>
+            <p className="text-sm" style={{ color: "var(--muted)" }}>
               The platform for AI-powered business automation.
             </p>
           </div>
@@ -503,8 +574,10 @@ function Footer() {
               <a
                 key={link}
                 href={`#${link.toLowerCase().replace(/-/g, "").replace(/ /g, "")}`}
-                className="text-sm font-medium transition-colors duration-200 hover:text-white"
-                style={{ color: "#888888" }}
+                className="text-sm font-medium transition-colors duration-200"
+                style={{ color: "var(--muted)" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
               >
                 {link}
               </a>
@@ -512,13 +585,20 @@ function Footer() {
           </div>
         </div>
 
-        <div className="border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: "#1F1F1F" }}>
-          <p className="text-sm" style={{ color: "#444444" }}>
+        <div className="border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: "var(--footer-border)" }}>
+          <p className="text-sm" style={{ color: "var(--text-dimmer)" }}>
             © {new Date().getFullYear()} MyAIWorkforce. All rights reserved.
           </p>
           <div className="flex gap-4">
             {["Privacy Policy", "Terms of Service"].map((link) => (
-              <a key={link} href="#" className="text-sm transition-colors hover:text-white" style={{ color: "#444444" }}>
+              <a
+                key={link}
+                href="#"
+                className="text-sm transition-colors"
+                style={{ color: "var(--text-dimmer)" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-dimmer)")}
+              >
                 {link}
               </a>
             ))}
@@ -533,7 +613,7 @@ function Footer() {
 
 export default function Home() {
   return (
-    <main className="min-h-screen" style={{ backgroundColor: "#0A0A0A", color: "#ffffff" }}>
+    <main className="min-h-screen" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
       <Nav />
       <Hero />
       <ThreePillars />
