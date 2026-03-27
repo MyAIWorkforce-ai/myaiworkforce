@@ -84,9 +84,11 @@ function Nav() {
         <div className="hidden md:flex items-center gap-8">
           {[
             { label: "Marketplace", href: "/marketplace" },
-            { label: "Guides", href: "/#guides" },
-            { label: "Done-For-You", href: "/#doneforyou" },
-            { label: "About", href: "/#about" },
+            { label: "Guides", href: "/guides" },
+            { label: "Done-For-You", href: "/done-for-you" },
+            { label: "Pricing", href: "/pricing" },
+            { label: "About", href: "/about" },
+            { label: "Blog", href: "/blog" },
           ].map((link) => (
             <a
               key={link.label}
@@ -103,7 +105,7 @@ function Nav() {
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <a
-            href="/#contact"
+            href="/contact"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
             style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
           >
@@ -130,9 +132,9 @@ function Nav() {
           <div className="px-6 py-4 flex flex-col gap-4">
             {[
               { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/#guides" },
-              { label: "Done-For-You", href: "/#doneforyou" },
-              { label: "About", href: "/#about" },
+              { label: "Guides", href: "/guides" },
+              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "About", href: "/about" },
             ].map((link) => (
               <a
                 key={link.label}
@@ -145,7 +147,7 @@ function Nav() {
               </a>
             ))}
             <a
-              href="/#contact"
+              href="/contact"
               className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
               style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
               onClick={() => setOpen(false)}
@@ -173,9 +175,9 @@ function Footer() {
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
               { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/#guides" },
-              { label: "Done-For-You", href: "/#doneforyou" },
-              { label: "Contact", href: "/#contact" },
+              { label: "Guides", href: "/guides" },
+              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Contact", href: "/contact" },
             ].map((link) => (
               <a
                 key={link.label}
@@ -766,7 +768,7 @@ export default function MarketplacePage() {
             Tell us what you want to automate and we&apos;ll scope, build, and run a custom AI agent for your exact workflow.
           </p>
           <a
-            href="/#contact"
+            href="/contact"
             className="inline-block px-10 py-4 rounded-xl text-base font-bold transition-all duration-200 glow-yellow"
             style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
           >
