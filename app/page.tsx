@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
@@ -143,6 +143,20 @@ function Hero() {
     "sales outreach",
   ];
 
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % words.length);
+        setVisible(true);
+      }, 400);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative pt-32 pb-24 px-6 overflow-hidden" style={{ minHeight: "100vh", display: "flex", alignItems: "center" }}>
       {/* Background gradient */}
@@ -177,10 +191,16 @@ function Hero() {
         {/* Animated rotating subtext */}
         <div className="text-2xl md:text-3xl font-semibold mb-8" style={{ color: "#cccccc", letterSpacing: "-0.02em", minHeight: "2.5em" }}>
           Automate your{" "}
-          <span className="rotating-word" style={{ height: "1.3em" }}>
-            {words.map((word, i) => (
-              <span key={i}>{word}</span>
-            ))}
+          <span
+            style={{
+              color: "#FFD700",
+              display: "inline-block",
+              transition: "opacity 0.4s ease, transform 0.4s ease",
+              opacity: visible ? 1 : 0,
+              transform: visible ? "translateY(0)" : "translateY(-8px)",
+            }}
+          >
+            {words[index]}
           </span>
         </div>
 
