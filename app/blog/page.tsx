@@ -78,7 +78,7 @@ export default function BlogPage() {
               </div>
               <h2 className="text-3xl font-extrabold mb-4" style={{ letterSpacing: "-0.02em" }}>{featured.title}</h2>
               <p className="text-lg mb-6" style={{ color: "var(--text-dim)" }}>{featured.excerpt}</p>
-              <a href="#" className="font-semibold" style={{ color: "var(--yellow)" }}>Read Article →</a>
+              <a href="/blog" className="font-semibold" style={{ color: "var(--yellow)" }}>Read Article →</a>
             </div>
 
             {/* Posts Grid */}
@@ -91,7 +91,7 @@ export default function BlogPage() {
                   </div>
                   <h3 className="font-bold text-lg leading-snug flex-1">{post.title}</h3>
                   <p className="text-sm" style={{ color: "var(--text-dim)" }}>{post.excerpt}</p>
-                  <a href="#" className="text-sm font-semibold" style={{ color: "var(--yellow)" }}>Read More →</a>
+                  <a href="/blog" className="text-sm font-semibold" style={{ color: "var(--yellow)" }}>Read More →</a>
                 </div>
               ))}
             </div>

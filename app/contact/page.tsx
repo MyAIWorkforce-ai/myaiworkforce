@@ -71,7 +71,7 @@ export default function ContactPage() {
                 <div className="flex items-center gap-3 text-sm"><span style={{ color: "var(--yellow)" }}>✓</span> Get a free automation audit</div>
                 <div className="flex items-center gap-3 text-sm"><span style={{ color: "var(--yellow)" }}>✓</span> No technical knowledge required</div>
               </div>
-              <a href="#" className="py-4 rounded-xl font-bold text-center text-black block w-full" style={{ backgroundColor: "var(--yellow)" }}>Book My Free Call →</a>
+              <a href="/contact" className="py-4 rounded-xl font-bold text-center text-black block w-full" style={{ backgroundColor: "var(--yellow)" }}>Book My Free Call →</a>
               <p className="text-xs text-center mt-3" style={{ color: "var(--text-dim)" }}>Usually responds within a few hours</p>
             </div>
 

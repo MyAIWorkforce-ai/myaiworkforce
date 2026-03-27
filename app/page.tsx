@@ -116,7 +116,7 @@ function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
-        <a href="#" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}>
+        <a href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}>
           MyAIWorkforce
         </a>
 
@@ -340,19 +340,19 @@ function ThreePillars() {
       icon: <IconStore />,
       title: "Browse",
       description: "Ready-made AI agents built for real business tasks. Deploy in minutes, no code required.",
-      href: "#marketplace",
+      href: "/marketplace",
     },
     {
       icon: <IconBook />,
       title: "DIY Guides",
       description: "Step-by-step guides to build your own AI agents. Learn, customise, and own your automation.",
-      href: "#guides",
+      href: "/guides",
     },
     {
       icon: <IconRocket />,
       title: "Done-For-You",
       description: "We build and run your entire AI workforce. From strategy to deployment, fully managed.",
-      href: "#doneforyou",
+      href: "/done-for-you",
     },
   ];
 
