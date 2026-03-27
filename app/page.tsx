@@ -604,16 +604,19 @@ function Footer() {
             © {new Date().getFullYear()} MyAIWorkforce. All rights reserved.
           </p>
           <div className="flex gap-4">
-            {["Privacy Policy", "Terms of Service"].map((link) => (
+            {[
+              { label: "Privacy Policy", href: "/privacy" },
+              { label: "Terms of Service", href: "/terms" },
+            ].map((link) => (
               <a
-                key={link}
-                href="#"
+                key={link.label}
+                href={link.href}
                 className="text-sm transition-colors"
                 style={{ color: "var(--text-dimmer)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-dimmer)")}
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </div>

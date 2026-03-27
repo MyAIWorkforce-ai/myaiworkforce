@@ -197,16 +197,19 @@ function Footer() {
             © {new Date().getFullYear()} MyAIWorkforce. All rights reserved.
           </p>
           <div className="flex gap-4">
-            {["Privacy Policy", "Terms of Service"].map((link) => (
+            {[
+              { label: "Privacy Policy", href: "/privacy" },
+              { label: "Terms of Service", href: "/terms" },
+            ].map((link) => (
               <a
-                key={link}
-                href="#"
+                key={link.label}
+                href={link.href}
                 className="text-sm transition-colors"
                 style={{ color: "var(--text-dimmer)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-dimmer)")}
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </div>
@@ -574,12 +577,13 @@ function AgentCard({ agent }: { agent: Agent }) {
       {/* Price + CTA */}
       <div className="flex items-center justify-between gap-3 mt-auto">
         <span className="text-base font-bold" style={{ color: "var(--text)" }}>{agent.price}</span>
-        <button
+        <a
+          href="/contact"
           className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow whitespace-nowrap"
           style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
         >
           Get Agent →
-        </button>
+        </a>
       </div>
     </div>
   );
