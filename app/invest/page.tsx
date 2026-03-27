@@ -1,5 +1,53 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
+
+function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
+  const [input, setInput] = useState("");
+  const [error, setError] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (input === "Invest") {
+      onUnlock();
+    } else {
+      setError(true);
+      setInput("");
+      setTimeout(() => setError(false), 2000);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center px-6" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
+      <div className="max-w-sm w-full text-center">
+        <Link href="/" className="text-2xl font-extrabold mb-8 block" style={{ color: "var(--yellow)" }}>My AI Workforce</Link>
+        <div className="p-8 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+          <div className="text-4xl mb-4">🔒</div>
+          <h1 className="text-xl font-bold mb-2">Investor Access</h1>
+          <p className="text-sm mb-6" style={{ color: "var(--text-dim)" }}>This page is password protected.</p>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+            <input
+              type="password"
+              placeholder="Enter password"
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              autoFocus
+              className="w-full px-4 py-3 rounded-lg text-center text-sm outline-none"
+              style={{ backgroundColor: "var(--bg)", border: `1px solid ${error ? "#E63946" : "var(--border)"}`, color: "var(--text)" }}
+            />
+            {error && <p className="text-sm" style={{ color: "#E63946" }}>Incorrect password. Please try again.</p>}
+            <button type="submit" className="py-3 rounded-lg font-bold text-sm" style={{ backgroundColor: "var(--yellow)", color: "#0A0A0A" }}>
+              Access Investor Brief →
+            </button>
+          </form>
+        </div>
+        <p className="text-xs mt-6" style={{ color: "var(--text-dim)" }}>
+          Need access? Email <a href="mailto:toby@myaiworkforce.ai" style={{ color: "var(--yellow)" }}>toby@myaiworkforce.ai</a>
+        </p>
+      </div>
+    </div>
+  );
+}
 
 function Nav() {
   return (
@@ -44,6 +92,12 @@ const competitors = [
 ];
 
 export default function InvestPage() {
+  const [unlocked, setUnlocked] = useState(false);
+
+  if (!unlocked) {
+    return <PasswordGate onUnlock={() => setUnlocked(true)} />;
+  }
+
   return (
     <div style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
       <Nav />
