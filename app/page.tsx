@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Sun, Moon, Briefcase, Target, Zap, Bot, Mail, Twitter, Linkedin } from 'lucide-react';
+import { Sun, Moon, Briefcase, Target, Zap, Bot, Mail, X as TwitterIcon, Linkedin as LinkedinIcon } from 'lucide-react';
 
 // --- MAIN PAGE COMPONENT ---
 export default function HomePage() {
@@ -280,10 +280,10 @@ function Footer() {
                     <Mail size={20} />
                  </a>
                  <a href="#" className="text-[var(--text-dim)] hover:text-[var(--yellow)]">
-                    <Twitter size={20} />
+                    <TwitterIcon size={20} />
                  </a>
                  <a href="#" className="text-[var(--text-dim)] hover:text-[var(--yellow)]">
-                    <Linkedin size={20} />
+                    <LinkedinIcon size={20} />
                  </a>
             </div>
         </div>
