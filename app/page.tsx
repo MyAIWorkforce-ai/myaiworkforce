@@ -584,16 +584,20 @@ function Footer() {
 
           {/* Links */}
           <div className="flex flex-wrap gap-x-8 gap-y-2">
-            {["Marketplace", "Guides", "Done-For-You", "Contact"].map((link) => (
+            {[
+              { label: "Marketplace", href: "/marketplace" },
+              { label: "Guides", href: "/guides" },
+              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Contact", href: "/contact" },
+              { label: "Invest with Us", href: "/invest" },
+            ].map((link) => (
               <a
-                key={link}
-                href={`#${link.toLowerCase().replace(/-/g, "").replace(/ /g, "")}`}
+                key={link.label}
+                href={link.href}
                 className="text-sm font-medium transition-colors duration-200"
-                style={{ color: "var(--muted)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+                style={{ color: link.label === "Invest with Us" ? "var(--yellow)" : "var(--muted)", fontWeight: link.label === "Invest with Us" ? "600" : "normal" }}
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </div>

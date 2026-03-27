@@ -50,6 +50,7 @@ function Footer() {
           <Link href="/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
           <Link href="/pricing" style={{ color: "var(--text-dim)" }}>Pricing</Link>
           <Link href="/contact" style={{ color: "var(--text-dim)" }}>Contact</Link>
+          <Link href="/invest" style={{ color: "var(--yellow)", fontWeight: "600" }}>Invest with Us</Link>
         </div>
       </div>
     </footer>

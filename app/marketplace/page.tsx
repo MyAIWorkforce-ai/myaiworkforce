@@ -178,14 +178,13 @@ function Footer() {
               { label: "Guides", href: "/guides" },
               { label: "Done-For-You", href: "/done-for-you" },
               { label: "Contact", href: "/contact" },
+              { label: "Invest with Us", href: "/invest" },
             ].map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 className="text-sm font-medium transition-colors duration-200"
-                style={{ color: "var(--muted)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+                style={{ color: link.label === "Invest with Us" ? "var(--yellow)" : "var(--muted)", fontWeight: link.label === "Invest with Us" ? "600" : "normal" }}
               >
                 {link.label}
               </a>
