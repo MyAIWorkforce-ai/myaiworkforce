@@ -122,16 +122,23 @@ function Nav() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
-          {["Marketplace", "Guides", "Done-For-You", "About"].map((link) => (
+          {[
+            { label: "Marketplace", href: "/marketplace" },
+            { label: "Guides", href: "/guides" },
+            { label: "Done-For-You", href: "/done-for-you" },
+            { label: "Pricing", href: "/pricing" },
+            { label: "About", href: "/about" },
+            { label: "Blog", href: "/blog" },
+          ].map((link) => (
             <a
-              key={link}
-              href={`#${link.toLowerCase().replace(/-/g, "").replace(/ /g, "")}`}
+              key={link.label}
+              href={link.href}
               className="text-sm font-medium transition-colors duration-200"
               style={{ color: "var(--text-dim)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-dim)")}
             >
-              {link}
+              {link.label}
             </a>
           ))}
         </div>
@@ -169,15 +176,22 @@ function Nav() {
           style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--mobile-menu-bg)" }}
         >
           <div className="px-6 py-4 flex flex-col gap-4">
-            {["Marketplace", "Guides", "Done-For-You", "About"].map((link) => (
+            {[
+              { label: "Marketplace", href: "/marketplace" },
+              { label: "Guides", href: "/guides" },
+              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Pricing", href: "/pricing" },
+              { label: "About", href: "/about" },
+              { label: "Blog", href: "/blog" },
+            ].map((link) => (
               <a
-                key={link}
-                href={`#${link.toLowerCase().replace(/-/g, "").replace(/ /g, "")}`}
+                key={link.label}
+                href={link.href}
                 className="text-sm font-medium transition-colors"
                 style={{ color: "var(--text-dim)" }}
                 onClick={() => setOpen(false)}
               >
-                {link}
+                {link.label}
               </a>
             ))}
             <a
