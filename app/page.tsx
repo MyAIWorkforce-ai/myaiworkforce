@@ -243,19 +243,12 @@ function Hero() {
       style={{ minHeight: "100vh", display: "flex", alignItems: "center", backgroundColor: "var(--bg)" }}
     >
       {/* Background gradient */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "var(--hero-gradient)" }}
-      />
+      <div className="hero-glow" />
       {/* Grid pattern */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: "linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-          opacity: "var(--grid-opacity, 0.05)",
-        }}
-      />
+      <div className="hero-grid" />
+      {/* Floating orbs */}
+      <div className="hero-orb-1" />
+      <div className="hero-orb-2" />
 
       <div className="relative max-w-5xl mx-auto w-full">
         {/* Badge */}
@@ -376,10 +369,7 @@ function ThreePillars() {
               style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}
             >
               {/* Icon */}
-              <div
-                className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
-                style={{ backgroundColor: "rgba(255,215,0,0.08)", color: "#FFD700" }}
-              >
+              <div className="icon-container mb-6">
                 {pillar.icon}
               </div>
 
@@ -432,7 +422,7 @@ function WhoItsFor() {
     <section className="py-24 px-6 section-divider" style={{ backgroundColor: "var(--bg)" }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold uppercase tracking-widest mb-4" style={{ color: "#FFD700" }}>
+          <p className="section-label justify-center">
             Who It&apos;s For
           </p>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em", color: "var(--text)" }}>
@@ -485,7 +475,7 @@ function UseCasesGrid() {
     <section className="py-24 px-6 section-divider" style={{ backgroundColor: "var(--bg-section)" }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold uppercase tracking-widest mb-4" style={{ color: "#FFD700" }}>
+          <p className="section-label justify-center">
             Use Cases
           </p>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em", color: "var(--text)" }}>
@@ -500,13 +490,73 @@ function UseCasesGrid() {
           {cases.map((c) => (
             <div
               key={c.label}
-              className="flex flex-col items-center justify-center p-6 rounded-2xl border text-center card-hover cursor-pointer group"
+              className="use-case-item flex flex-col items-center justify-center p-6 rounded-2xl border text-center card-hover cursor-pointer group"
               style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}
             >
-              <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-200">
-                {c.emoji}
-              </div>
+              <span className="use-case-emoji text-3xl mb-3">{c.emoji}</span>
               <span className="text-sm font-semibold leading-tight" style={{ color: "var(--text)" }}>{c.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Testimonials ─────────────────────────────────────────────────────────────
+
+function Testimonials() {
+  const testimonials = [
+    {
+      quote: "Set up my AI email agent in 20 minutes. It now handles 80% of my inbox automatically. I get back 2 hours every day.",
+      name: "Sarah K.",
+      role: "Founder, E-commerce Brand",
+      avatar: "SK",
+    },
+    {
+      quote: "The Lead Gen agent found us 40 qualified prospects in the first week. Our sales pipeline went from empty to overflowing.",
+      name: "Marcus T.",
+      role: "Head of Sales, SaaS Startup",
+      avatar: "MT",
+    },
+    {
+      quote: "I was sceptical about AI for my small business. But the Done-For-You service was worth every dollar. ROI in the first month.",
+      name: "Priya R.",
+      role: "Owner, Consulting Firm",
+      avatar: "PR",
+    },
+  ];
+
+  return (
+    <section className="py-24 px-6 section-divider" style={{ backgroundColor: "var(--bg-section)" }}>
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <p className="section-label justify-center">Testimonials</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em", color: "var(--text)" }}>
+            Real results from real businesses
+          </h2>
+          <p className="text-lg" style={{ color: "var(--muted)" }}>
+            Thousands of businesses are already running on AI Workforce agents.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {testimonials.map((t, i) => (
+            <div key={i} className="testimonial-card p-8 rounded-2xl border card-hover" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>
+              <div className="flex gap-0.5 mb-4">
+                {[...Array(5)].map((_, j) => (
+                  <span key={j} style={{ color: "#FFD700", fontSize: "16px" }}>★</span>
+                ))}
+              </div>
+              <p className="text-base leading-relaxed mb-6" style={{ color: "var(--text-dim)" }}>&ldquo;{t.quote}&rdquo;</p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style={{ backgroundColor: "rgba(255,215,0,0.15)", color: "#FFD700" }}>
+                  {t.avatar}
+                </div>
+                <div>
+                  <div className="font-semibold text-sm">{t.name}</div>
+                  <div className="text-xs" style={{ color: "var(--text-dim)" }}>{t.role}</div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -640,6 +690,7 @@ export default function Home() {
       <ThreePillars />
       <WhoItsFor />
       <UseCasesGrid />
+      <Testimonials />
       <CTABanner />
       <Footer />
     </main>
