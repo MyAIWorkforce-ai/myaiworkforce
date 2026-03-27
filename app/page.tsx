@@ -578,7 +578,7 @@ function Footer() {
               MyAIWorkforce
             </div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>
-              The platform for AI-powered business automation.
+              The #1 platform for AI workforce automation.
             </p>
           </div>
 
@@ -601,7 +601,7 @@ function Footer() {
 
         <div className="border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: "var(--footer-border)" }}>
           <p className="text-sm" style={{ color: "var(--text-dimmer)" }}>
-            © {new Date().getFullYear()} MyAIWorkforce. All rights reserved.
+            © {new Date().getFullYear()} My AI Workforce. All rights reserved.
           </p>
           <div className="flex gap-4">
             {[

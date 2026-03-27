@@ -169,8 +169,8 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}>MyAIWorkforce</div>
-            <p className="text-sm" style={{ color: "var(--muted)" }}>The platform for AI-powered business automation.</p>
+            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}>My AI Workforce</div>
+            <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
@@ -194,7 +194,7 @@ function Footer() {
         </div>
         <div className="border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: "var(--footer-border)" }}>
           <p className="text-sm" style={{ color: "var(--text-dimmer)" }}>
-            © {new Date().getFullYear()} MyAIWorkforce. All rights reserved.
+            © {new Date().getFullYear()} My AI Workforce. All rights reserved.
           </p>
           <div className="flex gap-4">
             {[

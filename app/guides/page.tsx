@@ -25,7 +25,7 @@ function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b" style={{ backgroundColor: "var(--nav-bg)", borderColor: "var(--nav-border)" }}>
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="font-bold text-xl" style={{ color: "var(--yellow)" }}>MyAIWorkforce</Link>
+        <Link href="/" className="font-bold text-xl" style={{ color: "var(--yellow)" }}>My AI Workforce</Link>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
           <Link href="/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
           <Link href="/guides" style={{ color: "var(--yellow)" }}>Guides</Link>
@@ -44,7 +44,7 @@ function Footer() {
   return (
     <footer className="border-t py-10 mt-20" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--bg)" }}>
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <span className="font-bold" style={{ color: "var(--yellow)" }}>MyAIWorkforce</span>
+        <span className="font-bold" style={{ color: "var(--yellow)" }}>My AI Workforce</span>
         <p className="text-sm" style={{ color: "var(--text-dim)" }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
         <div className="flex gap-6 text-sm">
           <Link href="/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
