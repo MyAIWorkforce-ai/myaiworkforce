@@ -1,7 +1,8 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
+import { useState } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useEffect } from "react";
 
 function IconMenu() {
   return (
@@ -10,7 +11,6 @@ function IconMenu() {
     </svg>
   );
 }
-
 function IconX() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -18,7 +18,6 @@ function IconX() {
     </svg>
   );
 }
-
 function IconSun() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -30,7 +29,6 @@ function IconSun() {
     </svg>
   );
 }
-
 function IconMoon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -46,100 +44,52 @@ function ThemeToggle() {
   if (!mounted) return <div style={{ width: 36, height: 36 }} />;
   const isDark = theme === "dark";
   return (
-    <button
-      className="theme-toggle"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-    >
+    <button className="theme-toggle" onClick={() => setTheme(isDark ? "light" : "dark")} aria-label="Toggle theme">
       {isDark ? <IconSun /> : <IconMoon />}
     </button>
   );
 }
 
-function Nav() {
+const NAV_LINKS = [
+  { label: "Marketplace", href: "/marketplace" },
+  { label: "Guides", href: "/guides" },
+  { label: "Done-For-You", href: "/done-for-you" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+];
+
+function Nav({ active }: { active?: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <nav
-      className="sticky top-0 left-0 right-0 z-50 backdrop-blur-md"
-      style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <a href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}>
-          MyAIWorkforce
-        </a>
+        <Link href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}>My AI Workforce</Link>
         <div className="hidden md:flex items-center gap-8">
-          {[
-            { label: "Marketplace", href: "/marketplace" },
-            { label: "Guides", href: "/guides" },
-            { label: "Done-For-You", href: "/done-for-you" },
-            { label: "Pricing", href: "/pricing" },
-            { label: "About", href: "/about" },
-            { label: "Blog", href: "/blog" },
-          ].map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium transition-colors duration-200"
-              style={{ color: link.href === "/about" ? "#FFD700" : "var(--text-dim)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = link.href === "/about" ? "#FFD700" : "var(--text-dim)")}
-            >
-              {link.label}
-            </a>
+          {NAV_LINKS.map((link) => (
+            <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
+              style={{ color: link.label === active ? "#FFD700" : "var(--text-dim)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = link.label === active ? "#FFD700" : "var(--text)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = link.label === active ? "#FFD700" : "var(--text-dim)")}
+            >{link.label}</Link>
           ))}
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <a
-            href="/contact"
-            className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
-            style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
-          >
-            Book a Free Call
-          </a>
+          <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
-          <button
-            className="transition-colors"
-            style={{ color: "var(--text-dim)" }}
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-          >
-            {open ? <IconX /> : <IconMenu />}
-          </button>
+          <button style={{ color: "var(--text-dim)" }} onClick={() => setOpen(!open)} aria-label="Toggle menu">{open ? <IconX /> : <IconMenu />}</button>
         </div>
       </div>
       {open && (
-        <div
-          className="md:hidden border-t mobile-menu"
-          style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--mobile-menu-bg)" }}
-        >
+        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
           <div className="px-6 py-4 flex flex-col gap-4">
-            {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
-              { label: "About", href: "/about" },
-            ].map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium transition-colors"
-                style={{ color: "var(--text-dim)" }}
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </a>
+            {NAV_LINKS.map((link) => (
+              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: link.label === active ? "#FFD700" : "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
-            <a
-              href="/contact"
-              className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
-              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
-              onClick={() => setOpen(false)}
-            >
-              Book a Free Call
-            </a>
+            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
           </div>
         </div>
       )}
@@ -149,15 +99,33 @@ function Nav() {
 
 function Footer() {
   return (
-    <footer className="border-t py-10 mt-20" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--bg)" }}>
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <span className="font-bold" style={{ color: "var(--yellow)" }}>My AI Workforce</span>
-        <p className="text-sm" style={{ color: "var(--text-dim)" }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
-        <div className="flex gap-6 text-sm">
-          <Link href="/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
-          <Link href="/pricing" style={{ color: "var(--text-dim)" }}>Pricing</Link>
-          <Link href="/contact" style={{ color: "var(--text-dim)" }}>Contact</Link>
-          <Link href="/invest" style={{ color: "var(--yellow)", fontWeight: "600" }}>Invest with Us</Link>
+    <footer className="py-12 px-6" style={{ borderTop: "1px solid var(--border)", backgroundColor: "var(--bg)" }}>
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
+          <div>
+            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}>My AI Workforce</div>
+            <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
+          </div>
+          <div className="flex flex-wrap gap-x-8 gap-y-2">
+            {[
+              { label: "Marketplace", href: "/marketplace" },
+              { label: "Guides", href: "/guides" },
+              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Contact", href: "/contact" },
+              { label: "Invest with Us", href: "/invest" },
+            ].map((link) => (
+              <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
+                style={{ color: link.label === "Invest with Us" ? "var(--yellow)" : "var(--muted)", fontWeight: link.label === "Invest with Us" ? "600" : "normal" }}
+              >{link.label}</Link>
+            ))}
+          </div>
+        </div>
+        <div className="border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: "var(--border)" }}>
+          <p className="text-sm" style={{ color: "var(--muted)" }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="text-sm" style={{ color: "var(--muted)" }}>Privacy Policy</Link>
+            <Link href="/terms" className="text-sm" style={{ color: "var(--muted)" }}>Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>
@@ -165,38 +133,62 @@ function Footer() {
 }
 
 const stats = [
-  { value: "500+", label: "Agents Available" },
-  { value: "1,000+", label: "Businesses Served" },
-  { value: "50+", label: "Countries" },
-  { value: "$10M+", label: "Saved for Clients" },
+  { value: "500+", label: "AI Agents Available" },
+  { value: "25+", label: "Countries Served" },
+  { value: "95%+", label: "Gross Margin" },
+  { value: "30 Min", label: "Average Setup Time" },
 ];
 
 const values = [
-  { title: "Accessibility", desc: "AI automation should be available to every business — not just those with technical teams and unlimited budgets. We make it possible for anyone to deploy an AI workforce." },
-  { title: "Transparency", desc: "No black boxes. We explain what your agents are doing, why, and how they can be improved. You own your data, your agents, and your outcomes." },
-  { title: "Results", desc: "We measure success in hours saved, revenue generated, and problems solved — not demos delivered or features shipped. If it doesn't work in the real world, it doesn't count." },
+  {
+    icon: "⚡",
+    title: "Speed",
+    desc: "We move fast. From discovery call to live deployment in two weeks. When you're losing hours to manual work every day, slow matters.",
+  },
+  {
+    icon: "🔒",
+    title: "Security",
+    desc: "Every client gets a dedicated private VPS. Your data never touches shared infrastructure. Security isn't an afterthought — it's how we build.",
+  },
+  {
+    icon: "✨",
+    title: "Simplicity",
+    desc: "AI automation shouldn't require a technical degree. We handle the complexity so you can focus on running your business.",
+  },
+  {
+    icon: "📈",
+    title: "Results",
+    desc: "We measure success in hours saved, revenue generated, and problems solved. Not features shipped. Not demos delivered. Real outcomes.",
+  },
 ];
 
 export default function AboutPage() {
   return (
     <div style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
-      <Nav />
-      <main>
+      <Nav active="About" />
+      <main className="pt-16">
         {/* Hero */}
-        <section className="py-24 px-6 text-center" style={{ backgroundColor: "var(--bg-section)" }}>
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>We&apos;re Building the<br /><span style={{ color: "var(--yellow)" }}>Future of Work</span></h1>
-            <p className="text-lg max-w-2xl mx-auto" style={{ color: "var(--text-dim)" }}>Our mission is to make AI automation accessible to every business — not just the ones with technical teams and unlimited budgets.</p>
+        <section className="py-24 px-6 text-center relative overflow-hidden" style={{ backgroundColor: "var(--bg-section)" }}>
+          <div className="max-w-4xl mx-auto relative">
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
+              About Us
+            </div>
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>
+              We Build AI Workforces<br /><span style={{ color: "#FFD700" }}>That Actually Work</span>
+            </h1>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
+              Our mission is simple: make AI automation accessible to every business — not just the ones with technical teams and unlimited budgets. We're the bridge between AI&apos;s capabilities and real business outcomes.
+            </p>
           </div>
         </section>
 
         {/* Stats */}
         <section className="py-16 px-6">
-          <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s, i) => (
               <div key={i} className="text-center p-6 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                <div className="text-3xl font-extrabold mb-1" style={{ color: "var(--yellow)" }}>{s.value}</div>
-                <div className="text-sm" style={{ color: "var(--text-dim)" }}>{s.label}</div>
+                <div className="text-3xl font-extrabold mb-1" style={{ color: "#FFD700" }}>{s.value}</div>
+                <div className="text-sm" style={{ color: "var(--muted)" }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -204,12 +196,38 @@ export default function AboutPage() {
 
         {/* Story */}
         <section className="py-20 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-            <div className="flex flex-col gap-4 text-base" style={{ color: "var(--text-dim)", lineHeight: "1.8" }}>
-              <p>We started myaiworkforce.ai because we saw a gap that frustrated us every day. AI was advancing at an extraordinary pace — but most businesses had no idea how to actually use it. The tools existed. The potential was obvious. But the bridge between AI&apos;s capabilities and real business outcomes simply wasn&apos;t there.</p>
-              <p>We built that bridge. A marketplace where you can find and deploy battle-tested AI agents in minutes. A library of guides so you can build your own. And a done-for-you service for businesses that just want results without the learning curve.</p>
-              <p>Our goal is simple: make every business 10x more productive with AI. We&apos;re not interested in demos, hype, or theoretical use cases. We build things that work in the real world — and we hold ourselves accountable to the results.</p>
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="section-label mb-4">Our Story</p>
+              <h2 className="text-3xl font-extrabold mb-6" style={{ letterSpacing: "-0.02em" }}>
+                Built by a Business Owner, <span style={{ color: "#FFD700" }}>for Business Owners</span>
+              </h2>
+              <div className="flex flex-col gap-4 text-base" style={{ color: "var(--muted)", lineHeight: "1.8" }}>
+                <p>
+                  My AI Workforce was founded by <strong style={{ color: "var(--text)" }}>Toby Banks</strong>, an Australian entrepreneur who got frustrated watching incredible AI technology sit out of reach for most businesses.
+                </p>
+                <p>
+                  The tools existed. The models were extraordinary. But the gap between &ldquo;AI is amazing&rdquo; and &ldquo;AI is working in my business&rdquo; was enormous. Most businesses didn&apos;t have the technical team to bridge it — and consultants were charging enterprise prices for mediocre results.
+                </p>
+                <p>
+                  So Toby built the platform he wished existed: a marketplace of battle-tested agents, practical DIY guides, and a done-for-you service that takes businesses from zero to fully automated in weeks — not months.
+                </p>
+                <p>
+                  Today, My AI Workforce serves businesses across 25+ countries, with 500+ agents in the marketplace and a growing roster of Done-For-You clients who&apos;ve reclaimed thousands of hours from manual work.
+                </p>
+              </div>
+            </div>
+            <div className="p-8 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-extrabold mb-4" style={{ backgroundColor: "rgba(255,215,0,0.15)", color: "#FFD700" }}>TB</div>
+              <h3 className="text-xl font-bold mb-1">Toby Banks</h3>
+              <p className="text-sm font-medium mb-4" style={{ color: "#FFD700" }}>Founder & CEO</p>
+              <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
+                Australian entrepreneur with a background in business operations and automation. Built My AI Workforce to make enterprise-grade AI accessible to every business owner, regardless of technical background.
+              </p>
+              <div className="mt-4 pt-4 border-t flex flex-col gap-2" style={{ borderColor: "var(--border)" }}>
+                <p className="text-xs" style={{ color: "var(--muted)" }}>📍 Melbourne, Australia</p>
+                <p className="text-xs" style={{ color: "var(--muted)" }}>🌏 Serving clients in 25+ countries</p>
+              </div>
             </div>
           </div>
         </section>
@@ -217,12 +235,14 @@ export default function AboutPage() {
         {/* Values */}
         <section className="py-20 px-6">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">What We Believe</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <p className="section-label justify-center mb-4">Our Values</p>
+            <h2 className="text-3xl font-extrabold text-center mb-12" style={{ letterSpacing: "-0.02em" }}>What We Stand For</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((v, i) => (
-                <div key={i} className="p-8 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                  <h3 className="text-xl font-bold mb-3" style={{ color: "var(--yellow)" }}>{v.title}</h3>
-                  <p className="text-sm" style={{ color: "var(--text-dim)", lineHeight: "1.7" }}>{v.desc}</p>
+                <div key={i} className="p-8 rounded-xl card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                  <div className="text-3xl mb-3">{v.icon}</div>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: "#FFD700" }}>{v.title}</h3>
+                  <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>{v.desc}</p>
                 </div>
               ))}
             </div>
@@ -231,13 +251,37 @@ export default function AboutPage() {
 
         {/* Team */}
         <section className="py-20 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">The Team</h2>
-            <p className="text-lg mb-12" style={{ color: "var(--text-dim)" }}>A small, focused team of AI engineers, business operators, and product thinkers building the infrastructure for the AI economy.</p>
-            <div className="inline-block px-8 py-4 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-              <p className="font-semibold mb-1">We&apos;re Hiring</p>
-              <p className="text-sm mb-4" style={{ color: "var(--text-dim)" }}>Join us and help build the future of AI automation.</p>
-              <Link href="/contact" className="px-6 py-2 rounded-lg text-sm font-semibold inline-block" style={{ backgroundColor: "var(--yellow)", color: "#0A0A0A" }}>Get in Touch →</Link>
+          <div className="max-w-5xl mx-auto">
+            <p className="section-label justify-center mb-4">The Team</p>
+            <h2 className="text-3xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Small Team. Big Results.</h2>
+            <p className="text-center max-w-xl mx-auto mb-12" style={{ color: "var(--muted)" }}>
+              We&apos;re a lean, focused team of AI engineers, business operators, and automation specialists. We keep the team small on purpose — it keeps us fast.
+            </p>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="p-8 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center text-xl font-extrabold" style={{ backgroundColor: "rgba(255,215,0,0.15)", color: "#FFD700" }}>TB</div>
+                  <div>
+                    <h3 className="font-bold">Toby Banks</h3>
+                    <p className="text-sm" style={{ color: "#FFD700" }}>Founder & CEO</p>
+                  </div>
+                </div>
+                <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
+                  Leads product strategy, client relationships, and the Done-For-You delivery team. Based in Melbourne, Australia.
+                </p>
+              </div>
+              <div className="p-8 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl" style={{ backgroundColor: "rgba(255,215,0,0.15)" }}>🤖</div>
+                  <div>
+                    <h3 className="font-bold">Our AI Team</h3>
+                    <p className="text-sm" style={{ color: "#FFD700" }}>AI Engineers & Automation Specialists</p>
+                  </div>
+                </div>
+                <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
+                  A distributed team of AI engineers and automation specialists who build and maintain the agents that power our clients&apos; businesses. Remote-first, results-focused.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -245,11 +289,15 @@ export default function AboutPage() {
         {/* CTA */}
         <section className="py-20 px-6 text-center">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Ready to Build Your AI Workforce?</h2>
-            <p className="mb-8" style={{ color: "var(--text-dim)" }}>Browse the marketplace, read the guides, or book a free discovery call.</p>
+            <h2 className="text-3xl font-extrabold mb-4" style={{ letterSpacing: "-0.02em" }}>Ready to Build Your AI Workforce?</h2>
+            <p className="mb-8" style={{ color: "var(--muted)" }}>Book a free discovery call and let&apos;s talk about what&apos;s possible for your business.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/marketplace" className="px-8 py-4 rounded-xl font-bold text-black inline-block" style={{ backgroundColor: "var(--yellow)" }}>Browse Marketplace</Link>
-              <Link href="/contact" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ border: "2px solid var(--yellow)", color: "var(--yellow)" }}>Book a Free Call</Link>
+              <Link href="/contact" className="px-8 py-4 rounded-xl font-bold text-black inline-block glow-yellow" style={{ backgroundColor: "#FFD700" }}>
+                Book a Free Call →
+              </Link>
+              <Link href="/marketplace" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ border: "2px solid var(--border)", color: "var(--text-dim)" }}>
+                Browse Marketplace
+              </Link>
             </div>
           </div>
         </section>

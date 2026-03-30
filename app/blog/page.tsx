@@ -1,8 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
 import Link from "next/link";
-
+import { useTheme } from "next-themes";
 
 function IconMenu() {
   return (
@@ -11,7 +10,6 @@ function IconMenu() {
     </svg>
   );
 }
-
 function IconX() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -19,7 +17,6 @@ function IconX() {
     </svg>
   );
 }
-
 function IconSun() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -31,7 +28,6 @@ function IconSun() {
     </svg>
   );
 }
-
 function IconMoon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -47,100 +43,52 @@ function ThemeToggle() {
   if (!mounted) return <div style={{ width: 36, height: 36 }} />;
   const isDark = theme === "dark";
   return (
-    <button
-      className="theme-toggle"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-    >
+    <button className="theme-toggle" onClick={() => setTheme(isDark ? "light" : "dark")} aria-label="Toggle theme">
       {isDark ? <IconSun /> : <IconMoon />}
     </button>
   );
 }
 
-function Nav() {
+const NAV_LINKS = [
+  { label: "Marketplace", href: "/marketplace" },
+  { label: "Guides", href: "/guides" },
+  { label: "Done-For-You", href: "/done-for-you" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+];
+
+function Nav({ active }: { active?: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <nav
-      className="sticky top-0 left-0 right-0 z-50 backdrop-blur-md"
-      style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <a href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}>
-          MyAIWorkforce
-        </a>
+        <Link href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}>My AI Workforce</Link>
         <div className="hidden md:flex items-center gap-8">
-          {[
-            { label: "Marketplace", href: "/marketplace" },
-            { label: "Guides", href: "/guides" },
-            { label: "Done-For-You", href: "/done-for-you" },
-            { label: "Pricing", href: "/pricing" },
-            { label: "About", href: "/about" },
-            { label: "Blog", href: "/blog" },
-          ].map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium transition-colors duration-200"
-              style={{ color: link.href === "/blog" ? "#FFD700" : "var(--text-dim)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = link.href === "/blog" ? "#FFD700" : "var(--text-dim)")}
-            >
-              {link.label}
-            </a>
+          {NAV_LINKS.map((link) => (
+            <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
+              style={{ color: link.label === active ? "#FFD700" : "var(--text-dim)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = link.label === active ? "#FFD700" : "var(--text)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = link.label === active ? "#FFD700" : "var(--text-dim)")}
+            >{link.label}</Link>
           ))}
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <a
-            href="/contact"
-            className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
-            style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
-          >
-            Book a Free Call
-          </a>
+          <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
-          <button
-            className="transition-colors"
-            style={{ color: "var(--text-dim)" }}
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-          >
-            {open ? <IconX /> : <IconMenu />}
-          </button>
+          <button style={{ color: "var(--text-dim)" }} onClick={() => setOpen(!open)} aria-label="Toggle menu">{open ? <IconX /> : <IconMenu />}</button>
         </div>
       </div>
       {open && (
-        <div
-          className="md:hidden border-t mobile-menu"
-          style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--mobile-menu-bg)" }}
-        >
+        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
           <div className="px-6 py-4 flex flex-col gap-4">
-            {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
-              { label: "About", href: "/about" },
-            ].map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium transition-colors"
-                style={{ color: "var(--text-dim)" }}
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </a>
+            {NAV_LINKS.map((link) => (
+              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: link.label === active ? "#FFD700" : "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
-            <a
-              href="/contact"
-              className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
-              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
-              onClick={() => setOpen(false)}
-            >
-              Book a Free Call
-            </a>
+            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
           </div>
         </div>
       )}
@@ -150,78 +98,161 @@ function Nav() {
 
 function Footer() {
   return (
-    <footer className="border-t py-10 mt-20" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--bg)" }}>
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <span className="font-bold" style={{ color: "var(--yellow)" }}>My AI Workforce</span>
-        <p className="text-sm" style={{ color: "var(--text-dim)" }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
-        <div className="flex gap-6 text-sm">
-          <Link href="/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
-          <Link href="/pricing" style={{ color: "var(--text-dim)" }}>Pricing</Link>
-          <Link href="/contact" style={{ color: "var(--text-dim)" }}>Contact</Link>
-          <Link href="/invest" style={{ color: "var(--yellow)", fontWeight: "600" }}>Invest with Us</Link>
+    <footer className="py-12 px-6" style={{ borderTop: "1px solid var(--border)", backgroundColor: "var(--bg)" }}>
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
+          <div>
+            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}>My AI Workforce</div>
+            <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
+          </div>
+          <div className="flex flex-wrap gap-x-8 gap-y-2">
+            {[
+              { label: "Marketplace", href: "/marketplace" },
+              { label: "Guides", href: "/guides" },
+              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Contact", href: "/contact" },
+              { label: "Invest with Us", href: "/invest" },
+            ].map((link) => (
+              <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
+                style={{ color: link.label === "Invest with Us" ? "var(--yellow)" : "var(--muted)", fontWeight: link.label === "Invest with Us" ? "600" : "normal" }}
+              >{link.label}</Link>
+            ))}
+          </div>
+        </div>
+        <div className="border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: "var(--border)" }}>
+          <p className="text-sm" style={{ color: "var(--muted)" }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="text-sm" style={{ color: "var(--muted)" }}>Privacy Policy</Link>
+            <Link href="/terms" className="text-sm" style={{ color: "var(--muted)" }}>Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
 
+const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
+  Operations:    { bg: "rgba(99,179,237,0.12)", text: "#63B3ED" },
+  Finance:       { bg: "rgba(246,173,85,0.12)", text: "#F6AD55" },
+  Technology:    { bg: "rgba(183,148,246,0.12)", text: "#B794F6" },
+  "Case Study":  { bg: "rgba(104,211,145,0.12)", text: "#68D391" },
+  Security:      { bg: "rgba(230,57,70,0.12)", text: "#E63946" },
+  Strategy:      { bg: "rgba(255,215,0,0.12)", text: "#FFD700" },
+};
+
 const posts = [
-  { title: "The 5 AI Agents Every Business Needs in 2026", excerpt: "From email triage to lead generation, these five agents will transform how your business operates — and most can be deployed in under an hour.", category: "Strategy", date: "Mar 27, 2026", featured: true },
-  { title: "How We Saved a Client 40 Hours a Week with One AI Agent", excerpt: "A real case study from a 12-person e-commerce brand that automated their entire customer support function.", category: "Case Study", date: "Mar 25, 2026" },
-  { title: "OpenClaw vs ChatGPT: Which is Right for Your Business?", excerpt: "Both are powerful. But they solve very different problems. Here's how to choose.", category: "Comparison", date: "Mar 22, 2026" },
-  { title: "The Real Cost of Not Automating in 2026", excerpt: "Every hour your team spends on repetitive tasks is an hour not spent on growth. The math is brutal — and it's only getting worse.", category: "Strategy", date: "Mar 20, 2026" },
-  { title: "Building in Public: How We Built myaiworkforce.ai in 48 Hours", excerpt: "A behind-the-scenes look at how we went from idea to live product using AI agents to do most of the heavy lifting.", category: "Behind the Scenes", date: "Mar 18, 2026" },
-  { title: "Top 10 AI Agents for E-commerce Businesses", excerpt: "From abandoned cart recovery to inventory management — the agents that are generating real ROI for online stores.", category: "Listicle", date: "Mar 15, 2026" },
-  { title: "Why Your Customer Support Should Be 80% Automated", excerpt: "Most customer queries are repetitive. Here's why handling them with AI isn't just efficient — it's better for your customers.", category: "Operations", date: "Mar 12, 2026" },
-  { title: "The Beginner's Guide to AI Agents", excerpt: "Everything you need to know about AI agents — what they are, how they work, and how to deploy your first one today.", category: "Beginner", date: "Mar 10, 2026" },
-  { title: "Case Study: 3x Revenue Growth with AI Automation", excerpt: "How a solo consultant tripled their revenue in 6 months by deploying AI agents across their entire sales and marketing stack.", category: "Case Study", date: "Mar 7, 2026" },
+  {
+    title: "Why Your Business Needs an AI Workforce in 2025",
+    category: "Operations",
+    excerpt: "The businesses pulling ahead right now aren't bigger or better funded — they're more automated. Here's the case for building your AI workforce before your competitors do.",
+    readTime: "5 min read",
+    date: "Mar 28, 2026",
+    featured: true,
+  },
+  {
+    title: "The Hidden Cost of Manual Data Entry (And How AI Fixes It)",
+    category: "Finance",
+    excerpt: "You think data entry costs you an hour a day. It actually costs you 30% of your team's cognitive capacity. Here's what the research says — and how AI eliminates it entirely.",
+    readTime: "4 min read",
+    date: "Mar 25, 2026",
+    featured: false,
+  },
+  {
+    title: "OpenClaw vs n8n vs Make: Which AI Agent Platform Is Right for You?",
+    category: "Technology",
+    excerpt: "Three platforms, three very different philosophies. If you're building serious AI automation infrastructure, this comparison will save you months of wrong turns.",
+    readTime: "8 min read",
+    date: "Mar 22, 2026",
+    featured: false,
+  },
+  {
+    title: "How We Cut a Client's Support Volume by 70% in 30 Days",
+    category: "Case Study",
+    excerpt: "A real breakdown of how we deployed a customer support AI agent for a 40-person SaaS company, the hurdles we hit, and the exact results by week.",
+    readTime: "6 min read",
+    date: "Mar 19, 2026",
+    featured: false,
+  },
+  {
+    title: "Security First: Why We Deploy AI Agents on Private VPS",
+    category: "Security",
+    excerpt: "Most AI tools process your data on shared servers. Here's why we think that's a serious risk — and why every client gets their own dedicated, private deployment.",
+    readTime: "5 min read",
+    date: "Mar 16, 2026",
+    featured: false,
+  },
+  {
+    title: "The Complete Guide to AI Agent ROI",
+    category: "Strategy",
+    excerpt: "How do you actually measure the return on your AI investment? We break down the framework we use with every client — from hours saved to revenue generated.",
+    readTime: "7 min read",
+    date: "Mar 13, 2026",
+    featured: false,
+  },
 ];
 
 export default function BlogPage() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+
   const featured = posts[0];
   const rest = posts.slice(1);
 
   return (
     <div style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
-      <Nav />
-      <main>
+      <Nav active="Blog" />
+      <main className="pt-16">
         {/* Hero */}
-        <section className="py-20 px-6 text-center" style={{ backgroundColor: "var(--bg-section)" }}>
+        <section className="py-24 px-6 text-center" style={{ backgroundColor: "var(--bg-section)" }}>
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>The <span style={{ color: "var(--yellow)" }}>AI Workforce</span> Blog</h1>
-            <p style={{ color: "var(--text-dim)" }}>Practical insights on AI automation for business owners who want results, not theory.</p>
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
+              The AI Workforce Blog
+            </div>
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
+              Insights for the<br /><span style={{ color: "#FFD700" }}>AI-Powered Business</span>
+            </h1>
+            <p style={{ color: "var(--muted)" }}>
+              Practical guides, case studies, and deep dives on AI automation for business owners who want results, not theory.
+            </p>
           </div>
         </section>
 
         <section className="py-16 px-6">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             {/* Featured Post */}
-            <div className="rounded-2xl p-10 mb-12" style={{ backgroundColor: "var(--card)", border: "2px solid var(--yellow)" }}>
+            <div className="rounded-2xl p-10 mb-12" style={{ backgroundColor: "var(--card)", border: "2px solid #FFD700" }}>
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-xs px-2 py-1 rounded-full font-bold" style={{ backgroundColor: "var(--yellow)", color: "#0A0A0A" }}>FEATURED</span>
-                <span className="text-xs px-2 py-1 rounded-full" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)" }}>{featured.category}</span>
-                <span className="text-xs" style={{ color: "var(--text-dim)" }}>{featured.date}</span>
+                <span className="text-xs px-2 py-1 rounded-full font-bold" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>FEATURED</span>
+                <span className="text-xs px-2 py-1 rounded-full font-semibold" style={{ backgroundColor: CATEGORY_COLORS[featured.category]?.bg, color: CATEGORY_COLORS[featured.category]?.text }}>
+                  {featured.category}
+                </span>
+                <span className="text-xs" style={{ color: "var(--muted)" }}>{featured.readTime}</span>
+                <span className="text-xs" style={{ color: "var(--muted)" }}>{featured.date}</span>
               </div>
               <h2 className="text-3xl font-extrabold mb-4" style={{ letterSpacing: "-0.02em" }}>{featured.title}</h2>
-              <p className="text-lg mb-6" style={{ color: "var(--text-dim)" }}>{featured.excerpt}</p>
-              <a href="/blog" className="font-semibold" style={{ color: "var(--yellow)" }}>Read Article →</a>
+              <p className="text-lg mb-6 max-w-3xl" style={{ color: "var(--muted)" }}>{featured.excerpt}</p>
+              <a href="#" className="font-semibold" style={{ color: "#FFD700" }}>Read Article →</a>
             </div>
 
             {/* Posts Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {rest.map((post, i) => (
-                <div key={i} className="rounded-xl p-6 flex flex-col gap-4 transition-transform hover:-translate-y-1" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs px-2 py-1 rounded-full" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)" }}>{post.category}</span>
-                    <span className="text-xs" style={{ color: "var(--text-dim)" }}>{post.date}</span>
+              {rest.map((post, i) => {
+                const colors = CATEGORY_COLORS[post.category] ?? { bg: "rgba(255,215,0,0.1)", text: "#FFD700" };
+                return (
+                  <div key={i} className="rounded-xl p-6 flex flex-col gap-4 card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-xs px-2 py-1 rounded-full font-semibold" style={{ backgroundColor: colors.bg, color: colors.text }}>
+                        {post.category}
+                      </span>
+                      <span className="text-xs" style={{ color: "var(--muted)" }}>{post.readTime}</span>
+                      <span className="text-xs" style={{ color: "var(--muted)" }}>{post.date}</span>
+                    </div>
+                    <h3 className="font-bold text-lg leading-snug flex-1">{post.title}</h3>
+                    <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.6" }}>{post.excerpt}</p>
+                    <a href="#" className="text-sm font-semibold" style={{ color: "#FFD700" }}>Read Article →</a>
                   </div>
-                  <h3 className="font-bold text-lg leading-snug flex-1">{post.title}</h3>
-                  <p className="text-sm" style={{ color: "var(--text-dim)" }}>{post.excerpt}</p>
-                  <a href="/blog" className="text-sm font-semibold" style={{ color: "var(--yellow)" }}>Read More →</a>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
@@ -230,7 +261,7 @@ export default function BlogPage() {
         <section className="py-16 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
           <div className="max-w-xl mx-auto text-center">
             <h2 className="text-2xl font-bold mb-3">Get Weekly AI Tips</h2>
-            <p className="mb-6 text-sm" style={{ color: "var(--text-dim)" }}>One practical AI automation tip every week. No fluff, no hype. Unsubscribe anytime.</p>
+            <p className="mb-6 text-sm" style={{ color: "var(--muted)" }}>One practical AI automation insight every week. No fluff, no hype. Unsubscribe any time.</p>
             {subscribed ? (
               <div className="p-4 rounded-xl" style={{ backgroundColor: "rgba(34,197,94,0.1)", border: "1px solid #22c55e" }}>
                 <p className="font-semibold" style={{ color: "#22c55e" }}>🎉 You&apos;re subscribed! Talk soon.</p>
@@ -240,7 +271,7 @@ export default function BlogPage() {
                 <input type="email" required placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)}
                   className="flex-1 px-4 py-3 rounded-lg text-sm outline-none"
                   style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)" }} />
-                <button type="submit" className="px-6 py-3 rounded-lg font-semibold text-sm text-black" style={{ backgroundColor: "var(--yellow)" }}>Subscribe</button>
+                <button type="submit" className="px-6 py-3 rounded-lg font-semibold text-sm text-black" style={{ backgroundColor: "#FFD700" }}>Subscribe</button>
               </form>
             )}
           </div>

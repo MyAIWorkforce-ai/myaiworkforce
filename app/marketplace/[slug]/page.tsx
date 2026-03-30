@@ -868,7 +868,9 @@ function Nav() {
               { label: "Marketplace", href: "/marketplace" },
               { label: "Guides", href: "/guides" },
               { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Pricing", href: "/pricing" },
               { label: "About", href: "/about" },
+              { label: "Blog", href: "/blog" },
             ].map((link) => (
               <a
                 key={link.label}
@@ -988,6 +990,30 @@ export default function AgentPage({ params }: { params: { slug: string } }) {
                   {agent.tags.map((tag, i) => (
                     <span key={i} className="text-xs px-2 py-1 rounded-md" style={{ backgroundColor: "var(--bg)", color: "var(--text-dim)", border: "1px solid var(--border)" }}>{tag}</span>
                   ))}
+                </div>
+              </div>
+
+              {/* Security Trust Badge */}
+              <div className="mt-6 pt-6 border-t" style={{ borderColor: "var(--border)" }}>
+                <div className="p-4 rounded-xl" style={{ backgroundColor: "rgba(255,215,0,0.05)", border: "1px solid rgba(255,215,0,0.2)" }}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-lg">🛡️</span>
+                    <span className="text-sm font-bold" style={{ color: "#FFD700" }}>Secure Deployment Included</span>
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    {[
+                      "Private VPS deployment",
+                      "Your data stays on your server",
+                      "End-to-end encrypted",
+                      "Human oversight & audit logs",
+                      "SOC2-ready architecture",
+                    ].map((point, i) => (
+                      <div key={i} className="flex items-center gap-2 text-xs">
+                        <span style={{ color: "#FFD700" }}>✓</span>
+                        <span style={{ color: "var(--text-dim)" }}>{point}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

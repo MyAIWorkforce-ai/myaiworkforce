@@ -1,8 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
 import Link from "next/link";
-
+import { useTheme } from "next-themes";
 
 function IconMenu() {
   return (
@@ -11,7 +10,6 @@ function IconMenu() {
     </svg>
   );
 }
-
 function IconX() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -19,7 +17,6 @@ function IconX() {
     </svg>
   );
 }
-
 function IconSun() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -31,7 +28,6 @@ function IconSun() {
     </svg>
   );
 }
-
 function IconMoon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -47,100 +43,52 @@ function ThemeToggle() {
   if (!mounted) return <div style={{ width: 36, height: 36 }} />;
   const isDark = theme === "dark";
   return (
-    <button
-      className="theme-toggle"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-    >
+    <button className="theme-toggle" onClick={() => setTheme(isDark ? "light" : "dark")} aria-label="Toggle theme">
       {isDark ? <IconSun /> : <IconMoon />}
     </button>
   );
 }
 
+const NAV_LINKS = [
+  { label: "Marketplace", href: "/marketplace" },
+  { label: "Guides", href: "/guides" },
+  { label: "Done-For-You", href: "/done-for-you" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+];
+
 function Nav() {
   const [open, setOpen] = useState(false);
   return (
-    <nav
-      className="sticky top-0 left-0 right-0 z-50 backdrop-blur-md"
-      style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <a href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}>
-          MyAIWorkforce
-        </a>
+        <Link href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}>My AI Workforce</Link>
         <div className="hidden md:flex items-center gap-8">
-          {[
-            { label: "Marketplace", href: "/marketplace" },
-            { label: "Guides", href: "/guides" },
-            { label: "Done-For-You", href: "/done-for-you" },
-            { label: "Pricing", href: "/pricing" },
-            { label: "About", href: "/about" },
-            { label: "Blog", href: "/blog" },
-          ].map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium transition-colors duration-200"
-              style={{ color: link.href === "/contact" ? "#FFD700" : "var(--text-dim)" }}
+          {NAV_LINKS.map((link) => (
+            <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
+              style={{ color: "var(--text-dim)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = link.href === "/contact" ? "#FFD700" : "var(--text-dim)")}
-            >
-              {link.label}
-            </a>
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-dim)")}
+            >{link.label}</Link>
           ))}
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <a
-            href="/contact"
-            className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
-            style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
-          >
-            Book a Free Call
-          </a>
+          <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
-          <button
-            className="transition-colors"
-            style={{ color: "var(--text-dim)" }}
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-          >
-            {open ? <IconX /> : <IconMenu />}
-          </button>
+          <button style={{ color: "var(--text-dim)" }} onClick={() => setOpen(!open)} aria-label="Toggle menu">{open ? <IconX /> : <IconMenu />}</button>
         </div>
       </div>
       {open && (
-        <div
-          className="md:hidden border-t mobile-menu"
-          style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--mobile-menu-bg)" }}
-        >
+        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
           <div className="px-6 py-4 flex flex-col gap-4">
-            {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
-              { label: "About", href: "/about" },
-            ].map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium transition-colors"
-                style={{ color: "var(--text-dim)" }}
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </a>
+            {NAV_LINKS.map((link) => (
+              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
-            <a
-              href="/contact"
-              className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
-              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
-              onClick={() => setOpen(false)}
-            >
-              Book a Free Call
-            </a>
+            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
           </div>
         </div>
       )}
@@ -150,15 +98,33 @@ function Nav() {
 
 function Footer() {
   return (
-    <footer className="border-t py-10 mt-20" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--bg)" }}>
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <span className="font-bold" style={{ color: "var(--yellow)" }}>My AI Workforce</span>
-        <p className="text-sm" style={{ color: "var(--text-dim)" }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
-        <div className="flex gap-6 text-sm">
-          <Link href="/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
-          <Link href="/pricing" style={{ color: "var(--text-dim)" }}>Pricing</Link>
-          <Link href="/contact" style={{ color: "var(--text-dim)" }}>Contact</Link>
-          <Link href="/invest" style={{ color: "var(--yellow)", fontWeight: "600" }}>Invest with Us</Link>
+    <footer className="py-12 px-6" style={{ borderTop: "1px solid var(--border)", backgroundColor: "var(--bg)" }}>
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
+          <div>
+            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}>My AI Workforce</div>
+            <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
+          </div>
+          <div className="flex flex-wrap gap-x-8 gap-y-2">
+            {[
+              { label: "Marketplace", href: "/marketplace" },
+              { label: "Guides", href: "/guides" },
+              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Contact", href: "/contact" },
+              { label: "Invest with Us", href: "/invest" },
+            ].map((link) => (
+              <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
+                style={{ color: link.label === "Invest with Us" ? "var(--yellow)" : "var(--muted)", fontWeight: link.label === "Invest with Us" ? "600" : "normal" }}
+              >{link.label}</Link>
+            ))}
+          </div>
+        </div>
+        <div className="border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: "var(--border)" }}>
+          <p className="text-sm" style={{ color: "var(--muted)" }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="text-sm" style={{ color: "var(--muted)" }}>Privacy Policy</Link>
+            <Link href="/terms" className="text-sm" style={{ color: "var(--muted)" }}>Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>
@@ -167,7 +133,13 @@ function Footer() {
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    helpType: "",
+    message: "",
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -177,75 +149,170 @@ export default function ContactPage() {
   return (
     <div style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
       <Nav />
-      <main>
+      <main className="pt-16">
         {/* Hero */}
         <section className="py-20 px-6 text-center" style={{ backgroundColor: "var(--bg-section)" }}>
           <div className="max-w-2xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>Let&apos;s <span style={{ color: "var(--yellow)" }}>Talk</span></h1>
-            <p style={{ color: "var(--text-dim)" }}>Book a free discovery call or send us a message. We respond within 24 hours.</p>
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
+              Contact Us
+            </div>
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
+              Let&apos;s <span style={{ color: "#FFD700" }}>Talk</span>
+            </h1>
+            <p style={{ color: "var(--muted)", lineHeight: "1.7" }}>
+              Book a free discovery call, send us a message, or just say hello. We respond within 24 hours — usually much faster.
+            </p>
           </div>
         </section>
 
         <section className="py-16 px-6">
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
-            {/* Book a Call */}
-            <div className="rounded-xl p-8" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-              <div className="text-4xl mb-4">📞</div>
-              <h2 className="text-2xl font-bold mb-3">Book a Free Discovery Call</h2>
-              <p className="mb-6 text-sm" style={{ color: "var(--text-dim)" }}>30 minutes, no commitment, no sales pitch. We&apos;ll talk about your business, identify automation opportunities, and tell you exactly how we can help.</p>
-              <div className="flex flex-col gap-3 mb-8">
-                <div className="flex items-center gap-3 text-sm"><span style={{ color: "var(--yellow)" }}>✓</span> Free, no obligation</div>
-                <div className="flex items-center gap-3 text-sm"><span style={{ color: "var(--yellow)" }}>✓</span> 30-minute video or phone call</div>
-                <div className="flex items-center gap-3 text-sm"><span style={{ color: "var(--yellow)" }}>✓</span> Get a free automation audit</div>
-                <div className="flex items-center gap-3 text-sm"><span style={{ color: "var(--yellow)" }}>✓</span> No technical knowledge required</div>
-              </div>
-              <a href="/contact" className="py-4 rounded-xl font-bold text-center text-black block w-full" style={{ backgroundColor: "var(--yellow)" }}>Book My Free Call →</a>
-              <p className="text-xs text-center mt-3" style={{ color: "var(--text-dim)" }}>Usually responds within a few hours</p>
-            </div>
-
-            {/* Contact Form */}
-            <div className="rounded-xl p-8" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-              <div className="text-4xl mb-4">✉️</div>
-              <h2 className="text-2xl font-bold mb-3">Send a Message</h2>
-              <p className="mb-6 text-sm" style={{ color: "var(--text-dim)" }}>Prefer to write it out? Send us a message and we&apos;ll get back to you within 24 hours.</p>
-              {submitted ? (
-                <div className="text-center py-8">
-                  <div className="text-4xl mb-4">🎉</div>
-                  <h3 className="font-bold text-xl mb-2">Message Sent!</h3>
-                  <p style={{ color: "var(--text-dim)" }}>We&apos;ll be in touch within 24 hours.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-5 gap-10">
+            {/* Left: Book a Call + Details */}
+            <div className="md:col-span-2 flex flex-col gap-6">
+              {/* Book a Call Card */}
+              <div className="rounded-xl p-8" style={{ backgroundColor: "rgba(255,215,0,0.05)", border: "2px solid rgba(255,215,0,0.3)" }}>
+                <div className="text-3xl mb-4">📞</div>
+                <h2 className="text-xl font-bold mb-3">Book a Free Discovery Call</h2>
+                <p className="mb-4 text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
+                  30 minutes. No commitment. No sales pitch. We&apos;ll learn about your business and tell you exactly how AI can help.
+                </p>
+                <div className="flex flex-col gap-2 mb-6">
                   {[
-                    { label: "Your Name", key: "name", type: "text", placeholder: "John Smith" },
-                    { label: "Email Address", key: "email", type: "email", placeholder: "john@company.com" },
-                    { label: "Business Name", key: "business", type: "text", placeholder: "Acme Corp (optional)" },
-                  ].map((field) => (
-                    <div key={field.key}>
-                      <label className="block text-sm font-medium mb-1.5">{field.label}</label>
-                      <input type={field.type} placeholder={field.placeholder} value={form[field.key as keyof typeof form]}
-                        onChange={e => setForm({ ...form, [field.key]: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
-                        style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }} />
+                    "Free, no obligation",
+                    "30-minute video or phone call",
+                    "Get a free automation audit",
+                    "No technical knowledge required",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-sm">
+                      <span style={{ color: "#FFD700" }}>✓</span>
+                      <span style={{ color: "var(--muted)" }}>{item}</span>
                     </div>
                   ))}
+                </div>
+                <a href="mailto:toby@myaiworkforce.ai?subject=Book a Free Discovery Call" className="py-3 rounded-xl font-bold text-center text-black block w-full glow-yellow" style={{ backgroundColor: "#FFD700" }}>
+                  Book My Free Call →
+                </a>
+                <p className="text-xs text-center mt-3" style={{ color: "var(--muted)" }}>Usually responds within a few hours</p>
+              </div>
+
+              {/* Contact Details */}
+              <div className="rounded-xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                <h3 className="font-bold mb-4">Contact Details</h3>
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-start gap-3 text-sm">
+                    <span className="text-lg">✉️</span>
+                    <div>
+                      <div className="font-medium">Email</div>
+                      <a href="mailto:toby@myaiworkforce.ai" style={{ color: "#FFD700" }}>toby@myaiworkforce.ai</a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 text-sm">
+                    <span className="text-lg">📍</span>
+                    <div>
+                      <div className="font-medium">Location</div>
+                      <span style={{ color: "var(--muted)" }}>Melbourne, Australia (Remote-first)</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 text-sm">
+                    <span className="text-lg">⏱️</span>
+                    <div>
+                      <div className="font-medium">Response Time</div>
+                      <span style={{ color: "var(--muted)" }}>Within 24 hours, usually faster</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 text-sm">
+                    <span className="text-lg">🌏</span>
+                    <div>
+                      <div className="font-medium">Serving</div>
+                      <span style={{ color: "var(--muted)" }}>Clients in 25+ countries</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Contact Form */}
+            <div className="md:col-span-3 rounded-xl p-8" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+              <div className="text-3xl mb-4">✉️</div>
+              <h2 className="text-2xl font-bold mb-2">Send a Message</h2>
+              <p className="mb-6 text-sm" style={{ color: "var(--muted)" }}>Prefer to write it out? Fill in the form and we&apos;ll get back to you within 24 hours.</p>
+
+              {submitted ? (
+                <div className="text-center py-12">
+                  <div className="text-5xl mb-4">🎉</div>
+                  <h3 className="font-bold text-2xl mb-3">Message Sent!</h3>
+                  <p className="mb-6" style={{ color: "var(--muted)" }}>Thank you for reaching out. We&apos;ll be in touch within 24 hours.</p>
+                  <Link href="/" className="px-6 py-3 rounded-lg font-semibold text-black inline-block" style={{ backgroundColor: "#FFD700" }}>Back to Home</Link>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-sm font-medium mb-1.5">Your Name *</label>
+                      <input
+                        type="text" required placeholder="Jane Smith"
+                        value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
+                        style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1.5">Email Address *</label>
+                      <input
+                        type="email" required placeholder="jane@company.com"
+                        value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
+                        style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }}
+                      />
+                    </div>
+                  </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1.5">Message</label>
-                    <textarea rows={4} placeholder="Tell us about your business and what you&apos;re looking to automate..."
+                    <label className="block text-sm font-medium mb-1.5">Company Name</label>
+                    <input
+                      type="text" placeholder="Acme Corp (optional)"
+                      value={form.company} onChange={e => setForm({ ...form, company: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
+                      style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-1.5">What can we help you with? *</label>
+                    <select
+                      required
+                      value={form.helpType} onChange={e => setForm({ ...form, helpType: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
+                      style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: form.helpType ? "var(--text)" : "var(--muted)" }}
+                    >
+                      <option value="">Select an option...</option>
+                      <option value="done-for-you">Done-For-You AI Workforce</option>
+                      <option value="marketplace">Marketplace — Buying an Agent</option>
+                      <option value="selling">Selling on the Marketplace</option>
+                      <option value="guides">Guides & DIY Help</option>
+                      <option value="pricing">Pricing & Plans</option>
+                      <option value="invest">Investment Opportunities</option>
+                      <option value="other">Something Else</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-1.5">Message *</label>
+                    <textarea
+                      rows={5} required
+                      placeholder="Tell us about your business and what you're looking to automate..."
                       value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-lg text-sm outline-none resize-none"
-                      style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }} />
+                      style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }}
+                    />
                   </div>
-                  <button type="submit" className="py-3 rounded-lg font-semibold text-black" style={{ backgroundColor: "var(--yellow)" }}>Send Message →</button>
+                  <button type="submit" className="py-3 rounded-lg font-bold text-black text-sm glow-yellow" style={{ backgroundColor: "#FFD700" }}>
+                    Send Message →
+                  </button>
+                  <p className="text-xs text-center" style={{ color: "var(--muted)" }}>
+                    We respond within 24 hours. Your data is never shared.
+                  </p>
                 </form>
               )}
             </div>
           </div>
-        </section>
-
-        {/* Contact Info */}
-        <section className="py-10 px-6 text-center">
-          <p className="text-sm" style={{ color: "var(--text-dim)" }}>Or email us directly at <a href="mailto:monty@myaiworkforce.ai" style={{ color: "var(--yellow)" }}>monty@myaiworkforce.ai</a></p>
         </section>
       </main>
       <Footer />

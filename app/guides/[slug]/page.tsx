@@ -492,7 +492,9 @@ function Nav() {
               { label: "Marketplace", href: "/marketplace" },
               { label: "Guides", href: "/guides" },
               { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Pricing", href: "/pricing" },
               { label: "About", href: "/about" },
+              { label: "Blog", href: "/blog" },
             ].map((link) => (
               <a
                 key={link.label}
