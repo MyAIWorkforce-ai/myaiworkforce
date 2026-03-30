@@ -1,17 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 
 const guides = [
-  { title: "How to Set Up Your First AI Email Agent", description: "Learn how to configure an AI agent to triage, respond, and organise your inbox — saving you hours every week.", category: "Operations", difficulty: "Beginner", readTime: "15 min", slug: "how-to-set-up-your-first-ai-email-agent" },
-  { title: "Automate Your Customer Support in 3 Steps", description: "Deploy an AI agent that handles inbound queries, resolves common issues, and escalates to humans when needed.", category: "Customer Support", difficulty: "Beginner", readTime: "20 min", slug: "automate-your-customer-support-in-3-steps" },
-  { title: "Build a Lead Generation Agent from Scratch", description: "Create an agent that finds, qualifies, and reaches out to potential leads — all on autopilot.", category: "Sales", difficulty: "Intermediate", readTime: "25 min", slug: "build-a-lead-generation-agent-from-scratch" },
-  { title: "Create a Social Media Scheduling Agent", description: "Build a workflow that drafts, schedules, and posts content across all your platforms automatically.", category: "Marketing", difficulty: "Beginner", readTime: "18 min", slug: "create-a-social-media-scheduling-agent" },
-  { title: "Set Up an Invoice Processing Workflow", description: "Automate the extraction, validation, and filing of invoices using AI — no more manual data entry.", category: "Finance", difficulty: "Intermediate", readTime: "22 min", slug: "set-up-an-invoice-processing-workflow" },
-  { title: "Build a Market Research Agent", description: "Configure an agent to monitor competitors, track industry trends, and deliver daily intelligence briefs.", category: "Research", difficulty: "Advanced", readTime: "30 min", slug: "build-a-market-research-agent" },
-  { title: "The OpenClaw Quick-Start Guide", description: "Get your first OpenClaw agent up and running in under 30 minutes. No code required.", category: "Operations", difficulty: "Beginner", readTime: "12 min", slug: "the-openclaw-quick-start-guide" },
-  { title: "Build a Sales Outreach Agent with n8n", description: "Use n8n workflows to automate personalised cold outreach at scale.", category: "Sales", difficulty: "Advanced", readTime: "35 min", slug: "build-a-sales-outreach-agent-with-n8n" },
-  { title: "Automate Your Hiring Pipeline", description: "From job posting to interview scheduling — let AI handle the repetitive parts of recruitment.", category: "HR", difficulty: "Intermediate", readTime: "28 min", slug: "automate-your-hiring-pipeline" },
+  { title: "How to Set Up Your First AI Email Agent", description: "Learn how to configure an AI agent to triage, respond, and organise your inbox — saving you hours every week.", category: "Operations", difficulty: "Beginner", readTime: "15 min", slug: "how-to-set-up-your-first-ai-email-agent", price: 9 },
+  { title: "Automate Your Customer Support in 3 Steps", description: "Deploy an AI agent that handles inbound queries, resolves common issues, and escalates to humans when needed.", category: "Customer Support", difficulty: "Beginner", readTime: "20 min", slug: "automate-your-customer-support-in-3-steps", price: 9 },
+  { title: "Build a Lead Generation Agent from Scratch", description: "Create an agent that finds, qualifies, and reaches out to potential leads — all on autopilot.", category: "Sales", difficulty: "Intermediate", readTime: "25 min", slug: "build-a-lead-generation-agent-from-scratch", price: 14 },
+  { title: "Create a Social Media Scheduling Agent", description: "Build a workflow that drafts, schedules, and posts content across all your platforms automatically.", category: "Marketing", difficulty: "Beginner", readTime: "18 min", slug: "create-a-social-media-scheduling-agent", price: 9 },
+  { title: "Set Up an Invoice Processing Workflow", description: "Automate the extraction, validation, and filing of invoices using AI — no more manual data entry.", category: "Finance", difficulty: "Intermediate", readTime: "22 min", slug: "set-up-an-invoice-processing-workflow", price: 14 },
+  { title: "Build a Market Research Agent", description: "Configure an agent to monitor competitors, track industry trends, and deliver daily intelligence briefs.", category: "Research", difficulty: "Advanced", readTime: "30 min", slug: "build-a-market-research-agent", price: 19 },
+  { title: "The OpenClaw Quick-Start Guide", description: "Get your first OpenClaw agent up and running in under 30 minutes. No code required.", category: "Operations", difficulty: "Beginner", readTime: "12 min", slug: "the-openclaw-quick-start-guide", price: 9 },
+  { title: "Build a Sales Outreach Agent with n8n", description: "Use n8n workflows to automate personalised cold outreach at scale.", category: "Sales", difficulty: "Advanced", readTime: "35 min", slug: "build-a-sales-outreach-agent-with-n8n", price: 19 },
+  { title: "Automate Your Hiring Pipeline", description: "From job posting to interview scheduling — let AI handle the repetitive parts of recruitment.", category: "HR", difficulty: "Intermediate", readTime: "28 min", slug: "automate-your-hiring-pipeline", price: 14 },
 ];
 
 const difficulties = ["All", "Beginner", "Intermediate", "Advanced"];
@@ -21,22 +22,148 @@ const difficultyColors: Record<string, string> = {
   Advanced: "#ef4444",
 };
 
-function Nav() {
+
+function IconMenu() {
   return (
-    <header className="sticky top-0 z-50 border-b" style={{ backgroundColor: "var(--nav-bg)", borderColor: "var(--nav-border)" }}>
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="font-bold text-xl" style={{ color: "var(--yellow)" }}>My AI Workforce</Link>
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <Link href="/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
-          <Link href="/guides" style={{ color: "var(--yellow)" }}>Guides</Link>
-          <Link href="/done-for-you" style={{ color: "var(--text-dim)" }}>Done-For-You</Link>
-          <Link href="/pricing" style={{ color: "var(--text-dim)" }}>Pricing</Link>
-          <Link href="/about" style={{ color: "var(--text-dim)" }}>About</Link>
-          <Link href="/blog" style={{ color: "var(--text-dim)" }}>Blog</Link>
-        </nav>
-        <Link href="/contact" className="px-4 py-2 rounded-lg font-semibold text-sm" style={{ backgroundColor: "var(--yellow)", color: "#0A0A0A" }}>Book a Call</Link>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  );
+}
+
+function IconX() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  );
+}
+
+function IconSun() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+  );
+}
+
+function IconMoon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  );
+}
+
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return <div style={{ width: 36, height: 36 }} />;
+  const isDark = theme === "dark";
+  return (
+    <button
+      className="theme-toggle"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+    >
+      {isDark ? <IconSun /> : <IconMoon />}
+    </button>
+  );
+}
+
+function Nav() {
+  const [open, setOpen] = useState(false);
+  return (
+    <nav
+      className="sticky top-0 left-0 right-0 z-50 backdrop-blur-md"
+      style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+        <a href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}>
+          MyAIWorkforce
+        </a>
+        <div className="hidden md:flex items-center gap-8">
+          {[
+            { label: "Marketplace", href: "/marketplace" },
+            { label: "Guides", href: "/guides" },
+            { label: "Done-For-You", href: "/done-for-you" },
+            { label: "Pricing", href: "/pricing" },
+            { label: "About", href: "/about" },
+            { label: "Blog", href: "/blog" },
+          ].map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-sm font-medium transition-colors duration-200"
+              style={{ color: link.href === "/guides" ? "#FFD700" : "var(--text-dim)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = link.href === "/guides" ? "#FFD700" : "var(--text-dim)")}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
+          <a
+            href="/contact"
+            className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
+            style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+          >
+            Book a Free Call
+          </a>
+        </div>
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="transition-colors"
+            style={{ color: "var(--text-dim)" }}
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? <IconX /> : <IconMenu />}
+          </button>
+        </div>
       </div>
-    </header>
+      {open && (
+        <div
+          className="md:hidden border-t mobile-menu"
+          style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--mobile-menu-bg)" }}
+        >
+          <div className="px-6 py-4 flex flex-col gap-4">
+            {[
+              { label: "Marketplace", href: "/marketplace" },
+              { label: "Guides", href: "/guides" },
+              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "About", href: "/about" },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-sm font-medium transition-colors"
+                style={{ color: "var(--text-dim)" }}
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="/contact"
+              className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
+              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+              onClick={() => setOpen(false)}
+            >
+              Book a Free Call
+            </a>
+          </div>
+        </div>
+      )}
+    </nav>
   );
 }
 
@@ -101,8 +228,15 @@ export default function GuidesPage() {
                 <p className="text-sm flex-1" style={{ color: "var(--text-dim)" }}>{guide.description}</p>
                 <div className="flex items-center justify-between mt-2">
                   <span className="text-xs" style={{ color: "var(--text-dim)" }}>📖 {guide.readTime} read</span>
-                  <Link href={`/guides/${guide.slug}`} className="text-sm font-semibold" style={{ color: "var(--yellow)" }}>Read Guide →</Link>
+                  <span className="text-sm font-bold" style={{ color: "var(--yellow)" }}>${guide.price} one-time</span>
                 </div>
+                <Link
+                  href={`/guides/${guide.slug}`}
+                  className="mt-2 py-2 px-4 rounded-lg text-sm font-semibold text-center transition-all duration-200"
+                  style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+                >
+                  Buy Guide ${guide.price} →
+                </Link>
               </div>
             ))}
           </div>
