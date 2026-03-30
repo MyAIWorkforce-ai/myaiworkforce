@@ -18,7 +18,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center px-6" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
-          <Link href="/" className="text-2xl font-extrabold" style={{ color: "var(--yellow)" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
+          <Link href="/" className="text-2xl font-extrabold" style={{ color: "var(--yellow)" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
           <p className="mt-2 text-sm" style={{ color: "var(--text-dim)" }}>Sign in to your account</p>
         </div>
         <div className="rounded-2xl p-8" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>

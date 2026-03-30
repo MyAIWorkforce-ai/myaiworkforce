@@ -21,7 +21,7 @@ function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
   return (
     <div className="min-h-screen flex items-center justify-center px-6" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
       <div className="max-w-sm w-full text-center">
-        <Link href="/" className="text-2xl font-extrabold mb-8 block" style={{ color: "var(--yellow)" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
+        <Link href="/" className="text-2xl font-extrabold mb-8 block" style={{ color: "var(--yellow)" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
         <div className="p-8 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
           <div className="text-4xl mb-4">🔒</div>
           <h1 className="text-xl font-bold mb-2">Investor Access</h1>

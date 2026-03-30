@@ -64,7 +64,7 @@ function Nav({ active }: { active?: string }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
+        <Link href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
@@ -103,7 +103,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></div>
+            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
@@ -169,7 +169,13 @@ export default function AboutPage() {
       <main className="pt-16">
         {/* Hero */}
         <section className="py-24 px-6 text-center relative overflow-hidden" style={{ backgroundColor: "var(--bg-section)" }}>
-          <div className="max-w-4xl mx-auto relative">
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80&auto=format&fit=crop"
+            alt="Modern office tech workspace"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.12, pointerEvents: "none", zIndex: 0 }}
+          />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent, var(--bg-section))", zIndex: 1 }} />
+          <div className="max-w-4xl mx-auto relative" style={{ zIndex: 2 }}>
             <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
               About Us
             </div>
@@ -177,20 +183,27 @@ export default function AboutPage() {
               We Build AI Workforces<br /><span style={{ color: "#FFD700" }}>That Actually Work</span>
             </h1>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
-              Our mission is simple: make AI automation accessible to every business — not just the ones with technical teams and unlimited budgets. We're the bridge between AI&apos;s capabilities and real business outcomes.
+              Our mission is simple: make AI automation accessible to every business — not just the ones with technical teams and unlimited budgets. We&apos;re the bridge between AI&apos;s capabilities and real business outcomes.
             </p>
           </div>
         </section>
 
         {/* Stats */}
         <section className="py-16 px-6">
-          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((s, i) => (
-              <div key={i} className="text-center p-6 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                <div className="text-3xl font-extrabold mb-1" style={{ color: "#FFD700" }}>{s.value}</div>
-                <div className="text-sm" style={{ color: "var(--muted)" }}>{s.label}</div>
-              </div>
-            ))}
+          <div className="max-w-5xl mx-auto">
+            <div className="flex justify-center mb-6">
+              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+                🏷️ Australian-owned &amp; operated
+              </span>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {stats.map((s, i) => (
+                <div key={i} className="text-center p-6 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                  <div className="text-3xl font-extrabold mb-1" style={{ color: "#FFD700" }}>{s.value}</div>
+                  <div className="text-sm" style={{ color: "var(--muted)" }}>{s.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
