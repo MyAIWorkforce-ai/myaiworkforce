@@ -80,8 +80,8 @@ function Nav() {
       style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}>
-          My AI Workforce
+        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}>
+          <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
