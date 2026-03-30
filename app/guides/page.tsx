@@ -101,7 +101,7 @@ export default function GuidesPage() {
                 <p className="text-sm flex-1" style={{ color: "var(--text-dim)" }}>{guide.description}</p>
                 <div className="flex items-center justify-between mt-2">
                   <span className="text-xs" style={{ color: "var(--text-dim)" }}>📖 {guide.readTime} read</span>
-                  <Link href={"/guides/" + guide.slug} className="text-sm font-semibold" style={{ color: "var(--yellow)" }}>Read Guide →</Link>
+                  <Link href={`/guides/${guide.slug}`} className="text-sm font-semibold" style={{ color: "var(--yellow)" }}>Read Guide →</Link>
                 </div>
               </div>
             ))}

@@ -603,7 +603,7 @@ function AgentCard({ agent }: { agent: Agent }) {
       <div className="flex items-center justify-between gap-3 mt-auto">
         <span className="text-base font-bold" style={{ color: "var(--text)" }}>{agent.price}</span>
         <a
-          href={"/marketplace/" + agent.slug}
+          href={`/marketplace/${agent.slug}`}
           className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow whitespace-nowrap"
           style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
         >
