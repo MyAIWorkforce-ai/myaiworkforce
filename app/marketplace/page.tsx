@@ -225,6 +225,7 @@ type Category = "All" | "Sales" | "Marketing" | "Operations" | "Customer Support
 interface Agent {
   id: number;
   name: string;
+  slug: string;
   category: Exclude<Category, "All">;
   description: string;
   tags: string[];
@@ -249,6 +250,7 @@ const AGENTS: Agent[] = [
   {
     id: 1,
     name: "Lead Qualifier",
+    slug: "lead-qualifier",
     category: "Sales",
     description: "Automatically scores and qualifies inbound leads based on your ICP criteria, so your sales team focuses only on high-value prospects.",
     tags: ["HubSpot", "Salesforce", "Lead Scoring"],
@@ -259,6 +261,7 @@ const AGENTS: Agent[] = [
   {
     id: 2,
     name: "Cold Outreach Agent",
+    slug: "cold-outreach-agent",
     category: "Sales",
     description: "Researches prospects and drafts hyper-personalised cold emails at scale. Integrates with your outbox for one-click send.",
     tags: ["Gmail", "LinkedIn", "Personalization"],
@@ -269,6 +272,7 @@ const AGENTS: Agent[] = [
   {
     id: 3,
     name: "CRM Updater",
+    slug: "crm-updater",
     category: "Sales",
     description: "Listens to call recordings and emails, then automatically updates your CRM with deal stage, notes, and next actions — no manual entry.",
     tags: ["Salesforce", "Pipedrive", "Automation"],
@@ -279,6 +283,7 @@ const AGENTS: Agent[] = [
   {
     id: 4,
     name: "Follow-up Agent",
+    slug: "follow-up-agent",
     category: "Sales",
     description: "Tracks open deals and sends timely, context-aware follow-up messages to keep prospects warm without clogging your calendar.",
     tags: ["Gmail", "Sequences", "24/7"],
@@ -290,6 +295,7 @@ const AGENTS: Agent[] = [
   {
     id: 5,
     name: "Social Media Scheduler",
+    slug: "social-media-scheduler",
     category: "Marketing",
     description: "Plans, writes, and schedules posts across LinkedIn, Twitter, and Instagram using your brand voice and content calendar.",
     tags: ["LinkedIn", "Twitter", "Instagram"],
@@ -300,6 +306,7 @@ const AGENTS: Agent[] = [
   {
     id: 6,
     name: "SEO Audit Agent",
+    slug: "seo-audit-agent",
     category: "Marketing",
     description: "Crawls your site weekly, identifies SEO gaps, and delivers a prioritised action list with suggested fixes and content ideas.",
     tags: ["SEO", "Content", "Weekly Reports"],
@@ -310,6 +317,7 @@ const AGENTS: Agent[] = [
   {
     id: 7,
     name: "Content Repurposer",
+    slug: "content-repurposer",
     category: "Marketing",
     description: "Takes one long-form piece — blog, podcast, or video — and repurposes it into threads, shorts, newsletters, and social snippets.",
     tags: ["Blog", "Podcast", "Multi-channel"],
@@ -320,6 +328,7 @@ const AGENTS: Agent[] = [
   {
     id: 8,
     name: "Email Campaign Agent",
+    slug: "email-campaign-agent",
     category: "Marketing",
     description: "Designs, writes, and sends segmented email campaigns. Monitors open rates and auto-adjusts subject lines using A/B logic.",
     tags: ["Mailchimp", "Klaviyo", "A/B Testing"],
@@ -331,6 +340,7 @@ const AGENTS: Agent[] = [
   {
     id: 9,
     name: "Invoice Processor",
+    slug: "invoice-processor",
     category: "Operations",
     description: "Reads incoming invoices from email or Drive, extracts line items, matches to POs, and queues for approval — all hands-free.",
     tags: ["Google Drive", "Xero", "QuickBooks"],
@@ -341,6 +351,7 @@ const AGENTS: Agent[] = [
   {
     id: 10,
     name: "Expense Reporter",
+    slug: "expense-reporter",
     category: "Operations",
     description: "Employees snap receipts, the agent categorises, codes, and compiles expense reports ready for manager approval in minutes.",
     tags: ["Receipts", "Slack", "Automation"],
@@ -351,6 +362,7 @@ const AGENTS: Agent[] = [
   {
     id: 11,
     name: "Meeting Summariser",
+    slug: "meeting-summariser",
     category: "Operations",
     description: "Joins your Zoom or Teams calls, transcribes the discussion, and delivers structured summaries with action items to every attendee.",
     tags: ["Zoom", "Teams", "Action Items"],
@@ -361,6 +373,7 @@ const AGENTS: Agent[] = [
   {
     id: 12,
     name: "Data Entry Agent",
+    slug: "data-entry-agent",
     category: "Operations",
     description: "Extracts structured data from PDFs, forms, and emails and populates your spreadsheets or databases with zero copy-paste errors.",
     tags: ["Google Sheets", "Airtable", "PDF"],
@@ -372,6 +385,7 @@ const AGENTS: Agent[] = [
   {
     id: 13,
     name: "Inbound Triage Agent",
+    slug: "inbound-triage-agent",
     category: "Customer Support",
     description: "Reads every incoming support ticket, classifies by urgency and topic, and routes to the right team member instantly — 24/7.",
     tags: ["Zendesk", "Intercom", "24/7"],
@@ -382,6 +396,7 @@ const AGENTS: Agent[] = [
   {
     id: 14,
     name: "Review Responder",
+    slug: "review-responder",
     category: "Customer Support",
     description: "Monitors Google, Trustpilot, and G2 for new reviews and drafts on-brand, personalised responses for your approval queue.",
     tags: ["Google", "Trustpilot", "Brand Voice"],
@@ -392,6 +407,7 @@ const AGENTS: Agent[] = [
   {
     id: 15,
     name: "Support Ticket Router",
+    slug: "support-ticket-router",
     category: "Customer Support",
     description: "Intelligently classifies and routes support tickets to the correct team or agent based on topic, sentiment, and SLA requirements.",
     tags: ["Zendesk", "Freshdesk", "SLA"],
@@ -402,6 +418,7 @@ const AGENTS: Agent[] = [
   {
     id: 16,
     name: "FAQ Bot",
+    slug: "faq-bot",
     category: "Customer Support",
     description: "Trains on your documentation and instantly answers customer questions via chat, deflecting up to 70% of tier-1 support volume.",
     tags: ["Chat", "Docs", "Deflection"],
@@ -413,6 +430,7 @@ const AGENTS: Agent[] = [
   {
     id: 17,
     name: "Receipt Scanner",
+    slug: "receipt-scanner",
     category: "Finance",
     description: "Scans and parses receipts from email or photos, extracts merchant, amount, and date, and logs to your accounting software automatically.",
     tags: ["Xero", "QuickBooks", "OCR"],
@@ -423,6 +441,7 @@ const AGENTS: Agent[] = [
   {
     id: 18,
     name: "Financial Reporter",
+    slug: "financial-reporter",
     category: "Finance",
     description: "Pulls data from your accounting tool and generates clear P&L, cash flow, and runway reports on a schedule you define.",
     tags: ["Xero", "Reports", "Weekly"],
@@ -433,6 +452,7 @@ const AGENTS: Agent[] = [
   {
     id: 19,
     name: "Quote Comparator",
+    slug: "quote-comparator",
     category: "Finance",
     description: "Receives supplier quotes, normalises line items across formats, and produces a side-by-side comparison to support purchase decisions.",
     tags: ["Email", "Procurement", "Analysis"],
@@ -444,6 +464,7 @@ const AGENTS: Agent[] = [
   {
     id: 20,
     name: "Onboarding Assistant",
+    slug: "onboarding-assistant",
     category: "HR",
     description: "Guides new hires through their first 30 days — sends documents, books intros, tracks tasks, and answers HR questions on-demand.",
     tags: ["Slack", "Notion", "Onboarding"],
@@ -454,6 +475,7 @@ const AGENTS: Agent[] = [
   {
     id: 21,
     name: "Job Description Writer",
+    slug: "job-description-writer",
     category: "HR",
     description: "Turns a brief role summary into a polished, inclusive job description optimised for search and aligned to your employer brand.",
     tags: ["LinkedIn", "Indeed", "Inclusive Language"],
@@ -465,6 +487,7 @@ const AGENTS: Agent[] = [
   {
     id: 22,
     name: "Blog Writer Agent",
+    slug: "blog-writer-agent",
     category: "Content",
     description: "Researches topics, outlines, and writes SEO-optimised blog posts in your brand voice. Delivers drafts ready for a quick human review.",
     tags: ["SEO", "WordPress", "Brand Voice"],
@@ -475,6 +498,7 @@ const AGENTS: Agent[] = [
   {
     id: 23,
     name: "Video Script Agent",
+    slug: "video-script-agent",
     category: "Content",
     description: "Writes engaging YouTube and short-form video scripts complete with hooks, talking points, and calls to action tailored to your niche.",
     tags: ["YouTube", "TikTok", "Shorts"],
@@ -486,6 +510,7 @@ const AGENTS: Agent[] = [
   {
     id: 24,
     name: "Competitor Monitor",
+    slug: "competitor-monitor",
     category: "Research",
     description: "Tracks competitor websites, social channels, and pricing pages for changes and delivers a weekly intelligence digest to your inbox.",
     tags: ["Monitoring", "Weekly", "Intelligence"],
@@ -496,6 +521,7 @@ const AGENTS: Agent[] = [
   {
     id: 25,
     name: "Market Research Agent",
+    slug: "market-research-agent",
     category: "Research",
     description: "Scours the web for industry trends, news, and data points on a topic of your choice, then produces a structured research brief.",
     tags: ["Trends", "Reports", "Industry"],
@@ -577,7 +603,7 @@ function AgentCard({ agent }: { agent: Agent }) {
       <div className="flex items-center justify-between gap-3 mt-auto">
         <span className="text-base font-bold" style={{ color: "var(--text)" }}>{agent.price}</span>
         <a
-          href="/contact"
+          href={"/marketplace/" + agent.slug}
           className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow whitespace-nowrap"
           style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
         >

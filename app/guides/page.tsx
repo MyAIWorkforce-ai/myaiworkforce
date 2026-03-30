@@ -3,15 +3,15 @@ import { useState } from "react";
 import Link from "next/link";
 
 const guides = [
-  { title: "How to Set Up Your First AI Email Agent", description: "Learn how to configure an AI agent to triage, respond, and organise your inbox — saving you hours every week.", category: "Operations", difficulty: "Beginner", readTime: "15 min", slug: "#" },
-  { title: "Automate Your Customer Support in 3 Steps", description: "Deploy an AI agent that handles inbound queries, resolves common issues, and escalates to humans when needed.", category: "Customer Support", difficulty: "Beginner", readTime: "20 min", slug: "#" },
-  { title: "Build a Lead Generation Agent from Scratch", description: "Create an agent that finds, qualifies, and reaches out to potential leads — all on autopilot.", category: "Sales", difficulty: "Intermediate", readTime: "25 min", slug: "#" },
-  { title: "Create a Social Media Scheduling Agent", description: "Build a workflow that drafts, schedules, and posts content across all your platforms automatically.", category: "Marketing", difficulty: "Beginner", readTime: "18 min", slug: "#" },
-  { title: "Set Up an Invoice Processing Workflow", description: "Automate the extraction, validation, and filing of invoices using AI — no more manual data entry.", category: "Finance", difficulty: "Intermediate", readTime: "22 min", slug: "#" },
-  { title: "Build a Market Research Agent", description: "Configure an agent to monitor competitors, track industry trends, and deliver daily intelligence briefs.", category: "Research", difficulty: "Advanced", readTime: "30 min", slug: "#" },
-  { title: "The OpenClaw Quick-Start Guide", description: "Get your first OpenClaw agent up and running in under 30 minutes. No code required.", category: "Operations", difficulty: "Beginner", readTime: "12 min", slug: "#" },
-  { title: "Build a Sales Outreach Agent with n8n", description: "Use n8n workflows to automate personalised cold outreach at scale.", category: "Sales", difficulty: "Advanced", readTime: "35 min", slug: "#" },
-  { title: "Automate Your Hiring Pipeline", description: "From job posting to interview scheduling — let AI handle the repetitive parts of recruitment.", category: "HR", difficulty: "Intermediate", readTime: "28 min", slug: "#" },
+  { title: "How to Set Up Your First AI Email Agent", description: "Learn how to configure an AI agent to triage, respond, and organise your inbox — saving you hours every week.", category: "Operations", difficulty: "Beginner", readTime: "15 min", slug: "how-to-set-up-your-first-ai-email-agent" },
+  { title: "Automate Your Customer Support in 3 Steps", description: "Deploy an AI agent that handles inbound queries, resolves common issues, and escalates to humans when needed.", category: "Customer Support", difficulty: "Beginner", readTime: "20 min", slug: "automate-your-customer-support-in-3-steps" },
+  { title: "Build a Lead Generation Agent from Scratch", description: "Create an agent that finds, qualifies, and reaches out to potential leads — all on autopilot.", category: "Sales", difficulty: "Intermediate", readTime: "25 min", slug: "build-a-lead-generation-agent-from-scratch" },
+  { title: "Create a Social Media Scheduling Agent", description: "Build a workflow that drafts, schedules, and posts content across all your platforms automatically.", category: "Marketing", difficulty: "Beginner", readTime: "18 min", slug: "create-a-social-media-scheduling-agent" },
+  { title: "Set Up an Invoice Processing Workflow", description: "Automate the extraction, validation, and filing of invoices using AI — no more manual data entry.", category: "Finance", difficulty: "Intermediate", readTime: "22 min", slug: "set-up-an-invoice-processing-workflow" },
+  { title: "Build a Market Research Agent", description: "Configure an agent to monitor competitors, track industry trends, and deliver daily intelligence briefs.", category: "Research", difficulty: "Advanced", readTime: "30 min", slug: "build-a-market-research-agent" },
+  { title: "The OpenClaw Quick-Start Guide", description: "Get your first OpenClaw agent up and running in under 30 minutes. No code required.", category: "Operations", difficulty: "Beginner", readTime: "12 min", slug: "the-openclaw-quick-start-guide" },
+  { title: "Build a Sales Outreach Agent with n8n", description: "Use n8n workflows to automate personalised cold outreach at scale.", category: "Sales", difficulty: "Advanced", readTime: "35 min", slug: "build-a-sales-outreach-agent-with-n8n" },
+  { title: "Automate Your Hiring Pipeline", description: "From job posting to interview scheduling — let AI handle the repetitive parts of recruitment.", category: "HR", difficulty: "Intermediate", readTime: "28 min", slug: "automate-your-hiring-pipeline" },
 ];
 
 const difficulties = ["All", "Beginner", "Intermediate", "Advanced"];
@@ -101,7 +101,7 @@ export default function GuidesPage() {
                 <p className="text-sm flex-1" style={{ color: "var(--text-dim)" }}>{guide.description}</p>
                 <div className="flex items-center justify-between mt-2">
                   <span className="text-xs" style={{ color: "var(--text-dim)" }}>📖 {guide.readTime} read</span>
-                  <Link href={guide.slug} className="text-sm font-semibold" style={{ color: "var(--yellow)" }}>Read Guide →</Link>
+                  <Link href={"/guides/" + guide.slug} className="text-sm font-semibold" style={{ color: "var(--yellow)" }}>Read Guide →</Link>
                 </div>
               </div>
             ))}
