@@ -144,6 +144,7 @@ const included = [
   { icon: "📋", item: "Full documentation and training for your team" },
   { icon: "⚡", item: "Priority access to new agents and features" },
   { icon: "✅", item: "30-day satisfaction guarantee on all plans" },
+  { icon: "🖥️", item: "Claw.so dashboard — see your agents working in real time, approve actions, review outputs" },
 ];
 
 const plans = [
