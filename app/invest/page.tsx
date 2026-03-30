@@ -8,7 +8,7 @@ function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (input === "Invest") {
+    if (input === "investnow") {
       onUnlock();
     } else {
       setError(true);
