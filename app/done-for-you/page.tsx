@@ -297,7 +297,13 @@ export default function DoneForYouPage() {
       <main className="pt-16">
         {/* Hero */}
         <section className="py-24 px-6 text-center relative overflow-hidden" style={{ backgroundColor: "var(--bg-section)" }}>
-          <div className="max-w-4xl mx-auto relative">
+          <img
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80&auto=format&fit=crop"
+            alt="Professional working on laptop with AI tools"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.13, pointerEvents: "none", zIndex: 0 }}
+          />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.4), var(--bg-section))", zIndex: 1 }} />
+          <div className="max-w-4xl mx-auto relative" style={{ zIndex: 2 }}>
             <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
               Done-For-You Service
             </div>
@@ -387,6 +393,11 @@ export default function DoneForYouPage() {
                   <p className="text-xs font-semibold" style={{ color: "#FFD700" }}>
                     🛡️ Every plan includes a dedicated private VPS at no extra cost.
                   </p>
+                  <div className="mt-3">
+                    <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 12, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+                      🏷️ Your data never leaves your server
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -416,7 +427,12 @@ export default function DoneForYouPage() {
           <div className="max-w-6xl mx-auto">
             <p className="section-label justify-center mb-4">Pricing</p>
             <h2 className="text-3xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Simple, Transparent Pricing</h2>
-            <p className="text-center max-w-xl mx-auto mb-12" style={{ color: "var(--muted)" }}>All plans include full setup, ongoing management, and private VPS deployment.</p>
+            <p className="text-center max-w-xl mx-auto mb-4" style={{ color: "var(--muted)" }}>All plans include full setup, ongoing management, and private VPS deployment.</p>
+            <div className="flex justify-center mb-10">
+              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+                🏷️ First month 20% off for new clients
+              </span>
+            </div>
             <div className="grid md:grid-cols-3 gap-6">
               {plans.map((plan, i) => (
                 <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.highlight ? "rgba(255,215,0,0.05)" : "var(--card)", border: `2px solid ${plan.highlight ? "#FFD700" : "var(--border)"}` }}>
@@ -445,6 +461,11 @@ export default function DoneForYouPage() {
             </div>
             <div className="mt-8 text-center p-6 rounded-xl" style={{ backgroundColor: "rgba(255,215,0,0.05)", border: "1px solid rgba(255,215,0,0.2)" }}>
               <p className="font-semibold" style={{ color: "#FFD700" }}>🛡️ 30-Day Satisfaction Guarantee — if we don&apos;t deliver results in month one, we&apos;ll refund you in full.</p>
+            </div>
+            <div className="flex justify-center mt-4">
+              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+                🏷️ 30-day money-back guarantee — zero risk
+              </span>
             </div>
           </div>
         </section>

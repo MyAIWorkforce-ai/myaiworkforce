@@ -279,7 +279,12 @@ export default function PricingPage() {
             <h1 className="text-4xl md:text-6xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
               Simple, Transparent<br /><span style={{ color: "#FFD700" }}>Pricing</span>
             </h1>
-            <p className="text-lg mb-8" style={{ color: "var(--muted)" }}>Start free. Scale when you&apos;re ready. No hidden fees, no surprises.</p>
+            <p className="text-lg mb-6" style={{ color: "var(--muted)" }}>Start free. Scale when you&apos;re ready. No hidden fees, no surprises.</p>
+            <div>
+              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+                🏷️ No setup fees — start immediately
+              </span>
+            </div>
           </div>
         </section>
 
@@ -301,7 +306,14 @@ export default function PricingPage() {
                 const price = annual ? plan.annualPrice : plan.monthlyPrice;
                 return (
                   <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.featured ? "rgba(255,215,0,0.05)" : "var(--card)", border: `2px solid ${plan.featured ? "#FFD700" : "var(--border)"}` }}>
-                    {plan.featured && <div className="text-xs font-bold px-3 py-1 rounded-full self-start" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>MOST POPULAR</div>}
+                    {plan.featured && (
+                      <div className="flex flex-wrap gap-2 items-center">
+                        <div className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>MOST POPULAR</div>
+                        <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "4px 10px", fontSize: 11, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+                          🏷️ Most Popular — Best Value
+                        </span>
+                      </div>
+                    )}
                     <div>
                       <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
                       <div className="flex items-baseline gap-1 mb-2">
@@ -335,7 +347,14 @@ export default function PricingPage() {
             <div className="grid md:grid-cols-3 gap-6">
               {dfy_plans.map((plan, i) => (
                 <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.highlight ? "rgba(255,215,0,0.05)" : "var(--card)", border: `2px solid ${plan.highlight ? "#FFD700" : "var(--border)"}` }}>
-                  {plan.highlight && <div className="text-xs font-bold px-3 py-1 rounded-full self-start" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>MOST POPULAR</div>}
+                  {plan.highlight && (
+                    <div className="flex flex-wrap gap-2 items-center">
+                      <div className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>MOST POPULAR</div>
+                      <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "4px 10px", fontSize: 11, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+                        🏷️ Most Popular — Best Value
+                      </span>
+                    </div>
+                  )}
                   <div>
                     <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
                     <div className="flex items-baseline gap-1">

@@ -273,7 +273,7 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="p-8 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center text-xl font-extrabold" style={{ backgroundColor: "rgba(255,215,0,0.15)", color: "#FFD700" }}>TB</div>
+                  <div className="w-20 h-20 rounded-full flex items-center justify-center text-2xl font-extrabold flex-shrink-0" style={{ backgroundColor: "#FFD700", color: "#0A0A0A", boxShadow: "0 0 0 3px rgba(255,215,0,0.3)" }}>TB</div>
                   <div>
                     <h3 className="font-bold">Toby Banks</h3>
                     <p className="text-sm" style={{ color: "#FFD700" }}>Founder & CEO</p>

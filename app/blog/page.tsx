@@ -148,6 +148,8 @@ const posts = [
     readTime: "5 min read",
     date: "Mar 28, 2026",
     featured: true,
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&auto=format&fit=crop",
+    imageAlt: "AI workforce automation concept",
   },
   {
     title: "The Hidden Cost of Manual Data Entry (And How AI Fixes It)",
@@ -156,6 +158,8 @@ const posts = [
     readTime: "4 min read",
     date: "Mar 25, 2026",
     featured: false,
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80&auto=format&fit=crop",
+    imageAlt: "Data entry and finance automation",
   },
   {
     title: "OpenClaw vs n8n vs Make: Which AI Agent Platform Is Right for You?",
@@ -164,6 +168,8 @@ const posts = [
     readTime: "8 min read",
     date: "Mar 22, 2026",
     featured: false,
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80&auto=format&fit=crop",
+    imageAlt: "Technology platform comparison",
   },
   {
     title: "How We Cut a Client's Support Volume by 70% in 30 Days",
@@ -172,6 +178,8 @@ const posts = [
     readTime: "6 min read",
     date: "Mar 19, 2026",
     featured: false,
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&auto=format&fit=crop",
+    imageAlt: "Business case study team results",
   },
   {
     title: "Security First: Why We Deploy AI Agents on Private VPS",
@@ -180,6 +188,8 @@ const posts = [
     readTime: "5 min read",
     date: "Mar 16, 2026",
     featured: false,
+    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&q=80&auto=format&fit=crop",
+    imageAlt: "Cybersecurity and data protection",
   },
   {
     title: "The Complete Guide to AI Agent ROI",
@@ -188,6 +198,8 @@ const posts = [
     readTime: "7 min read",
     date: "Mar 13, 2026",
     featured: false,
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80&auto=format&fit=crop",
+    imageAlt: "ROI and financial returns chart",
   },
 ];
 
@@ -220,18 +232,28 @@ export default function BlogPage() {
         <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
             {/* Featured Post */}
-            <div className="rounded-2xl p-10 mb-12" style={{ backgroundColor: "var(--card)", border: "2px solid #FFD700" }}>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-xs px-2 py-1 rounded-full font-bold" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>FEATURED</span>
-                <span className="text-xs px-2 py-1 rounded-full font-semibold" style={{ backgroundColor: CATEGORY_COLORS[featured.category]?.bg, color: CATEGORY_COLORS[featured.category]?.text }}>
-                  {featured.category}
-                </span>
-                <span className="text-xs" style={{ color: "var(--muted)" }}>{featured.readTime}</span>
-                <span className="text-xs" style={{ color: "var(--muted)" }}>{featured.date}</span>
+            <div className="rounded-2xl mb-12 overflow-hidden" style={{ backgroundColor: "var(--card)", border: "2px solid #FFD700" }}>
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src={featured.image}
+                  alt={featured.imageAlt}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.8))" }} />
               </div>
-              <h2 className="text-3xl font-extrabold mb-4" style={{ letterSpacing: "-0.02em" }}>{featured.title}</h2>
-              <p className="text-lg mb-6 max-w-3xl" style={{ color: "var(--muted)" }}>{featured.excerpt}</p>
-              <a href="#" className="font-semibold" style={{ color: "#FFD700" }}>Read Article →</a>
+              <div className="p-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-xs px-2 py-1 rounded-full font-bold" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>FEATURED</span>
+                  <span className="text-xs px-2 py-1 rounded-full font-semibold" style={{ backgroundColor: CATEGORY_COLORS[featured.category]?.bg, color: CATEGORY_COLORS[featured.category]?.text }}>
+                    {featured.category}
+                  </span>
+                  <span className="text-xs" style={{ color: "var(--muted)" }}>{featured.readTime}</span>
+                  <span className="text-xs" style={{ color: "var(--muted)" }}>{featured.date}</span>
+                </div>
+                <h2 className="text-3xl font-extrabold mb-4" style={{ letterSpacing: "-0.02em" }}>{featured.title}</h2>
+                <p className="text-lg mb-6 max-w-3xl" style={{ color: "var(--muted)" }}>{featured.excerpt}</p>
+                <a href="#" className="font-semibold" style={{ color: "#FFD700" }}>Read Article →</a>
+              </div>
             </div>
 
             {/* Posts Grid */}
@@ -239,17 +261,24 @@ export default function BlogPage() {
               {rest.map((post, i) => {
                 const colors = CATEGORY_COLORS[post.category] ?? { bg: "rgba(255,215,0,0.1)", text: "#FFD700" };
                 return (
-                  <div key={i} className="rounded-xl p-6 flex flex-col gap-4 card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-xs px-2 py-1 rounded-full font-semibold" style={{ backgroundColor: colors.bg, color: colors.text }}>
-                        {post.category}
-                      </span>
-                      <span className="text-xs" style={{ color: "var(--muted)" }}>{post.readTime}</span>
-                      <span className="text-xs" style={{ color: "var(--muted)" }}>{post.date}</span>
+                  <div key={i} className="rounded-xl flex flex-col card-hover overflow-hidden" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                    <img
+                      src={post.image}
+                      alt={post.imageAlt}
+                      style={{ width: "100%", height: 200, objectFit: "cover" }}
+                    />
+                    <div className="p-6 flex flex-col gap-4 flex-1">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-xs px-2 py-1 rounded-full font-semibold" style={{ backgroundColor: colors.bg, color: colors.text }}>
+                          {post.category}
+                        </span>
+                        <span className="text-xs" style={{ color: "var(--muted)" }}>{post.readTime}</span>
+                        <span className="text-xs" style={{ color: "var(--muted)" }}>{post.date}</span>
+                      </div>
+                      <h3 className="font-bold text-lg leading-snug flex-1">{post.title}</h3>
+                      <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.6" }}>{post.excerpt}</p>
+                      <a href="#" className="text-sm font-semibold" style={{ color: "#FFD700" }}>Read Article →</a>
                     </div>
-                    <h3 className="font-bold text-lg leading-snug flex-1">{post.title}</h3>
-                    <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.6" }}>{post.excerpt}</p>
-                    <a href="#" className="text-sm font-semibold" style={{ color: "#FFD700" }}>Read Article →</a>
                   </div>
                 );
               })}
