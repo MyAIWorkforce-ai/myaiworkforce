@@ -522,7 +522,7 @@ function FeaturedAgents() {
       price: "$39/mo",
       rating: 5,
       reviews: 512,
-      slug: "customer-support-agent",
+      slug: "inbound-triage-agent",
     },
     {
       name: "Invoice & Expense Tracker",
@@ -533,7 +533,7 @@ function FeaturedAgents() {
       price: "$19/mo",
       rating: 4,
       reviews: 178,
-      slug: "invoice-expense-tracker",
+      slug: "invoice-processor",
     },
   ];
 
@@ -572,7 +572,7 @@ function FeaturedAgents() {
                 <span className="text-xs ml-1" style={{ color: "var(--muted)" }}>({a.reviews})</span>
               </div>
               <Link
-                href="/marketplace"
+                href={`/marketplace/${a.slug}`}
                 className="text-center py-2 rounded-lg text-sm font-semibold transition-all"
                 style={{ border: "1px solid var(--yellow)", color: "var(--yellow)" }}
               >
