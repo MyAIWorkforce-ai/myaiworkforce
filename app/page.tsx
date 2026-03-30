@@ -159,7 +159,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}>My AI Workforce</div>
+            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">

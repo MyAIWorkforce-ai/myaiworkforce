@@ -63,7 +63,7 @@ function Nav({ active }: { active?: string }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}>My AI Workforce</Link>
+        <Link href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
@@ -102,7 +102,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}>My AI Workforce</div>
+            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">

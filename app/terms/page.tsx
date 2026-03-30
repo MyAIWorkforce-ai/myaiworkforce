@@ -66,7 +66,7 @@ function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" className="text-xl font-bold" style={{ color: "#FFD700", letterSpacing: "-0.02em" }}>
-          MyAIWorkforce
+          <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
           {[

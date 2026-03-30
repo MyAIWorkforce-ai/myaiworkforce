@@ -525,7 +525,7 @@ function Footer() {
   return (
     <footer className="border-t py-10 mt-20" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--bg)" }}>
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <span className="font-bold" style={{ color: "var(--yellow)" }}>My AI Workforce</span>
+        <span className="font-bold" style={{ color: "var(--yellow)" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></span>
         <p className="text-sm" style={{ color: "var(--text-dim)" }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
         <div className="flex gap-6 text-sm">
           <Link href="/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
