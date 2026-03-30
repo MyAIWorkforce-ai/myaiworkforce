@@ -211,6 +211,11 @@ function Footer() {
 function Hero() {
   return (
     <section className="relative pt-40 pb-28 px-6 text-center overflow-hidden">
+      <img
+        src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1400&q=80&auto=format&fit=crop"
+        alt="AI technology abstract background"
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.15, pointerEvents: "none", zIndex: 0 }}
+      />
       <div className="hero-glow"></div>
       <div className="hero-grid"></div>
       <div className="hero-orb-1"></div>
@@ -250,6 +255,11 @@ function Hero() {
           >
             Browse the Marketplace
           </Link>
+        </div>
+        <div className="mt-8">
+          <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+            🏷️ First client this month gets 20% off — Book now
+          </span>
         </div>
       </div>
     </section>
@@ -487,6 +497,14 @@ function SecuritySection() {
   );
 }
 
+// ─── Section Divider ─────────────────────────────────────────────────────────
+
+function SectionDivider() {
+  return (
+    <div style={{ height: 2, background: "linear-gradient(to right, transparent, #F97316 30%, #FFD700 50%, #F97316 70%, transparent)", opacity: 0.4 }} />
+  );
+}
+
 // ─── Featured Agents ──────────────────────────────────────────────────────────
 
 function FeaturedAgents() {
@@ -522,7 +540,7 @@ function FeaturedAgents() {
       price: "$39/mo",
       rating: 5,
       reviews: 512,
-      slug: "customer-support-agent",
+      slug: "inbound-triage-agent",
     },
     {
       name: "Invoice & Expense Tracker",
@@ -533,20 +551,25 @@ function FeaturedAgents() {
       price: "$19/mo",
       rating: 4,
       reviews: 178,
-      slug: "invoice-expense-tracker",
+      slug: "invoice-processor",
     },
   ];
 
   return (
-    <section className="py-24 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
+    <section className="py-24 px-6 relative" style={{ backgroundColor: "var(--bg-section)", backgroundImage: "radial-gradient(circle, rgba(255,215,0,0.04) 1px, transparent 1px)", backgroundSize: "28px 28px" }}>
       <div className="max-w-7xl mx-auto">
         <p className="section-label justify-center mb-4">Marketplace</p>
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.03em" }}>
           Featured Agents
         </h2>
-        <p className="text-center max-w-xl mx-auto mb-16" style={{ color: "var(--muted)" }}>
+        <p className="text-center max-w-xl mx-auto mb-4" style={{ color: "var(--muted)" }}>
           500+ ready-made AI agents. Deploy in minutes. No technical setup required.
         </p>
+        <div className="flex justify-center mb-12">
+          <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+            🏷️ 500+ agents — new ones added weekly
+          </span>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {agents.map((a, i) => (
             <div
@@ -572,7 +595,7 @@ function FeaturedAgents() {
                 <span className="text-xs ml-1" style={{ color: "var(--muted)" }}>({a.reviews})</span>
               </div>
               <Link
-                href="/marketplace"
+                href={`/marketplace/${a.slug}`}
                 className="text-center py-2 rounded-lg text-sm font-semibold transition-all"
                 style={{ border: "1px solid var(--yellow)", color: "var(--yellow)" }}
               >
@@ -675,6 +698,11 @@ function PricingTeaser() {
             <p className="mb-6" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
               No hidden fees. No long-term lock-in. Cancel any time with 30 days notice. Every plan includes dedicated deployment, ongoing management, and monthly performance reports.
             </p>
+            <div className="mb-6">
+              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+                🏷️ No lock-in contracts — cancel anytime
+              </span>
+            </div>
             <Link
               href="/pricing"
               className="px-8 py-4 rounded-xl font-bold text-black inline-block"
@@ -767,7 +795,9 @@ export default function HomePage() {
         <ThreePillars />
         <HowItWorks />
         <SecuritySection />
+        <SectionDivider />
         <FeaturedAgents />
+        <SectionDivider />
         <Testimonials />
         <PricingTeaser />
         <CTABanner />
