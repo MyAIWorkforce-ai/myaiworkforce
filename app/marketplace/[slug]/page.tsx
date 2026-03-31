@@ -894,6 +894,62 @@ function Nav() {
   );
 }
 
+function parseAmount(price: string): { amount: number; type: string } {
+  // Parse price strings like "$29/mo", "$49", "Free", "From $15"
+  if (price === 'Free') return { amount: 0, type: 'payment' }
+  const isSubscription = price.includes('/mo')
+  const match = price.match(/\$(\d+)/)
+  const dollars = match ? parseInt(match[1]) : 0
+  return { amount: dollars * 100, type: isSubscription ? 'subscription' : 'payment' }
+}
+
+function BuyButton({ agent }: { agent: { price: string; title: string } }) {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const { amount, type } = parseAmount(agent.price)
+
+  const handleBuy = async () => {
+    if (amount === 0) {
+      window.location.href = '/contact'
+      return
+    }
+    setLoading(true)
+    setError(null)
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productName: agent.title, amount, type }),
+      })
+      const data = await res.json()
+      if (data.url) {
+        window.location.href = data.url
+      } else {
+        setError(data.error || 'Something went wrong')
+      }
+    } catch {
+      setError('Failed to connect to payment system')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <div>
+      <button
+        onClick={handleBuy}
+        disabled={loading}
+        className="w-full py-4 rounded-xl font-bold text-center text-black block mb-3 transition-opacity"
+        style={{ backgroundColor: "var(--yellow)", opacity: loading ? 0.7 : 1, cursor: loading ? 'wait' : 'pointer' }}
+      >
+        {loading ? 'Redirecting to checkout…' : amount === 0 ? 'Get This Agent (Free) →' : `Get This Agent ${agent.price} →`}
+      </button>
+      {error && <p className="text-xs text-red-500 text-center mb-2">{error}</p>}
+    </div>
+  )
+}
+
 export default function AgentPage({ params }: { params: { slug: string } }) {
   const agent = agents[params.slug];
   if (!agent) notFound();
@@ -977,9 +1033,7 @@ export default function AgentPage({ params }: { params: { slug: string } }) {
             <div className="sticky top-24 rounded-xl p-6" style={{ backgroundColor: "var(--card)", border: "2px solid var(--yellow)" }}>
               <div className="text-4xl font-extrabold mb-1" style={{ color: "var(--yellow)" }}>{agent.price}</div>
               <p className="text-sm mb-6" style={{ color: "var(--text-dim)" }}>One-time purchase. Use forever.</p>
-              <a href="/contact" className="w-full py-4 rounded-xl font-bold text-center text-black block mb-3" style={{ backgroundColor: "var(--yellow)" }}>
-                Get This Agent →
-              </a>
+              <BuyButton agent={agent} />
               <p className="text-xs text-center mb-6" style={{ color: "var(--text-dim)" }}>Instant download after purchase</p>
               <div className="flex flex-col gap-2 text-sm">
                 {["Instant download", "Full documentation", "Setup guide included", "Email support"].map((b, i) => (

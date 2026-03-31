@@ -535,6 +535,52 @@ function Footer() {
   );
 }
 
+function GuideBuyButton({ guide }: { guide: Guide & { difficulty: string; title: string } }) {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const price = guidePrices[guide.difficulty]
+
+  const handleBuy = async () => {
+    setLoading(true)
+    setError(null)
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          productName: guide.title,
+          amount: price * 100,
+          type: 'payment',
+        }),
+      })
+      const data = await res.json()
+      if (data.url) {
+        window.location.href = data.url
+      } else {
+        setError(data.error || 'Something went wrong')
+      }
+    } catch {
+      setError('Failed to connect to payment system')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <div>
+      <button
+        onClick={handleBuy}
+        disabled={loading}
+        className="inline-block px-10 py-4 rounded-xl font-bold text-base transition-opacity"
+        style={{ backgroundColor: "#FFD700", color: "#0A0A0A", opacity: loading ? 0.7 : 1, cursor: loading ? 'wait' : 'pointer' }}
+      >
+        {loading ? 'Redirecting to checkout…' : `Buy Now — $${price} →`}
+      </button>
+      {error && <p className="text-xs text-red-500 mt-2">{error}</p>}
+    </div>
+  )
+}
+
 export default function GuidePage({ params }: { params: { slug: string } }) {
   const guide = guides[params.slug];
   if (!guide) notFound();
@@ -654,14 +700,8 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
             <p className="text-sm mb-6 max-w-md mx-auto" style={{ color: "var(--text-dim)" }}>
               One-time purchase. Instant access. Includes all steps, templates, and setup files.
             </p>
-            <Link
-              href="/contact"
-              className="inline-block px-10 py-4 rounded-xl font-bold text-base"
-              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
-            >
-              Buy Now — ${guidePrices[guide.difficulty]} →
-            </Link>
-            <p className="text-xs mt-3" style={{ color: "var(--text-dim)" }}>Stripe payments coming soon — contact us to purchase now</p>
+            <GuideBuyButton guide={guide} />
+            <p className="text-xs mt-3" style={{ color: "var(--text-dim)" }}>Secure checkout via Stripe</p>
           </section>
 
           {/* CTA */}

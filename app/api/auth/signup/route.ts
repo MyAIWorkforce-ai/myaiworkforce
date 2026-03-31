@@ -1,21 +1,24 @@
-// app/api/auth/signup/route.ts
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server'
+import { createClient } from '@supabase/supabase-js'
 
-export async function POST(request: Request) {
-  // TODO: Wire up Supabase Auth for user creation
-  // For now, return a mock user object
-  const body = await request.json();
-  const { email, password } = body;
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+)
 
-  if (!email || !password) {
-    return NextResponse.json({ error: 'Email and password are required' }, { status: 400 });
+export async function POST(req: NextRequest) {
+  try {
+    const { email, password, name } = await req.json()
+    const { data, error } = await supabase.auth.admin.createUser({
+      email,
+      password,
+      user_metadata: { name },
+      email_confirm: true,
+    })
+    if (error) return NextResponse.json({ error: error.message }, { status: 400 })
+    return NextResponse.json({ user: data.user })
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error'
+    return NextResponse.json({ error: message }, { status: 500 })
   }
-
-  const mockUser = {
-    id: '123e4567-e89b-12d3-a456-426614174000',
-    email: email,
-    createdAt: new Date().toISOString(),
-  };
-
-  return NextResponse.json(mockUser);
 }

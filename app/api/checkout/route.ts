@@ -1,19 +1,31 @@
-// app/api/checkout/route.ts
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server'
+import { stripe } from '@/lib/stripe'
 
-export async function POST(request: Request) {
-    // TODO: Verify user auth
-    // TODO: Get skill price from Supabase
-    // TODO: Create Stripe Checkout Session
-    // For now, return a mock checkout URL
+export async function POST(req: NextRequest) {
+  try {
+    const { priceId, productName, amount, type } = await req.json()
 
-    const { skillId } = await request.json();
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      mode: type === 'subscription' ? 'subscription' : 'payment',
+      line_items: [
+        {
+          price_data: {
+            currency: 'aud',
+            product_data: { name: productName },
+            unit_amount: amount, // in cents
+            ...(type === 'subscription' && { recurring: { interval: 'month' } }),
+          },
+          quantity: 1,
+        },
+      ],
+      success_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://myaiworkforce.ai'}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://myaiworkforce.ai'}/marketplace`,
+    })
 
-    if (!skillId) {
-        return NextResponse.json({ error: 'Skill ID is required' }, { status: 400 });
-    }
-
-    const mockCheckoutUrl = `https://checkout.stripe.com/mock-session-for-skill-${skillId}`;
-
-    return NextResponse.json({ url: mockCheckoutUrl });
+    return NextResponse.json({ url: session.url })
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error'
+    return NextResponse.json({ error: message }, { status: 500 })
+  }
 }
