@@ -186,7 +186,7 @@ const marketplacePlans = [
 
 const dfy_plans = [
   {
-    name: "Starter",
+    name: "🚀 Starter",
     price: "$997",
     period: "/mo",
     agents: "2 Custom Agents",
@@ -202,7 +202,7 @@ const dfy_plans = [
     cta: "Get Started",
   },
   {
-    name: "Growth",
+    name: "📈 Growth",
     price: "$1,497",
     period: "/mo",
     agents: "5 Custom Agents",
@@ -218,7 +218,7 @@ const dfy_plans = [
     cta: "Most Popular",
   },
   {
-    name: "Enterprise",
+    name: "🏆 Enterprise",
     price: "$2,497",
     period: "/mo",
     agents: "Unlimited Agents",
@@ -433,7 +433,7 @@ export default function PricingPage() {
               {faqs.map((faq, i) => (
                 <div key={i} className="rounded-xl overflow-hidden" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
                   <button className="w-full p-6 text-left flex items-center justify-between gap-4" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
-                    <h3 className="font-bold text-sm">{faq.q}</h3>
+                    <h3 className="font-bold text-sm"><span className="mr-2">❓</span>{faq.q}</h3>
                     <span style={{ color: "#FFD700", fontSize: "20px", flexShrink: 0 }}>{openFaq === i ? "−" : "+"}</span>
                   </button>
                   {openFaq === i && (

@@ -270,16 +270,17 @@ function Hero() {
 
 function StatsBar() {
   const stats = [
-    { value: "500+", label: "AI Agents" },
-    { value: "95%+", label: "Gross Margin" },
-    { value: "$184B", label: "Market Size" },
-    { value: "30 Min", label: "Avg. Setup Time" },
+    { icon: "🤖", value: "500+", label: "AI Agents" },
+    { icon: "📈", value: "95%+", label: "Gross Margin" },
+    { icon: "💰", value: "$184B", label: "Market Size" },
+    { icon: "⚡", value: "30 Min", label: "Avg. Setup Time" },
   ];
   return (
     <section style={{ backgroundColor: "var(--bg-section)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((s, i) => (
           <div key={i} className="text-center">
+            <div className="text-2xl mb-1">{s.icon}</div>
             <div className="text-3xl md:text-4xl font-extrabold mb-1" style={{ color: "#FFD700", letterSpacing: "-0.03em" }}>{s.value}</div>
             <div className="text-sm font-medium" style={{ color: "var(--muted)" }}>{s.label}</div>
           </div>
@@ -369,16 +370,19 @@ function HowItWorks() {
   const steps = [
     {
       num: "01",
+      icon: "🔍",
       title: "Discovery & Strategy",
       desc: "We spend 30 minutes learning your business, identifying your biggest inefficiencies, and mapping out exactly where AI can generate the most ROI.",
     },
     {
       num: "02",
+      icon: "🚀",
       title: "Build & Deploy",
       desc: "Our team builds your custom AI agents on a dedicated, private server. You get status updates every step of the way. Typical go-live: 2 weeks.",
     },
     {
       num: "03",
+      icon: "📊",
       title: "Manage & Optimise",
       desc: "We monitor your AI workforce 24/7, run monthly performance reviews, and continuously improve your agents. You get results, not homework.",
     },
@@ -400,6 +404,7 @@ function HowItWorks() {
               className="relative p-8 rounded-2xl card-hover"
               style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}
             >
+              <div className="flex items-center justify-center w-14 h-14 rounded-full text-2xl mb-4" style={{ backgroundColor: "rgba(255,215,0,0.15)", border: "2px solid rgba(255,215,0,0.3)" }}>{s.icon}</div>
               <div className="text-5xl font-extrabold mb-4" style={{ color: "rgba(255,215,0,0.15)", letterSpacing: "-0.04em" }}>{s.num}</div>
               <h3 className="text-xl font-bold mb-3">{s.title}</h3>
               <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>{s.desc}</p>
@@ -459,8 +464,9 @@ function SecuritySection() {
     },
   ];
   return (
-    <section className="py-24 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-6" style={{ position: "relative" }}>
+      <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,215,0,0.06) 1px, transparent 1px)", backgroundSize: "24px 24px", pointerEvents: "none", zIndex: 0 }} />
+      <div className="max-w-7xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
         <div className="text-center mb-16">
           <p className="section-label justify-center mb-4">Security First</p>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
@@ -665,8 +671,8 @@ function Testimonials() {
               </p>
               <div className="flex items-center gap-3">
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold"
-                  style={{ backgroundColor: "rgba(255,215,0,0.15)", color: "#FFD700" }}
+                  className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
+                  style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
                 >
                   {t.initials}
                 </div>

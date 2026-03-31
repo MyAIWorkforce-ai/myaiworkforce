@@ -3,6 +3,16 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 
+const CATEGORY_EMOJI: Record<string, string> = {
+  Operations: "⚙️",
+  "Customer Support": "💬",
+  Sales: "📊",
+  Marketing: "📱",
+  Finance: "💰",
+  Research: "🔍",
+  HR: "👥",
+};
+
 const guides = [
   { title: "How to Set Up Your First AI Email Agent", description: "Learn how to configure an AI agent to triage, respond, and organise your inbox — saving you hours every week.", category: "Operations", difficulty: "Beginner", readTime: "15 min", slug: "how-to-set-up-your-first-ai-email-agent", price: 9 },
   { title: "Automate Your Customer Support in 3 Steps", description: "Deploy an AI agent that handles inbound queries, resolves common issues, and escalates to humans when needed.", category: "Customer Support", difficulty: "Beginner", readTime: "20 min", slug: "automate-your-customer-support-in-3-steps", price: 9 },
@@ -195,8 +205,14 @@ export default function GuidesPage() {
       <Nav />
       <main>
         {/* Hero */}
-        <section className="py-20 px-6 text-center" style={{ backgroundColor: "var(--bg-section)" }}>
-          <div className="max-w-3xl mx-auto">
+        <section className="py-20 px-6 text-center relative overflow-hidden" style={{ backgroundColor: "var(--bg-section)" }}>
+          <img
+            src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1400&q=80&auto=format&fit=crop"
+            alt="Learning and guides background"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.08, pointerEvents: "none", zIndex: 0 }}
+          />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent, var(--bg-section))", zIndex: 1 }} />
+          <div className="max-w-3xl mx-auto" style={{ position: "relative", zIndex: 2 }}>
             <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.3)" }}>Free Guides</div>
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>Build Your Own<br /><span style={{ color: "var(--yellow)" }}>OpenClaw Agents</span></h1>
             <p className="text-lg" style={{ color: "var(--text-dim)" }}>Step-by-step guides for business owners who want to build powerful OpenClaw agents without needing a technical team.</p>
@@ -228,8 +244,9 @@ export default function GuidesPage() {
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((guide, i) => (
-              <div key={i} className="rounded-xl p-6 flex flex-col gap-4 transition-transform hover:-translate-y-1"
+              <div key={i} className="rounded-xl p-6 flex flex-col gap-4 transition-transform hover:-translate-y-1 relative"
                 style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                <div className="absolute top-4 right-4 text-2xl opacity-60">{CATEGORY_EMOJI[guide.category] ?? "📄"}</div>
                 <div className="flex items-center justify-between">
                   <span className="text-xs px-2 py-1 rounded-full font-medium" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)" }}>{guide.category}</span>
                   <span className="text-xs font-semibold" style={{ color: difficultyColors[guide.difficulty] }}>{guide.difficulty}</span>

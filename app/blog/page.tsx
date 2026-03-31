@@ -262,6 +262,14 @@ export default function BlogPage() {
               </div>
             </div>
 
+            {/* Latest Posts label */}
+            <div className="flex items-center gap-3 mb-6">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "#F97316" }}></span>
+                <span className="relative inline-flex rounded-full h-3 w-3" style={{ backgroundColor: "#F97316" }}></span>
+              </span>
+              <span className="text-sm font-bold uppercase tracking-widest" style={{ color: "#F97316" }}>Latest Posts</span>
+            </div>
             {/* Posts Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {rest.map((post, i) => {
@@ -295,6 +303,7 @@ export default function BlogPage() {
         {/* Newsletter */}
         <section className="py-16 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
           <div className="max-w-xl mx-auto text-center">
+            <div className="text-5xl mb-4">✉️</div>
             <h2 className="text-2xl font-bold mb-3">Get Weekly AI Tips</h2>
             <p className="mb-6 text-sm" style={{ color: "var(--muted)" }}>One practical AI automation insight every week. No fluff, no hype. Unsubscribe any time.</p>
             {subscribed ? (

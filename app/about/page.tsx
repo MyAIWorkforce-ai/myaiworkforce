@@ -170,9 +170,9 @@ export default function AboutPage() {
         {/* Hero */}
         <section className="py-24 px-6 text-center relative overflow-hidden" style={{ backgroundColor: "var(--bg-section)" }}>
           <img
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80&auto=format&fit=crop"
-            alt="Modern office tech workspace"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.12, pointerEvents: "none", zIndex: 0 }}
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&q=80&auto=format&fit=crop"
+            alt="Team collaboration AI workforce"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.10, pointerEvents: "none", zIndex: 0 }}
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent, var(--bg-section))", zIndex: 1 }} />
           <div className="max-w-4xl mx-auto relative" style={{ zIndex: 2 }}>
@@ -198,7 +198,7 @@ export default function AboutPage() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((s, i) => (
-                <div key={i} className="text-center p-6 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                <div key={i} className="text-center p-6 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", background: "linear-gradient(135deg, rgba(255,215,0,0.07) 0%, var(--card) 60%)" }}>
                   <div className="text-3xl font-extrabold mb-1" style={{ color: "#FFD700" }}>{s.value}</div>
                   <div className="text-sm" style={{ color: "var(--muted)" }}>{s.label}</div>
                 </div>
@@ -253,7 +253,7 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((v, i) => (
                 <div key={i} className="p-8 rounded-xl card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                  <div className="text-3xl mb-3">{v.icon}</div>
+                  <div className="text-5xl mb-4" style={{ lineHeight: 1 }}>{v.icon}</div>
                   <h3 className="text-xl font-bold mb-3" style={{ color: "#FFD700" }}>{v.title}</h3>
                   <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>{v.desc}</p>
                 </div>

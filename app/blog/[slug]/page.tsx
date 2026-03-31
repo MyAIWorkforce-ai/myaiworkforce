@@ -193,8 +193,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
           <h1 className="text-3xl md:text-5xl font-extrabold mb-8" style={{ letterSpacing: "-0.03em", lineHeight: "1.1" }}>{post.title}</h1>
 
-          {/* Intro */}
-          <p className="text-lg mb-10 leading-relaxed" style={{ color: "var(--muted)", borderLeft: "3px solid #FFD700", paddingLeft: "1.25rem" }}>{post.intro}</p>
+          {/* Intro pull-quote */}
+          <p className="text-xl mb-10 leading-relaxed" style={{ color: "var(--text-dim)", borderLeft: "4px solid #FFD700", paddingLeft: "1.5rem", fontStyle: "italic", fontSize: "1.15rem", lineHeight: "1.8" }}>{post.intro}</p>
 
           {/* Sections */}
           <div className="flex flex-col gap-10">

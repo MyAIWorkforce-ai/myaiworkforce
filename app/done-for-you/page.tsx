@@ -298,9 +298,9 @@ export default function DoneForYouPage() {
         {/* Hero */}
         <section className="py-24 px-6 text-center relative overflow-hidden" style={{ backgroundColor: "var(--bg-section)" }}>
           <img
-            src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80&auto=format&fit=crop"
-            alt="Professional working on laptop with AI tools"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.13, pointerEvents: "none", zIndex: 0 }}
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=80&auto=format&fit=crop"
+            alt="Professional team working on AI solutions"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.10, pointerEvents: "none", zIndex: 0 }}
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.4), var(--bg-section))", zIndex: 1 }} />
           <div className="max-w-4xl mx-auto relative" style={{ zIndex: 2 }}>
@@ -347,6 +347,10 @@ export default function DoneForYouPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="section-label mb-4">Security First</p>
+                <div className="flex items-center gap-3 mb-3">
+                  <span style={{ fontSize: "2rem" }}>🔒</span>
+                  <span style={{ fontSize: "2rem" }}>🛡️</span>
+                </div>
                 <h2 className="text-3xl font-extrabold mb-6" style={{ letterSpacing: "-0.02em" }}>
                   Your Data Stays Yours.<br /><span style={{ color: "#FFD700" }}>Always.</span>
                 </h2>
@@ -413,7 +417,7 @@ export default function DoneForYouPage() {
             <div className="grid md:grid-cols-5 gap-4">
               {process.map((s, i) => (
                 <div key={i} className="p-6 rounded-xl flex flex-col" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                  <div className="text-3xl font-extrabold mb-3" style={{ color: "rgba(255,215,0,0.25)", letterSpacing: "-0.04em" }}>{s.step}</div>
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-extrabold mb-3 flex-shrink-0" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>{s.step}</div>
                   <h3 className="font-bold mb-2 text-sm">{s.title}</h3>
                   <p className="text-xs" style={{ color: "var(--muted)", lineHeight: "1.6" }}>{s.desc}</p>
                 </div>
@@ -478,6 +482,7 @@ export default function DoneForYouPage() {
             <div className="grid md:grid-cols-3 gap-6">
               {caseStudies.map((cs, i) => (
                 <div key={i} className="p-8 rounded-xl flex flex-col" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                  <div className="text-6xl font-serif leading-none mb-2" style={{ color: "#FFD700", opacity: 0.5, lineHeight: 0.8 }}>&ldquo;</div>
                   <div className="mb-4">
                     <div className="text-4xl font-extrabold mb-1" style={{ color: "#FFD700", letterSpacing: "-0.04em" }}>{cs.stat}</div>
                     <div className="text-sm font-semibold">{cs.result}</div>

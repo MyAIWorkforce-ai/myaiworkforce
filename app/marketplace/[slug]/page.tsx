@@ -907,10 +907,14 @@ export default function AgentPage({ params }: { params: { slug: string } }) {
     <div style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
       <Nav />
       <main>
-        {/* Breadcrumb */}
-        <div className="px-6 py-4 border-b" style={{ borderColor: "var(--nav-border)" }}>
+        {/* Hero pattern strip */}
+        <div className="relative" style={{ borderBottom: "1px solid var(--nav-border)" }}>
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,215,0,0.06) 1px, transparent 1px)", backgroundSize: "20px 20px", pointerEvents: "none" }} />
+          {/* Breadcrumb */}
+          <div className="px-6 py-4 relative">
           <div className="max-w-6xl mx-auto text-sm" style={{ color: "var(--text-dim)" }}>
             <a href="/marketplace" style={{ color: "var(--yellow)" }}>Marketplace</a> → <span>{agent.category}</span> → <span>{agent.title}</span>
+          </div>
           </div>
         </div>
 
@@ -936,12 +940,16 @@ export default function AgentPage({ params }: { params: { slug: string } }) {
             <div className="rounded-xl p-6 mb-8" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <h2 className="font-bold text-lg mb-4">What&apos;s Included</h2>
               <div className="grid md:grid-cols-2 gap-2">
-                {agent.includes.map((item, i) => (
+                {agent.includes.map((item, i) => {
+                  const lower = item.toLowerCase();
+                  const icon = lower.includes("template") ? "📋" : lower.includes("config") || lower.includes("setup") ? "⚙️" : lower.includes("skill") || lower.includes("guide") || lower.includes("doc") || lower.includes("integration") ? "📄" : lower.includes("workflow") ? "🔄" : lower.includes("report") || lower.includes("analytic") ? "📊" : "📋";
+                  return (
                   <div key={i} className="flex items-center gap-2 text-sm">
-                    <span style={{ color: "var(--yellow)" }}>✓</span>
+                    <span>{icon}</span>
                     <span style={{ color: "var(--text-dim)" }}>{item}</span>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 

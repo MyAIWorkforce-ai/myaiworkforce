@@ -151,8 +151,9 @@ export default function ContactPage() {
       <Nav />
       <main className="pt-16">
         {/* Hero */}
-        <section className="py-20 px-6 text-center" style={{ backgroundColor: "var(--bg-section)" }}>
-          <div className="max-w-2xl mx-auto">
+        <section className="py-20 px-6 text-center relative overflow-hidden" style={{ backgroundColor: "var(--bg-section)" }}>
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,215,0,0.05) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none", zIndex: 0 }} />
+          <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
             <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
               Contact Us
             </div>
@@ -170,7 +171,16 @@ export default function ContactPage() {
             {/* Left: Book a Call + Details */}
             <div className="md:col-span-2 flex flex-col gap-6">
               {/* Book a Call Card */}
-              <div className="rounded-xl p-8" style={{ backgroundColor: "rgba(255,215,0,0.05)", border: "2px solid rgba(255,215,0,0.3)" }}>
+              <div className="rounded-xl overflow-hidden" style={{ backgroundColor: "rgba(255,215,0,0.05)", border: "2px solid rgba(255,215,0,0.3)" }}>
+                <div className="relative h-36 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80&auto=format&fit=crop"
+                    alt="Book a discovery call"
+                    style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.7 }}
+                  />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.6))" }} />
+                </div>
+                <div className="p-8">
                 <div className="text-3xl mb-4">📞</div>
                 <h2 className="text-xl font-bold mb-3">Book a Free Discovery Call</h2>
                 <p className="mb-4 text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
@@ -193,6 +203,7 @@ export default function ContactPage() {
                   Book My Free Call →
                 </a>
                 <p className="text-xs text-center mt-3" style={{ color: "var(--muted)" }}>Usually responds within a few hours</p>
+                </div>
               </div>
 
               {/* Contact Details */}

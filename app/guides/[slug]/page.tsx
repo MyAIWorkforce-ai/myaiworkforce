@@ -589,7 +589,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
               <ul className="flex flex-col gap-3">
                 {guide.whatYouNeed.map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm">
-                    <span className="mt-0.5 shrink-0" style={{ color: "var(--yellow)" }}>✓</span>
+                    <span className="mt-0.5 shrink-0 text-base">✅</span>
                     <span style={{ color: "var(--text-dim)" }}>{item}</span>
                   </li>
                 ))}
@@ -607,8 +607,8 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
                 <div key={i} className="flex gap-5">
                   <div className="shrink-0 flex flex-col items-center">
                     <div
-                      className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold"
-                      style={{ backgroundColor: "rgba(255,215,0,0.15)", color: "#FFD700", border: "2px solid rgba(255,215,0,0.4)" }}
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold"
+                      style={{ backgroundColor: "#FFD700", color: "#0A0A0A", border: "2px solid rgba(255,215,0,0.6)" }}
                     >
                       {i + 1}
                     </div>
@@ -634,8 +634,8 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
               style={{ backgroundColor: "rgba(255,215,0,0.06)", border: "1px solid rgba(255,215,0,0.3)" }}
             >
               <div className="flex items-center gap-2 mb-3">
-                <span style={{ color: "#FFD700", fontSize: "18px" }}>💡</span>
-                <span className="text-sm font-bold" style={{ color: "#FFD700" }}>Pro Tip</span>
+                <span style={{ fontSize: "2rem" }}>💡</span>
+                <span className="text-base font-bold" style={{ color: "#FFD700" }}>Pro Tip</span>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: "var(--text-dim)", lineHeight: "1.75" }}>
                 {guide.tip}

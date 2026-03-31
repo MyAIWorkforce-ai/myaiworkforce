@@ -256,6 +256,7 @@ export default function InvestPage() {
           <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s, i) => (
               <div key={i} className="text-center p-6 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                <div className="text-2xl mb-1">📊</div>
                 <div className="text-3xl font-extrabold mb-2" style={{ color: "var(--yellow)" }}>{s.value}</div>
                 <div className="text-sm" style={{ color: "var(--text-dim)" }}>{s.label}</div>
               </div>
