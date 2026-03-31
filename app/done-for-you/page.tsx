@@ -121,6 +121,7 @@ function Footer() {
           <div className="flex gap-4">
             <Link href="/privacy" className="text-sm" style={{ color: "var(--muted)" }}>Privacy Policy</Link>
             <Link href="/terms" className="text-sm" style={{ color: "var(--muted)" }}>Terms of Service</Link>
+            <Link href="/security" className="text-sm" style={{ color: "var(--muted)" }}>Security</Link>
           </div>
         </div>
       </div>
@@ -398,6 +399,11 @@ export default function DoneForYouPage() {
                     <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 12, fontWeight: 700, display: "inline-block",  }}>
                       🏷️ Your data never leaves your server
                     </span>
+                  </div>
+                  <div className="mt-4">
+                    <Link href="/security" className="text-sm font-semibold" style={{ color: "#FFD700" }}>
+                      Learn more about our security →
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -1,14 +1,87 @@
-// app/api/webhooks/stripe/route.ts
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import Stripe from 'stripe';
+import { sendPurchaseConfirmation } from '@/lib/email';
 
-export async function POST(request: Request) {
-    // TODO: Verify Stripe webhook signature
-    // TODO: On success, create a Purchase record in Supabase
-    // For now, log the received event
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: '2026-03-25.dahlia',
+});
 
-    const event = await request.json();
+export async function POST(request: NextRequest) {
+  const body = await request.text();
+  const sig = request.headers.get('stripe-signature');
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
-    console.log('Received Stripe webhook event:', event);
+  let event: Stripe.Event;
 
-    return NextResponse.json({ received: true });
+  try {
+    if (!sig || !webhookSecret || webhookSecret === 'whsec_placeholder') {
+      // During development / before webhook secret is configured, parse raw JSON
+      console.log('[Stripe Webhook] No signature verification — using raw JSON parse');
+      event = JSON.parse(body) as Stripe.Event;
+    } else {
+      event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
+    }
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    console.error('[Stripe Webhook] Signature verification failed:', message);
+    return NextResponse.json({ error: `Webhook Error: ${message}` }, { status: 400 });
+  }
+
+  console.log('[Stripe Webhook] Received event:', event.type, event.id);
+
+  try {
+    switch (event.type) {
+      case 'checkout.session.completed': {
+        const session = event.data.object as Stripe.Checkout.Session;
+        console.log('[Stripe Webhook] checkout.session.completed:', session.id);
+
+        const customerEmail = session.customer_email
+          || (session.customer_details?.email ?? null)
+          || (session.metadata?.customerEmail ?? null);
+
+        const productName = session.metadata?.productName || 'Your purchase';
+        const productType = (session.metadata?.productType as 'guide' | 'agent') || 'guide';
+        const amountTotal = session.amount_total ? `$${(session.amount_total / 100).toFixed(2)} AUD` : '';
+
+        if (customerEmail) {
+          console.log('[Stripe Webhook] Sending purchase confirmation to:', customerEmail);
+          await sendPurchaseConfirmation({
+            to: customerEmail,
+            productName,
+            downloadUrl: 'https://myaiworkforce.ai/dashboard',
+            price: amountTotal,
+            type: productType,
+          });
+          console.log('[Stripe Webhook] Purchase confirmation sent successfully');
+        } else {
+          console.warn('[Stripe Webhook] No customer email found on session:', session.id);
+        }
+        break;
+      }
+
+      case 'payment_intent.succeeded': {
+        const paymentIntent = event.data.object as Stripe.PaymentIntent;
+        console.log('[Stripe Webhook] payment_intent.succeeded:', paymentIntent.id, 'amount:', paymentIntent.amount);
+        // Email is sent via checkout.session.completed for checkout flows
+        // This event is logged for reference
+        break;
+      }
+
+      case 'payment_intent.payment_failed': {
+        const paymentIntent = event.data.object as Stripe.PaymentIntent;
+        console.warn('[Stripe Webhook] payment_intent.payment_failed:', paymentIntent.id);
+        break;
+      }
+
+      default:
+        console.log('[Stripe Webhook] Unhandled event type:', event.type);
+    }
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    console.error('[Stripe Webhook] Error processing event:', message);
+    // Return 200 so Stripe doesn't retry — log the error for investigation
+    return NextResponse.json({ received: true, error: message });
+  }
+
+  return NextResponse.json({ received: true });
 }

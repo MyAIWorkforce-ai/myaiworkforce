@@ -196,6 +196,7 @@ function Footer() {
             {[
               { label: "Privacy Policy", href: "/privacy" },
               { label: "Terms of Service", href: "/terms" },
+              { label: "Security", href: "/security" },
             ].map((link) => (
               <a
                 key={link.label}

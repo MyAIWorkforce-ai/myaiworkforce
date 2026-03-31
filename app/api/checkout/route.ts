@@ -3,11 +3,14 @@ import { stripe } from '@/lib/stripe'
 
 export async function POST(req: NextRequest) {
   try {
-    const { priceId, productName, amount, type } = await req.json()
+    const { priceId, productName, amount, type, customerEmail } = await req.json()
+
+    const productType = type === 'subscription' ? 'agent' : (type || 'guide')
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: type === 'subscription' ? 'subscription' : 'payment',
+      ...(customerEmail ? { customer_email: customerEmail } : {}),
       line_items: [
         {
           price_data: {
@@ -19,6 +22,11 @@ export async function POST(req: NextRequest) {
           quantity: 1,
         },
       ],
+      metadata: {
+        productName: productName || '',
+        productType: productType,
+        customerEmail: customerEmail || '',
+      },
       success_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://myaiworkforce.ai'}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://myaiworkforce.ai'}/marketplace`,
     })

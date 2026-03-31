@@ -122,6 +122,7 @@ function Footer() {
           <div className="flex gap-4">
             <Link href="/privacy" className="text-sm" style={{ color: "var(--muted)" }}>Privacy Policy</Link>
             <Link href="/terms" className="text-sm" style={{ color: "var(--muted)" }}>Terms of Service</Link>
+            <Link href="/security" className="text-sm" style={{ color: "var(--muted)" }}>Security</Link>
           </div>
         </div>
       </div>
