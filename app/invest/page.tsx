@@ -129,8 +129,6 @@ function Nav() {
               href={link.href}
               className="text-sm font-medium transition-colors duration-200"
               style={{ color: link.href === "/invest" ? "#FFD700" : "var(--text-dim)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = link.href === "/invest" ? "#FFD700" : "var(--text-dim)")}
             >
               {link.label}
             </a>

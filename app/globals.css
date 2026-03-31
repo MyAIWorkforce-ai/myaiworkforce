@@ -356,3 +356,12 @@ body {
   opacity: 0.15;
   font-family: Georgia, serif;
 }
+
+/* Nav link hover */
+.nav-link {
+  color: var(--text-dim);
+  transition: color 0.2s;
+}
+.nav-link:hover {
+  color: #FFD700 !important;
+}

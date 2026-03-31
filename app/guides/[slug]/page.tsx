@@ -451,10 +451,7 @@ function Nav() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium transition-colors duration-200"
-              style={{ color: "var(--text-dim)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-dim)")}
+              className="text-sm font-medium transition-colors duration-200 nav-link"
             >
               {link.label}
             </a>

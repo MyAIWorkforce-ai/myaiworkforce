@@ -88,10 +88,7 @@ function Nav() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium transition-colors duration-200"
-              style={{ color: "var(--text-dim)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-dim)")}
+              className="text-sm font-medium transition-colors duration-200 nav-link"
             >
               {link.label}
             </Link>
@@ -250,8 +247,6 @@ function Hero() {
             href="/marketplace"
             className="px-8 py-4 rounded-xl text-lg font-bold text-center transition-all"
             style={{ border: "2px solid var(--border)", color: "var(--text-dim)" }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#FFD700"; e.currentTarget.style.color = "#FFD700"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-dim)"; }}
           >
             Browse the Marketplace
           </Link>

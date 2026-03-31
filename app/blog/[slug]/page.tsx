@@ -138,10 +138,7 @@ function Nav() {
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
-            <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
-              style={{ color: "var(--text-dim)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-dim)")}
+            <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200 nav-link"
             >{link.label}</Link>
           ))}
         </div>

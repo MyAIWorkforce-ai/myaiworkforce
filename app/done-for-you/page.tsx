@@ -66,10 +66,7 @@ function Nav({ active }: { active?: string }) {
         <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
-              style={{ color: "var(--text-dim)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = link.label === active ? "#FFD700" : "var(--text)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = link.label === active ? "#FFD700" : "var(--text-dim)")}
+            <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200 nav-link"
             >{link.label}</Link>
           ))}
         </div>
