@@ -97,7 +97,7 @@ function Nav() {
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <Link
-            href="/contact"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
             style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
           >
@@ -237,7 +237,7 @@ function Hero() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/contact"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
             className="px-8 py-4 rounded-xl text-lg font-bold text-center text-black glow-yellow"
             style={{ backgroundColor: "#FFD700" }}
           >
@@ -764,7 +764,7 @@ function CTABanner() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
+              href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
               className="px-8 py-4 rounded-xl text-lg font-bold text-black glow-yellow"
               style={{ backgroundColor: "#FFD700" }}
             >

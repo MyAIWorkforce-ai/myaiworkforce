@@ -143,7 +143,7 @@ function Nav() {
           ))}
         </div>
         <div className="hidden md:flex items-center gap-3">
-          <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden">
           <button onClick={() => setOpen(!open)} style={{ color: "var(--text-dim)" }}>☰</button>
@@ -206,7 +206,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {/* CTA */}
           <div className="mt-16 p-8 rounded-2xl text-center" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
             <p className="text-lg mb-6" style={{ color: "var(--muted)" }}>{post.cta}</p>
-            <Link href="/contact" className="px-8 py-4 rounded-xl font-bold inline-block glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call →</Link>
+            <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold inline-block glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call →</Link>
           </div>
 
           {/* Back link */}

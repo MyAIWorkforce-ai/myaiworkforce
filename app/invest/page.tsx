@@ -137,7 +137,7 @@ function Nav() {
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <a
-            href="/contact"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
             style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
           >
@@ -243,7 +243,7 @@ export default function InvestPage() {
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.04em" }}>The <span style={{ color: "var(--yellow)" }}>Shopify App Store</span><br />for AI Agents</h1>
             <p className="text-xl max-w-3xl mx-auto mb-8" style={{ color: "var(--text-dim)" }}>My AI Workforce is a two-sided marketplace where businesses buy and deploy AI agents, and creators earn 75% selling their AI skills, workflows, and tools.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="px-8 py-4 rounded-xl font-bold text-black inline-block" style={{ backgroundColor: "var(--yellow)" }}>Request a Meeting →</Link>
+              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold text-black inline-block" style={{ backgroundColor: "var(--yellow)" }}>Request a Meeting →</Link>
               <a href="mailto:toby@myaiworkforce.ai" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ border: "2px solid var(--yellow)", color: "var(--yellow)" }}>toby@myaiworkforce.ai</a>
             </div>
           </div>
@@ -414,7 +414,7 @@ export default function InvestPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Interested in Investing?</h2>
             <p className="mb-8 text-lg" style={{ color: "var(--text-dim)" }}>We're raising a seed round to complete the marketplace payment infrastructure, hire engineers, and scale the Done-For-You client base.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="px-8 py-4 rounded-xl font-bold text-black inline-block" style={{ backgroundColor: "var(--yellow)" }}>Request a Meeting →</Link>
+              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold text-black inline-block" style={{ backgroundColor: "var(--yellow)" }}>Request a Meeting →</Link>
               <a href="mailto:toby@myaiworkforce.ai" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ border: "2px solid var(--yellow)", color: "var(--yellow)" }}>toby@myaiworkforce.ai</a>
             </div>
             <p className="mt-8 text-sm" style={{ color: "var(--text-dim)" }}>This document is confidential and intended solely for prospective investors.</p>

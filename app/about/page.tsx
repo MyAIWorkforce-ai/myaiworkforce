@@ -73,7 +73,7 @@ function Nav({ active }: { active?: string }) {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
@@ -302,7 +302,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-extrabold mb-4" style={{ letterSpacing: "-0.02em" }}>Ready to Build Your AI Workforce?</h2>
             <p className="mb-8" style={{ color: "var(--muted)" }}>Book a free discovery call and let&apos;s talk about what&apos;s possible for your business.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="px-8 py-4 rounded-xl font-bold text-black inline-block glow-yellow" style={{ backgroundColor: "#FFD700" }}>
+              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold text-black inline-block glow-yellow" style={{ backgroundColor: "#FFD700" }}>
                 Book a Free Call →
               </Link>
               <Link href="/marketplace" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ border: "2px solid var(--border)", color: "var(--text-dim)" }}>

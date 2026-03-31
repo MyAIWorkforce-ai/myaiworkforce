@@ -72,7 +72,7 @@ function Nav({ active }: { active?: string }) {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
@@ -311,7 +311,7 @@ export default function DoneForYouPage() {
               Stop spending time learning AI tools. Hand us your business challenges and we&apos;ll build a custom AI workforce that runs 24/7 — all on your own private, secure infrastructure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="px-8 py-4 rounded-xl font-bold text-black inline-block text-lg glow-yellow" style={{ backgroundColor: "#FFD700" }}>
+              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold text-black inline-block text-lg glow-yellow" style={{ backgroundColor: "#FFD700" }}>
                 Book Your Free Discovery Call →
               </Link>
               <Link href="#pricing" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ border: "2px solid var(--border)", color: "var(--text-dim)" }}>
@@ -533,7 +533,7 @@ export default function DoneForYouPage() {
             <p className="mb-8" style={{ color: "var(--muted)" }}>
               Book a free 30-minute discovery call. No commitment, no sales pitch — just an honest conversation about what AI can do for your business.
             </p>
-            <Link href="/contact" className="px-8 py-4 rounded-xl font-bold text-black inline-block text-lg glow-yellow" style={{ backgroundColor: "#FFD700" }}>
+            <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold text-black inline-block text-lg glow-yellow" style={{ backgroundColor: "#FFD700" }}>
               Book Your Free Discovery Call →
             </Link>
           </div>

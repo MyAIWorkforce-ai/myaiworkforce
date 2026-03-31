@@ -102,7 +102,7 @@ function Nav() {
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <a
-            href="/contact"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
             style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
           >
@@ -792,7 +792,7 @@ export default function MarketplacePage() {
             Tell us what you want to automate and we&apos;ll scope, build, and run a custom AI agent for your exact workflow.
           </p>
           <a
-            href="/contact"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
             className="inline-block px-10 py-4 rounded-xl text-base font-bold transition-all duration-200 glow-yellow"
             style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
           >
