@@ -143,6 +143,7 @@ const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
 const posts = [
   {
     title: "Why Your Business Needs an AI Workforce in 2025",
+    slug: "why-your-business-needs-an-ai-workforce-in-2025",
     category: "Operations",
     excerpt: "The businesses pulling ahead right now aren't bigger or better funded — they're more automated. Here's the case for building your AI workforce before your competitors do.",
     readTime: "5 min read",
@@ -153,6 +154,7 @@ const posts = [
   },
   {
     title: "The Hidden Cost of Manual Data Entry (And How AI Fixes It)",
+    slug: "the-hidden-cost-of-manual-data-entry",
     category: "Finance",
     excerpt: "You think data entry costs you an hour a day. It actually costs you 30% of your team's cognitive capacity. Here's what the research says — and how AI eliminates it entirely.",
     readTime: "4 min read",
@@ -163,6 +165,7 @@ const posts = [
   },
   {
     title: "OpenClaw vs n8n vs Make: Which AI Agent Platform Is Right for You?",
+    slug: "openclaw-vs-n8n-vs-make",
     category: "Technology",
     excerpt: "Three platforms, three very different philosophies. If you're building serious AI automation infrastructure, this comparison will save you months of wrong turns.",
     readTime: "8 min read",
@@ -173,6 +176,7 @@ const posts = [
   },
   {
     title: "How We Cut a Client's Support Volume by 70% in 30 Days",
+    slug: "how-we-cut-support-volume-by-70-percent",
     category: "Case Study",
     excerpt: "A real breakdown of how we deployed a customer support AI agent for a 40-person SaaS company, the hurdles we hit, and the exact results by week.",
     readTime: "6 min read",
@@ -183,6 +187,7 @@ const posts = [
   },
   {
     title: "Security First: Why We Deploy AI Agents on Private VPS",
+    slug: "security-first-why-we-deploy-on-private-vps",
     category: "Security",
     excerpt: "Most AI tools process your data on shared servers. Here's why we think that's a serious risk — and why every client gets their own dedicated, private deployment.",
     readTime: "5 min read",
@@ -193,6 +198,7 @@ const posts = [
   },
   {
     title: "The Complete Guide to AI Agent ROI",
+    slug: "the-complete-guide-to-ai-agent-roi",
     category: "Strategy",
     excerpt: "How do you actually measure the return on your AI investment? We break down the framework we use with every client — from hours saved to revenue generated.",
     readTime: "7 min read",
@@ -252,7 +258,7 @@ export default function BlogPage() {
                 </div>
                 <h2 className="text-3xl font-extrabold mb-4" style={{ letterSpacing: "-0.02em" }}>{featured.title}</h2>
                 <p className="text-lg mb-6 max-w-3xl" style={{ color: "var(--muted)" }}>{featured.excerpt}</p>
-                <a href="#" className="font-semibold" style={{ color: "#FFD700" }}>Read Article →</a>
+                <Link href={`/blog/${featured.slug}`} className="font-semibold" style={{ color: "#FFD700" }}>Read Article →</Link>
               </div>
             </div>
 
@@ -277,7 +283,7 @@ export default function BlogPage() {
                       </div>
                       <h3 className="font-bold text-lg leading-snug flex-1">{post.title}</h3>
                       <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.6" }}>{post.excerpt}</p>
-                      <a href="#" className="text-sm font-semibold" style={{ color: "#FFD700" }}>Read Article →</a>
+                      <Link href={`/blog/${post.slug}`} className="text-sm font-semibold" style={{ color: "#FFD700" }}>Read Article →</Link>
                     </div>
                   </div>
                 );
