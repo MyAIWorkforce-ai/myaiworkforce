@@ -68,7 +68,7 @@ function Nav({ active }: { active?: string }) {
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
-              style={{ color: link.label === active ? "#FFD700" : "var(--text-dim)" }}
+              style={{ color: "var(--text-dim)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = link.label === active ? "#FFD700" : "var(--text)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = link.label === active ? "#FFD700" : "var(--text-dim)")}
             >{link.label}</Link>
@@ -87,7 +87,7 @@ function Nav({ active }: { active?: string }) {
         <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
           <div className="px-6 py-4 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: link.label === active ? "#FFD700" : "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
+              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
             <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
           </div>
