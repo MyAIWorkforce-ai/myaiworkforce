@@ -325,11 +325,11 @@ export default function DoneForYouPage() {
         <section className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
             <p className="section-label justify-center mb-4">What You Get</p>
-            <h2 className="text-3xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Everything Included. Nothing Hidden.</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Everything Included. Nothing Hidden.</h2>
             <p className="text-center max-w-xl mx-auto mb-12" style={{ color: "var(--muted)" }}>Every Done-For-You plan includes full-service delivery from discovery through to ongoing management.</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {included.map((item, i) => (
-                <div key={i} className="p-4 rounded-xl flex items-start gap-3" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                <div key={i} className="p-4 rounded-xl flex items-start gap-3" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", borderLeft: "2px solid rgba(255,215,0,0.5)" }}>
                   <span className="text-xl mt-0.5">{item.icon}</span>
                   <span className="text-sm font-medium">{item.item}</span>
                 </div>
@@ -409,14 +409,14 @@ export default function DoneForYouPage() {
         <section className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
             <p className="section-label justify-center mb-4">The Process</p>
-            <h2 className="text-3xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>From Discovery to Results in 5 Steps</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>From Discovery to Results in 5 Steps</h2>
             <p className="text-center max-w-xl mx-auto mb-12" style={{ color: "var(--muted)" }}>A clear, structured process that gets you results fast — without the confusion.</p>
             <div className="grid md:grid-cols-5 gap-4">
               {process.map((s, i) => (
-                <div key={i} className="p-6 rounded-xl flex flex-col" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-extrabold mb-3 flex-shrink-0" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>{s.step}</div>
+                <div key={i} className="p-6 rounded-xl flex flex-col card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-extrabold mb-4 flex-shrink-0" style={{ backgroundColor: "#FFD700", color: "#0A0A0A", boxShadow: "0 0 0 3px rgba(255,215,0,0.2)" }}>{s.step}</div>
                   <h3 className="font-bold mb-2 text-sm">{s.title}</h3>
-                  <p className="text-xs" style={{ color: "var(--muted)", lineHeight: "1.6" }}>{s.desc}</p>
+                  <p className="text-xs flex-1" style={{ color: "var(--muted)", lineHeight: "1.6" }}>{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -427,16 +427,16 @@ export default function DoneForYouPage() {
         <section id="pricing" className="py-20 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
           <div className="max-w-6xl mx-auto">
             <p className="section-label justify-center mb-4">Pricing</p>
-            <h2 className="text-3xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Simple, Transparent Pricing</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Simple, Transparent Pricing</h2>
             <p className="text-center max-w-xl mx-auto mb-4" style={{ color: "var(--muted)" }}>All plans include full setup, ongoing management, and private VPS deployment.</p>
             <div className="flex justify-center mb-10">
               <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
                 🏷️ First month 20% off for new clients
               </span>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6 items-start">
               {plans.map((plan, i) => (
-                <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.highlight ? "rgba(255,215,0,0.05)" : "var(--card)", border: `2px solid ${plan.highlight ? "#FFD700" : "var(--border)"}` }}>
+                <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.highlight ? "rgba(255,215,0,0.05)" : "var(--card)", border: `2px solid ${plan.highlight ? "#FFD700" : "var(--border)"}`, transform: plan.highlight ? "scale(1.02)" : "scale(1)", boxShadow: plan.highlight ? "0 0 40px rgba(255,215,0,0.12)" : "none" }}>
                   {plan.highlight && <div className="text-xs font-bold px-3 py-1 rounded-full self-start" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>MOST POPULAR</div>}
                   <div>
                     <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
@@ -475,10 +475,10 @@ export default function DoneForYouPage() {
         <section className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
             <p className="section-label justify-center mb-4">Client Results</p>
-            <h2 className="text-3xl font-extrabold text-center mb-12" style={{ letterSpacing: "-0.02em" }}>Real Businesses. Real Results.</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12" style={{ letterSpacing: "-0.02em" }}>Real Businesses. Real Results.</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {caseStudies.map((cs, i) => (
-                <div key={i} className="p-8 rounded-xl flex flex-col" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                <div key={i} className="p-8 rounded-xl flex flex-col card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", minHeight: 320 }}>
                   <div className="text-6xl font-serif leading-none mb-2" style={{ color: "#FFD700", opacity: 0.5, lineHeight: 0.8 }}>&ldquo;</div>
                   <div className="mb-4">
                     <div className="text-4xl font-extrabold mb-1" style={{ color: "#FFD700", letterSpacing: "-0.04em" }}>{cs.stat}</div>

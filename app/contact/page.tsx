@@ -260,8 +260,10 @@ export default function ContactPage() {
                       <input
                         type="text" required placeholder="Jane Smith"
                         value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
-                        style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }}
+                        className="w-full px-4 py-3 rounded-lg text-sm"
+                        style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)", outline: "none", transition: "border-color 0.2s" }}
+                        onFocus={e => e.target.style.borderColor = "#FFD700"}
+                        onBlur={e => e.target.style.borderColor = "var(--border)"}
                       />
                     </div>
                     <div>
@@ -269,8 +271,10 @@ export default function ContactPage() {
                       <input
                         type="email" required placeholder="jane@company.com"
                         value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
-                        style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }}
+                        className="w-full px-4 py-3 rounded-lg text-sm"
+                        style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)", outline: "none", transition: "border-color 0.2s" }}
+                        onFocus={e => e.target.style.borderColor = "#FFD700"}
+                        onBlur={e => e.target.style.borderColor = "var(--border)"}
                       />
                     </div>
                   </div>
@@ -279,8 +283,10 @@ export default function ContactPage() {
                     <input
                       type="text" placeholder="Acme Corp (optional)"
                       value={form.company} onChange={e => setForm({ ...form, company: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
-                      style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }}
+                      className="w-full px-4 py-3 rounded-lg text-sm"
+                      style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)", outline: "none", transition: "border-color 0.2s" }}
+                      onFocus={e => e.target.style.borderColor = "#FFD700"}
+                      onBlur={e => e.target.style.borderColor = "var(--border)"}
                     />
                   </div>
                   <div>
@@ -288,8 +294,10 @@ export default function ContactPage() {
                     <select
                       required
                       value={form.helpType} onChange={e => setForm({ ...form, helpType: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
-                      style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: form.helpType ? "var(--text)" : "var(--muted)" }}
+                      className="w-full px-4 py-3 rounded-lg text-sm"
+                      style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: form.helpType ? "var(--text)" : "var(--muted)", outline: "none", transition: "border-color 0.2s" }}
+                      onFocus={e => (e.target as HTMLSelectElement).style.borderColor = "#FFD700"}
+                      onBlur={e => (e.target as HTMLSelectElement).style.borderColor = "var(--border)"}
                     >
                       <option value="">Select an option...</option>
                       <option value="done-for-you">Done-For-You AI Workforce</option>
@@ -307,11 +315,13 @@ export default function ContactPage() {
                       rows={5} required
                       placeholder="Tell us about your business and what you're looking to automate..."
                       value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg text-sm outline-none resize-none"
-                      style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }}
+                      className="w-full px-4 py-3 rounded-lg text-sm resize-none"
+                      style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)", outline: "none", transition: "border-color 0.2s" }}
+                      onFocus={e => e.target.style.borderColor = "#FFD700"}
+                      onBlur={e => e.target.style.borderColor = "var(--border)"}
                     />
                   </div>
-                  <button type="submit" className="py-3 rounded-lg font-bold text-black text-sm glow-yellow" style={{ backgroundColor: "#FFD700" }}>
+                  <button type="submit" className="w-full py-4 rounded-xl font-bold text-black text-base glow-yellow" style={{ backgroundColor: "#FFD700" }}>
                     Send Message →
                   </button>
                   <p className="text-xs text-center" style={{ color: "var(--muted)" }}>

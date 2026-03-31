@@ -211,7 +211,7 @@ export default function GuidesPage() {
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent, var(--bg-section))", zIndex: 1 }} />
           <div className="max-w-3xl mx-auto" style={{ position: "relative", zIndex: 2 }}>
             <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.3)" }}>Free Guides</div>
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>Build Your Own<br /><span style={{ color: "var(--yellow)" }}>AI Workforce</span></h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>Build Your Own<br /><span style={{ color: "var(--yellow)" }}>AI Workforce</span></h1>
             <p className="text-lg" style={{ color: "var(--text-dim)" }}>Step-by-step guides for business owners who want to build powerful AI agents using OpenClaw, n8n, Make, ChatGPT and more — no technical team required.</p>
             <div className="mt-6">
               <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
@@ -241,25 +241,25 @@ export default function GuidesPage() {
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((guide, i) => (
-              <div key={i} className="rounded-xl p-6 flex flex-col gap-4 transition-transform hover:-translate-y-1 relative"
+              <div key={i} className="rounded-xl p-6 flex flex-col card-hover relative h-full"
                 style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
                 <div className="absolute top-4 right-4 text-2xl opacity-60">{CATEGORY_EMOJI[guide.category] ?? "📄"}</div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs px-2 py-1 rounded-full font-medium" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)" }}>{guide.category}</span>
-                  <span className="text-xs font-semibold" style={{ color: difficultyColors[guide.difficulty] }}>{guide.difficulty}</span>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs px-3 py-1 rounded-full font-semibold" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.25)" }}>{guide.category}</span>
+                  <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: `${difficultyColors[guide.difficulty]}18`, color: difficultyColors[guide.difficulty], border: `1px solid ${difficultyColors[guide.difficulty]}40` }}>{guide.difficulty}</span>
                 </div>
-                <h3 className="font-bold text-lg leading-snug">{guide.title}</h3>
-                <p className="text-sm flex-1" style={{ color: "var(--text-dim)" }}>{guide.description}</p>
-                <div className="flex items-center justify-between mt-2">
+                <h3 className="font-bold text-lg leading-snug mb-2">{guide.title}</h3>
+                <p className="text-sm flex-1 mb-4" style={{ color: "var(--text-dim)" }}>{guide.description}</p>
+                <div className="flex items-center justify-between mb-4">
                   <span className="text-xs" style={{ color: "var(--text-dim)" }}>📖 {guide.readTime} read</span>
-                  <span className="text-sm font-bold" style={{ color: "var(--yellow)" }}>${guide.price} one-time</span>
+                  <span className="text-base font-extrabold" style={{ color: "var(--yellow)" }}>${guide.price}</span>
                 </div>
                 <Link
                   href={`/guides/${guide.slug}`}
-                  className="mt-2 py-2 px-4 rounded-lg text-sm font-semibold text-center transition-all duration-200"
-                  style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+                  className="w-full py-2.5 px-4 rounded-lg text-sm font-bold text-center transition-all duration-200 glow-yellow"
+                  style={{ backgroundColor: "#FFD700", color: "#0A0A0A", display: "block" }}
                 >
-                  Buy Guide ${guide.price} →
+                  Buy Guide — ${guide.price} →
                 </Link>
               </div>
             ))}

@@ -274,7 +274,7 @@ function StatsBar() {
     <section style={{ backgroundColor: "var(--bg-section)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((s, i) => (
-          <div key={i} className="text-center">
+          <div key={i} className="text-center p-6 rounded-xl stat-card" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", borderTop: "2px solid rgba(255,215,0,0.3)" }}>
             <div className="text-2xl mb-1">{s.icon}</div>
             <div className="text-3xl md:text-4xl font-extrabold mb-1" style={{ color: "#FFD700", letterSpacing: "-0.03em" }}>{s.value}</div>
             <div className="text-sm font-medium" style={{ color: "var(--muted)" }}>{s.label}</div>
@@ -653,7 +653,7 @@ function Testimonials() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="p-8 rounded-2xl flex flex-col"
+              className="p-8 rounded-2xl flex flex-col card-hover testimonial-card"
               style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}
             >
               <div className="flex mb-4">
@@ -667,7 +667,7 @@ function Testimonials() {
               <div className="flex items-center gap-3">
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
-                  style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+                  style={{ backgroundColor: "#FFD700", color: "#0A0A0A", boxShadow: "0 0 0 3px rgba(255,215,0,0.2)" }}
                 >
                   {t.initials}
                 </div>

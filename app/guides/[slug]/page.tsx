@@ -571,7 +571,7 @@ function GuideBuyButton({ guide }: { guide: Guide & { difficulty: string; title:
       <button
         onClick={handleBuy}
         disabled={loading}
-        className="inline-block px-10 py-4 rounded-xl font-bold text-base transition-opacity"
+        className="inline-block px-12 py-4 rounded-xl font-extrabold text-lg glow-yellow"
         style={{ backgroundColor: "#FFD700", color: "#0A0A0A", opacity: loading ? 0.7 : 1, cursor: loading ? 'wait' : 'pointer' }}
       >
         {loading ? 'Redirecting to checkout…' : `Buy Now — $${price} →`}
@@ -650,8 +650,8 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
                 <div key={i} className="flex gap-5">
                   <div className="shrink-0 flex flex-col items-center">
                     <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold"
-                      style={{ backgroundColor: "#FFD700", color: "#0A0A0A", border: "2px solid rgba(255,215,0,0.6)" }}
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-base font-extrabold"
+                      style={{ backgroundColor: "#FFD700", color: "#0A0A0A", border: "2px solid rgba(255,215,0,0.6)", boxShadow: "0 0 0 4px rgba(255,215,0,0.15)", flexShrink: 0 }}
                     >
                       {i + 1}
                     </div>
@@ -688,20 +688,21 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
 
           {/* Buy Now CTA */}
           <section
-            className="rounded-2xl p-8 text-center mb-8"
-            style={{ backgroundColor: "rgba(255,215,0,0.06)", border: "2px solid rgba(255,215,0,0.4)" }}
+            className="rounded-2xl p-10 text-center mb-8"
+            style={{ backgroundColor: "rgba(255,215,0,0.06)", border: "2px solid rgba(255,215,0,0.4)", boxShadow: "0 0 60px rgba(255,215,0,0.08)" }}
           >
-            <h2 className="text-2xl font-bold mb-2" style={{ letterSpacing: "-0.02em" }}>
+            <p className="text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "var(--muted)" }}>Get Full Access</p>
+            <h2 className="text-3xl font-extrabold mb-2" style={{ letterSpacing: "-0.02em" }}>
               Get the Full Guide
             </h2>
-            <p className="text-3xl font-extrabold mb-1" style={{ color: "#FFD700" }}>
+            <p className="text-5xl font-extrabold mb-1" style={{ color: "#FFD700", letterSpacing: "-0.03em" }}>
               ${guidePrices[guide.difficulty]}
             </p>
-            <p className="text-sm mb-6 max-w-md mx-auto" style={{ color: "var(--text-dim)" }}>
+            <p className="text-sm mb-8 max-w-md mx-auto" style={{ color: "var(--text-dim)" }}>
               One-time purchase. Instant access. Includes all steps, templates, and setup files.
             </p>
             <GuideBuyButton guide={guide} />
-            <p className="text-xs mt-3" style={{ color: "var(--text-dim)" }}>Secure checkout via Stripe</p>
+            <p className="text-xs mt-4" style={{ color: "var(--text-dim)" }}>🔒 Secure checkout via Stripe</p>
           </section>
 
           {/* CTA */}

@@ -940,8 +940,8 @@ function BuyButton({ agent }: { agent: { price: string; title: string } }) {
       <button
         onClick={handleBuy}
         disabled={loading}
-        className="w-full py-4 rounded-xl font-bold text-center text-black block mb-3 transition-opacity"
-        style={{ backgroundColor: "var(--yellow)", opacity: loading ? 0.7 : 1, cursor: loading ? 'wait' : 'pointer' }}
+        className="w-full py-4 rounded-xl font-bold text-center text-black block mb-3 glow-yellow"
+        style={{ backgroundColor: "#FFD700", opacity: loading ? 0.7 : 1, cursor: loading ? 'wait' : 'pointer', fontSize: "1rem" }}
       >
         {loading ? 'Redirecting to checkout…' : amount === 0 ? 'Get This Agent (Free) →' : `Get This Agent ${agent.price} →`}
       </button>
@@ -977,7 +977,7 @@ export default function AgentPage({ params }: { params: { slug: string } }) {
             <div className="flex items-center gap-2 mb-3">
               <span className="text-xs px-2 py-1 rounded-full font-medium" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)" }}>{agent.category}</span>
             </div>
-            <h1 className="text-3xl font-extrabold mb-3" style={{ letterSpacing: "-0.02em" }}>{agent.title}</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-3" style={{ letterSpacing: "-0.03em", lineHeight: "1.1" }}>{agent.title}</h1>
             <div className="flex items-center gap-3 mb-6">
               <div className="flex gap-0.5">
                 {stars.map((filled, i) => (
@@ -1007,11 +1007,11 @@ export default function AgentPage({ params }: { params: { slug: string } }) {
             </div>
 
             <div className="mb-8">
-              <h2 className="font-bold text-lg mb-4">Features</h2>
+              <h2 className="font-bold text-xl mb-4">Features</h2>
               <div className="grid md:grid-cols-2 gap-3">
                 {agent.features.map((f, i) => (
-                  <div key={i} className="flex items-center gap-3 p-3 rounded-lg" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                    <span style={{ color: "var(--yellow)" }}>✦</span>
+                  <div key={i} className="flex items-center gap-3 p-4 rounded-lg card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                    <span style={{ color: "#FFD700", fontSize: "1.1rem" }}>✦</span>
                     <span className="text-sm font-medium">{f}</span>
                   </div>
                 ))}
@@ -1030,8 +1030,8 @@ export default function AgentPage({ params }: { params: { slug: string } }) {
 
           {/* Sidebar */}
           <div>
-            <div className="sticky top-24 rounded-xl p-6" style={{ backgroundColor: "var(--card)", border: "2px solid var(--yellow)" }}>
-              <div className="text-4xl font-extrabold mb-1" style={{ color: "var(--yellow)" }}>{agent.price}</div>
+            <div className="sticky top-24 rounded-xl p-6" style={{ backgroundColor: "var(--card)", border: "2px solid #FFD700", boxShadow: "0 0 40px rgba(255,215,0,0.1)" }}>
+              <div className="text-5xl font-extrabold mb-1" style={{ color: "#FFD700", letterSpacing: "-0.03em" }}>{agent.price}</div>
               <p className="text-sm mb-6" style={{ color: "var(--text-dim)" }}>One-time purchase. Use forever.</p>
               <BuyButton agent={agent} />
               <p className="text-xs text-center mb-6" style={{ color: "var(--text-dim)" }}>Instant download after purchase</p>

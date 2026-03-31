@@ -195,8 +195,8 @@ export default function AboutPage() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((s, i) => (
-                <div key={i} className="text-center p-6 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", background: "linear-gradient(135deg, rgba(255,215,0,0.07) 0%, var(--card) 60%)" }}>
-                  <div className="text-3xl font-extrabold mb-1" style={{ color: "#FFD700" }}>{s.value}</div>
+                <div key={i} className="text-center p-6 rounded-xl card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", borderTop: "2px solid rgba(255,215,0,0.3)", background: "linear-gradient(135deg, rgba(255,215,0,0.07) 0%, var(--card) 60%)" }}>
+                  <div className="text-5xl font-extrabold mb-1" style={{ color: "#FFD700", letterSpacing: "-0.03em" }}>{s.value}</div>
                   <div className="text-sm" style={{ color: "var(--muted)" }}>{s.label}</div>
                 </div>
               ))}
@@ -246,13 +246,13 @@ export default function AboutPage() {
         <section className="py-20 px-6">
           <div className="max-w-5xl mx-auto">
             <p className="section-label justify-center mb-4">Our Values</p>
-            <h2 className="text-3xl font-extrabold text-center mb-12" style={{ letterSpacing: "-0.02em" }}>What We Stand For</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12" style={{ letterSpacing: "-0.02em" }}>What We Stand For</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((v, i) => (
-                <div key={i} className="p-8 rounded-xl card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                <div key={i} className="p-8 rounded-xl card-hover flex flex-col" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", minHeight: 240 }}>
                   <div className="text-5xl mb-4" style={{ lineHeight: 1 }}>{v.icon}</div>
                   <h3 className="text-xl font-bold mb-3" style={{ color: "#FFD700" }}>{v.title}</h3>
-                  <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>{v.desc}</p>
+                  <p className="text-sm flex-1" style={{ color: "var(--muted)", lineHeight: "1.7" }}>{v.desc}</p>
                 </div>
               ))}
             </div>
@@ -263,14 +263,14 @@ export default function AboutPage() {
         <section className="py-20 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
           <div className="max-w-5xl mx-auto">
             <p className="section-label justify-center mb-4">The Team</p>
-            <h2 className="text-3xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Small Team. Big Results.</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Small Team. Big Results.</h2>
             <p className="text-center max-w-xl mx-auto mb-12" style={{ color: "var(--muted)" }}>
               We&apos;re a lean, focused team of AI engineers, business operators, and automation specialists. We keep the team small on purpose — it keeps us fast.
             </p>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="p-8 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-20 h-20 rounded-full flex items-center justify-center text-2xl font-extrabold flex-shrink-0" style={{ backgroundColor: "#FFD700", color: "#0A0A0A", boxShadow: "0 0 0 3px rgba(255,215,0,0.3)" }}>TB</div>
+                  <div className="w-24 h-24 rounded-full flex items-center justify-center text-2xl font-extrabold flex-shrink-0" style={{ backgroundColor: "#FFD700", color: "#0A0A0A", boxShadow: "0 0 0 4px rgba(255,215,0,0.4), 0 0 0 7px rgba(255,215,0,0.15)" }}>TB</div>
                   <div>
                     <h3 className="font-bold">Toby Banks</h3>
                     <p className="text-sm" style={{ color: "#FFD700" }}>Founder & CEO</p>

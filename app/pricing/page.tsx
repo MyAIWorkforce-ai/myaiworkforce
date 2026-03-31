@@ -290,7 +290,7 @@ export default function PricingPage() {
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
               <div>
-                <h2 className="text-2xl font-extrabold" style={{ letterSpacing: "-0.02em" }}>Marketplace Plans</h2>
+                <h2 className="text-3xl font-extrabold" style={{ letterSpacing: "-0.02em" }}>Marketplace Plans</h2>
                 <p className="text-sm mt-1" style={{ color: "var(--muted)" }}>Browse and deploy pre-built agents yourself</p>
               </div>
               <div className="inline-flex items-center gap-1 p-1 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
@@ -298,11 +298,11 @@ export default function PricingPage() {
                 <button onClick={() => setAnnual(true)} className="px-4 py-2 rounded-lg text-sm font-semibold transition-all" style={{ backgroundColor: annual ? "#FFD700" : "transparent", color: annual ? "#0A0A0A" : "var(--text-dim)" }}>Annual <span className="text-xs ml-1" style={{ color: annual ? "#0A0A0A" : "#22c55e" }}>−20%</span></button>
               </div>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6 items-start">
               {marketplacePlans.map((plan, i) => {
                 const price = annual ? plan.annualPrice : plan.monthlyPrice;
                 return (
-                  <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.featured ? "rgba(255,215,0,0.05)" : "var(--card)", border: `2px solid ${plan.featured ? "#FFD700" : "var(--border)"}` }}>
+                  <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.featured ? "rgba(255,215,0,0.05)" : "var(--card)", border: `2px solid ${plan.featured ? "#FFD700" : "var(--border)"}`, transform: plan.featured ? "scale(1.02)" : "scale(1)", boxShadow: plan.featured ? "0 0 40px rgba(255,215,0,0.1)" : "none" }}>
                     {plan.featured && (
                       <div className="flex flex-wrap gap-2 items-center">
                         <div className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>MOST POPULAR</div>
@@ -338,12 +338,12 @@ export default function PricingPage() {
         <section className="py-16 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
           <div className="max-w-6xl mx-auto">
             <div className="mb-10">
-              <h2 className="text-2xl font-extrabold mb-1" style={{ letterSpacing: "-0.02em" }}>Done-For-You Plans</h2>
+              <h2 className="text-3xl font-extrabold mb-1" style={{ letterSpacing: "-0.02em" }}>Done-For-You Plans</h2>
               <p className="text-sm" style={{ color: "var(--muted)" }}>We custom-build and fully manage your AI workforce</p>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6 items-start">
               {dfy_plans.map((plan, i) => (
-                <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.highlight ? "rgba(255,215,0,0.05)" : "var(--card)", border: `2px solid ${plan.highlight ? "#FFD700" : "var(--border)"}` }}>
+                <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.highlight ? "rgba(255,215,0,0.05)" : "var(--card)", border: `2px solid ${plan.highlight ? "#FFD700" : "var(--border)"}`, transform: plan.highlight ? "scale(1.02)" : "scale(1)", boxShadow: plan.highlight ? "0 0 40px rgba(255,215,0,0.1)" : "none" }}>
                   {plan.highlight && (
                     <div className="flex flex-wrap gap-2 items-center">
                       <div className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>MOST POPULAR</div>

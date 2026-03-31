@@ -80,13 +80,13 @@ body {
 
 /* ── Card styles ── */
 .card-hover {
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   box-shadow: var(--card-shadow);
 }
 
 .card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.08);
   border-color: rgba(255,215,0,0.3) !important;
 }
 
@@ -97,7 +97,7 @@ body {
 }
 
 .glow-yellow:hover {
-  box-shadow: 0 0 20px var(--yellow-glow), 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 0 24px rgba(255,215,0,0.35), 0 4px 12px rgba(0,0,0,0.15);
   transform: translateY(-1px);
 }
 

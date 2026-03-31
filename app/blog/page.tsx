@@ -223,7 +223,7 @@ export default function BlogPage() {
             <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
               The AI Workforce Blog
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
               Insights for the<br /><span style={{ color: "#FFD700" }}>AI-Powered Business</span>
             </h1>
             <p style={{ color: "var(--muted)" }}>
@@ -235,14 +235,14 @@ export default function BlogPage() {
         <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
             {/* Featured Post */}
-            <div className="rounded-2xl mb-12 overflow-hidden" style={{ backgroundColor: "var(--card)", border: "2px solid #FFD700" }}>
-              <div className="relative h-64 overflow-hidden">
+            <div className="rounded-2xl mb-12 overflow-hidden card-hover" style={{ backgroundColor: "var(--card)", border: "2px solid #FFD700" }}>
+              <div className="relative overflow-hidden" style={{ height: 320 }}>
                 <img
                   src={featured.image}
                   alt={featured.imageAlt}
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.8))" }} />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.85))" }} />
               </div>
               <div className="p-10">
                 <div className="flex items-center gap-3 mb-4">
@@ -273,22 +273,24 @@ export default function BlogPage() {
                 const colors = CATEGORY_COLORS[post.category] ?? { bg: "rgba(255,215,0,0.1)", text: "#FFD700" };
                 return (
                   <div key={i} className="rounded-xl flex flex-col card-hover overflow-hidden" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                    <img
-                      src={post.image}
-                      alt={post.imageAlt}
-                      style={{ width: "100%", height: 200, objectFit: "cover" }}
-                    />
+                    <div className="overflow-hidden" style={{ height: 200, borderRadius: "0.75rem 0.75rem 0 0" }}>
+                      <img
+                        src={post.image}
+                        alt={post.imageAlt}
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                      />
+                    </div>
                     <div className="p-6 flex flex-col gap-4 flex-1">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-xs px-2 py-1 rounded-full font-semibold" style={{ backgroundColor: colors.bg, color: colors.text }}>
+                        <span className="text-xs px-3 py-1 rounded-full font-semibold" style={{ backgroundColor: colors.bg, color: colors.text, border: `1px solid ${colors.text}30` }}>
                           {post.category}
                         </span>
                         <span className="text-xs" style={{ color: "var(--muted)" }}>{post.readTime}</span>
                         <span className="text-xs" style={{ color: "var(--muted)" }}>{post.date}</span>
                       </div>
-                      <h3 className="font-bold text-lg leading-snug flex-1">{post.title}</h3>
-                      <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.6" }}>{post.excerpt}</p>
-                      <Link href={`/blog/${post.slug}`} className="text-sm font-semibold" style={{ color: "#FFD700" }}>Read Article →</Link>
+                      <h3 className="font-bold text-lg leading-snug">{post.title}</h3>
+                      <p className="text-sm flex-1" style={{ color: "var(--muted)", lineHeight: "1.6" }}>{post.excerpt}</p>
+                      <Link href={`/blog/${post.slug}`} className="text-sm font-semibold mt-auto" style={{ color: "#FFD700" }}>Read Article →</Link>
                     </div>
                   </div>
                 );
