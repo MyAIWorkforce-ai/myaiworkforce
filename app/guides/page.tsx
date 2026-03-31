@@ -3,15 +3,6 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 
-const CATEGORY_EMOJI: Record<string, string> = {
-  Operations: "⚙️",
-  "Customer Support": "💬",
-  Sales: "📊",
-  Marketing: "📱",
-  Finance: "💰",
-  Research: "🔍",
-  HR: "👥",
-};
 
 const guides = [
   { title: "How to Set Up Your First AI Email Agent", description: "Learn how to configure an AI agent to triage, respond, and organise your inbox — saving you hours every week.", category: "Operations", difficulty: "Beginner", readTime: "15 min", slug: "how-to-set-up-your-first-ai-email-agent", price: 9 },
@@ -243,7 +234,6 @@ export default function GuidesPage() {
             {filtered.map((guide, i) => (
               <div key={i} className="rounded-xl p-6 flex flex-col card-hover relative h-full"
                 style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                <div className="absolute top-4 right-4 text-2xl opacity-60">{CATEGORY_EMOJI[guide.category] ?? "📄"}</div>
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xs px-3 py-1 rounded-full font-semibold" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.25)" }}>{guide.category}</span>
                   <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: `${difficultyColors[guide.difficulty]}18`, color: difficultyColors[guide.difficulty], border: `1px solid ${difficultyColors[guide.difficulty]}40` }}>{guide.difficulty}</span>
