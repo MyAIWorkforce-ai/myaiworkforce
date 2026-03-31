@@ -241,7 +241,7 @@ function Hero() {
             className="px-8 py-4 rounded-xl text-lg font-bold text-center text-black glow-yellow"
             style={{ backgroundColor: "#FFD700" }}
           >
-            Book a Free Consultation →
+            Start Automating Today →
           </Link>
           <Link
             href="/marketplace"
