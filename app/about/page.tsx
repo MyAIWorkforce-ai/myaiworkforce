@@ -192,7 +192,7 @@ export default function AboutPage() {
         <section className="py-16 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex justify-center mb-6">
-              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
                 🏷️ Australian-owned &amp; operated
               </span>
             </div>

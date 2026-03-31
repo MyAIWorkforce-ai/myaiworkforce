@@ -257,7 +257,7 @@ function Hero() {
           </Link>
         </div>
         <div className="mt-8">
-          <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+          <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
             🏷️ First client this month gets 20% off — Book now
           </span>
         </div>
@@ -572,7 +572,7 @@ function FeaturedAgents() {
           500+ ready-made AI agents. Deploy in minutes. No technical setup required.
         </p>
         <div className="flex justify-center mb-12">
-          <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+          <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
             🏷️ 500+ agents — new ones added weekly
           </span>
         </div>
@@ -705,7 +705,7 @@ function PricingTeaser() {
               No hidden fees. No long-term lock-in. Cancel any time with 30 days notice. Every plan includes dedicated deployment, ongoing management, and monthly performance reports.
             </p>
             <div className="mb-6">
-              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
                 🏷️ No lock-in contracts — cancel anytime
               </span>
             </div>

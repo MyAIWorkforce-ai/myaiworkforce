@@ -281,7 +281,7 @@ export default function PricingPage() {
             </h1>
             <p className="text-lg mb-6" style={{ color: "var(--muted)" }}>Start free. Scale when you&apos;re ready. No hidden fees, no surprises.</p>
             <div>
-              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
                 🏷️ No setup fees — start immediately
               </span>
             </div>
@@ -309,7 +309,7 @@ export default function PricingPage() {
                     {plan.featured && (
                       <div className="flex flex-wrap gap-2 items-center">
                         <div className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>MOST POPULAR</div>
-                        <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "4px 10px", fontSize: 11, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+                        <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "4px 10px", fontSize: 11, fontWeight: 700, display: "inline-block",  }}>
                           🏷️ Most Popular — Best Value
                         </span>
                       </div>
@@ -350,7 +350,7 @@ export default function PricingPage() {
                   {plan.highlight && (
                     <div className="flex flex-wrap gap-2 items-center">
                       <div className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>MOST POPULAR</div>
-                      <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "4px 10px", fontSize: 11, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+                      <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "4px 10px", fontSize: 11, fontWeight: 700, display: "inline-block",  }}>
                         🏷️ Most Popular — Best Value
                       </span>
                     </div>

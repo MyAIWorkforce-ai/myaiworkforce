@@ -398,7 +398,7 @@ export default function DoneForYouPage() {
                     🛡️ Every plan includes a dedicated private VPS at no extra cost.
                   </p>
                   <div className="mt-3">
-                    <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 12, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+                    <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 12, fontWeight: 700, display: "inline-block",  }}>
                       🏷️ Your data never leaves your server
                     </span>
                   </div>
@@ -433,7 +433,7 @@ export default function DoneForYouPage() {
             <h2 className="text-3xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Simple, Transparent Pricing</h2>
             <p className="text-center max-w-xl mx-auto mb-4" style={{ color: "var(--muted)" }}>All plans include full setup, ongoing management, and private VPS deployment.</p>
             <div className="flex justify-center mb-10">
-              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
                 🏷️ First month 20% off for new clients
               </span>
             </div>
@@ -467,7 +467,7 @@ export default function DoneForYouPage() {
               <p className="font-semibold" style={{ color: "#FFD700" }}>🛡️ 30-Day Satisfaction Guarantee — if we don&apos;t deliver results in month one, we&apos;ll refund you in full.</p>
             </div>
             <div className="flex justify-center mt-4">
-              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block", transform: "rotate(-1deg)" }}>
+              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
                 🏷️ 30-day money-back guarantee — zero risk
               </span>
             </div>
