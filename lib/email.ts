@@ -58,7 +58,8 @@ export async function sendPurchaseConfirmation({
   `;
 
   return resend.emails.send({
-    from: 'My AI Workforce <monty@myaiworkforce.ai>',
+    from: 'My AI Workforce <onboarding@resend.dev>',
+    reply_to: 'toby@myaiworkforce.ai',
     to,
     subject,
     html,
@@ -126,7 +127,8 @@ export async function sendOnboardingWelcome({
   `;
 
   return resend.emails.send({
-    from: 'Toby at My AI Workforce <monty@myaiworkforce.ai>',
+    from: 'My AI Workforce <onboarding@resend.dev>',
+    reply_to: 'toby@myaiworkforce.ai',
     to,
     subject: `Welcome to My AI Workforce, ${clientName}! Your AI workforce is being built 🚀`,
     html,
