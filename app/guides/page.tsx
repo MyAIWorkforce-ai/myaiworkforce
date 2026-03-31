@@ -201,7 +201,7 @@ export default function GuidesPage() {
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent, var(--bg-section))", zIndex: 1 }} />
           <div className="max-w-3xl mx-auto" style={{ position: "relative", zIndex: 2 }}>
-            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.3)" }}>Free Guides</div>
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.3)" }}>DIY Guides — From $9</div>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>Build Your Own<br /><span style={{ color: "var(--yellow)" }}>AI Workforce</span></h1>
             <p className="text-lg" style={{ color: "var(--text-dim)" }}>Step-by-step guides for business owners who want to build powerful AI agents using OpenClaw, n8n, Make, ChatGPT and more — no technical team required.</p>
           </div>
