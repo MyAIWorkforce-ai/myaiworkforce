@@ -3,16 +3,22 @@ import "./globals.css";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  title: "MyAIWorkforce — Build Your AI Workforce",
+  title: "My AI Workforce | AI Agents for Australian Businesses",
   description:
-    "Browse ready-made AI agents, grab step-by-step guides, or let us build and run your entire AI workforce for you.",
-  keywords: "AI agents, AI workforce, automation, no-code AI, AI marketplace",
+    "Build your AI workforce without the complexity. Browse 500+ ready-made AI agents, step-by-step guides, or let us build and run your entire AI workforce from $997/mo.",
+  keywords: ["AI agents", "AI workforce", "Australian AI", "AI automation", "no-code AI", "AI marketplace", "done for you AI"],
   openGraph: {
-    title: "MyAIWorkforce — Build Your AI Workforce",
+    title: "My AI Workforce | AI Agents for Australian Businesses",
     description:
-      "Browse ready-made AI agents, grab step-by-step guides, or let us build and run your entire AI workforce for you.",
+      "Build your AI workforce without the complexity. Browse 500+ ready-made AI agents, step-by-step guides, or let us build and run your entire AI workforce from $997/mo.",
     type: "website",
     url: "https://myaiworkforce.ai",
+    siteName: "My AI Workforce",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "My AI Workforce | AI Agents for Australian Businesses",
+    description: "Browse 500+ ready-made AI agents or let us build your entire AI workforce from $997/mo.",
   },
 };
 

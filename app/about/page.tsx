@@ -109,12 +109,12 @@ function Footer() {
               { label: "Guides", href: "/guides" },
               { label: "Done-For-You", href: "/done-for-you" },
               { label: "Dashboard", href: "/dashboard" },
-              { label: "Become a Creator", href: "/creator" },
+              { label: "Sell Your Agents", href: "/creator" },
               { label: "Contact", href: "/contact" },
               { label: "Invest with Us", href: "/invest" },
             ].map((link) => (
               <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
-                style={{ color: ["Invest with Us", "Become a Creator"].includes(link.label) ? "var(--yellow)" : "var(--muted)", fontWeight: ["Invest with Us", "Become a Creator"].includes(link.label) ? "600" : "normal" }}
+                style={{ color: ["Invest with Us", "Sell Your Agents"].includes(link.label) ? "var(--yellow)" : "var(--muted)", fontWeight: ["Invest with Us", "Sell Your Agents"].includes(link.label) ? "600" : "normal" }}
               >{link.label}</Link>
             ))}
           </div>

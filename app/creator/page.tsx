@@ -115,12 +115,12 @@ function Footer() {
               { label: "Guides", href: "/guides" },
               { label: "Done-For-You", href: "/done-for-you" },
               { label: "Dashboard", href: "/dashboard" },
-              { label: "Become a Creator", href: "/creator" },
+              { label: "Sell Your Agents", href: "/creator" },
               { label: "Contact", href: "/contact" },
               { label: "Invest with Us", href: "/invest" },
             ].map((link) => (
               <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
-                style={{ color: ["Invest with Us", "Become a Creator"].includes(link.label) ? "var(--yellow)" : "var(--muted)", fontWeight: ["Invest with Us", "Become a Creator"].includes(link.label) ? "600" : "normal" }}>
+                style={{ color: ["Invest with Us", "Sell Your Agents"].includes(link.label) ? "var(--yellow)" : "var(--muted)", fontWeight: ["Invest with Us", "Sell Your Agents"].includes(link.label) ? "600" : "normal" }}>
                 {link.label}
               </Link>
             ))}
@@ -221,7 +221,7 @@ export default function CreatorPage() {
           {/* Header */}
           <div className="mb-10 text-center">
             <div className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4" style={{ backgroundColor: "rgba(249,115,22,0.15)", color: "#F97316" }}>
-              Creator Program
+              Seller Program
             </div>
             <h1 className="text-4xl font-bold mb-3" style={{ letterSpacing: "-0.02em" }}>
               Sell Your AI Agents.<br />
