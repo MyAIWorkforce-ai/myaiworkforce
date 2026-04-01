@@ -6,22 +6,32 @@ import { useRouter } from "next/navigation";
 export default function SignupPage() {
   const [form, setForm] = useState({ name: "", email: "", password: "", type: "buyer" });
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError('');
     try {
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: form.email, password: form.password, name: form.name }),
       });
-      if (res.ok) {
-        // Redirect based on account type
-        router.push(form.type === 'seller' ? '/creator' : '/dashboard');
+      const data = await res.json();
+      if (res.ok && data.user) {
+        setSuccess(true);
+        setTimeout(() => {
+          router.push(form.type === 'seller' ? '/creator' : '/dashboard');
+        }, 1500);
+      } else {
+        setError(data.error || 'Something went wrong. Please try again.');
       }
-    } catch {}
+    } catch {
+      setError('Connection error. Please try again.');
+    }
     setLoading(false);
   };
 
@@ -66,10 +76,12 @@ export default function SignupPage() {
                   style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }} />
               </div>
             ))}
-            <button type="submit" disabled={loading}
+            {error && <p className="text-sm text-center" style={{ color: "#E63946" }}>{error}</p>}
+            {success && <p className="text-sm text-center font-semibold" style={{ color: "#22c55e" }}>✅ Account created! Redirecting...</p>}
+            <button type="submit" disabled={loading || success}
               className="py-3 rounded-lg font-bold text-sm text-black mt-2"
-              style={{ backgroundColor: "var(--yellow)", opacity: loading ? 0.7 : 1 }}>
-              {loading ? "Creating account..." : "Create Account →"}
+              style={{ backgroundColor: "var(--yellow)", opacity: loading || success ? 0.7 : 1 }}>
+              {loading ? "Creating account..." : success ? "Success! ✅" : "Create Account →"}
             </button>
           </form>
           <p className="text-xs text-center mt-4" style={{ color: "var(--text-dim)" }}>
