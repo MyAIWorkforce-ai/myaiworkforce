@@ -552,6 +552,7 @@ function GuideBuyButton({ guide }: { guide: Guide & { difficulty: string; title:
           productName: guide.title,
           amount: price * 100,
           type: 'payment',
+          productType: 'guide',
         }),
       })
       const data = await res.json()

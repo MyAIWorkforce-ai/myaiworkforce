@@ -4,9 +4,10 @@ import { stripe } from '@/lib/stripe'
 
 export async function POST(req: NextRequest) {
   try {
-    const { priceId, productName, amount, type, customerEmail } = await req.json()
+    const { priceId, productName, amount, type, productType: rawProductType, customerEmail } = await req.json()
 
-    const productType = type === 'subscription' ? 'agent' : (type || 'guide')
+    // productType from frontend (guide/agent) takes priority, fallback to inferring from type
+    const productType = rawProductType || (type === 'subscription' ? 'agent' : 'guide')
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
