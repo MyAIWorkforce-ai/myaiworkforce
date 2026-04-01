@@ -3,21 +3,21 @@ import "./globals.css";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  title: "Buy & Sell AI Agents Worldwide | myaiworkforce.ai",
+  title: "Buy & Sell AI Agents Worldwide | MyAIWorkforce.ai",
   description:
     "Build your AI workforce without the complexity. Browse 500+ ready-made AI agents, step-by-step guides, or let us build and run your entire AI workforce from $997/mo.",
   keywords: ["AI agents", "AI workforce", "AI automation", "no-code AI", "AI marketplace", "done for you AI"],
   openGraph: {
-    title: "Buy & Sell AI Agents Worldwide | myaiworkforce.ai",
+    title: "Buy & Sell AI Agents Worldwide | MyAIWorkforce.ai",
     description:
       "Build your AI workforce without the complexity. Browse 500+ ready-made AI agents, step-by-step guides, or let us build and run your entire AI workforce from $997/mo.",
     type: "website",
-    url: "https://myaiworkforce.ai",
+    url: "https://MyAIWorkforce.ai",
     siteName: "My AI Workforce",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Buy & Sell AI Agents Worldwide | myaiworkforce.ai",
+    title: "Buy & Sell AI Agents Worldwide | MyAIWorkforce.ai",
     description: "Browse 500+ ready-made AI agents or let us build your entire AI workforce from $997/mo.",
   },
 };

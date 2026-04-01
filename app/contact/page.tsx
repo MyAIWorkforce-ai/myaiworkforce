@@ -200,7 +200,7 @@ export default function ContactPage() {
                     </div>
                   ))}
                 </div>
-                <a href="mailto:toby@myaiworkforce.ai?subject=Book a Free Discovery Call" className="py-3 rounded-xl font-bold text-center text-black block w-full glow-yellow" style={{ backgroundColor: "#FFD700" }}>
+                <a href="mailto:toby@MyAIWorkforce.ai?subject=Book a Free Discovery Call" className="py-3 rounded-xl font-bold text-center text-black block w-full glow-yellow" style={{ backgroundColor: "#FFD700" }}>
                   Book My Free Call →
                 </a>
                 <p className="text-xs text-center mt-3" style={{ color: "var(--muted)" }}>Usually responds within a few hours</p>
@@ -215,7 +215,7 @@ export default function ContactPage() {
                     <span className="text-lg">✉️</span>
                     <div>
                       <div className="font-medium">Email</div>
-                      <a href="mailto:toby@myaiworkforce.ai" style={{ color: "#FFD700" }}>toby@myaiworkforce.ai</a>
+                      <a href="mailto:toby@MyAIWorkforce.ai" style={{ color: "#FFD700" }}>toby@MyAIWorkforce.ai</a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 text-sm">

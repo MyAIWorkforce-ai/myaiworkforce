@@ -160,10 +160,10 @@ export default function PrivacyPage() {
           { title: "3. Information Sharing", content: "We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our platform, conducting our business, or servicing you — provided they agree to keep this information confidential." },
           { title: "4. Data Security", content: "We implement appropriate technical and organisational measures to protect your personal information against unauthorised access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure." },
           { title: "5. Cookies", content: "We use cookies and similar tracking technologies to track activity on our platform and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent." },
-          { title: "6. Your Rights", content: "You have the right to access, update, or delete your personal information at any time. You may also opt out of marketing communications. To exercise these rights, please contact us at monty@myaiworkforce.ai." },
+          { title: "6. Your Rights", content: "You have the right to access, update, or delete your personal information at any time. You may also opt out of marketing communications. To exercise these rights, please contact us at monty@MyAIWorkforce.ai." },
           { title: "7. Children's Privacy", content: "Our platform is not directed to children under 13. We do not knowingly collect personal information from children under 13." },
           { title: "8. Changes to This Policy", content: "We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the date above." },
-          { title: "9. Contact Us", content: "If you have any questions about this privacy policy, please contact us at monty@myaiworkforce.ai." },
+          { title: "9. Contact Us", content: "If you have any questions about this privacy policy, please contact us at monty@MyAIWorkforce.ai." },
         ].map((section, i) => (
           <div key={i} className="mb-10">
             <h2 className="text-xl font-bold mb-3">{section.title}</h2>

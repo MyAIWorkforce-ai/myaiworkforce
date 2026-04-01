@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Internal Ops Guide — myaiworkforce.ai',
+  title: 'Internal Ops Guide — MyAIWorkforce.ai',
   description: 'Internal operations guide for Done-For-You client onboarding.',
   robots: {
     index: false,
@@ -480,7 +480,7 @@ export default function InternalPage() {
             alignItems: 'center',
             gap: '6px',
           }}>
-            ← Back to myaiworkforce.ai
+            ← Back to MyAIWorkforce.ai
           </a>
           <p style={{ color: '#333', fontSize: '12px', marginTop: '12px' }}>
             🔒 This page is not indexed, not linked from nav, and not publicly promoted.

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin', '/internal', '/internal-guides', '/internal-seo', '/content-preview'],
     },
-    sitemap: 'https://myaiworkforce.ai/sitemap.xml',
+    sitemap: 'https://MyAIWorkforce.ai/sitemap.xml',
   }
 }

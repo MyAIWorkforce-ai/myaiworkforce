@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'SEO Strategy — Internal Review | My AI Workforce',
-  description: 'Internal SEO strategy review for myaiworkforce.ai. Private page for founder review.',
+  description: 'Internal SEO strategy review for MyAIWorkforce.ai. Private page for founder review.',
   robots: {
     index: false,
     follow: false,
@@ -15,7 +15,7 @@ const seoPages = [
   {
     name: 'Homepage',
     path: '/',
-    title: 'Buy & Sell AI Agents Worldwide | myaiworkforce.ai',
+    title: 'Buy & Sell AI Agents Worldwide | MyAIWorkforce.ai',
     titleLen: 49,
     metaDesc: 'Build your AI workforce without the complexity. Browse 500+ ready-made AI agents, step-by-step guides, or let us build and run your entire AI workforce from $997/mo.',
     metaLen: 162,
@@ -60,7 +60,7 @@ const seoPages = [
   {
     name: 'Done-For-You',
     path: '/done-for-you',
-    title: 'Done-For-You AI Workforce | From $997/mo | myaiworkforce.ai',
+    title: 'Done-For-You AI Workforce | From $997/mo | MyAIWorkforce.ai',
     titleLen: 59,
     metaDesc: 'We build, deploy & manage your AI workforce. Private VPS, custom agents, 24/7 monitoring. Email triage, lead gen, CRM automation and more. Book a free audit.',
     metaLen: 157,
@@ -135,7 +135,7 @@ const seoPages = [
   {
     name: 'Security',
     path: '/security',
-    title: 'Security & Privacy | myaiworkforce.ai | Enterprise-Grade AI',
+    title: 'Security & Privacy | MyAIWorkforce.ai | Enterprise-Grade AI',
     titleLen: 58,
     metaDesc: 'Your data stays yours. My AI Workforce uses private VPS infrastructure, end-to-end encryption, and zero data sharing. Enterprise-grade security for Australian businesses.',
     metaLen: 162,

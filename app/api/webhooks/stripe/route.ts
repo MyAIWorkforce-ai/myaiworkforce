@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
           await sendPurchaseConfirmation({
             to: customerEmail,
             productName,
-            downloadUrl: 'https://myaiworkforce.ai/dashboard',
+            downloadUrl: 'https://MyAIWorkforce.ai/dashboard',
             price: amountTotal,
             type: productType,
           });

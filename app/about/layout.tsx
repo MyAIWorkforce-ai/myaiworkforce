@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About | AI Automation Agency | myaiworkforce.ai',
+  title: 'About | AI Automation Agency | MyAIWorkforce.ai',
   description: 'My AI Workforce is a global AI agent marketplace and done-for-you agency helping businesses automate with AI. Built by Toby Banks.',
   keywords: ['about My AI Workforce', 'AI automation agency', 'Toby Banks', 'AI workforce company'],
   openGraph: {
-    title: 'About | AI Automation Agency | myaiworkforce.ai',
+    title: 'About | AI Automation Agency | MyAIWorkforce.ai',
     description: 'My AI Workforce is a global AI agent marketplace and done-for-you agency helping businesses automate with AI. Built by Toby Banks.',
-    url: 'https://myaiworkforce.ai/about',
+    url: 'https://MyAIWorkforce.ai/about',
     siteName: 'My AI Workforce',
     type: 'website',
   },

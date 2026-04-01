@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://myaiworkforce.ai'
+  const baseUrl = 'https://MyAIWorkforce.ai'
 
   const staticPages = [
     { url: baseUrl, priority: 1.0, changeFrequency: 'weekly' as const },

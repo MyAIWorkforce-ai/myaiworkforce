@@ -28,8 +28,8 @@ export async function POST(req: NextRequest) {
         productType: productType,
         customerEmail: customerEmail || '',
       },
-      success_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://myaiworkforce.ai'}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://myaiworkforce.ai'}/marketplace`,
+      success_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://MyAIWorkforce.ai'}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://MyAIWorkforce.ai'}/marketplace`,
     })
 
     return NextResponse.json({ url: session.url })

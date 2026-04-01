@@ -84,7 +84,7 @@ export async function GET(req: NextRequest) {
 
     if (!filename) {
       // Fallback: redirect to dashboard if file not found
-      return NextResponse.redirect('https://myaiworkforce.ai/dashboard')
+      return NextResponse.redirect('https://MyAIWorkforce.ai/dashboard')
     }
 
     // Read the guide file from public/guides/

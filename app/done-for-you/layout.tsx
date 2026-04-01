@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Done-For-You AI Workforce | From $997/mo | myaiworkforce.ai',
+  title: 'Done-For-You AI Workforce | From $997/mo | MyAIWorkforce.ai',
   description: 'We build, deploy and manage your AI workforce. Private VPS, custom agents, 24/7 monitoring. Email triage, lead gen, CRM automation and more.',
   keywords: ['done for you AI', 'managed AI workforce', 'AI agency', 'custom AI agents', 'AI automation service'],
   openGraph: {
-    title: 'Done-For-You AI Workforce | From $997/mo | myaiworkforce.ai',
+    title: 'Done-For-You AI Workforce | From $997/mo | MyAIWorkforce.ai',
     description: 'We build, deploy and manage your AI workforce. Private VPS, custom agents, 24/7 monitoring. Email triage, lead gen, CRM automation and more.',
-    url: 'https://myaiworkforce.ai/done-for-you',
+    url: 'https://MyAIWorkforce.ai/done-for-you',
     siteName: 'My AI Workforce',
     type: 'website',
   },

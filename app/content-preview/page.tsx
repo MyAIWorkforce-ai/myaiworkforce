@@ -20,7 +20,7 @@ const contentCalendar: DayContent[] = [
     title: "Launch / Awareness",
     LinkedIn: `We just launched something I've been building for the past year — and I'm genuinely excited to share it.
 
-myaiworkforce.ai is Australia's AI agent marketplace and done-for-you agency, built specifically for business owners who want to automate the repetitive work that's eating up their team's time — without needing a tech team to do it.
+MyAIWorkforce.ai is Australia's AI agent marketplace and done-for-you agency, built specifically for business owners who want to automate the repetitive work that's eating up their team's time — without needing a tech team to do it.
 
 Here's how it works across three pillars:
 
@@ -34,15 +34,15 @@ We built this because most AI tools are built for developers. We built this for 
 
 If you're a business owner tired of watching your team do things a $50/month AI agent could handle — this is for you.
 
-👉 Visit myaiworkforce.ai and see what's possible.`,
-    X: `We just launched myaiworkforce.ai 🚀
+👉 Visit MyAIWorkforce.ai and see what's possible.`,
+    X: `We just launched MyAIWorkforce.ai 🚀
 
 AI agents for Australian business owners. Browse the marketplace, follow the guides, or let us build it for you.
 
 No tech skills needed. Just results.
 
-👉 myaiworkforce.ai`,
-    Instagram: `We just launched myaiworkforce.ai — and it's built for business owners who are tired of doing everything manually. 🚀
+👉 MyAIWorkforce.ai`,
+    Instagram: `We just launched MyAIWorkforce.ai — and it's built for business owners who are tired of doing everything manually. 🚀
 
 Think of it as your AI workforce. Agents that handle email triage, lead gen, CRM updates, customer support — running 24/7 without sick days, pay rises, or coffee breaks.
 
@@ -56,7 +56,7 @@ This isn't the future. It's available right now.
 If you're a business owner in Australia who wants to automate the grind — tap the link in bio.
 
 #AIAgents #BusinessAutomation #AustralianBusiness #AIWorkforce #WorkSmarter #Automation #SmallBusiness #AI #DigitalTransformation #Productivity`,
-    Facebook: `Big news — we just launched myaiworkforce.ai! 🎉
+    Facebook: `Big news — we just launched MyAIWorkforce.ai! 🎉
 
 If you're a business owner who's tired of your team spending hours on repetitive tasks — this one's for you.
 
@@ -70,7 +70,7 @@ Here's what we offer:
 
 It's not about replacing your team. It's about freeing them up for the work that actually matters.
 
-Head to myaiworkforce.ai and take a look. Would love to hear what you think! 👇`,
+Head to MyAIWorkforce.ai and take a look. Would love to hear what you think! 👇`,
   },
   {
     day: 2,
@@ -93,7 +93,7 @@ The businesses winning in 2025 aren't working harder. They're working with bette
 
 What would your team do with 15 extra hours a week?
 
-👉 See what's available at myaiworkforce.ai`,
+👉 See what's available at MyAIWorkforce.ai`,
     X: `Your team spends 2.5 hrs/day just managing email.
 
 That's 12.5 hours a week. Per person.
@@ -102,7 +102,7 @@ An AI agent can triage, sort and flag all of it in seconds.
 
 This isn't the future. It's just a better system.
 
-👉 myaiworkforce.ai`,
+👉 MyAIWorkforce.ai`,
     Instagram: `Still doing this manually? 👀
 
 ❌ Sorting 200 emails every morning
@@ -116,7 +116,7 @@ AI agents can handle every single task above — automatically, accurately, 24/7
 
 The time your team saves can go toward strategy, relationships, and actual growth. You know, the stuff that matters.
 
-Stop burning hours on tasks that should be automated. Start at myaiworkforce.ai — link in bio.
+Stop burning hours on tasks that should be automated. Start at MyAIWorkforce.ai — link in bio.
 
 #AIAutomation #BusinessProductivity #WorkSmarter #EmailAutomation #CRM #AustralianBusiness #AIAgents #SmallBusiness #Automation #TimeSaving`,
     Facebook: `Be honest — how much of your team's day is spent on stuff that doesn't actually move the needle?
@@ -127,14 +127,14 @@ Studies show the average employee spends over 2.5 hours per day just managing th
 
 AI agents can handle all of that automatically. Not "eventually" — right now.
 
-At myaiworkforce.ai, we've built agents specifically for these tasks:
+At MyAIWorkforce.ai, we've built agents specifically for these tasks:
 ✅ Email Triage Pro
 ✅ CRM Update Agent
 ✅ Data Entry Automator
 
 Deploy one in your business this week and watch what happens to your team's output.
 
-👉 myaiworkforce.ai — check out the marketplace and see what's possible.`,
+👉 MyAIWorkforce.ai — check out the marketplace and see what's possible.`,
   },
   {
     day: 3,
@@ -161,7 +161,7 @@ The human team didn't lose their jobs. They got their sanity back — and starte
 
 This is what done-for-you AI looks like in practice.
 
-Want similar results? We have limited spots open. 👉 myaiworkforce.ai/done-for-you`,
+Want similar results? We have limited spots open. 👉 MyAIWorkforce.ai/done-for-you`,
     X: `We cut a client's support volume by 70% in 30 days.
 
 400+ weekly tickets → AI handles 70% automatically.
@@ -169,7 +169,7 @@ Response time: 4 hours → 8 minutes.
 
 The team didn't shrink. They just stopped doing the dumb stuff.
 
-👉 myaiworkforce.ai`,
+👉 MyAIWorkforce.ai`,
     Instagram: `Before vs After. This is what AI automation actually looks like in a real business. 👇
 
 BEFORE 😤
@@ -188,7 +188,7 @@ This was 30 days. One AI agent. One Melbourne business.
 
 The team didn't get smaller. They got better work to do.
 
-That's what we build at myaiworkforce.ai. Real results, real businesses. Link in bio.
+That's what we build at MyAIWorkforce.ai. Real results, real businesses. Link in bio.
 
 #CaseStudy #AIResults #BusinessAutomation #CustomerSupport #AIAgents #AustralianBusiness #EcommerceAustralia #Automation #AI #ResultsDriven`,
     Facebook: `Real results. Real business. Real numbers. 📊
@@ -207,7 +207,7 @@ Nobody lost their job. The team just stopped doing the boring stuff.
 
 This is exactly what we do in our Done-For-You service. Interested in a similar result for your business?
 
-👉 Book a call at myaiworkforce.ai/done-for-you`,
+👉 Book a call at MyAIWorkforce.ai/done-for-you`,
   },
   {
     day: 4,
@@ -235,7 +235,7 @@ The best part? They don't need onboarding. They don't call in sick. And they cos
 
 If you're a business owner wondering where to start with AI — start with agents.
 
-👉 Browse the marketplace at myaiworkforce.ai`,
+👉 Browse the marketplace at MyAIWorkforce.ai`,
     X: `ChatGPT answers questions.
 
 An AI agent takes action.
@@ -244,7 +244,7 @@ It monitors, triggers, executes, and reports — automatically.
 
 Think less "smart search bar," more "digital employee."
 
-That's what we build at myaiworkforce.ai`,
+That's what we build at MyAIWorkforce.ai`,
     Instagram: `Let me break down AI agents in plain English. 🧠
 
 AI agent = your best employee.
@@ -285,7 +285,7 @@ For example:
 
 You set it up once. It runs forever. No babysitting required.
 
-That's what we offer at myaiworkforce.ai — pre-built agents for the tasks that eat your team's time.
+That's what we offer at MyAIWorkforce.ai — pre-built agents for the tasks that eat your team's time.
 
 Have questions? Drop them in the comments 👇`,
   },
@@ -294,7 +294,7 @@ Have questions? Drop them in the comments 👇`,
     title: "Product Spotlight — Marketplace",
     LinkedIn: `Three AI agents that could save your team 10+ hours a week. Here's what they do and what they cost.
 
-We've just updated the myaiworkforce.ai marketplace with agents that are ready to deploy in your business today. No developers. No complex setup.
+We've just updated the MyAIWorkforce.ai marketplace with agents that are ready to deploy in your business today. No developers. No complex setup.
 
 Here are three worth knowing about:
 
@@ -312,7 +312,7 @@ Conservative time saved: 12–15 hours/week across a small team.
 
 The maths isn't hard.
 
-👉 Browse all agents at myaiworkforce.ai/marketplace`,
+👉 Browse all agents at MyAIWorkforce.ai/marketplace`,
     X: `Meet the Meeting Summariser. 📝
 
 Joins your Zoom/Teams call.
@@ -322,12 +322,12 @@ Automatically.
 
 $29/month. Your team never takes meeting notes again.
 
-👉 myaiworkforce.ai/marketplace`,
+👉 MyAIWorkforce.ai/marketplace`,
     Instagram: `Meet your new team member. 👋
 
 They work 24/7, never complain, and cost less than a single shift.
 
-Introducing three agents now live on the myaiworkforce.ai marketplace:
+Introducing three agents now live on the MyAIWorkforce.ai marketplace:
 
 📧 Email Triage Pro ($49/mo)
 → Sorts your inbox, drafts replies, flags what matters
@@ -361,7 +361,7 @@ Connects to Zoom, Teams, or Google Meet. Generates a clean summary with action i
 
 All three are ready to deploy now. No developers needed.
 
-👉 Browse the full marketplace at myaiworkforce.ai/marketplace`,
+👉 Browse the full marketplace at MyAIWorkforce.ai/marketplace`,
   },
   {
     day: 6,
@@ -376,7 +376,7 @@ With most tools? On shared infrastructure. Your customer emails, CRM data, suppo
 
 We do it differently.
 
-Every AI agent we deploy at myaiworkforce.ai runs on a dedicated private VPS — a server that belongs to your deployment only. Your data doesn't touch anyone else's environment. Ever.
+Every AI agent we deploy at MyAIWorkforce.ai runs on a dedicated private VPS — a server that belongs to your deployment only. Your data doesn't touch anyone else's environment. Ever.
 
 This matters if you're in:
 → Professional services (legal, accounting, financial advice)
@@ -388,7 +388,7 @@ We're also fully transparent about where your data is stored, what the agent acc
 
 AI automation shouldn't mean giving up control of your data. With us, you don't have to choose.
 
-👉 Learn more at myaiworkforce.ai`,
+👉 Learn more at MyAIWorkforce.ai`,
     X: `Most AI tools run your business data through shared servers.
 
 We don't.
@@ -397,14 +397,14 @@ Every agent we deploy runs on a private VPS — your data, your environment, no 
 
 Security isn't an afterthought. It's the architecture.
 
-👉 myaiworkforce.ai`,
+👉 MyAIWorkforce.ai`,
     Instagram: `Your data. Your server. Always. 🔒
 
 When you automate with AI, you're trusting it with your business data — emails, customer info, sales conversations, financial records.
 
 That trust needs to be earned.
 
-At myaiworkforce.ai, every AI agent is deployed on a private VPS — a dedicated server for your business only. Your data never sits alongside another company's data. No shared infrastructure. No shared risk.
+At MyAIWorkforce.ai, every AI agent is deployed on a private VPS — a dedicated server for your business only. Your data never sits alongside another company's data. No shared infrastructure. No shared risk.
 
 We designed it this way because we believe automation and privacy aren't opposites.
 
@@ -419,7 +419,7 @@ Link in bio to learn more.
 
 Most platforms run your business data through shared servers — meaning your customer emails, CRM records, and business conversations are sitting on the same infrastructure as thousands of other companies.
 
-We built myaiworkforce.ai differently.
+We built MyAIWorkforce.ai differently.
 
 Every AI agent we deploy runs on a dedicated private VPS — a server that belongs to your deployment only. Your data is isolated. No other businesses. No shared risk.
 
@@ -433,7 +433,7 @@ We're also fully transparent — you always know what data the agent accesses, w
 
 Automation and security shouldn't be a trade-off.
 
-👉 See how we do it at myaiworkforce.ai`,
+👉 See how we do it at MyAIWorkforce.ai`,
   },
   {
     day: 7,
@@ -464,7 +464,7 @@ If you've been thinking about AI automation but don't know where to start — th
 
 Book a call this week. The spots fill fast and I'm not just saying that.
 
-👉 myaiworkforce.ai/done-for-you`,
+👉 MyAIWorkforce.ai/done-for-you`,
     X: `2 Done-For-You spots open this month.
 
 We build custom AI agents directly into your business.
@@ -474,7 +474,7 @@ Results in 30 days or we keep working.
 
 Not many. Not for long.
 
-👉 myaiworkforce.ai/done-for-you`,
+👉 MyAIWorkforce.ai/done-for-you`,
     Instagram: `Two spots. This month. That's it. ⚡
 
 Our Done-For-You service is exactly what it sounds like — we build custom AI agents and deploy them directly into your business.
@@ -512,7 +512,7 @@ This month's spots usually go by the second week.
 
 If you've been thinking about AI automation for your business — don't sit on it. Book a free 20-minute discovery call this week.
 
-👉 myaiworkforce.ai/done-for-you`,
+👉 MyAIWorkforce.ai/done-for-you`,
   },
 ];
 
@@ -783,7 +783,7 @@ export default function ContentPreviewPage() {
             letterSpacing: "-0.02em",
           }}
         >
-          myaiworkforce.ai
+          MyAIWorkforce.ai
         </Link>
         <div style={{ fontSize: "13px", color: "#555" }}>
           Content Calendar — Week 1
@@ -909,7 +909,7 @@ export default function ContentPreviewPage() {
         }}
       >
         <Link href="/" style={{ color: "#FFD700", textDecoration: "none", fontWeight: "600" }}>
-          myaiworkforce.ai
+          MyAIWorkforce.ai
         </Link>{" "}
         · Social Media Content Calendar Week 1 · All rights reserved
       </div>

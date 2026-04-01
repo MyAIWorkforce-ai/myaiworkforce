@@ -53,8 +53,8 @@ export async function POST(req: NextRequest) {
     // Send notification email
     await resend.emails.send({
       from: "onboarding@resend.dev",
-      replyTo: "toby@myaiworkforce.ai",
-      to: "toby@myaiworkforce.ai",
+      replyTo: "toby@MyAIWorkforce.ai",
+      to: "toby@MyAIWorkforce.ai",
       subject: `🆕 New Creator Submission: ${name}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">

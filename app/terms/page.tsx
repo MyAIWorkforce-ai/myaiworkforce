@@ -155,7 +155,7 @@ export default function TermsPage() {
         <p className="text-sm mb-12" style={{ color: "var(--text-dim)" }}>Last updated: March 2026</p>
 
         {[
-          { title: "1. Acceptance of Terms", content: "By accessing and using myaiworkforce.ai, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our platform." },
+          { title: "1. Acceptance of Terms", content: "By accessing and using MyAIWorkforce.ai, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our platform." },
           { title: "2. Use of the Platform", content: "You may use our platform only for lawful purposes and in accordance with these Terms. You agree not to use the platform in any way that violates applicable laws, infringes on intellectual property rights, or harms other users." },
           { title: "3. Account Registration", content: "To access certain features, you must register for an account. You are responsible for maintaining the security of your account credentials and for all activity that occurs under your account." },
           { title: "4. Marketplace Transactions", content: "When purchasing listings from the marketplace, you agree to pay the listed price. Creator payouts are processed at 75% of the sale price. MyAIWorkforce retains 25% as a platform fee. All sales are final unless otherwise stated." },
@@ -166,7 +166,7 @@ export default function TermsPage() {
           { title: "9. Termination", content: "We reserve the right to terminate or suspend your account at any time for violations of these Terms. You may also delete your account at any time by contacting us." },
           { title: "10. Changes to Terms", content: "We may update these Terms at any time. Continued use of the platform after changes constitutes acceptance of the new Terms." },
           { title: "11. Governing Law", content: "These Terms are governed by the laws of Australia. Any disputes will be resolved in the courts of Australia." },
-          { title: "12. Contact", content: "For questions about these Terms, contact us at monty@myaiworkforce.ai." },
+          { title: "12. Contact", content: "For questions about these Terms, contact us at monty@MyAIWorkforce.ai." },
         ].map((section, i) => (
           <div key={i} className="mb-10">
             <h2 className="text-xl font-bold mb-3">{section.title}</h2>

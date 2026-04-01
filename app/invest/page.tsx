@@ -43,7 +43,7 @@ function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
           </form>
         </div>
         <p className="text-xs mt-6" style={{ color: "var(--text-dim)" }}>
-          Need access? Email <a href="mailto:toby@myaiworkforce.ai" style={{ color: "var(--yellow)" }}>toby@myaiworkforce.ai</a>
+          Need access? Email <a href="mailto:toby@MyAIWorkforce.ai" style={{ color: "var(--yellow)" }}>toby@MyAIWorkforce.ai</a>
         </p>
       </div>
     </div>
@@ -244,7 +244,7 @@ export default function InvestPage() {
             <p className="text-xl max-w-3xl mx-auto mb-8" style={{ color: "var(--text-dim)" }}>My AI Workforce is a two-sided marketplace where businesses buy and deploy AI agents, and creators earn 75% selling their AI skills, workflows, and tools.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold text-black inline-block" style={{ backgroundColor: "var(--yellow)" }}>Request a Meeting →</Link>
-              <a href="mailto:toby@myaiworkforce.ai" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ border: "2px solid var(--yellow)", color: "var(--yellow)" }}>toby@myaiworkforce.ai</a>
+              <a href="mailto:toby@MyAIWorkforce.ai" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ border: "2px solid var(--yellow)", color: "var(--yellow)" }}>toby@MyAIWorkforce.ai</a>
             </div>
           </div>
         </section>
@@ -415,7 +415,7 @@ export default function InvestPage() {
             <p className="mb-8 text-lg" style={{ color: "var(--text-dim)" }}>We're raising a seed round to complete the marketplace payment infrastructure, hire engineers, and scale the Done-For-You client base.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold text-black inline-block" style={{ backgroundColor: "var(--yellow)" }}>Request a Meeting →</Link>
-              <a href="mailto:toby@myaiworkforce.ai" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ border: "2px solid var(--yellow)", color: "var(--yellow)" }}>toby@myaiworkforce.ai</a>
+              <a href="mailto:toby@MyAIWorkforce.ai" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ border: "2px solid var(--yellow)", color: "var(--yellow)" }}>toby@MyAIWorkforce.ai</a>
             </div>
             <p className="mt-8 text-sm" style={{ color: "var(--text-dim)" }}>This document is confidential and intended solely for prospective investors.</p>
           </div>

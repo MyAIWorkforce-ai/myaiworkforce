@@ -417,7 +417,7 @@ export default function SecurityPage() {
                   {[
                     "Go to your Google Account → Security → Third-party apps",
                     "Find 'My AI Workforce' and click Remove Access",
-                    "Email us at toby@myaiworkforce.ai to confirm shutdown",
+                    "Email us at toby@MyAIWorkforce.ai to confirm shutdown",
                     "We confirm all agent processes are stopped within 1 hour",
                   ].map((step, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs" style={{ color: "var(--muted)" }}>
@@ -434,11 +434,11 @@ export default function SecurityPage() {
                 <p className="text-sm mb-4" style={{ color: "var(--muted)", lineHeight: "1.6" }}>
                   Request full deletion of all your data at any time. We complete it within 30 days and send written confirmation.
                 </p>
-                <Link href="mailto:toby@myaiworkforce.ai?subject=Data Deletion Request"
+                <Link href="mailto:toby@MyAIWorkforce.ai?subject=Data Deletion Request"
                   className="text-sm font-semibold"
                   style={{ color: "#FFD700" }}
                 >
-                  Request deletion → toby@myaiworkforce.ai
+                  Request deletion → toby@MyAIWorkforce.ai
                 </Link>
               </div>
 
@@ -507,7 +507,7 @@ export default function SecurityPage() {
                 Book a Security Briefing Call →
               </Link>
               <Link
-                href="mailto:toby@myaiworkforce.ai"
+                href="mailto:toby@MyAIWorkforce.ai"
                 className="px-8 py-4 rounded-xl font-bold inline-block text-base"
                 style={{ border: "2px solid var(--border)", color: "var(--text-dim)" }}
               >
