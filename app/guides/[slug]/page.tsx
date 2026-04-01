@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { convertPrice } from "@/lib/currency";
 
 interface GuideStep {
   heading: string;
@@ -539,7 +540,15 @@ function Footer() {
 function GuideBuyButton({ guide }: { guide: Guide & { difficulty: string; title: string } }) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [userCountry, setUserCountry] = useState("Australia")
   const price = guidePrices[guide.difficulty]
+
+  useEffect(() => {
+    fetch('https://ipapi.co/json/')
+      .then(r => r.json())
+      .then(d => { if (d.country_name) setUserCountry(d.country_name); })
+      .catch(() => {});
+  }, [])
 
   const handleBuy = async () => {
     setLoading(true)
@@ -576,7 +585,7 @@ function GuideBuyButton({ guide }: { guide: Guide & { difficulty: string; title:
         className="inline-block px-12 py-4 rounded-xl font-extrabold text-lg glow-yellow"
         style={{ backgroundColor: "#FFD700", color: "#0A0A0A", opacity: loading ? 0.7 : 1, cursor: loading ? 'wait' : 'pointer' }}
       >
-        {loading ? 'Redirecting to checkout…' : `Buy Now — $${price} →`}
+        {loading ? 'Redirecting to checkout…' : `Buy Now — ${convertPrice(price, userCountry)} →`}
       </button>
       {error && <p className="text-xs text-red-500 mt-2">{error}</p>}
     </div>

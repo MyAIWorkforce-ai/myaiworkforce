@@ -3,9 +3,30 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+const COUNTRIES = [
+  "Afghanistan", "Albania", "Algeria", "Argentina", "Armenia", "Australia",
+  "Austria", "Azerbaijan", "Bahrain", "Bangladesh", "Belarus", "Belgium",
+  "Bolivia", "Bosnia and Herzegovina", "Brazil", "Bulgaria", "Cambodia",
+  "Canada", "Chile", "China", "Colombia", "Costa Rica", "Croatia", "Cyprus",
+  "Czech Republic", "Denmark", "Ecuador", "Egypt", "Estonia", "Ethiopia",
+  "Finland", "France", "Georgia", "Germany", "Ghana", "Greece", "Guatemala",
+  "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran",
+  "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan",
+  "Kazakhstan", "Kenya", "Kuwait", "Latvia", "Lebanon", "Lithuania",
+  "Luxembourg", "Malaysia", "Malta", "Mexico", "Morocco", "Myanmar",
+  "Nepal", "Netherlands", "New Zealand", "Nigeria", "Norway", "Oman",
+  "Pakistan", "Panama", "Paraguay", "Peru", "Philippines", "Poland",
+  "Portugal", "Qatar", "Romania", "Russia", "Saudi Arabia", "Serbia",
+  "Singapore", "Slovakia", "Slovenia", "South Africa", "South Korea",
+  "Spain", "Sri Lanka", "Sweden", "Switzerland", "Taiwan", "Thailand",
+  "Tunisia", "Turkey", "Ukraine", "United Arab Emirates", "United Kingdom",
+  "United States", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam",
+  "Zimbabwe",
+];
+
 export default function SignupPage() {
   const [step, setStep] = useState<'signup' | 'choose'>('signup');
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ name: "", email: "", password: "", country: "" });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -19,7 +40,7 @@ export default function SignupPage() {
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: form.email, password: form.password, name: form.name }),
+        body: JSON.stringify({ email: form.email, password: form.password, name: form.name, country: form.country }),
       });
       const data = await res.json();
       if (res.ok && data.user) {
@@ -105,6 +126,21 @@ export default function SignupPage() {
                   style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }} />
               </div>
             ))}
+            <div>
+              <label className="block text-sm font-medium mb-1.5">Country</label>
+              <select
+                required
+                value={form.country}
+                onChange={e => setForm({ ...form, country: e.target.value })}
+                className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
+                style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: form.country ? "var(--text)" : "var(--text-dim)" }}
+              >
+                <option value="" disabled>Select your country</option>
+                {COUNTRIES.map(c => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
+            </div>
             {error && <p className="text-sm text-center" style={{ color: "#E63946" }}>{error}</p>}
             {success && <p className="text-sm text-center font-semibold" style={{ color: "#22c55e" }}>✅ Account created!</p>}
             <button type="submit" disabled={loading || success}

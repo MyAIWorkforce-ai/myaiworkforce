@@ -4,10 +4,13 @@ import { stripe } from '@/lib/stripe'
 
 export async function POST(req: NextRequest) {
   try {
-    const { priceId, productName, amount, type, productType: rawProductType, customerEmail } = await req.json()
+    const { priceId, productName, amount, type, productType: rawProductType, customerEmail, currency: reqCurrency } = await req.json()
 
     // productType from frontend (guide/agent) takes priority, fallback to inferring from type
     const productType = rawProductType || (type === 'subscription' ? 'agent' : 'guide')
+
+    // currency defaults to aud — all actual charges go through in AUD
+    const currency = (reqCurrency || 'aud').toLowerCase()
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -16,7 +19,7 @@ export async function POST(req: NextRequest) {
       line_items: [
         {
           price_data: {
-            currency: 'aud',
+            currency,
             product_data: { name: productName },
             unit_amount: amount, // in cents
             ...(type === 'subscription' && { recurring: { interval: 'month' } }),

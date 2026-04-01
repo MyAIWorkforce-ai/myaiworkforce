@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import { convertPrice } from "@/lib/currency";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
@@ -551,9 +552,29 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
+// ─── Price parser ─────────────────────────────────────────────────────────────
+
+function formatAgentPrice(priceStr: string, country: string): string {
+  if (priceStr === 'Free') return 'Free';
+  // "From $15" or "$29/mo" or "$49/mo"
+  const fromMatch = priceStr.match(/^From \$(\d+)/);
+  if (fromMatch) {
+    return `From ${convertPrice(parseInt(fromMatch[1]), country)}`;
+  }
+  const moMatch = priceStr.match(/^\$(\d+)\/mo$/);
+  if (moMatch) {
+    return `${convertPrice(parseInt(moMatch[1]), country)}/mo`;
+  }
+  const plainMatch = priceStr.match(/^\$(\d+)$/);
+  if (plainMatch) {
+    return convertPrice(parseInt(plainMatch[1]), country);
+  }
+  return priceStr;
+}
+
 // ─── Agent Card ───────────────────────────────────────────────────────────────
 
-function AgentCard({ agent }: { agent: Agent }) {
+function AgentCard({ agent, country }: { agent: Agent; country: string }) {
   const colors = CATEGORY_COLORS[agent.category];
   return (
     <div
@@ -601,7 +622,7 @@ function AgentCard({ agent }: { agent: Agent }) {
 
       {/* Price + CTA */}
       <div className="flex items-center justify-between gap-3 mt-auto">
-        <span className="text-base font-bold" style={{ color: "var(--text)" }}>{agent.price}</span>
+        <span className="text-base font-bold" style={{ color: "var(--text)" }}>{formatAgentPrice(agent.price, country)}</span>
         <a
           href={`/marketplace/${agent.slug}`}
           className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow whitespace-nowrap"
@@ -620,6 +641,14 @@ export default function MarketplacePage() {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<Category>("All");
   const [sort, setSort] = useState<SortOption>("Featured");
+  const [userCountry, setUserCountry] = useState("Australia");
+
+  useEffect(() => {
+    fetch('https://ipapi.co/json/')
+      .then(r => r.json())
+      .then(d => { if (d.country_name) setUserCountry(d.country_name); })
+      .catch(() => {}); // fallback to Australia
+  }, []);
 
   const filtered = AGENTS.filter((a) => {
     const matchesCategory = activeCategory === "All" || a.category === activeCategory;
@@ -767,7 +796,7 @@ export default function MarketplacePage() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map((agent) => (
-                <AgentCard key={agent.id} agent={agent} />
+                <AgentCard key={agent.id} agent={agent} country={userCountry} />
               ))}
             </div>
           )}

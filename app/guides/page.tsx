@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { convertPrice } from "@/lib/currency";
 
 
 const guides = [
@@ -189,7 +190,15 @@ function Footer() {
 
 export default function GuidesPage() {
   const [filter, setFilter] = useState("All");
+  const [userCountry, setUserCountry] = useState("Australia");
   const filtered = filter === "All" ? guides : guides.filter(g => g.difficulty === filter);
+
+  useEffect(() => {
+    fetch('https://ipapi.co/json/')
+      .then(r => r.json())
+      .then(d => { if (d.country_name) setUserCountry(d.country_name); })
+      .catch(() => {}); // fallback to Australia
+  }, []);
 
   return (
     <div style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
@@ -205,7 +214,7 @@ export default function GuidesPage() {
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent, var(--bg-section))", zIndex: 1 }} />
           <div className="max-w-3xl mx-auto" style={{ position: "relative", zIndex: 2 }}>
 
-            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.3)" }}>DIY Guides — From $9</div>
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.3)" }}>DIY Guides — From {convertPrice(9, userCountry)}</div>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>Build Your Own<br /><span style={{ color: "var(--yellow)" }}>AI Workforce</span></h1>
             <p className="text-lg mb-6" style={{ color: "var(--text-dim)" }}>Step-by-step guides for business owners who want to build powerful AI agents using OpenClaw, n8n, Make, ChatGPT and more — no technical team required.</p>
             <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block" }}>
@@ -243,14 +252,14 @@ export default function GuidesPage() {
                 <p className="text-sm flex-1 mb-4" style={{ color: "var(--text-dim)" }}>{guide.description}</p>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-xs" style={{ color: "var(--text-dim)" }}>📖 {guide.readTime} read</span>
-                  <span className="text-base font-extrabold" style={{ color: "var(--yellow)" }}>${guide.price}</span>
+                  <span className="text-base font-extrabold" style={{ color: "var(--yellow)" }}>{convertPrice(guide.price, userCountry)}</span>
                 </div>
                 <Link
                   href={`/guides/${guide.slug}`}
                   className="w-full py-2.5 px-4 rounded-lg text-sm font-bold text-center transition-all duration-200 glow-yellow"
                   style={{ backgroundColor: "#FFD700", color: "#0A0A0A", display: "block" }}
                 >
-                  Buy Guide — ${guide.price} →
+                  Buy Guide — {convertPrice(guide.price, userCountry)} →
                 </Link>
               </div>
             ))}

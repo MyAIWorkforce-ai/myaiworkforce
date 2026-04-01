@@ -9,11 +9,11 @@ const supabase = createClient(
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, password, name } = await req.json()
+    const { email, password, name, country } = await req.json()
     const { data, error } = await supabase.auth.admin.createUser({
       email,
       password,
-      user_metadata: { name },
+      user_metadata: { name, country: country || '' },
       email_confirm: true,
     })
     if (error) return NextResponse.json({ error: error.message }, { status: 400 })
