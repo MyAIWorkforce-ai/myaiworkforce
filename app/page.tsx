@@ -164,6 +164,8 @@ function Footer() {
               { label: "Marketplace", href: "/marketplace" },
               { label: "Guides", href: "/guides" },
               { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Dashboard", href: "/dashboard" },
+              { label: "Become a Creator", href: "/creator" },
               { label: "Contact", href: "/contact" },
               { label: "Invest with Us", href: "/invest" },
             ].map((link) => (
@@ -171,7 +173,7 @@ function Footer() {
                 key={link.label}
                 href={link.href}
                 className="text-sm font-medium transition-colors duration-200"
-                style={{ color: link.label === "Invest with Us" ? "var(--yellow)" : "var(--muted)", fontWeight: link.label === "Invest with Us" ? "600" : "normal" }}
+                style={{ color: ["Invest with Us", "Become a Creator"].includes(link.label) ? "var(--yellow)" : "var(--muted)", fontWeight: ["Invest with Us", "Become a Creator"].includes(link.label) ? "600" : "normal" }}
               >
                 {link.label}
               </Link>

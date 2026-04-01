@@ -176,6 +176,8 @@ function Footer() {
         <div className="flex gap-6 text-sm">
           <Link href="/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
           <Link href="/pricing" style={{ color: "var(--text-dim)" }}>Pricing</Link>
+          <Link href="/dashboard" style={{ color: "var(--text-dim)" }}>Dashboard</Link>
+          <Link href="/creator" style={{ color: "var(--yellow)", fontWeight: "600" }}>Become a Creator</Link>
           <Link href="/contact" style={{ color: "var(--text-dim)" }}>Contact</Link>
           <Link href="/invest" style={{ color: "var(--yellow)", fontWeight: "600" }}>Invest with Us</Link>
         </div>
