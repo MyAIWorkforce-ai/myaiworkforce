@@ -15,7 +15,7 @@ const seoPages = [
   {
     name: 'Homepage',
     path: '/',
-    title: 'My AI Workforce | AI Agents for Australian Businesses',
+    title: 'Buy & Sell AI Agents Worldwide | My AI Workforce',
     titleLen: 49,
     metaDesc: 'Build your AI workforce without the complexity. Browse 500+ ready-made AI agents, step-by-step guides, or let us build and run your entire AI workforce from $997/mo.',
     metaLen: 162,
