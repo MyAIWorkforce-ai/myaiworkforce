@@ -86,6 +86,7 @@ function Nav({ active }: { active?: string }) {
             {NAV_LINKS.map((link) => (
               <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
+            <div className="flex gap-2 mt-2"><Link href="/login" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--border)", color: "var(--text-dim)" }} onClick={() => setOpen(false)}>Login</Link><Link href="/signup" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--yellow)", color: "var(--yellow)" }} onClick={() => setOpen(false)}>Sign Up</Link></div>
             <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
           </div>
         </div>
