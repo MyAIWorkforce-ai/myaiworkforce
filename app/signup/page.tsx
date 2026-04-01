@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
-  const [form, setForm] = useState({ name: "", email: "", password: "", type: "buyer" });
+  const [step, setStep] = useState<'signup' | 'choose'>('signup');
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -23,9 +24,7 @@ export default function SignupPage() {
       const data = await res.json();
       if (res.ok && data.user) {
         setSuccess(true);
-        setTimeout(() => {
-          router.push(form.type === 'seller' ? '/creator' : '/dashboard');
-        }, 1500);
+        setTimeout(() => setStep('choose'), 800);
       } else {
         setError(data.error || 'Something went wrong. Please try again.');
       }
@@ -35,32 +34,62 @@ export default function SignupPage() {
     setLoading(false);
   };
 
+  if (step === 'choose') {
+    return (
+      <div className="min-h-screen flex items-center justify-center px-6 py-12" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
+        <div className="w-full max-w-sm">
+          <div className="text-center mb-8">
+            <Link href="/" className="text-2xl font-extrabold" style={{ letterSpacing: "-0.02em" }}>
+              <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+            </Link>
+            <p className="mt-2 text-sm font-semibold" style={{ color: "#22c55e" }}>✅ Account created! Welcome aboard.</p>
+          </div>
+          <div className="rounded-2xl p-8" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+            <h2 className="text-xl font-extrabold text-center mb-2">What would you like to do?</h2>
+            <p className="text-sm text-center mb-6" style={{ color: "var(--muted)" }}>You can do both — this just gets you started.</p>
+            <div className="flex flex-col gap-4">
+              <button
+                onClick={() => router.push('/marketplace')}
+                className="w-full p-5 rounded-xl text-left transition-all card-hover"
+                style={{ backgroundColor: "var(--bg)", border: "2px solid var(--yellow)" }}
+              >
+                <div className="text-2xl mb-2">🛒</div>
+                <div className="font-bold mb-1" style={{ color: "#FFD700" }}>Buy Agents & Skills</div>
+                <div className="text-sm" style={{ color: "var(--muted)" }}>Browse 500+ ready-made AI agents and skill files for your business.</div>
+              </button>
+              <button
+                onClick={() => router.push('/creator')}
+                className="w-full p-5 rounded-xl text-left transition-all card-hover"
+                style={{ backgroundColor: "var(--bg)", border: "2px solid #F97316" }}
+              >
+                <div className="text-2xl mb-2">💰</div>
+                <div className="font-bold mb-1" style={{ color: "#F97316" }}>Sell Agents & Skills</div>
+                <div className="text-sm" style={{ color: "var(--muted)" }}>List your AI agents, skills, prompt packs and earn 75% on every sale.</div>
+              </button>
+              <button
+                onClick={() => router.push('/dashboard')}
+                className="text-sm text-center mt-2"
+                style={{ color: "var(--muted)" }}
+              >
+                Go to my dashboard →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center px-6 py-12" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
-          <Link href="/" className="text-2xl font-extrabold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
-          <p className="mt-2 text-sm font-semibold" style={{ color: "var(--text-dim)" }}>Buy & Sell AI Agents and Skills</p>
+          <Link href="/" className="text-2xl font-extrabold" style={{ letterSpacing: "-0.02em" }}>
+            <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+          </Link>
+          <p className="mt-2 text-sm" style={{ color: "var(--text-dim)" }}>Create your free account to buy and sell AI agents and skills</p>
         </div>
         <div className="rounded-2xl p-8" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-          {/* Account type toggle */}
-          <div className="flex gap-2 mb-6 p-1 rounded-xl" style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)" }}>
-            <button onClick={() => setForm({ ...form, type: "buyer" })}
-              className="flex-1 py-2 rounded-lg text-sm font-semibold transition-all"
-              style={{ backgroundColor: form.type === "buyer" ? "var(--yellow)" : "transparent", color: form.type === "buyer" ? "#0A0A0A" : "var(--text-dim)" }}>
-              Buy Agents & Skills
-            </button>
-            <button onClick={() => setForm({ ...form, type: "seller" })}
-              className="flex-1 py-2 rounded-lg text-sm font-semibold transition-all"
-              style={{ backgroundColor: form.type === "seller" ? "var(--yellow)" : "transparent", color: form.type === "seller" ? "#0A0A0A" : "var(--text-dim)" }}>
-              Sell Agents & Skills
-            </button>
-          </div>
-          {form.type === "seller" && (
-            <div className="mb-4 p-3 rounded-lg text-xs" style={{ backgroundColor: "rgba(255,215,0,0.08)", border: "1px solid rgba(255,215,0,0.2)", color: "var(--yellow)" }}>
-              ✦ Sellers earn 75% on every sale. List agents, skills, prompts & workflows.
-            </div>
-          )}
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             {[
               { label: "Full Name", key: "name", type: "text", placeholder: "John Smith" },
@@ -77,11 +106,11 @@ export default function SignupPage() {
               </div>
             ))}
             {error && <p className="text-sm text-center" style={{ color: "#E63946" }}>{error}</p>}
-            {success && <p className="text-sm text-center font-semibold" style={{ color: "#22c55e" }}>✅ Account created! Redirecting...</p>}
+            {success && <p className="text-sm text-center font-semibold" style={{ color: "#22c55e" }}>✅ Account created!</p>}
             <button type="submit" disabled={loading || success}
               className="py-3 rounded-lg font-bold text-sm text-black mt-2"
               style={{ backgroundColor: "var(--yellow)", opacity: loading || success ? 0.7 : 1 }}>
-              {loading ? "Creating account..." : success ? "Success! ✅" : "Create Account →"}
+              {loading ? "Creating account..." : success ? "Success! ✅" : "Create Free Account →"}
             </button>
           </form>
           <p className="text-xs text-center mt-4" style={{ color: "var(--text-dim)" }}>
