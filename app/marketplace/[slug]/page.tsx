@@ -897,10 +897,9 @@ function Nav() {
 function parseAmount(price: string): { amount: number; type: string } {
   // Parse price strings like "$29/mo", "$49", "Free", "From $15"
   if (price === 'Free') return { amount: 0, type: 'payment' }
-  const isSubscription = price.includes('/mo')
   const match = price.match(/\$(\d+)/)
   const dollars = match ? parseInt(match[1]) : 0
-  return { amount: dollars * 100, type: isSubscription ? 'subscription' : 'payment' }
+  return { amount: dollars * 100, type: 'payment' }
 }
 
 function BuyButton({ agent }: { agent: { price: string; title: string } }) {
