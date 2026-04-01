@@ -459,6 +459,7 @@ function Nav() {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
+          <a href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "var(--text-dim)", border: "1px solid var(--border)" }}>Login</a>
           <a
             href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
