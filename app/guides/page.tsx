@@ -202,6 +202,7 @@ export default function GuidesPage() {
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent, var(--bg-section))", zIndex: 1 }} />
           <div className="max-w-3xl mx-auto" style={{ position: "relative", zIndex: 2 }}>
 
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.3)" }}>DIY Guides — From $9</div>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>Build Your Own<br /><span style={{ color: "var(--yellow)" }}>AI Workforce</span></h1>
             <p className="text-lg" style={{ color: "var(--text-dim)" }}>Step-by-step guides for business owners who want to build powerful AI agents using OpenClaw, n8n, Make, ChatGPT and more — no technical team required.</p>
           </div>
@@ -210,19 +211,19 @@ export default function GuidesPage() {
         {/* Filters */}
         <section className="py-8 px-6 border-b" style={{ borderColor: "var(--nav-border)" }}>
           <div className="max-w-6xl mx-auto flex flex-col gap-3">
-            <div className="flex items-center gap-3 flex-wrap">
-            {difficulties.map(d => (
-              <button key={d} onClick={() => setFilter(d)}
-                className="px-4 py-2 rounded-lg text-sm font-medium transition-all"
-                style={{ backgroundColor: filter === d ? "var(--yellow)" : "var(--card)", color: filter === d ? "#0A0A0A" : "var(--text-dim)", border: "1px solid var(--border)" }}>
-                {d}
-              </button>
-            ))}
-            </div>
             <div>
               <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "5px 12px", fontSize: 12, fontWeight: 700, display: "inline-block" }}>
                 🏷️ One-time purchase — yours forever
               </span>
+            </div>
+            <div className="flex items-center gap-3 flex-wrap">
+              {difficulties.map(d => (
+                <button key={d} onClick={() => setFilter(d)}
+                  className="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                  style={{ backgroundColor: filter === d ? "var(--yellow)" : "var(--card)", color: filter === d ? "#0A0A0A" : "var(--text-dim)", border: "1px solid var(--border)" }}>
+                  {d}
+                </button>
+              ))}
             </div>
           </div>
         </section>
