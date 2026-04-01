@@ -2,6 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 import Stripe from 'stripe';
 import { sendPurchaseConfirmation } from '@/lib/email';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://uhkfooojytjesnvqrtxx.supabase.co',
+  process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+);
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_placeholder', {
   apiVersion: '2026-03-25.dahlia',
@@ -43,6 +49,17 @@ export async function POST(request: NextRequest) {
         const productName = session.metadata?.productName || 'Your purchase';
         const productType = (session.metadata?.productType as 'guide' | 'agent') || 'guide';
         const amountTotal = session.amount_total ? `$${(session.amount_total / 100).toFixed(2)} AUD` : '';
+
+        // Save purchase to Supabase
+        const productSlug = session.metadata?.productSlug || productName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        await supabase.from('purchases').insert({
+          email: customerEmail || 'unknown',
+          product_name: productName,
+          product_type: productType,
+          amount: session.amount_total ? session.amount_total / 100 : 0,
+          stripe_session_id: session.id,
+          product_slug: productSlug,
+        });
 
         if (customerEmail) {
           console.log('[Stripe Webhook] Sending purchase confirmation to:', customerEmail);
