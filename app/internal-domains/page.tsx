@@ -1,15 +1,8 @@
-import type { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Domain Portfolio — Internal | MyAIWorkforce.ai',
-  description: 'Internal domain portfolio overview with estimated sale values.',
-  robots: {
-    index: false,
-    follow: false,
-    noarchive: true,
-    nosnippet: true,
-  },
-}
+import { useState, useEffect } from 'react'
+
+type DomainStatus = 'list' | 'skip' | 'review'
 
 type Domain = {
   name: string
@@ -17,19 +10,19 @@ type Domain = {
   valueHigh: number
   category: 'AI/Tech' | 'Trade/Local' | 'Personal/Family' | 'Other'
   buyerType: string
-  status: 'list' | 'skip' | 'review'
+  defaultStatus: DomainStatus
   notes: string
+  hidden?: boolean
 }
 
 const domains: Domain[] = [
-  // Sorted by valueHigh desc
   {
     name: 'virtualassistant.com.au',
     valueLow: 15000,
     valueHigh: 25000,
     category: 'AI/Tech',
     buyerType: 'AI/VA platform companies, agencies',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Premium — generic keyword + .com.au. High demand.',
   },
   {
@@ -38,7 +31,7 @@ const domains: Domain[] = [
     valueHigh: 7000,
     category: 'AI/Tech',
     buyerType: 'AI receptionist startups, SaaS companies',
-    status: 'list',
+    defaultStatus: 'list',
     notes: '.ai extension + AI niche = premium combo.',
   },
   {
@@ -47,7 +40,7 @@ const domains: Domain[] = [
     valueHigh: 6000,
     category: 'AI/Tech',
     buyerType: 'AI assistant companies, SaaS',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Strong .ai domain for AI VA market.',
   },
   {
@@ -56,7 +49,7 @@ const domains: Domain[] = [
     valueHigh: 5000,
     category: 'AI/Tech',
     buyerType: 'Legal tech companies, law firms',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'High commercial value — legal niche.',
   },
   {
@@ -65,7 +58,7 @@ const domains: Domain[] = [
     valueHigh: 5000,
     category: 'AI/Tech',
     buyerType: 'AI receptionist companies, agencies',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Strong keyword combination + .com.au.',
   },
   {
@@ -74,7 +67,7 @@ const domains: Domain[] = [
     valueHigh: 5000,
     category: 'AI/Tech',
     buyerType: 'Global AI assistant companies',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Global .com with strong AI keyword.',
   },
   {
@@ -83,7 +76,7 @@ const domains: Domain[] = [
     valueHigh: 4000,
     category: 'AI/Tech',
     buyerType: 'Australian AI assistant companies',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'AU-specific AI assistant domain.',
   },
   {
@@ -92,7 +85,7 @@ const domains: Domain[] = [
     valueHigh: 4000,
     category: 'Trade/Local',
     buyerType: 'Construction portals, builder associations',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Premium generic — broad industry appeal.',
   },
   {
@@ -101,7 +94,7 @@ const domains: Domain[] = [
     valueHigh: 3500,
     category: 'AI/Tech',
     buyerType: 'Tradie tech startups, AI platforms',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'AU-specific AI niche — growing market.',
   },
   {
@@ -110,7 +103,7 @@ const domains: Domain[] = [
     valueHigh: 3500,
     category: 'AI/Tech',
     buyerType: 'AI scheduling/calendar app companies',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'AI + calendar = strong SaaS domain.',
   },
   {
@@ -119,7 +112,7 @@ const domains: Domain[] = [
     valueHigh: 2000,
     category: 'Trade/Local',
     buyerType: 'Local trade directories, builders',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Location-specific trade domain.',
   },
   {
@@ -128,7 +121,7 @@ const domains: Domain[] = [
     valueHigh: 3000,
     category: 'Other',
     buyerType: 'Real estate agencies, property portals',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Premium real estate keyword.',
   },
   {
@@ -137,7 +130,7 @@ const domains: Domain[] = [
     valueHigh: 2500,
     category: 'AI/Tech',
     buyerType: 'Mental health tech, psych practices',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'High-value healthcare niche.',
   },
   {
@@ -146,7 +139,7 @@ const domains: Domain[] = [
     valueHigh: 2500,
     category: 'AI/Tech',
     buyerType: 'VA agencies, AI assistant platforms',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Brandable .ai domain.',
   },
   {
@@ -155,7 +148,7 @@ const domains: Domain[] = [
     valueHigh: 2500,
     category: 'AI/Tech',
     buyerType: 'VA agencies, AI assistant platforms',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Short, brandable .ai VA domain.',
   },
   {
@@ -164,7 +157,7 @@ const domains: Domain[] = [
     valueHigh: 2500,
     category: 'AI/Tech',
     buyerType: 'Scheduling software companies, SaaS',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'AU calendar domain — good SaaS target.',
   },
   {
@@ -173,7 +166,7 @@ const domains: Domain[] = [
     valueHigh: 2000,
     category: 'AI/Tech',
     buyerType: 'Chiro practices, health tech',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Healthcare niche with commercial value.',
   },
   {
@@ -182,7 +175,7 @@ const domains: Domain[] = [
     valueHigh: 2000,
     category: 'AI/Tech',
     buyerType: 'Consulting firms, AI tool companies',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Broad professional services appeal.',
   },
   {
@@ -191,7 +184,7 @@ const domains: Domain[] = [
     valueHigh: 2000,
     category: 'Other',
     buyerType: 'Rideshare/transport startups',
-    status: 'review',
+    defaultStatus: 'review',
     notes: 'Interesting transport domain.',
   },
   {
@@ -200,7 +193,7 @@ const domains: Domain[] = [
     valueHigh: 1800,
     category: 'AI/Tech',
     buyerType: 'Fitness tech, PT booking platforms',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Growing fitness tech market.',
   },
   {
@@ -209,7 +202,7 @@ const domains: Domain[] = [
     valueHigh: 1500,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Location + trade keyword combo.',
   },
   {
@@ -218,7 +211,7 @@ const domains: Domain[] = [
     valueHigh: 1500,
     category: 'Trade/Local',
     buyerType: 'Local plumbers, trade directories',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Location + trade keyword combo.',
   },
   {
@@ -227,7 +220,7 @@ const domains: Domain[] = [
     valueHigh: 1500,
     category: 'Trade/Local',
     buyerType: 'Local concreters, trade directories',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Niche location + trade domain.',
   },
   {
@@ -236,7 +229,7 @@ const domains: Domain[] = [
     valueHigh: 1500,
     category: 'AI/Tech',
     buyerType: 'VA agencies, outsourcing companies',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'AU VA market domain.',
   },
   {
@@ -245,7 +238,7 @@ const domains: Domain[] = [
     valueHigh: 1500,
     category: 'AI/Tech',
     buyerType: 'Auto tech, mechanic booking platforms',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Auto industry AI niche.',
   },
   {
@@ -254,7 +247,7 @@ const domains: Domain[] = [
     valueHigh: 1500,
     category: 'AI/Tech',
     buyerType: 'Myotherapy practices, health tech',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Niche health domain.',
   },
   {
@@ -263,7 +256,7 @@ const domains: Domain[] = [
     valueHigh: 1500,
     category: 'AI/Tech',
     buyerType: 'Osteo practices, health tech',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Healthcare niche with commercial value.',
   },
   {
@@ -272,7 +265,7 @@ const domains: Domain[] = [
     valueHigh: 1500,
     category: 'AI/Tech',
     buyerType: 'Personal trainers, fitness platforms',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Short, memorable PT domain.',
   },
   {
@@ -281,7 +274,7 @@ const domains: Domain[] = [
     valueHigh: 1500,
     category: 'Other',
     buyerType: 'Transport/logistics startups',
-    status: 'review',
+    defaultStatus: 'review',
     notes: 'Interesting for autonomous vehicle era.',
   },
   {
@@ -290,7 +283,7 @@ const domains: Domain[] = [
     valueHigh: 1500,
     category: 'Other',
     buyerType: 'Auto tech, car subscription services',
-    status: 'review',
+    defaultStatus: 'review',
     notes: 'Potential for car subscription/EV market.',
   },
   {
@@ -299,7 +292,7 @@ const domains: Domain[] = [
     valueHigh: 1200,
     category: 'AI/Tech',
     buyerType: 'Beauty industry tech, booking platforms',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Niche but growing beauty tech market.',
   },
   {
@@ -308,7 +301,7 @@ const domains: Domain[] = [
     valueHigh: 1200,
     category: 'Other',
     buyerType: 'Productivity apps, SaaS companies',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Clean brandable domain.',
   },
   {
@@ -317,7 +310,7 @@ const domains: Domain[] = [
     valueHigh: 1200,
     category: 'Other',
     buyerType: 'SaaS calendar companies',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Cloud calendar — SaaS appeal.',
   },
   {
@@ -326,7 +319,7 @@ const domains: Domain[] = [
     valueHigh: 1200,
     category: 'Trade/Local',
     buyerType: 'Mornington Peninsula tradespeople',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Short form of morningtonpeninsulatrades.',
   },
   {
@@ -335,7 +328,7 @@ const domains: Domain[] = [
     valueHigh: 1000,
     category: 'Trade/Local',
     buyerType: 'Construction companies, builders',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Builder branding domain.',
   },
   {
@@ -344,7 +337,7 @@ const domains: Domain[] = [
     valueHigh: 1000,
     category: 'Trade/Local',
     buyerType: 'Construction companies, builders',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Builder group branding domain.',
   },
   {
@@ -353,7 +346,7 @@ const domains: Domain[] = [
     valueHigh: 1000,
     category: 'AI/Tech',
     buyerType: 'Personal AI app companies',
-    status: 'review',
+    defaultStatus: 'review',
     notes: 'Brandable .ai — currently in use for your project.',
   },
   {
@@ -362,7 +355,7 @@ const domains: Domain[] = [
     valueHigh: 800,
     category: 'Trade/Local',
     buyerType: 'Carpentry platforms, trade directories',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Short, memorable trade domain.',
   },
   {
@@ -371,7 +364,7 @@ const domains: Domain[] = [
     valueHigh: 800,
     category: 'Other',
     buyerType: 'Food bloggers, health food brands',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Food niche — growing healthy eating market.',
   },
   {
@@ -380,7 +373,7 @@ const domains: Domain[] = [
     valueHigh: 400,
     category: 'Personal/Family',
     buyerType: 'Personal brand (Banks family)',
-    status: 'review',
+    defaultStatus: 'review',
     notes: 'Personal brand domain — review before selling.',
   },
   {
@@ -389,7 +382,7 @@ const domains: Domain[] = [
     valueHigh: 600,
     category: 'Other',
     buyerType: 'Finance/brokerage companies',
-    status: 'list',
+    defaultStatus: 'list',
     notes: 'Short numeric domain — finance niche.',
   },
   {
@@ -398,7 +391,7 @@ const domains: Domain[] = [
     valueHigh: 600,
     category: 'AI/Tech',
     buyerType: 'Tech startups',
-    status: 'review',
+    defaultStatus: 'review',
     notes: 'Lower value .io variant. Check if still needed.',
   },
   {
@@ -407,7 +400,7 @@ const domains: Domain[] = [
     valueHigh: 300,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
-    status: 'review',
+    defaultStatus: 'skip',
     notes: 'Your personal domain — review before selling.',
   },
   {
@@ -416,7 +409,7 @@ const domains: Domain[] = [
     valueHigh: 200,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
-    status: 'review',
+    defaultStatus: 'skip',
     notes: 'Family name — review before listing.',
   },
   {
@@ -425,7 +418,7 @@ const domains: Domain[] = [
     valueHigh: 200,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
-    status: 'review',
+    defaultStatus: 'skip',
     notes: 'Family name — review before listing.',
   },
   {
@@ -434,7 +427,7 @@ const domains: Domain[] = [
     valueHigh: 200,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
-    status: 'review',
+    defaultStatus: 'skip',
     notes: 'Family name — review before listing.',
   },
   {
@@ -443,7 +436,7 @@ const domains: Domain[] = [
     valueHigh: 200,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
-    status: 'review',
+    defaultStatus: 'skip',
     notes: 'Family name — review before listing.',
   },
   {
@@ -452,7 +445,7 @@ const domains: Domain[] = [
     valueHigh: 200,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
-    status: 'review',
+    defaultStatus: 'skip',
     notes: 'Family name — review before listing.',
   },
   {
@@ -461,19 +454,19 @@ const domains: Domain[] = [
     valueHigh: 200,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
-    status: 'review',
+    defaultStatus: 'skip',
     notes: 'Family name — review before listing.',
   },
 ]
 
-// Sort by valueHigh descending (already sorted above, but ensure it)
+// cheapwebsite.com.au is hidden/in use — not in the list
+
 const sortedDomains = [...domains].sort((a, b) => b.valueHigh - a.valueHigh)
 
 const totalLow = domains.reduce((sum, d) => sum + d.valueLow, 0)
 const totalHigh = domains.reduce((sum, d) => sum + d.valueHigh, 0)
 
-const formatCurrency = (n: number) =>
-  '$' + n.toLocaleString('en-AU')
+const formatCurrency = (n: number) => '$' + n.toLocaleString('en-AU')
 
 const categoryColors: Record<Domain['category'], string> = {
   'AI/Tech': 'bg-blue-500/20 text-blue-300 border border-blue-500/30',
@@ -496,10 +489,107 @@ const categoryValues = {
   'Other': domains.filter(d => d.category === 'Other').reduce((s, d) => s + d.valueHigh, 0),
 }
 
+const STORAGE_KEY = 'domain-portfolio-selections'
+
+function buildDefaults(): Record<string, DomainStatus> {
+  const defaults: Record<string, DomainStatus> = {}
+  for (const d of domains) {
+    defaults[d.name] = d.defaultStatus
+  }
+  return defaults
+}
+
 export default function InternalDomainsPage() {
+  const [selections, setSelections] = useState<Record<string, DomainStatus>>(buildDefaults)
+  const [hydrated, setHydrated] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  // Load from localStorage on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY)
+      if (saved) {
+        const parsed = JSON.parse(saved)
+        setSelections(prev => ({ ...prev, ...parsed }))
+      }
+    } catch (_) {}
+    setHydrated(true)
+  }, [])
+
+  // Save to localStorage whenever selections change (after hydration)
+  useEffect(() => {
+    if (!hydrated) return
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(selections))
+    } catch (_) {}
+  }, [selections, hydrated])
+
+  const setStatus = (name: string, status: DomainStatus) => {
+    setSelections(prev => ({ ...prev, [name]: status }))
+  }
+
+  const resetToDefaults = () => {
+    setSelections(buildDefaults())
+  }
+
+  const listedDomains = sortedDomains.filter(d => selections[d.name] === 'list')
+  const skippedCount = sortedDomains.filter(d => selections[d.name] === 'skip').length
+  const reviewCount = sortedDomains.filter(d => selections[d.name] === 'review').length
+
+  const selectedValueLow = listedDomains.reduce((s, d) => s + d.valueLow, 0)
+  const selectedValueHigh = listedDomains.reduce((s, d) => s + d.valueHigh, 0)
+
+  const confirmMessage = `✅ Domain Selection — ${listedDomains.length} domains selected for landing pages:\n\n${listedDomains.map((d, i) => `${i + 1}. ${d.name}`).join('\n')}\n\nEstimated value: ${formatCurrency(selectedValueLow)} – ${formatCurrency(selectedValueHigh)}\n\n${skippedCount} skipped, ${reviewCount} under review.`
+
+  const handleConfirm = async () => {
+    try {
+      await navigator.clipboard.writeText(confirmMessage)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 3000)
+    } catch (_) {}
+    setShowModal(true)
+  }
+
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100 p-6 md:p-10">
       <div className="max-w-7xl mx-auto">
+
+        {/* Modal */}
+        {showModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+            <div className="bg-gray-900 border border-gray-700 rounded-2xl p-6 max-w-lg w-full shadow-2xl">
+              <h2 className="text-white text-xl font-bold mb-2">✅ Selection Saved!</h2>
+              <p className="text-gray-400 text-sm mb-4">
+                {copied ? '📋 Copied to clipboard! Paste it in Discord for Monty.' : 'Send this to Monty on Discord:'}
+              </p>
+              <pre className="bg-gray-800 rounded-xl p-4 text-sm text-green-300 whitespace-pre-wrap font-mono overflow-y-auto max-h-80">
+                {confirmMessage}
+              </pre>
+              <div className="flex gap-3 mt-4">
+                <button
+                  onClick={async () => {
+                    try {
+                      await navigator.clipboard.writeText(confirmMessage)
+                      setCopied(true)
+                      setTimeout(() => setCopied(false), 3000)
+                    } catch (_) {}
+                  }}
+                  className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 rounded-xl transition-colors"
+                >
+                  {copied ? '✅ Copied!' : '📋 Copy to Clipboard'}
+                </button>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 rounded-xl transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
@@ -511,8 +601,51 @@ export default function InternalDomainsPage() {
             Domain Portfolio
           </h1>
           <p className="text-gray-400 text-lg">
-            All domains with estimated sale values. Review and tell Monty which ones to put a for-sale landing page on.
+            Toggle each domain to mark it for listing or skip it. Your choices are saved automatically.
           </p>
+        </div>
+
+        {/* Live Summary + Confirm */}
+        <div className="bg-gray-900/70 border border-gray-700 rounded-2xl p-5 mb-6 flex flex-col md:flex-row md:items-center gap-4">
+          <div className="flex flex-wrap gap-4 flex-1">
+            <div className="bg-green-500/10 border border-green-500/30 rounded-xl px-4 py-3 flex items-center gap-3">
+              <span className="text-3xl font-bold text-green-400">{listedDomains.length}</span>
+              <div>
+                <p className="text-green-300 font-semibold text-sm">Selected for listing</p>
+                <p className="text-green-400/70 text-xs">{formatCurrency(selectedValueLow)} – {formatCurrency(selectedValueHigh)}</p>
+              </div>
+            </div>
+            <div className="bg-red-500/10 border border-red-500/30 rounded-xl px-4 py-3 flex items-center gap-3">
+              <span className="text-3xl font-bold text-red-400">{skippedCount}</span>
+              <div>
+                <p className="text-red-300 font-semibold text-sm">Skipped</p>
+                <p className="text-red-400/70 text-xs">won&apos;t get landing page</p>
+              </div>
+            </div>
+            {reviewCount > 0 && (
+              <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl px-4 py-3 flex items-center gap-3">
+                <span className="text-3xl font-bold text-amber-400">{reviewCount}</span>
+                <div>
+                  <p className="text-amber-300 font-semibold text-sm">Under review</p>
+                  <p className="text-amber-400/70 text-xs">decide later</p>
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="flex flex-col gap-2 md:items-end">
+            <button
+              onClick={handleConfirm}
+              className="bg-green-600 hover:bg-green-500 text-white font-bold px-6 py-3 rounded-xl transition-colors text-sm shadow-lg shadow-green-900/30 whitespace-nowrap"
+            >
+              ✅ Confirm Selection
+            </button>
+            <button
+              onClick={resetToDefaults}
+              className="text-gray-500 hover:text-gray-300 text-xs underline transition-colors text-center"
+            >
+              Reset to defaults
+            </button>
+          </div>
         </div>
 
         {/* Total Portfolio Value */}
@@ -548,53 +681,98 @@ export default function InternalDomainsPage() {
                   <th className="text-left px-4 py-3 text-gray-400 font-semibold">Est. Value (AUD)</th>
                   <th className="text-left px-4 py-3 text-gray-400 font-semibold">Category</th>
                   <th className="text-left px-4 py-3 text-gray-400 font-semibold">Potential Buyers</th>
-                  <th className="text-left px-4 py-3 text-gray-400 font-semibold">Status</th>
                   <th className="text-left px-4 py-3 text-gray-400 font-semibold">Notes</th>
+                  <th className="text-left px-4 py-3 text-gray-400 font-semibold min-w-[200px]">Your Decision</th>
                 </tr>
               </thead>
               <tbody>
-                {sortedDomains.map((domain, i) => (
-                  <tr
-                    key={domain.name}
-                    className={`border-b border-gray-800/50 hover:bg-gray-800/30 transition-colors ${
-                      i % 2 === 0 ? 'bg-transparent' : 'bg-gray-900/20'
-                    }`}
-                  >
-                    <td className="px-4 py-3 text-gray-600 text-xs">{i + 1}</td>
-                    <td className="px-4 py-3">
-                      <span className="font-mono text-white font-medium text-sm">{domain.name}</span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <span className="text-green-400 font-semibold">
-                        {formatCurrency(domain.valueLow)} – {formatCurrency(domain.valueHigh)}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${categoryColors[domain.category]}`}>
-                        {domain.category}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 text-gray-400 text-xs max-w-[200px]">{domain.buyerType}</td>
-                    <td className="px-4 py-3">
-                      {domain.status === 'list' && (
-                        <span className="text-green-400 text-sm">✅ List for sale</span>
-                      )}
-                      {domain.status === 'skip' && (
-                        <span className="text-red-400 text-sm">❌ Skip</span>
-                      )}
-                      {domain.status === 'review' && (
-                        <span className="text-yellow-400 text-sm">⚠️ Review</span>
-                      )}
-                    </td>
-                    <td className="px-4 py-3 text-gray-500 text-xs max-w-[220px]">{domain.notes}</td>
-                  </tr>
-                ))}
+                {sortedDomains.map((domain, i) => {
+                  const status = hydrated ? selections[domain.name] : domain.defaultStatus
+                  const isListed = status === 'list'
+                  const isSkipped = status === 'skip'
+                  const isReview = status === 'review'
+                  return (
+                    <tr
+                      key={domain.name}
+                      className={`border-b border-gray-800/50 transition-colors ${
+                        isSkipped ? 'opacity-50' : 'hover:bg-gray-800/30'
+                      } ${i % 2 === 0 ? 'bg-transparent' : 'bg-gray-900/20'}`}
+                    >
+                      <td className="px-4 py-3 text-gray-600 text-xs">{i + 1}</td>
+                      <td className="px-4 py-3">
+                        <span className={`font-mono font-medium text-sm ${isSkipped ? 'line-through text-gray-500' : 'text-white'}`}>
+                          {domain.name}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className="text-green-400 font-semibold">
+                          {formatCurrency(domain.valueLow)} – {formatCurrency(domain.valueHigh)}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${categoryColors[domain.category]}`}>
+                          {domain.category}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-gray-400 text-xs max-w-[180px]">{domain.buyerType}</td>
+                      <td className="px-4 py-3 text-gray-500 text-xs max-w-[200px]">{domain.notes}</td>
+                      <td className="px-4 py-3">
+                        <div className="flex gap-2 flex-wrap">
+                          <button
+                            onClick={() => setStatus(domain.name, 'list')}
+                            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                              isListed
+                                ? 'bg-green-500 text-white shadow-md shadow-green-900/40 scale-105'
+                                : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
+                            }`}
+                          >
+                            ✅ List It
+                          </button>
+                          <button
+                            onClick={() => setStatus(domain.name, 'review')}
+                            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                              isReview
+                                ? 'bg-amber-500 text-white shadow-md shadow-amber-900/40 scale-105'
+                                : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
+                            }`}
+                          >
+                            ⚠️ Review
+                          </button>
+                          <button
+                            onClick={() => setStatus(domain.name, 'skip')}
+                            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                              isSkipped
+                                ? 'bg-red-600 text-white shadow-md shadow-red-900/40 scale-105'
+                                : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
+                            }`}
+                          >
+                            ❌ Skip
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  )
+                })}
               </tbody>
             </table>
           </div>
         </div>
 
-        {/* Skipped domain */}
+        {/* Bottom Confirm Button */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 bg-gray-900/50 border border-gray-700 rounded-2xl p-5">
+          <div>
+            <p className="text-white font-semibold">{listedDomains.length} domains ready for landing pages</p>
+            <p className="text-gray-400 text-sm">Estimated: {formatCurrency(selectedValueLow)} – {formatCurrency(selectedValueHigh)}</p>
+          </div>
+          <button
+            onClick={handleConfirm}
+            className="bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-3 rounded-xl transition-colors text-sm shadow-lg shadow-green-900/30 whitespace-nowrap"
+          >
+            ✅ Confirm Selection
+          </button>
+        </div>
+
+        {/* Skipped domain note */}
         <div className="bg-gray-900/30 border border-gray-800/50 rounded-xl p-4 mb-8 flex items-center gap-3">
           <span className="text-2xl">⏭️</span>
           <div>
@@ -603,26 +781,15 @@ export default function InternalDomainsPage() {
           </div>
         </div>
 
-        {/* Instructions */}
-        <div className="bg-blue-500/5 border border-blue-500/20 rounded-2xl p-6 mb-8">
-          <h2 className="text-white font-semibold mb-3 flex items-center gap-2">
-            <span>💬</span> How to use this page
-          </h2>
-          <ul className="text-gray-400 text-sm space-y-2">
-            <li>• Review the table above — domains are sorted by estimated value (highest first)</li>
-            <li>• Decide which ones you want a for-sale landing page on</li>
-            <li>• Tell Monty: <span className="text-white font-mono bg-gray-800 px-2 py-0.5 rounded">"List X, Y, Z for sale"</span> or <span className="text-white font-mono bg-gray-800 px-2 py-0.5 rounded">"List all AI/Tech domains"</span></li>
-            <li>• Monty will set up redirects / landing pages accordingly</li>
-          </ul>
-        </div>
-
         {/* Disclaimer */}
         <div className="bg-gray-900/30 border border-gray-700/30 rounded-xl p-5 text-center">
           <p className="text-gray-500 text-sm">
-            These are estimated values based on domain length, keyword commercial value, TLD, and current market. 
-            Actual sale prices may vary. Domains marked as personal names (Banks family) should be reviewed before listing.
+            These are estimated values based on domain length, keyword commercial value, TLD, and current market.
+            Actual sale prices may vary. Domains marked as personal names (Banks family) default to Skip — change if needed.
+            Your selections are saved in your browser automatically.
           </p>
         </div>
+
       </div>
     </div>
   )
