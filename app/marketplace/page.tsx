@@ -805,6 +805,27 @@ export default function MarketplacePage() {
         </div>
       </section>
 
+      {/* Sell on Marketplace CTA */}
+      <section className="py-16 px-6" style={{ backgroundColor: "var(--bg-section)", borderTop: "1px solid var(--border)" }}>
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4" style={{ backgroundColor: "rgba(249,115,22,0.1)", color: "#F97316", border: "1px solid rgba(249,115,22,0.3)" }}>💰 Earn 75% per sale</div>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
+            Built something great? <span style={{ color: "#FFD700" }}>Sell it here.</span>
+          </h2>
+          <p className="text-lg mb-8 max-w-xl mx-auto" style={{ color: "var(--muted)" }}>
+            List your AI agents, SKILL.md files, prompt packs, or workflows. You earn 75% of every sale — we handle payments, hosting, and delivery.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/creator/agents" className="px-8 py-3 rounded-xl font-bold text-sm glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>
+              🤖 List Your Agent →
+            </a>
+            <a href="/creator/skills" className="px-8 py-3 rounded-xl font-bold text-sm" style={{ border: "2px solid #F97316", color: "#F97316" }}>
+              🧠 List Your Skill →
+            </a>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
