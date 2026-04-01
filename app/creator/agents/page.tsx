@@ -61,9 +61,19 @@ export default function SellAgentsPage() {
       platforms: (form.querySelector('[name="platforms"]') as HTMLInputElement)?.value,
       tags: (form.querySelector('[name="tags"]') as HTMLInputElement)?.value,
       email: (form.querySelector('[name="email"]') as HTMLInputElement)?.value,
+      password: (form.querySelector('[name="password"]') as HTMLInputElement)?.value,
       paypal_email: (form.querySelector('[name="paypal_email"]') as HTMLInputElement)?.value,
     };
     try {
+      // Create seller account
+      if (data.email && data.password) {
+        await fetch('/api/auth/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: data.email, password: data.password, name: data.name || 'Seller' })
+        });
+      }
+      // Submit listing
       await fetch('/api/creator/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
     } catch {}
     setLoading(false);
@@ -151,6 +161,11 @@ export default function SellAgentsPage() {
               <div>
                 <label className="block text-sm font-medium mb-2" style={{ color: "var(--muted)" }}>Your Email *</label>
                 <input name="email" type="email" required placeholder="you@example.com" className="w-full px-4 py-3 rounded-lg text-sm outline-none" style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }} />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2" style={{ color: "var(--muted)" }}>Create a Password *</label>
+                <input name="password" type="password" required placeholder="Min. 8 characters — creates your seller account" className="w-full px-4 py-3 rounded-lg text-sm outline-none" style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }} />
+                <p className="text-xs mt-1" style={{ color: "var(--muted)" }}>A seller account will be created automatically so you can track your sales.</p>
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2" style={{ color: "var(--muted)" }}>PayPal Email (for 75% payouts)</label>
