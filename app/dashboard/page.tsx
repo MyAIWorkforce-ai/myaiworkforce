@@ -3,12 +3,12 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
-import Head from "next/head";
 
 const supabase = createClient(
-  "https://uhkfooojytjesnvqrtxx.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVoa2Zvb29qeXRqZXNudnFydHh4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ5MTcxNjUsImV4cCI6MjA5MDQ5MzE2NX0.4encvmPhZ1uL2EIT4BEYu0LBjGYxJvUW4KfKHsjGhLQ"
+  process.env.NEXT_PUBLIC_SUPABASE_URL || "https://uhkfooojytjesnvqrtxx.supabase.co",
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVoa2Zvb29qeXRqZXNudnFydHh4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ5MTcxNjUsImV4cCI6MjA5MDQ5MzE2NX0.4encvmPhZ1uL2EIT4BEYu0LBjGYxJvUW4KfKHsjGhLQ"
 );
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
@@ -92,6 +92,13 @@ function Nav() {
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <Link
+            href="/login"
+            className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+            style={{ border: "1px solid var(--border)", color: "var(--text)" }}
+          >
+            Login
+          </Link>
+          <Link
             href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
             style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
@@ -114,7 +121,10 @@ function Nav() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>
+            <Link href="/login" className="text-sm font-medium transition-colors" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>
+              Login
+            </Link>
+            <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>
               Book a Free Call
             </Link>
           </div>
@@ -169,6 +179,7 @@ interface Purchase {
   id: string;
   created_at: string;
   product_name?: string;
+  product_slug?: string;
   amount?: number;
   currency?: string;
   status?: string;
@@ -176,38 +187,115 @@ interface Purchase {
   email?: string;
 }
 
+interface Submission {
+  id: string;
+  created_at: string;
+  name?: string;
+  type?: string;
+  category?: string;
+  price?: number;
+  status?: string;
+  email?: string;
+}
+
+// ─── Not Logged In View ───────────────────────────────────────────────────────
+function NotLoggedIn() {
+  return (
+    <div className="min-h-screen" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
+      <Nav />
+      <main className="pt-24 pb-20 px-6">
+        <div className="max-w-xl mx-auto text-center py-20">
+          <div className="text-6xl mb-6">🔒</div>
+          <h1 className="text-3xl font-bold mb-4" style={{ color: "#FFD700" }}>
+            Please Log In
+          </h1>
+          <p className="text-lg mb-8" style={{ color: "var(--muted)" }}>
+            You need to be logged in to view your dashboard.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/login"
+              className="px-8 py-3 rounded-xl text-sm font-semibold transition-all duration-200"
+              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+            >
+              Log In
+            </Link>
+            <Link
+              href="/signup"
+              className="px-8 py-3 rounded-xl text-sm font-semibold transition-all duration-200"
+              style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)", color: "var(--text)" }}
+            >
+              Create Account
+            </Link>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function DashboardPage() {
-  const [email, setEmail] = useState("");
+  const router = useRouter();
+  const [authLoading, setAuthLoading] = useState(true);
+  const [user, setUser] = useState<{ email: string; name: string } | null>(null);
+  const [activeTab, setActiveTab] = useState<"purchases" | "listings">("purchases");
   const [purchases, setPurchases] = useState<Purchase[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [searched, setSearched] = useState(false);
-  const [error, setError] = useState("");
+  const [submissions, setSubmissions] = useState<Submission[]>([]);
+  const [dataLoading, setDataLoading] = useState(false);
 
-  const handleLookup = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-    setLoading(true);
-    setError("");
-    setSearched(false);
-    setPurchases([]);
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user) {
+          const email = session.user.email || "";
+          const name = session.user.user_metadata?.full_name || session.user.user_metadata?.name || email.split("@")[0] || "there";
+          setUser({ email, name });
+          // Load data
+          setDataLoading(true);
+          const [purchaseRes, submissionRes] = await Promise.all([
+            supabase.from("purchases").select("*").eq("email", email.toLowerCase()).order("created_at", { ascending: false }),
+            supabase.from("creator_submissions").select("*").eq("email", email.toLowerCase()).order("created_at", { ascending: false }),
+          ]);
+          setPurchases(purchaseRes.data || []);
+          setSubmissions(submissionRes.data || []);
+          setDataLoading(false);
+        }
+      } catch (err) {
+        console.error("Auth check failed:", err);
+      } finally {
+        setAuthLoading(false);
+      }
+    };
+    checkAuth();
+  }, []);
 
-    try {
-      const { data, error: sbError } = await supabase
-        .from("purchases")
-        .select("*")
-        .eq("email", email.trim().toLowerCase())
-        .order("created_at", { ascending: false });
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    router.push("/");
+  };
 
-      if (sbError) throw sbError;
-      setPurchases(data || []);
-      setSearched(true);
-    } catch (err: unknown) {
-      setError("Something went wrong. Please try again.");
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "var(--bg)" }}>
+        <div className="text-center">
+          <div className="text-4xl mb-4 animate-pulse">⚡</div>
+          <p style={{ color: "var(--muted)" }}>Loading…</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <NotLoggedIn />;
+  }
+
+  const statusColor = (status?: string) => {
+    if (status === "approved") return { bg: "rgba(74,222,128,0.15)", text: "#4ADE80" };
+    if (status === "rejected") return { bg: "rgba(248,113,113,0.15)", text: "#F87171" };
+    return { bg: "rgba(251,191,36,0.15)", text: "#FBBF24" };
   };
 
   return (
@@ -218,133 +306,192 @@ export default function DashboardPage() {
       <div className="min-h-screen" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
         <Nav />
         <main className="pt-24 pb-20 px-6">
-          <div className="max-w-3xl mx-auto">
-            {/* Header */}
-            <div className="mb-10 text-center">
-              <h1 className="text-4xl font-bold mb-3" style={{ letterSpacing: "-0.02em" }}>
-                Your <span style={{ color: "#FFD700" }}>Purchases</span>
+          <div className="max-w-4xl mx-auto">
+
+            {/* Welcome header */}
+            <div className="mb-10">
+              <h1 className="text-4xl font-bold mb-2" style={{ letterSpacing: "-0.02em" }}>
+                Welcome back, <span style={{ color: "#FFD700" }}>{user.name}</span>! 👋
               </h1>
-              <p className="text-lg" style={{ color: "var(--muted)" }}>
-                Enter your email to view your order history and access your downloads.
+              <p className="text-base" style={{ color: "var(--muted)" }}>
+                Here&apos;s everything in your account.
               </p>
             </div>
 
-            {/* Email Lookup Form */}
-            <form onSubmit={handleLookup} className="mb-10">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@example.com"
-                  required
-                  className="flex-1 px-4 py-3 rounded-xl text-sm outline-none transition-all"
-                  style={{
-                    backgroundColor: "var(--card-bg)",
-                    border: "1px solid var(--border)",
-                    color: "var(--text)",
-                  }}
-                />
+            {/* Tabs */}
+            <div className="flex gap-0 mb-8 border-b" style={{ borderColor: "var(--border)" }}>
+              {(["purchases", "listings"] as const).map((tab) => (
                 <button
-                  type="submit"
-                  disabled={loading}
-                  className="px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 disabled:opacity-50"
-                  style={{ backgroundColor: "#FFD700", color: "#0A0A0A", whiteSpace: "nowrap" }}
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className="px-6 py-3 text-sm font-semibold transition-all duration-200 capitalize"
+                  style={{
+                    borderBottom: activeTab === tab ? "2px solid #FFD700" : "2px solid transparent",
+                    color: activeTab === tab ? "#FFD700" : "var(--muted)",
+                    marginBottom: "-1px",
+                    background: "none",
+                  }}
                 >
-                  {loading ? "Looking up…" : "Look Up Purchases"}
+                  {tab === "purchases" ? "My Purchases" : "My Listings"}
                 </button>
-              </div>
-              {error && (
-                <p className="mt-3 text-sm" style={{ color: "#F87171" }}>{error}</p>
-              )}
-            </form>
+              ))}
+            </div>
 
-            {/* Results */}
-            {searched && (
-              <>
+            {/* Tab content */}
+            {dataLoading ? (
+              <div className="text-center py-16" style={{ color: "var(--muted)" }}>Loading…</div>
+            ) : activeTab === "purchases" ? (
+              <div>
                 {purchases.length === 0 ? (
                   <div className="text-center py-16 rounded-2xl" style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)" }}>
                     <div className="text-5xl mb-4">🛒</div>
                     <h2 className="text-xl font-semibold mb-2">No purchases yet</h2>
                     <p className="text-sm mb-6" style={{ color: "var(--muted)" }}>
-                      We couldn&apos;t find any orders for <strong>{email}</strong>.
-                      <br />Double-check your email or explore what we have to offer!
+                      You haven&apos;t bought anything yet.
+                    </p>
+                    <Link
+                      href="/marketplace"
+                      className="px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 inline-block"
+                      style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+                    >
+                      Browse the marketplace →
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-4">
+                    {purchases.map((purchase) => (
+                      <div
+                        key={purchase.id}
+                        className="p-5 rounded-2xl"
+                        style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)" }}
+                      >
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                          <div>
+                            <h3 className="font-semibold text-base mb-1">
+                              {purchase.product_name || "AI Agent / Product"}
+                            </h3>
+                            <p className="text-xs" style={{ color: "var(--muted)" }}>
+                              {new Date(purchase.created_at).toLocaleDateString("en-AU", {
+                                year: "numeric", month: "long", day: "numeric",
+                              })}
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-4">
+                            {purchase.amount != null && (
+                              <span className="text-sm font-semibold" style={{ color: "#FFD700" }}>
+                                {purchase.currency?.toUpperCase() || "USD"} ${(purchase.amount / 100).toFixed(2)}
+                              </span>
+                            )}
+                            <span
+                              className="px-3 py-1 rounded-full text-xs font-medium"
+                              style={{
+                                backgroundColor: purchase.status === "completed" || purchase.status === "paid" ? "rgba(74,222,128,0.15)" : "rgba(251,191,36,0.15)",
+                                color: purchase.status === "completed" || purchase.status === "paid" ? "#4ADE80" : "#FBBF24",
+                              }}
+                            >
+                              {purchase.status || "Completed"}
+                            </span>
+                            <a
+                              href={`/api/download?email=${encodeURIComponent(user.email)}&slug=${encodeURIComponent(purchase.product_slug || purchase.id)}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200"
+                              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+                            >
+                              Download
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div>
+                {submissions.length === 0 ? (
+                  <div className="text-center py-16 rounded-2xl" style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)" }}>
+                    <div className="text-5xl mb-4">📦</div>
+                    <h2 className="text-xl font-semibold mb-2">No listings yet</h2>
+                    <p className="text-sm mb-6" style={{ color: "var(--muted)" }}>
+                      You haven&apos;t listed anything yet.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                       <Link
-                        href="/marketplace"
+                        href="/creator/agents"
                         className="px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200"
                         style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
                       >
-                        Browse Marketplace
+                        List an Agent →
                       </Link>
                       <Link
-                        href="/guides"
+                        href="/creator/skills"
                         className="px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200"
                         style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)", color: "var(--text)" }}
                       >
-                        Free Guides
+                        List a Skill →
                       </Link>
                     </div>
                   </div>
                 ) : (
-                  <div>
-                    <p className="text-sm mb-4" style={{ color: "var(--muted)" }}>
-                      Found <strong style={{ color: "var(--text)" }}>{purchases.length}</strong> purchase{purchases.length !== 1 ? "s" : ""} for <strong style={{ color: "var(--text)" }}>{email}</strong>
-                    </p>
-                    <div className="flex flex-col gap-4">
-                      {purchases.map((purchase) => (
+                  <div className="flex flex-col gap-4">
+                    {submissions.map((sub) => {
+                      const colors = statusColor(sub.status);
+                      return (
                         <div
-                          key={purchase.id}
+                          key={sub.id}
                           className="p-5 rounded-2xl"
                           style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)" }}
                         >
                           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                             <div>
                               <h3 className="font-semibold text-base mb-1">
-                                {purchase.product_name || "AI Agent / Product"}
+                                {sub.name || "Untitled Listing"}
                               </h3>
-                              <p className="text-xs" style={{ color: "var(--muted)" }}>
-                                {new Date(purchase.created_at).toLocaleDateString("en-AU", {
-                                  year: "numeric", month: "long", day: "numeric"
-                                })}
-                              </p>
+                              <div className="flex items-center gap-3 text-xs" style={{ color: "var(--muted)" }}>
+                                {sub.type && <span className="capitalize">{sub.type}</span>}
+                                {sub.category && <span>· {sub.category}</span>}
+                                {sub.price != null && (
+                                  <span style={{ color: "#F97316" }}>· ${sub.price}</span>
+                                )}
+                              </div>
                             </div>
-                            <div className="flex items-center gap-4">
-                              {purchase.amount && (
-                                <span className="text-sm font-semibold" style={{ color: "#FFD700" }}>
-                                  {purchase.currency?.toUpperCase() || "USD"} ${(purchase.amount / 100).toFixed(2)}
-                                </span>
-                              )}
-                              <span
-                                className="px-3 py-1 rounded-full text-xs font-medium"
-                                style={{
-                                  backgroundColor: purchase.status === "completed" || purchase.status === "paid" ? "rgba(74, 222, 128, 0.15)" : "rgba(251, 191, 36, 0.15)",
-                                  color: purchase.status === "completed" || purchase.status === "paid" ? "#4ADE80" : "#FBB F24",
-                                }}
-                              >
-                                {purchase.status || "Completed"}
-                              </span>
-                              {purchase.download_url && (
-                                <a
-                                  href={purchase.download_url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200"
-                                  style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
-                                >
-                                  Download
-                                </a>
-                              )}
-                            </div>
+                            <span
+                              className="px-3 py-1 rounded-full text-xs font-semibold capitalize self-start sm:self-center"
+                              style={{ backgroundColor: colors.bg, color: colors.text }}
+                            >
+                              {sub.status || "pending"}
+                            </span>
                           </div>
                         </div>
-                      ))}
-                    </div>
+                      );
+                    })}
                   </div>
                 )}
-              </>
+              </div>
             )}
+
+            {/* Account section */}
+            <div
+              className="mt-16 p-6 rounded-2xl"
+              style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)" }}
+            >
+              <h2 className="text-lg font-semibold mb-4" style={{ color: "#FFD700" }}>Account</h2>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-medium">{user.name}</p>
+                  <p className="text-sm" style={{ color: "var(--muted)" }}>{user.email}</p>
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 self-start sm:self-auto"
+                  style={{ backgroundColor: "rgba(248,113,113,0.15)", color: "#F87171", border: "1px solid rgba(248,113,113,0.3)" }}
+                >
+                  Log out
+                </button>
+              </div>
+            </div>
+
           </div>
         </main>
         <Footer />
