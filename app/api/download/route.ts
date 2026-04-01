@@ -8,6 +8,46 @@ export const dynamic = 'force-dynamic'
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://uhkfooojytjesnvqrtxx.supabase.co'
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder'
 
+// Map agent product slugs to their agent files
+const AGENT_SLUGS: Record<string, string> = {
+  'lead-qualifier': 'lead-qualifier.md',
+  'cold-outreach-agent': 'cold-outreach-agent.md',
+  'crm-updater': 'crm-updater.md',
+  'follow-up-agent': 'follow-up-agent.md',
+  'social-media-scheduler': 'social-media-scheduler.md',
+  'seo-audit-agent': 'seo-audit-agent.md',
+  'content-repurposer': 'content-repurposer.md',
+  'email-campaign-agent': 'email-campaign-agent.md',
+  'invoice-processor': 'invoice-processor.md',
+  'expense-reporter': 'expense-reporter.md',
+  'meeting-summariser': 'meeting-summariser.md',
+  'data-entry-agent': 'data-entry-agent.md',
+  'inbound-triage-agent': 'inbound-triage-agent.md',
+  'review-responder': 'review-responder.md',
+  'support-ticket-router': 'support-ticket-router.md',
+  'faq-bot': 'faq-bot.md',
+  'receipt-scanner': 'receipt-scanner.md',
+  'financial-reporter': 'financial-reporter.md',
+  'quote-comparator': 'quote-comparator.md',
+  'onboarding-assistant': 'onboarding-assistant.md',
+  'job-description-writer': 'job-description-writer.md',
+  'blog-writer-agent': 'blog-writer-agent.md',
+  'video-script-agent': 'video-script-agent.md',
+  'competitor-monitor': 'competitor-monitor.md',
+  'market-research-agent': 'market-research-agent.md',
+}
+
+// Try to resolve an agent file from a product slug
+function getAgentFilename(productSlug: string): string | null {
+  const slug = productSlug.toLowerCase().trim()
+  if (AGENT_SLUGS[slug]) return AGENT_SLUGS[slug]
+  // Partial match
+  for (const [key, filename] of Object.entries(AGENT_SLUGS)) {
+    if (slug.includes(key) || key.includes(slug)) return filename
+  }
+  return null
+}
+
 // Map guide product names / slugs to their markdown files
 function getGuideFilename(productName: string): string | null {
   const name = productName.toLowerCase()
@@ -78,6 +118,29 @@ export async function GET(req: NextRequest) {
 
     const purchase = purchases[0]
     const productName = purchase.product_name || purchase.productName || ''
+    const productSlug = purchase.product_slug || purchase.productSlug || productName
+
+    // First, try to match an agent file by slug
+    const agentFilename = getAgentFilename(productSlug)
+    if (agentFilename) {
+      const agentFilePath = path.join(process.cwd(), 'public', 'agents', agentFilename)
+      try {
+        const fileContent = await readFile(agentFilePath, 'utf-8')
+        const encoder = new TextEncoder()
+        const bytes = encoder.encode(fileContent)
+        return new NextResponse(bytes, {
+          status: 200,
+          headers: {
+            'Content-Type': 'text/markdown; charset=utf-8',
+            'Content-Disposition': `attachment; filename="${agentFilename}"`,
+            'Content-Length': bytes.length.toString(),
+            'Cache-Control': 'no-store',
+          },
+        })
+      } catch {
+        console.warn('[Download API] Agent file not found, falling back to guide lookup:', agentFilePath)
+      }
+    }
 
     // Determine which guide file to serve
     const filename = getGuideFilename(productName)
