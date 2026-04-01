@@ -174,6 +174,7 @@ function Footer() {
               { label: "Sell Your Skills", href: "/creator/skills" },
               { label: "Contact", href: "/contact" },
               { label: "Invest with Us", href: "/invest" },
+              { label: "Website Refresh", href: "https://cheapwebsite-j1k0zcvlh-me-myself-i.vercel.app" },
             ].map((link) => (
               <Link
                 key={link.label}

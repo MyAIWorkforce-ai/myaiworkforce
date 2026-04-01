@@ -110,6 +110,7 @@ function Footer() {
               { label: "Done-For-You", href: "/done-for-you" },
               { label: "Contact", href: "/contact" },
               { label: "Invest with Us", href: "/invest" },
+              { label: "Website Refresh", href: "https://cheapwebsite-j1k0zcvlh-me-myself-i.vercel.app" },
             ].map((link) => (
               <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
                 style={{ color: link.label === "Invest with Us" ? "var(--yellow)" : "var(--muted)", fontWeight: link.label === "Invest with Us" ? "600" : "normal" }}
