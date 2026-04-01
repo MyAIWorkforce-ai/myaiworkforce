@@ -116,6 +116,7 @@ function Footer() {
               { label: "Done-For-You", href: "/done-for-you" },
               { label: "Dashboard", href: "/dashboard" },
               { label: "Sell Your Agents", href: "/creator" },
+              { label: "Sell Your Skills", href: "/creator" },
               { label: "Contact", href: "/contact" },
               { label: "Invest with Us", href: "/invest" },
             ].map((link) => (
