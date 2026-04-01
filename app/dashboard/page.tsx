@@ -379,7 +379,7 @@ export default function DashboardPage() {
                           <div className="flex items-center gap-4">
                             {purchase.amount != null && (
                               <span className="text-sm font-semibold" style={{ color: "#FFD700" }}>
-                                {purchase.currency?.toUpperCase() || "USD"} ${(purchase.amount / 100).toFixed(2)}
+                                AUD ${Number(purchase.amount).toFixed(2)}
                               </span>
                             )}
                             <span
