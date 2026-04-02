@@ -7,21 +7,21 @@ export const metadata: Metadata = {
     icon: '/favicon.svg',
     apple: '/favicon.svg',
   },
-  title: "Buy & Sell AI Agents Worldwide | MyAIWorkforce.ai",
+  title: "Build Your AI Workforce Without the Complexity | MyAIWorkforce.ai",
   description:
-    "Build your AI workforce without the complexity. Browse 500+ ready-made AI agents, step-by-step guides, or let us build and run your entire AI workforce from $997/mo.",
+    "We build, deploy, and manage AI agent workforces for businesses that want results — not tech headaches. Browse ready-made agents, grab a DIY guide, or let our team do it all for you.",
   keywords: ["AI agents", "AI workforce", "AI automation", "no-code AI", "AI marketplace", "done for you AI"],
   openGraph: {
-    title: "Buy & Sell AI Agents Worldwide | MyAIWorkforce.ai",
+    title: "Build Your AI Workforce Without the Complexity | MyAIWorkforce.ai",
     description:
-      "Build your AI workforce without the complexity. Browse 500+ ready-made AI agents, step-by-step guides, or let us build and run your entire AI workforce from $997/mo.",
+      "We build, deploy, and manage AI agent workforces for businesses that want results — not tech headaches. Browse ready-made agents, grab a DIY guide, or let our team do it all for you.",
     type: "website",
     url: "https://MyAIWorkforce.ai",
     siteName: "My AI Workforce",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Buy & Sell AI Agents Worldwide | MyAIWorkforce.ai",
+    title: "Build Your AI Workforce Without the Complexity | MyAIWorkforce.ai",
     description: "Browse 500+ ready-made AI agents or let us build your entire AI workforce from $997/mo.",
   },
 };
