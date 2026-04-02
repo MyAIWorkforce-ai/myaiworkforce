@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   },
   title: "Build Your AI Workforce Without the Complexity | MyAIWorkforce.ai",
   description:
-    "We build, deploy, and manage AI agent workforces for businesses that want results — not tech headaches. Browse ready-made agents, grab a DIY guide, or let our team do it all for you.",
+    "Build your AI workforce without the complexity. Browse 500+ ready-made AI agents, grab a DIY guide, or let our team build, deploy and manage your entire AI workforce — from $997/mo.",
   keywords: ["AI agents", "AI workforce", "AI automation", "no-code AI", "AI marketplace", "done for you AI"],
   openGraph: {
     title: "Build Your AI Workforce Without the Complexity | MyAIWorkforce.ai",
     description:
-      "We build, deploy, and manage AI agent workforces for businesses that want results — not tech headaches. Browse ready-made agents, grab a DIY guide, or let our team do it all for you.",
+      "Build your AI workforce without the complexity. Browse 500+ ready-made AI agents, grab a DIY guide, or let our team build, deploy and manage your entire AI workforce — from $997/mo.",
     type: "website",
     url: "https://MyAIWorkforce.ai",
     siteName: "My AI Workforce",
