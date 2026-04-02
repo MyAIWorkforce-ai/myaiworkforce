@@ -3,6 +3,10 @@ import "./globals.css";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   title: "Buy & Sell AI Agents Worldwide | MyAIWorkforce.ai",
   description:
     "Build your AI workforce without the complexity. Browse 500+ ready-made AI agents, step-by-step guides, or let us build and run your entire AI workforce from $997/mo.",
