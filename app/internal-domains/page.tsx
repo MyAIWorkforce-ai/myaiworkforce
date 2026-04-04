@@ -19,8 +19,8 @@ const domains: Domain[] = [
   // ── PREMIUM GENERICS ──────────────────────────────────────────────────────
   {
     name: 'virtualassistant.com.au',
-    valueLow: 15000,
-    valueHigh: 25000,
+    valueLow: 29997,
+    valueHigh: 29997,
     category: 'AI/Tech',
     buyerType: 'AI/VA platform companies, agencies',
     defaultStatus: 'list',
@@ -28,8 +28,8 @@ const domains: Domain[] = [
   },
   {
     name: 'sales.net.au',
-    valueLow: 8000,
-    valueHigh: 20000,
+    valueLow: 24997,
+    valueHigh: 24997,
     category: 'Other',
     buyerType: 'SaaS companies, sales platforms, CRM vendors',
     defaultStatus: 'list',
@@ -37,8 +37,8 @@ const domains: Domain[] = [
   },
   {
     name: 'dromana.com.au',
-    valueLow: 5000,
-    valueHigh: 15000,
+    valueLow: 12997,
+    valueHigh: 12997,
     category: 'Other',
     buyerType: 'Local councils, tourism boards, portals',
     defaultStatus: 'list',
@@ -47,8 +47,8 @@ const domains: Domain[] = [
   // ── AI / TECH ─────────────────────────────────────────────────────────────
   {
     name: 'aivirtualreceptionist.ai',
-    valueLow: 4000,
-    valueHigh: 7000,
+    valueLow: 8997,
+    valueHigh: 8997,
     category: 'AI/Tech',
     buyerType: 'AI receptionist startups, SaaS companies',
     defaultStatus: 'list',
@@ -56,8 +56,8 @@ const domains: Domain[] = [
   },
   {
     name: 'ai-virtualassistant.ai',
-    valueLow: 3500,
-    valueHigh: 6000,
+    valueLow: 7997,
+    valueHigh: 7997,
     category: 'AI/Tech',
     buyerType: 'AI assistant companies, SaaS',
     defaultStatus: 'list',
@@ -65,8 +65,8 @@ const domains: Domain[] = [
   },
   {
     name: 'aivirtualreceptionist.com.au',
-    valueLow: 3000,
-    valueHigh: 5000,
+    valueLow: 6997,
+    valueHigh: 6997,
     category: 'AI/Tech',
     buyerType: 'AI receptionist companies, agencies',
     defaultStatus: 'list',
@@ -74,8 +74,8 @@ const domains: Domain[] = [
   },
   {
     name: 'ai-virtualassistant.com',
-    valueLow: 3000,
-    valueHigh: 5000,
+    valueLow: 6497,
+    valueHigh: 6497,
     category: 'AI/Tech',
     buyerType: 'Global AI assistant companies',
     defaultStatus: 'list',
@@ -83,8 +83,8 @@ const domains: Domain[] = [
   },
   {
     name: 'lawyerassistant.com.au',
-    valueLow: 3000,
-    valueHigh: 5000,
+    valueLow: 6997,
+    valueHigh: 6997,
     category: 'AI/Tech',
     buyerType: 'Legal tech companies, law firms',
     defaultStatus: 'list',
@@ -92,8 +92,8 @@ const domains: Domain[] = [
   },
   {
     name: 'ai-virtualassistant.com.au',
-    valueLow: 2500,
-    valueHigh: 4000,
+    valueLow: 5497,
+    valueHigh: 5497,
     category: 'AI/Tech',
     buyerType: 'Australian AI assistant companies',
     defaultStatus: 'list',
@@ -101,8 +101,8 @@ const domains: Domain[] = [
   },
   {
     name: 'tradieassistant.ai',
-    valueLow: 2000,
-    valueHigh: 3500,
+    valueLow: 4497,
+    valueHigh: 4497,
     category: 'AI/Tech',
     buyerType: 'Tradie tech startups, AI platforms',
     defaultStatus: 'list',
@@ -110,8 +110,8 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualcalendar.ai',
-    valueLow: 2000,
-    valueHigh: 3500,
+    valueLow: 4997,
+    valueHigh: 4997,
     category: 'AI/Tech',
     buyerType: 'AI scheduling/calendar app companies',
     defaultStatus: 'list',
@@ -119,8 +119,8 @@ const domains: Domain[] = [
   },
   {
     name: 'psychologistassistant.com.au',
-    valueLow: 1500,
-    valueHigh: 2500,
+    valueLow: 3997,
+    valueHigh: 3997,
     category: 'AI/Tech',
     buyerType: 'Mental health tech, psych practices',
     defaultStatus: 'list',
@@ -128,8 +128,8 @@ const domains: Domain[] = [
   },
   {
     name: 'tailoredva.ai',
-    valueLow: 1500,
-    valueHigh: 2500,
+    valueLow: 3497,
+    valueHigh: 3497,
     category: 'AI/Tech',
     buyerType: 'VA agencies, AI assistant platforms',
     defaultStatus: 'list',
@@ -137,8 +137,8 @@ const domains: Domain[] = [
   },
   {
     name: 'customva.ai',
-    valueLow: 1500,
-    valueHigh: 2500,
+    valueLow: 3497,
+    valueHigh: 3497,
     category: 'AI/Tech',
     buyerType: 'VA agencies, AI assistant platforms',
     defaultStatus: 'list',
@@ -146,8 +146,8 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualcalendar.com.au',
-    valueLow: 1500,
-    valueHigh: 2500,
+    valueLow: 2997,
+    valueHigh: 2997,
     category: 'AI/Tech',
     buyerType: 'Scheduling software companies, SaaS',
     defaultStatus: 'list',
@@ -155,8 +155,8 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualsolutions.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Tech/consulting companies, agencies',
     defaultStatus: 'list',
@@ -164,8 +164,8 @@ const domains: Domain[] = [
   },
   {
     name: 'physioassistant.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 2497,
+    valueHigh: 2497,
     category: 'AI/Tech',
     buyerType: 'Physio practices, health tech platforms',
     defaultStatus: 'list',
@@ -173,8 +173,8 @@ const domains: Domain[] = [
   },
   {
     name: 'dentistassistant.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 5997,
+    valueHigh: 5997,
     category: 'AI/Tech',
     buyerType: 'Dental practices, health tech',
     defaultStatus: 'list',
@@ -182,8 +182,8 @@ const domains: Domain[] = [
   },
   {
     name: 'doctorassistant.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 5997,
+    valueHigh: 5997,
     category: 'AI/Tech',
     buyerType: 'Medical practices, health tech',
     defaultStatus: 'list',
@@ -191,8 +191,8 @@ const domains: Domain[] = [
   },
   {
     name: 'chiropractorassistant.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 2497,
+    valueHigh: 2497,
     category: 'AI/Tech',
     buyerType: 'Chiro practices, health tech',
     defaultStatus: 'list',
@@ -200,8 +200,8 @@ const domains: Domain[] = [
   },
   {
     name: 'consultantassistant.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 2997,
+    valueHigh: 2997,
     category: 'AI/Tech',
     buyerType: 'Consulting firms, AI tool companies',
     defaultStatus: 'list',
@@ -209,8 +209,8 @@ const domains: Domain[] = [
   },
   {
     name: 'personaltrainerassistant.com.au',
-    valueLow: 1000,
-    valueHigh: 1800,
+    valueLow: 2497,
+    valueHigh: 2497,
     category: 'AI/Tech',
     buyerType: 'Fitness tech, PT booking platforms',
     defaultStatus: 'list',
@@ -218,8 +218,8 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualbooking.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Booking/scheduling SaaS companies',
     defaultStatus: 'list',
@@ -227,8 +227,8 @@ const domains: Domain[] = [
   },
   {
     name: 'customva.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'VA agencies, outsourcing companies',
     defaultStatus: 'list',
@@ -236,8 +236,8 @@ const domains: Domain[] = [
   },
   {
     name: 'mechanicassistant.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Auto tech, mechanic booking platforms',
     defaultStatus: 'list',
@@ -245,8 +245,8 @@ const domains: Domain[] = [
   },
   {
     name: 'myotherapistassistant.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Myotherapy practices, health tech',
     defaultStatus: 'list',
@@ -254,8 +254,8 @@ const domains: Domain[] = [
   },
   {
     name: 'osteoassistant.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Osteo practices, health tech',
     defaultStatus: 'list',
@@ -263,8 +263,8 @@ const domains: Domain[] = [
   },
   {
     name: 'ptassistant.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Personal trainers, fitness platforms',
     defaultStatus: 'list',
@@ -272,8 +272,8 @@ const domains: Domain[] = [
   },
   {
     name: 'myoassistant.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'AI/Tech',
     buyerType: 'Myotherapy practices, health tech',
     defaultStatus: 'list',
@@ -281,8 +281,8 @@ const domains: Domain[] = [
   },
   {
     name: 'podiatristassistant.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Podiatry practices, health tech',
     defaultStatus: 'list',
@@ -290,8 +290,8 @@ const domains: Domain[] = [
   },
   {
     name: 'beautyassistant.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'AI/Tech',
     buyerType: 'Beauty industry tech, salons',
     defaultStatus: 'list',
@@ -299,8 +299,8 @@ const domains: Domain[] = [
   },
   {
     name: 'chiroassistant.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Chiro practices, health tech',
     defaultStatus: 'list',
@@ -308,8 +308,8 @@ const domains: Domain[] = [
   },
   {
     name: 'physioadmin.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Physio practices, health admin tech',
     defaultStatus: 'list',
@@ -317,8 +317,8 @@ const domains: Domain[] = [
   },
   {
     name: 'physioreception.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Physio practices, reception AI',
     defaultStatus: 'list',
@@ -326,8 +326,8 @@ const domains: Domain[] = [
   },
   {
     name: 'psychreception.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Psychology practices, AI reception',
     defaultStatus: 'list',
@@ -335,8 +335,8 @@ const domains: Domain[] = [
   },
   {
     name: 'psychassistant.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Psychology practices, health tech',
     defaultStatus: 'list',
@@ -344,8 +344,8 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantreception.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Accounting firms, AI reception tech',
     defaultStatus: 'list',
@@ -353,8 +353,8 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantassistant.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 2497,
+    valueHigh: 2497,
     category: 'AI/Tech',
     buyerType: 'Accounting firms, fintech companies',
     defaultStatus: 'list',
@@ -362,8 +362,8 @@ const domains: Domain[] = [
   },
   {
     name: 'massageassistant.com.au',
-    valueLow: 700,
-    valueHigh: 1200,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'AI/Tech',
     buyerType: 'Massage therapy booking platforms',
     defaultStatus: 'list',
@@ -371,8 +371,8 @@ const domains: Domain[] = [
   },
   {
     name: 'beautytherapistassistant.com.au',
-    valueLow: 700,
-    valueHigh: 1200,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'AI/Tech',
     buyerType: 'Beauty industry tech, booking platforms',
     defaultStatus: 'list',
@@ -380,8 +380,8 @@ const domains: Domain[] = [
   },
   {
     name: 'hairdresserassistant.com.au',
-    valueLow: 700,
-    valueHigh: 1200,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'AI/Tech',
     buyerType: 'Salon tech, booking platforms',
     defaultStatus: 'list',
@@ -389,8 +389,8 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantadmin.com.au',
-    valueLow: 600,
-    valueHigh: 1200,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Accounting admin tech, fintech',
     defaultStatus: 'list',
@@ -398,8 +398,8 @@ const domains: Domain[] = [
   },
   {
     name: 'clouddiary.com.au',
-    valueLow: 600,
-    valueHigh: 1200,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'AI/Tech',
     buyerType: 'Productivity apps, SaaS companies',
     defaultStatus: 'list',
@@ -407,8 +407,8 @@ const domains: Domain[] = [
   },
   {
     name: 'cloudcalendar.com.au',
-    valueLow: 600,
-    valueHigh: 1200,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'AI/Tech',
     buyerType: 'SaaS calendar companies',
     defaultStatus: 'list',
@@ -416,8 +416,8 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualdiary.com.au',
-    valueLow: 600,
-    valueHigh: 1200,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'AI/Tech',
     buyerType: 'Productivity/scheduling apps',
     defaultStatus: 'list',
@@ -425,8 +425,8 @@ const domains: Domain[] = [
   },
   {
     name: 'pysioadmin.com.au',
-    valueLow: 300,
-    valueHigh: 600,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'AI/Tech',
     buyerType: 'Physio practices (typo variant)',
     defaultStatus: 'review',
@@ -435,8 +435,8 @@ const domains: Domain[] = [
   // ── ADULT DOMAINS ─────────────────────────────────────────────────────────
   {
     name: 'erotica.com.au',
-    valueLow: 6000,
-    valueHigh: 12000,
+    valueLow: 14997,
+    valueHigh: 14997,
     category: 'Other',
     buyerType: 'Adult content platforms, publishers',
     defaultStatus: 'list',
@@ -444,8 +444,8 @@ const domains: Domain[] = [
   },
   {
     name: 'nakedgirls.com.au',
-    valueLow: 4000,
-    valueHigh: 10000,
+    valueLow: 12997,
+    valueHigh: 12997,
     category: 'Other',
     buyerType: 'Adult content platforms',
     defaultStatus: 'list',
@@ -453,8 +453,8 @@ const domains: Domain[] = [
   },
   {
     name: 'ifuck.com.au',
-    valueLow: 2000,
-    valueHigh: 6000,
+    valueLow: 2997,
+    valueHigh: 2997,
     category: 'Other',
     buyerType: 'Adult content platforms',
     defaultStatus: 'review',
@@ -462,8 +462,8 @@ const domains: Domain[] = [
   },
   {
     name: 'lovedating.com.au',
-    valueLow: 2000,
-    valueHigh: 5000,
+    valueLow: 2997,
+    valueHigh: 2997,
     category: 'Other',
     buyerType: 'Dating apps, relationship platforms',
     defaultStatus: 'review',
@@ -471,8 +471,8 @@ const domains: Domain[] = [
   },
   {
     name: 'horney.com.au',
-    valueLow: 1500,
-    valueHigh: 4000,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Adult content platforms',
     defaultStatus: 'review',
@@ -480,8 +480,8 @@ const domains: Domain[] = [
   },
   {
     name: 'stupidshit.com.au',
-    valueLow: 300,
-    valueHigh: 800,
+    valueLow: 297,
+    valueHigh: 297,
     category: 'Other',
     buyerType: 'Humour/entertainment brands',
     defaultStatus: 'review',
@@ -490,8 +490,8 @@ const domains: Domain[] = [
   // ── REAL ESTATE / HOMES ───────────────────────────────────────────────────
   {
     name: 'darlingpointrealestate.com',
-    valueLow: 2000,
-    valueHigh: 4000,
+    valueLow: 2497,
+    valueHigh: 2497,
     category: 'Other',
     buyerType: 'Real estate agencies, property portals',
     defaultStatus: 'list',
@@ -499,8 +499,8 @@ const domains: Domain[] = [
   },
   {
     name: 'doublebayhomes.com.au',
-    valueLow: 1500,
-    valueHigh: 3000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Real estate agencies, luxury property',
     defaultStatus: 'list',
@@ -508,8 +508,8 @@ const domains: Domain[] = [
   },
   {
     name: 'darlingpointhomes.com.au',
-    valueLow: 1500,
-    valueHigh: 3000,
+    valueLow: 2497,
+    valueHigh: 2497,
     category: 'Other',
     buyerType: 'Real estate agencies, luxury property',
     defaultStatus: 'list',
@@ -517,8 +517,8 @@ const domains: Domain[] = [
   },
   {
     name: 'pointpiperhomes.com.au',
-    valueLow: 1500,
-    valueHigh: 3000,
+    valueLow: 2497,
+    valueHigh: 2497,
     category: 'Other',
     buyerType: 'Real estate agencies, luxury property',
     defaultStatus: 'list',
@@ -526,8 +526,8 @@ const domains: Domain[] = [
   },
   {
     name: 'darlingharbourrealestate.com',
-    valueLow: 1500,
-    valueHigh: 3000,
+    valueLow: 2997,
+    valueHigh: 2997,
     category: 'Other',
     buyerType: 'Real estate agencies, developers',
     defaultStatus: 'list',
@@ -535,8 +535,8 @@ const domains: Domain[] = [
   },
   {
     name: 'darlingharbourrealestate.com.au',
-    valueLow: 1500,
-    valueHigh: 3000,
+    valueLow: 2997,
+    valueHigh: 2997,
     category: 'Other',
     buyerType: 'Real estate agencies, developers',
     defaultStatus: 'list',
@@ -544,8 +544,8 @@ const domains: Domain[] = [
   },
   {
     name: 'premiumpropertiesaustralia.com.au',
-    valueLow: 1500,
-    valueHigh: 3000,
+    valueLow: 4997,
+    valueHigh: 4997,
     category: 'Other',
     buyerType: 'Real estate agencies, property portals',
     defaultStatus: 'list',
@@ -553,8 +553,8 @@ const domains: Domain[] = [
   },
   {
     name: 'linleypointhomes.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Real estate agencies, Sydney North Shore',
     defaultStatus: 'list',
@@ -562,8 +562,8 @@ const domains: Domain[] = [
   },
   {
     name: 'watsonsbayhomes.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Real estate agencies, luxury property',
     defaultStatus: 'list',
@@ -571,8 +571,8 @@ const domains: Domain[] = [
   },
   {
     name: 'dalkeithhomes.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Perth luxury real estate agencies',
     defaultStatus: 'list',
@@ -580,8 +580,8 @@ const domains: Domain[] = [
   },
   {
     name: 'dalkeithrelestate.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Perth luxury real estate agencies',
     defaultStatus: 'list',
@@ -589,8 +589,8 @@ const domains: Domain[] = [
   },
   {
     name: 'bellevuehillrealesate.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Sydney luxury real estate agencies',
     defaultStatus: 'list',
@@ -598,8 +598,8 @@ const domains: Domain[] = [
   },
   {
     name: 'bondihomes.com',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 2997,
+    valueHigh: 2997,
     category: 'Other',
     buyerType: 'Real estate agencies, rental platforms',
     defaultStatus: 'list',
@@ -607,8 +607,8 @@ const domains: Domain[] = [
   },
   {
     name: 'portseahomes.com',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Luxury real estate agencies, Mornington Peninsula',
     defaultStatus: 'list',
@@ -616,8 +616,8 @@ const domains: Domain[] = [
   },
   {
     name: 'darlingharbourhomes.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 2497,
+    valueHigh: 2497,
     category: 'Other',
     buyerType: 'Real estate agencies, developers',
     defaultStatus: 'list',
@@ -625,8 +625,8 @@ const domains: Domain[] = [
   },
   {
     name: 'phillipislandrealestate.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Other',
     buyerType: 'Local real estate agencies',
     defaultStatus: 'list',
@@ -634,8 +634,8 @@ const domains: Domain[] = [
   },
   {
     name: 'lavenderbayhomes.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Sydney North Shore real estate',
     defaultStatus: 'list',
@@ -643,8 +643,8 @@ const domains: Domain[] = [
   },
   {
     name: 'cremornepointhomes.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Sydney North Shore real estate',
     defaultStatus: 'list',
@@ -652,8 +652,8 @@ const domains: Domain[] = [
   },
   {
     name: 'eaglebayhomes.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Other',
     buyerType: 'WA luxury real estate agencies',
     defaultStatus: 'list',
@@ -661,8 +661,8 @@ const domains: Domain[] = [
   },
   {
     name: 'peppermintgrovehomes.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Perth luxury real estate agencies',
     defaultStatus: 'list',
@@ -670,8 +670,8 @@ const domains: Domain[] = [
   },
   {
     name: 'longuevillehomes.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Sydney North Shore real estate',
     defaultStatus: 'list',
@@ -679,8 +679,8 @@ const domains: Domain[] = [
   },
   {
     name: 'kooyonghomes.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Melbourne luxury real estate',
     defaultStatus: 'list',
@@ -688,8 +688,8 @@ const domains: Domain[] = [
   },
   {
     name: 'doverheightshomes.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Sydney Eastern Suburbs real estate',
     defaultStatus: 'list',
@@ -697,8 +697,8 @@ const domains: Domain[] = [
   },
   {
     name: 'tamaramahomes.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Other',
     buyerType: 'Sydney North Shore real estate',
     defaultStatus: 'list',
@@ -706,8 +706,8 @@ const domains: Domain[] = [
   },
   {
     name: 'woolwichhomes.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Sydney inner west real estate',
     defaultStatus: 'list',
@@ -715,8 +715,8 @@ const domains: Domain[] = [
   },
   {
     name: 'centennialparkhomes.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Sydney Eastern Suburbs real estate',
     defaultStatus: 'list',
@@ -724,8 +724,8 @@ const domains: Domain[] = [
   },
   {
     name: 'orangegrovehomes.com.au',
-    valueLow: 600,
-    valueHigh: 1200,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Other',
     buyerType: 'Perth real estate agencies',
     defaultStatus: 'list',
@@ -733,8 +733,8 @@ const domains: Domain[] = [
   },
   {
     name: 'buildermordialloc.com',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Builders, Mordialloc trades',
     defaultStatus: 'list',
@@ -742,8 +742,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentersheparton.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Shepparton trades',
     defaultStatus: 'list',
@@ -751,8 +751,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentermorningtonpeninsula.com',
-    valueLow: 700,
-    valueHigh: 1200,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Mornington Peninsula',
     defaultStatus: 'list',
@@ -760,8 +760,8 @@ const domains: Domain[] = [
   },
   {
     name: 'rosebudrealestate.com.au',
-    valueLow: 600,
-    valueHigh: 1200,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Local real estate agencies, Mornington Peninsula',
     defaultStatus: 'list',
@@ -769,8 +769,8 @@ const domains: Domain[] = [
   },
   {
     name: 'realestateparkdale.com.au',
-    valueLow: 600,
-    valueHigh: 1200,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Bayside real estate agencies',
     defaultStatus: 'list',
@@ -779,8 +779,8 @@ const domains: Domain[] = [
   // ── TRADE / LOCAL ─────────────────────────────────────────────────────────
   {
     name: 'buildingaustralia.com.au',
-    valueLow: 2000,
-    valueHigh: 4000,
+    valueLow: 5997,
+    valueHigh: 5997,
     category: 'Trade/Local',
     buyerType: 'Construction portals, builder associations',
     defaultStatus: 'list',
@@ -788,8 +788,8 @@ const domains: Domain[] = [
   },
   {
     name: 'morningtonpeninsulatrades.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 2497,
+    valueHigh: 2497,
     category: 'Trade/Local',
     buyerType: 'Local trade directories, builders',
     defaultStatus: 'list',
@@ -797,8 +797,8 @@ const domains: Domain[] = [
   },
   {
     name: 'findtradesman.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Trade/Local',
     buyerType: 'Tradie directories, booking platforms',
     defaultStatus: 'list',
@@ -806,8 +806,8 @@ const domains: Domain[] = [
   },
   {
     name: 'morningtonwineries.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 2497,
+    valueHigh: 2497,
     category: 'Trade/Local',
     buyerType: 'Tourism boards, wine tour operators',
     defaultStatus: 'list',
@@ -815,8 +815,8 @@ const domains: Domain[] = [
   },
   {
     name: 'psychologistmorningtonpeninsula.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Trade/Local',
     buyerType: 'Psychology practices, health directories',
     defaultStatus: 'list',
@@ -824,8 +824,8 @@ const domains: Domain[] = [
   },
   {
     name: 'psychologistmornington.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Psychology practices, health directories',
     defaultStatus: 'list',
@@ -833,8 +833,8 @@ const domains: Domain[] = [
   },
   {
     name: 'psychologistfrankston.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Psychology practices, health directories',
     defaultStatus: 'list',
@@ -842,8 +842,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentertoorak.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, luxury renovation companies',
     defaultStatus: 'list',
@@ -851,8 +851,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterbrighton.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Carpenters, home renovation companies',
     defaultStatus: 'list',
@@ -860,8 +860,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterbondi.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, home renovation companies',
     defaultStatus: 'list',
@@ -869,8 +869,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterbondi.com',
-    valueLow: 700,
-    valueHigh: 1200,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, home renovation companies',
     defaultStatus: 'list',
@@ -878,8 +878,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderbondi.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 4947,
+    valueHigh: 4947,
     category: 'Trade/Local',
     buyerType: 'Builders, home renovation companies',
     defaultStatus: 'list',
@@ -887,8 +887,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderbondi.com',
-    valueLow: 700,
-    valueHigh: 1200,
+    valueLow: 4497,
+    valueHigh: 4497,
     category: 'Trade/Local',
     buyerType: 'Builders, home renovation companies',
     defaultStatus: 'list',
@@ -896,8 +896,8 @@ const domains: Domain[] = [
   },
   {
     name: 'buildertoorak.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 2497,
+    valueHigh: 2497,
     category: 'Trade/Local',
     buyerType: 'Builders, luxury home renovation companies',
     defaultStatus: 'list',
@@ -905,8 +905,8 @@ const domains: Domain[] = [
   },
   {
     name: 'buildersorrento.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Trade/Local',
     buyerType: 'Builders, Mornington Peninsula renovators',
     defaultStatus: 'list',
@@ -914,8 +914,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderportsea.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Trade/Local',
     buyerType: 'Builders, luxury home renovators',
     defaultStatus: 'list',
@@ -923,8 +923,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentersorrento.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Mornington Peninsula renovators',
     defaultStatus: 'list',
@@ -932,8 +932,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterportsea.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, luxury home renovators',
     defaultStatus: 'list',
@@ -941,8 +941,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electriciansorrento.com',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Mornington Peninsula trades',
     defaultStatus: 'list',
@@ -950,8 +950,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianportsea.com',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, luxury area trades',
     defaultStatus: 'list',
@@ -959,8 +959,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianportsea.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, luxury area trades',
     defaultStatus: 'list',
@@ -968,8 +968,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentermorningtonpeninsula.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -977,8 +977,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentersmorningtonpeninsula.com',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -986,8 +986,8 @@ const domains: Domain[] = [
   },
   {
     name: 'plumbermorningtonpeninsula.com',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Local plumbers, trade directories',
     defaultStatus: 'list',
@@ -995,8 +995,8 @@ const domains: Domain[] = [
   },
   {
     name: 'concretermorningtonpeninsula.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1297,
+    valueHigh: 1297,
     category: 'Trade/Local',
     buyerType: 'Local concreters, trade directories',
     defaultStatus: 'list',
@@ -1004,8 +1004,8 @@ const domains: Domain[] = [
   },
   {
     name: 'buildersmorningtonpeninsula.com',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Builders, Mornington Peninsula directory',
     defaultStatus: 'list',
@@ -1013,8 +1013,8 @@ const domains: Domain[] = [
   },
   {
     name: 'buildermorningtonpeninsula.com',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Trade/Local',
     buyerType: 'Builders, Mornington Peninsula directory',
     defaultStatus: 'list',
@@ -1022,8 +1022,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electriciansmorningtonpeninsula.com',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Mornington Peninsula trades',
     defaultStatus: 'list',
@@ -1031,8 +1031,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianmorningtonpeninsula.com',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Electricians, Mornington Peninsula trades',
     defaultStatus: 'list',
@@ -1040,8 +1040,8 @@ const domains: Domain[] = [
   },
   {
     name: 'showerscreensperth.com.au',
-    valueLow: 600,
-    valueHigh: 1200,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Home improvement companies, Perth trades',
     defaultStatus: 'list',
@@ -1049,8 +1049,8 @@ const domains: Domain[] = [
   },
   {
     name: 'botoxbrisbane.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Medical aesthetic clinics, Brisbane',
     defaultStatus: 'list',
@@ -1058,8 +1058,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterredhill.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1067,8 +1067,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentersomerville.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1076,8 +1076,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterflinders.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1085,8 +1085,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterhighett.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1094,8 +1094,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterhampton.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1103,8 +1103,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterbeaumaris.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1112,8 +1112,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterelwood.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1121,8 +1121,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterelwood.com',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1130,8 +1130,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentermentone.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1139,8 +1139,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentermentone.com',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1148,8 +1148,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterlangwarrin.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1157,8 +1157,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterlangwarrin.com',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1166,8 +1166,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterspringvale.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1175,8 +1175,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterspringvale.com',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1184,8 +1184,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterdandenong.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Local carpenters, trade directories',
     defaultStatus: 'list',
@@ -1193,8 +1193,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterdarwin.com',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Darwin carpenters, trade directories',
     defaultStatus: 'list',
@@ -1202,8 +1202,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentercanberra.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Canberra carpenters, trade directories',
     defaultStatus: 'list',
@@ -1211,8 +1211,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentercairns.com',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Cairns carpenters, trade directories',
     defaultStatus: 'list',
@@ -1220,8 +1220,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterstkilda.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, St Kilda trades',
     defaultStatus: 'list',
@@ -1229,8 +1229,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentersurfersparadise.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Gold Coast trades',
     defaultStatus: 'list',
@@ -1238,8 +1238,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterfrankston.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Frankston trades',
     defaultStatus: 'list',
@@ -1247,8 +1247,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentermteliza.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Mt Eliza trades',
     defaultStatus: 'list',
@@ -1256,8 +1256,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentermornington.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1297,
+    valueHigh: 1297,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Mornington trades',
     defaultStatus: 'list',
@@ -1265,8 +1265,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentermtmartha.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Mt Martha trades',
     defaultStatus: 'list',
@@ -1274,8 +1274,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterdromana.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1297,
+    valueHigh: 1297,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Dromana trades',
     defaultStatus: 'list',
@@ -1283,8 +1283,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterdromana.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1297,
+    valueHigh: 1297,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Dromana trades',
     defaultStatus: 'list',
@@ -1292,8 +1292,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentermccrae.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, McCrae trades',
     defaultStatus: 'list',
@@ -1301,8 +1301,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterrosebud.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Rosebud trades',
     defaultStatus: 'list',
@@ -1310,8 +1310,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterrye.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Rye trades',
     defaultStatus: 'list',
@@ -1319,8 +1319,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderflinders.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Builders, Flinders trades',
     defaultStatus: 'list',
@@ -1328,8 +1328,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderfrankston.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Builders, Frankston trades',
     defaultStatus: 'list',
@@ -1337,8 +1337,8 @@ const domains: Domain[] = [
   },
   {
     name: 'buildermteliza.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Builders, Mt Eliza trades',
     defaultStatus: 'list',
@@ -1346,8 +1346,8 @@ const domains: Domain[] = [
   },
   {
     name: 'buildermornington.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Builders, Mornington trades',
     defaultStatus: 'list',
@@ -1355,8 +1355,8 @@ const domains: Domain[] = [
   },
   {
     name: 'buildermtmartha.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Builders, Mt Martha trades',
     defaultStatus: 'list',
@@ -1364,8 +1364,8 @@ const domains: Domain[] = [
   },
   {
     name: 'buildermarthacove.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Builders, Martha Cove trades',
     defaultStatus: 'list',
@@ -1373,8 +1373,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderdromana.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Builders, Dromana trades',
     defaultStatus: 'list',
@@ -1382,8 +1382,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderrosebud.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Builders, Rosebud trades',
     defaultStatus: 'list',
@@ -1391,8 +1391,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderrye.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Builders, Rye trades',
     defaultStatus: 'list',
@@ -1400,8 +1400,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderbayside.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Builders, Melbourne Bayside area',
     defaultStatus: 'list',
@@ -1409,8 +1409,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterbayside.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Melbourne Bayside area',
     defaultStatus: 'list',
@@ -1418,8 +1418,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterbayside.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Melbourne Bayside area',
     defaultStatus: 'list',
@@ -1427,8 +1427,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderbeaumaris.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Trade/Local',
     buyerType: 'Builders, Beaumaris trades',
     defaultStatus: 'list',
@@ -1436,8 +1436,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderbentleigh.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Builders, Bentleigh trades',
     defaultStatus: 'list',
@@ -1445,8 +1445,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderbentleigh.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Builders, Bentleigh trades',
     defaultStatus: 'list',
@@ -1454,8 +1454,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderelwood.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Trade/Local',
     buyerType: 'Builders, Elwood trades',
     defaultStatus: 'list',
@@ -1463,8 +1463,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderdandenong.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Builders, Dandenong trades',
     defaultStatus: 'list',
@@ -1472,8 +1472,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderdarwin.com',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Builders, Darwin trades',
     defaultStatus: 'list',
@@ -1481,8 +1481,8 @@ const domains: Domain[] = [
   },
   {
     name: 'builderbendigo.com',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Builders, Bendigo trades',
     defaultStatus: 'list',
@@ -1490,8 +1490,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianmarthacove.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Mornington Peninsula trades',
     defaultStatus: 'list',
@@ -1499,8 +1499,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianmarthacove.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Mornington Peninsula trades',
     defaultStatus: 'list',
@@ -1508,8 +1508,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electriciansomerville.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Somerville trades',
     defaultStatus: 'list',
@@ -1517,8 +1517,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianmentone.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Mentone trades',
     defaultStatus: 'list',
@@ -1526,8 +1526,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electriciancranbourne.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Cranbourne trades',
     defaultStatus: 'list',
@@ -1535,8 +1535,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianflinders.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Flinders trades',
     defaultStatus: 'list',
@@ -1544,8 +1544,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianflinders.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Flinders trades',
     defaultStatus: 'list',
@@ -1553,8 +1553,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianfrankston.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Frankston trades',
     defaultStatus: 'list',
@@ -1562,8 +1562,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianmteliza.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Mt Eliza trades',
     defaultStatus: 'list',
@@ -1571,8 +1571,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianmteliza.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Mt Eliza trades',
     defaultStatus: 'list',
@@ -1580,8 +1580,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianmornington.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1297,
+    valueHigh: 1297,
     category: 'Trade/Local',
     buyerType: 'Electricians, Mornington trades',
     defaultStatus: 'list',
@@ -1589,8 +1589,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianmtmartha.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Mt Martha trades',
     defaultStatus: 'list',
@@ -1598,8 +1598,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electriciandromana.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Dromana trades',
     defaultStatus: 'list',
@@ -1607,8 +1607,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianmccrae.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, McCrae trades',
     defaultStatus: 'list',
@@ -1616,8 +1616,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianmccrae.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, McCrae trades',
     defaultStatus: 'list',
@@ -1625,8 +1625,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianrosebud.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Rosebud trades',
     defaultStatus: 'list',
@@ -1634,8 +1634,8 @@ const domains: Domain[] = [
   },
   {
     name: 'electricianrye.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Electricians, Rye trades',
     defaultStatus: 'list',
@@ -1643,8 +1643,8 @@ const domains: Domain[] = [
   },
   {
     name: 'mptrades.com.au',
-    valueLow: 600,
-    valueHigh: 1200,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Mornington Peninsula tradespeople',
     defaultStatus: 'list',
@@ -1652,8 +1652,8 @@ const domains: Domain[] = [
   },
   {
     name: 'primebuildingprojects.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 797,
+    valueHigh: 797,
     category: 'Trade/Local',
     buyerType: 'Construction companies, builders',
     defaultStatus: 'list',
@@ -1661,8 +1661,8 @@ const domains: Domain[] = [
   },
   {
     name: 'primebuildinggroup.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 797,
+    valueHigh: 797,
     category: 'Trade/Local',
     buyerType: 'Construction companies, builders',
     defaultStatus: 'list',
@@ -1670,8 +1670,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterz.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 797,
+    valueHigh: 797,
     category: 'Trade/Local',
     buyerType: 'Carpentry platforms, trade directories',
     defaultStatus: 'list',
@@ -1679,8 +1679,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpentersafteybeach.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Safety Beach trades',
     defaultStatus: 'list',
@@ -1688,8 +1688,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpenterblairgowrie.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Blairgowrie trades',
     defaultStatus: 'list',
@@ -1697,8 +1697,8 @@ const domains: Domain[] = [
   },
   {
     name: 'carpertermordialloc.com.au',
-    valueLow: 300,
-    valueHigh: 600,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Carpenters, Mordialloc trades',
     defaultStatus: 'list',
@@ -1706,8 +1706,8 @@ const domains: Domain[] = [
   },
   {
     name: 'decksnpergolas.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Deck/pergola builders, home improvement',
     defaultStatus: 'list',
@@ -1715,8 +1715,8 @@ const domains: Domain[] = [
   },
   {
     name: 'cartrades.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Car trades, auto industry',
     defaultStatus: 'list',
@@ -1724,8 +1724,8 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantmornington.com.au',
-    valueLow: 600,
-    valueHigh: 1200,
+    valueLow: 1297,
+    valueHigh: 1297,
     category: 'Trade/Local',
     buyerType: 'Accounting firms, Mornington Peninsula',
     defaultStatus: 'list',
@@ -1733,8 +1733,8 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantmteliza.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1297,
+    valueHigh: 1297,
     category: 'Trade/Local',
     buyerType: 'Accounting firms, Mt Eliza',
     defaultStatus: 'list',
@@ -1742,8 +1742,8 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantbayside.com.au',
-    valueLow: 600,
-    valueHigh: 1200,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Accounting firms, Bayside Melbourne',
     defaultStatus: 'list',
@@ -1751,8 +1751,8 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantbayside.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Accounting firms, Bayside area',
     defaultStatus: 'list',
@@ -1760,8 +1760,8 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantfremantle.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Accounting firms, Fremantle',
     defaultStatus: 'list',
@@ -1769,8 +1769,8 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantbrighton.com.au',
-    valueLow: 600,
-    valueHigh: 1200,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Trade/Local',
     buyerType: 'Accounting firms, Brighton Melbourne',
     defaultStatus: 'list',
@@ -1778,8 +1778,8 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantsurfersparadise.com.au',
-    valueLow: 600,
-    valueHigh: 1200,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Trade/Local',
     buyerType: 'Accounting firms, Surfers Paradise',
     defaultStatus: 'list',
@@ -1788,8 +1788,8 @@ const domains: Domain[] = [
   // ── PIZZA / FOOD ──────────────────────────────────────────────────────────
   {
     name: 'pizzabrighton.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Pizza restaurants, delivery platforms',
     defaultStatus: 'list',
@@ -1797,8 +1797,8 @@ const domains: Domain[] = [
   },
   {
     name: 'pizzabondi.com',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Pizza restaurants, delivery platforms',
     defaultStatus: 'list',
@@ -1806,8 +1806,8 @@ const domains: Domain[] = [
   },
   {
     name: 'pizzalygon.com',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Other',
     buyerType: 'Pizza restaurants, Melbourne city',
     defaultStatus: 'list',
@@ -1815,8 +1815,8 @@ const domains: Domain[] = [
   },
   {
     name: 'pizzacarlton.com',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Pizza restaurants, Carlton/Melbourne',
     defaultStatus: 'list',
@@ -1824,8 +1824,8 @@ const domains: Domain[] = [
   },
   {
     name: 'pizzastkilda.com',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Other',
     buyerType: 'Pizza restaurants, St Kilda',
     defaultStatus: 'list',
@@ -1833,8 +1833,8 @@ const domains: Domain[] = [
   },
   {
     name: 'pizzastkilda.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Other',
     buyerType: 'Pizza restaurants, St Kilda',
     defaultStatus: 'list',
@@ -1842,8 +1842,8 @@ const domains: Domain[] = [
   },
   {
     name: 'pizzasurfersparadise.com',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Pizza restaurants, Gold Coast',
     defaultStatus: 'list',
@@ -1851,8 +1851,8 @@ const domains: Domain[] = [
   },
   {
     name: 'pizzasurfersparadise.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Pizza restaurants, Gold Coast',
     defaultStatus: 'list',
@@ -1860,8 +1860,8 @@ const domains: Domain[] = [
   },
   {
     name: 'pizzageelong.com.au',
-    valueLow: 300,
-    valueHigh: 600,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Pizza restaurants, Geelong',
     defaultStatus: 'list',
@@ -1869,8 +1869,8 @@ const domains: Domain[] = [
   },
   {
     name: 'pizzadromana.com',
-    valueLow: 300,
-    valueHigh: 600,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Pizza restaurants, Dromana',
     defaultStatus: 'list',
@@ -1878,8 +1878,8 @@ const domains: Domain[] = [
   },
   {
     name: 'pizzadromana.com.au',
-    valueLow: 300,
-    valueHigh: 600,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Pizza restaurants, Dromana',
     defaultStatus: 'list',
@@ -1887,8 +1887,8 @@ const domains: Domain[] = [
   },
   {
     name: 'pizzadarwin.com.au',
-    valueLow: 300,
-    valueHigh: 600,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Pizza restaurants, Darwin',
     defaultStatus: 'list',
@@ -1896,8 +1896,8 @@ const domains: Domain[] = [
   },
   {
     name: 'healthydesserts.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 797,
+    valueHigh: 797,
     category: 'Other',
     buyerType: 'Food bloggers, health food brands',
     defaultStatus: 'list',
@@ -1906,8 +1906,8 @@ const domains: Domain[] = [
   // ── OTHER / BRANDABLE ─────────────────────────────────────────────────────
   {
     name: 'charityaustralia.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1497,
+    valueHigh: 1497,
     category: 'Other',
     buyerType: 'Non-profit organisations, charity portals',
     defaultStatus: 'list',
@@ -1915,8 +1915,8 @@ const domains: Domain[] = [
   },
   {
     name: 'thehealthguide.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Health media, wellness brands',
     defaultStatus: 'list',
@@ -1924,8 +1924,8 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualtaxi.com.au',
-    valueLow: 1000,
-    valueHigh: 2000,
+    valueLow: 2497,
+    valueHigh: 2497,
     category: 'Other',
     buyerType: 'Rideshare/transport startups',
     defaultStatus: 'review',
@@ -1933,8 +1933,8 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualdriver.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Transport/logistics startups',
     defaultStatus: 'review',
@@ -1942,8 +1942,8 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualcar.com.au',
-    valueLow: 800,
-    valueHigh: 1500,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'Other',
     buyerType: 'Auto tech, car subscription services',
     defaultStatus: 'review',
@@ -1951,8 +1951,8 @@ const domains: Domain[] = [
   },
   {
     name: 'broker4.com',
-    valueLow: 300,
-    valueHigh: 600,
+    valueLow: 797,
+    valueHigh: 797,
     category: 'Other',
     buyerType: 'Finance/brokerage companies',
     defaultStatus: 'list',
@@ -1960,8 +1960,8 @@ const domains: Domain[] = [
   },
   {
     name: 'swanst.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Local businesses on Swan Street',
     defaultStatus: 'list',
@@ -1969,8 +1969,8 @@ const domains: Domain[] = [
   },
   {
     name: 'fitzroyst.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Local businesses, Melbourne inner north',
     defaultStatus: 'list',
@@ -1978,8 +1978,8 @@ const domains: Domain[] = [
   },
   {
     name: 'brunswickst.com.au',
-    valueLow: 400,
-    valueHigh: 800,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Local businesses on Brunswick Street',
     defaultStatus: 'list',
@@ -1988,8 +1988,8 @@ const domains: Domain[] = [
   // ── PERSONAL / FAMILY ─────────────────────────────────────────────────────
   {
     name: 'builtbybanks.com.au',
-    valueLow: 200,
-    valueHigh: 400,
+    valueLow: 297,
+    valueHigh: 297,
     category: 'Personal/Family',
     buyerType: 'Personal brand (Banks family)',
     defaultStatus: 'review',
@@ -1997,8 +1997,8 @@ const domains: Domain[] = [
   },
   {
     name: 'brandan.com.au',
-    valueLow: 150,
-    valueHigh: 300,
+    valueLow: 297,
+    valueHigh: 297,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
     defaultStatus: 'review',
@@ -2006,8 +2006,8 @@ const domains: Domain[] = [
   },
   {
     name: 'tobybanks.com',
-    valueLow: 150,
-    valueHigh: 300,
+    valueLow: 297,
+    valueHigh: 297,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
     defaultStatus: 'skip',
@@ -2015,8 +2015,8 @@ const domains: Domain[] = [
   },
   {
     name: 'juliabanks.com.au',
-    valueLow: 100,
-    valueHigh: 200,
+    valueLow: 197,
+    valueHigh: 197,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
     defaultStatus: 'skip',
@@ -2024,8 +2024,8 @@ const domains: Domain[] = [
   },
   {
     name: 'tobiasbanks.com.au',
-    valueLow: 100,
-    valueHigh: 200,
+    valueLow: 197,
+    valueHigh: 197,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
     defaultStatus: 'skip',
@@ -2033,8 +2033,8 @@ const domains: Domain[] = [
   },
   {
     name: 'cohenbanks.com.au',
-    valueLow: 100,
-    valueHigh: 200,
+    valueLow: 197,
+    valueHigh: 197,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
     defaultStatus: 'skip',
@@ -2042,8 +2042,8 @@ const domains: Domain[] = [
   },
   {
     name: 'cohenbanks.com',
-    valueLow: 100,
-    valueHigh: 200,
+    valueLow: 197,
+    valueHigh: 197,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
     defaultStatus: 'skip',
@@ -2051,8 +2051,8 @@ const domains: Domain[] = [
   },
   {
     name: 'florencebanks.com.au',
-    valueLow: 100,
-    valueHigh: 200,
+    valueLow: 197,
+    valueHigh: 197,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
     defaultStatus: 'skip',
@@ -2060,8 +2060,8 @@ const domains: Domain[] = [
   },
   {
     name: 'noahatkins.com.au',
-    valueLow: 100,
-    valueHigh: 200,
+    valueLow: 197,
+    valueHigh: 197,
     category: 'Personal/Family',
     buyerType: 'Personal name domain',
     defaultStatus: 'skip',
@@ -2070,8 +2070,8 @@ const domains: Domain[] = [
   // ── MEMYSELFI ─────────────────────────────────────────────────────────────
   {
     name: 'memyselfi.ai',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 1997,
+    valueHigh: 1997,
     category: 'AI/Tech',
     buyerType: 'Personal AI app companies',
     defaultStatus: 'review',
@@ -2079,8 +2079,8 @@ const domains: Domain[] = [
   },
   {
     name: 'memyselfi.io',
-    valueLow: 300,
-    valueHigh: 600,
+    valueLow: 597,
+    valueHigh: 597,
     category: 'AI/Tech',
     buyerType: 'Tech startups',
     defaultStatus: 'review',
@@ -2089,8 +2089,8 @@ const domains: Domain[] = [
   // ── HIDDEN / IN USE ───────────────────────────────────────────────────────
   {
     name: 'cheapwebsite.com.au',
-    valueLow: 500,
-    valueHigh: 1000,
+    valueLow: 997,
+    valueHigh: 997,
     category: 'Other',
     buyerType: 'Web design companies',
     defaultStatus: 'skip',
@@ -2184,7 +2184,7 @@ export default function InternalDomainsPage() {
   const selectedValueLow = listedDomains.reduce((s, d) => s + d.valueLow, 0)
   const selectedValueHigh = listedDomains.reduce((s, d) => s + d.valueHigh, 0)
 
-  const confirmMessage = `✅ Domain Selection — ${listedDomains.length} domains selected for landing pages:\n\n${listedDomains.map((d, i) => `${i + 1}. ${d.name}`).join('\n')}\n\nEstimated value: ${formatCurrency(selectedValueLow)} – ${formatCurrency(selectedValueHigh)}\n\n${skippedCount} skipped, ${reviewCount} under review.`
+  const confirmMessage = `✅ Domain Selection — ${listedDomains.length} domains selected for landing pages:\n\n${listedDomains.map((d, i) => `${i + 1}. ${d.name}`).join('\n')}\n\nListing price: ${formatCurrency(selectedValueHigh)}\n\n${skippedCount} skipped, ${reviewCount} under review.`
 
   const handleConfirm = async () => {
     try {
@@ -2256,7 +2256,7 @@ export default function InternalDomainsPage() {
               <span className="text-3xl font-bold text-green-400">{listedDomains.length}</span>
               <div>
                 <p className="text-green-300 font-semibold text-sm">Selected for listing</p>
-                <p className="text-green-400/70 text-xs">{formatCurrency(selectedValueLow)} – {formatCurrency(selectedValueHigh)}</p>
+                <p className="text-green-400/70 text-xs">{formatCurrency(selectedValueHigh)}</p>
               </div>
             </div>
             <div className="bg-red-500/10 border border-red-500/30 rounded-xl px-4 py-3 flex items-center gap-3">
@@ -2296,9 +2296,9 @@ export default function InternalDomainsPage() {
         <div className="bg-gradient-to-r from-yellow-500/10 to-yellow-400/5 border border-yellow-500/20 rounded-2xl p-6 mb-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <p className="text-sm text-yellow-400/70 uppercase tracking-wider font-semibold mb-1">Total Portfolio Estimated Value</p>
+              <p className="text-sm text-yellow-400/70 uppercase tracking-wider font-semibold mb-1">Total Listing Price</p>
               <p className="text-4xl font-bold text-yellow-400">
-                {formatCurrency(totalLow)} – {formatCurrency(totalHigh)}
+                {formatCurrency(totalHigh)}
               </p>
               <p className="text-gray-400 text-sm mt-1">{visibleDomains.length} domains (excl. cheapwebsite.com.au — in use)</p>
             </div>
@@ -2322,7 +2322,7 @@ export default function InternalDomainsPage() {
                 <tr className="border-b border-gray-800 bg-gray-900/80">
                   <th className="text-left px-4 py-3 text-gray-400 font-semibold">#</th>
                   <th className="text-left px-4 py-3 text-gray-400 font-semibold">Domain</th>
-                  <th className="text-left px-4 py-3 text-gray-400 font-semibold">Est. Value (AUD)</th>
+                  <th className="text-left px-4 py-3 text-gray-400 font-semibold">Listing Price (AUD)</th>
                   <th className="text-left px-4 py-3 text-gray-400 font-semibold">Category</th>
                   <th className="text-left px-4 py-3 text-gray-400 font-semibold">Potential Buyers</th>
                   <th className="text-left px-4 py-3 text-gray-400 font-semibold">Notes</th>
@@ -2350,7 +2350,7 @@ export default function InternalDomainsPage() {
                       </td>
                       <td className="px-4 py-3">
                         <span className="text-green-400 font-semibold">
-                          {formatCurrency(domain.valueLow)} – {formatCurrency(domain.valueHigh)}
+                          {formatCurrency(domain.valueHigh)}
                         </span>
                       </td>
                       <td className="px-4 py-3">
@@ -2406,7 +2406,7 @@ export default function InternalDomainsPage() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 bg-gray-900/50 border border-gray-700 rounded-2xl p-5">
           <div>
             <p className="text-white font-semibold">{listedDomains.length} domains ready for landing pages</p>
-            <p className="text-gray-400 text-sm">Estimated: {formatCurrency(selectedValueLow)} – {formatCurrency(selectedValueHigh)}</p>
+            <p className="text-gray-400 text-sm">Estimated: {formatCurrency(selectedValueHigh)}</p>
           </div>
           <button
             onClick={handleConfirm}
