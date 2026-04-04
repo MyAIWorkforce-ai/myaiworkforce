@@ -266,13 +266,11 @@ const ALL_PLANS: DomainPlan[] = [
 ];
 
 const statusConfig: Record<DomainStatus, { color: string; bg: string; label: string; emoji: string }> = {
-  'deployed-sale':          { color: '#22c55e', bg: 'rgba(34,197,94,0.12)',   label: 'Deployed – For Sale',     emoji: '✅' },
-  'deployed-funnel-va':     { color: '#a855f7', bg: 'rgba(168,85,247,0.12)', label: 'Deployed – VA Funnel',    emoji: '🤖' },
-  'deployed-funnel-builder':{ color: '#3b82f6', bg: 'rgba(59,130,246,0.12)', label: 'Deployed – Builder Funnel',emoji: '🏗️' },
-  'deployed-sale':           { color: '#84cc16', bg: 'rgba(132,204,22,0.12)', label: 'Pending – For Sale',       emoji: '💰' },
-  'deployed-funnel-builder':         { color: '#14b8a6', bg: 'rgba(20,184,166,0.12)', label: 'Pending – Funnel',         emoji: '🔀' },
-  'skip':                   { color: '#6b7280', bg: 'rgba(107,114,128,0.12)','label': 'Skip',                  emoji: '❌' },
-  'review-needed':          { color: '#f59e0b', bg: 'rgba(245,158,11,0.12)', label: 'Needs Review',             emoji: '⚠️' },
+  'deployed-sale':           { color: '#22c55e', bg: 'rgba(34,197,94,0.12)',   label: 'Deployed – For Sale',      emoji: '✅' },
+  'deployed-funnel-va':      { color: '#a855f7', bg: 'rgba(168,85,247,0.12)', label: 'Deployed – VA Funnel',     emoji: '🤖' },
+  'deployed-funnel-builder': { color: '#3b82f6', bg: 'rgba(59,130,246,0.12)', label: 'Deployed – Builder Funnel',emoji: '🏗️' },
+  'skip':                    { color: '#6b7280', bg: 'rgba(107,114,128,0.12)', label: 'Skip',                    emoji: '❌' },
+  'review-needed':           { color: '#f59e0b', bg: 'rgba(245,158,11,0.12)', label: 'Needs Review',             emoji: '⚠️' },
 };
 
 export default function DeploymentPlanPage() {
