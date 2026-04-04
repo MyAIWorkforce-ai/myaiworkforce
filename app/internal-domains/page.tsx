@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 
-type DomainStatus = 'list' | 'skip' | 'review'
+type DomainStatus = 'list' | 'skip' | 'review' | 'keep'
 
 type Domain = {
   name: string
@@ -2391,6 +2391,16 @@ export default function InternalDomainsPage() {
                             }`}
                           >
                             ❌ Skip
+                          </button>
+                          <button
+                            onClick={() => setStatus(domain.name, 'keep')}
+                            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                              selections[domain.name] === 'keep'
+                                ? 'bg-blue-500 text-white shadow-md shadow-blue-900/40 scale-105'
+                                : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
+                            }`}
+                          >
+                            🏗️ Keep
                           </button>
                         </div>
                       </td>
