@@ -2184,7 +2184,8 @@ export default function InternalDomainsPage() {
   const selectedValueLow = listedDomains.reduce((s, d) => s + d.valueLow, 0)
   const selectedValueHigh = listedDomains.reduce((s, d) => s + d.valueHigh, 0)
 
-  const confirmMessage = `✅ Domain Selection — ${listedDomains.length} domains selected for landing pages:\n\n${listedDomains.map((d, i) => `${i + 1}. ${d.name}`).join('\n')}\n\nListing price: ${formatCurrency(selectedValueHigh)}\n\n${skippedCount} skipped, ${reviewCount} under review.`
+  const reviewDomains = domains.filter(d => (statuses[d.name] || d.defaultStatus) === 'review');
+  const confirmMessage = `✅ Domain Selection\n\nLIST IT (${listedDomains.length} for-sale pages):\n${listedDomains.map((d, i) => `${i + 1}. ${d.name}`).join('\n')}\n\nREVIEW (${reviewDomains.length} - needs price increase):\n${reviewDomains.map((d, i) => `${i + 1}. ${d.name} — current $${d.valueHigh.toLocaleString()}`).join('\n')}\n\nKEEP (${keepDomains.length} funnel pages):\n${keepDomains.map((d, i) => `${i + 1}. ${d.name}`).join('\n')}\n\n${skippedCount} skipped.`
 
   const handleConfirm = async () => {
     try {
