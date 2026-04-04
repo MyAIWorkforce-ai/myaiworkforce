@@ -131,7 +131,7 @@ const ALL_PLANS: DomainPlan[] = [
   { domain: 'pysioadmin.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
   { domain: 'psychologistassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
   { domain: 'psychassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
-  { domain: 'psychologistmorningtonpeninsula.com.au', status: 'pending-sale', buy: 1997, rent: 67, rentLanding: 147 },
+  { domain: 'psychologistmorningtonpeninsula.com.au', status: 'pending-sale', price: 1997 },
   { domain: 'chiropractorassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
   { domain: 'chiroassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
   { domain: 'personaltrainerassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
