@@ -6,8 +6,8 @@ type DomainStatus =
   | 'deployed-sale'
   | 'deployed-funnel-va'
   | 'deployed-funnel-builder'
-  | 'pending-sale'
-  | 'pending-funnel'
+  | 'deployed-sale'
+  | 'deployed-funnel-builder'
   | 'skip'
   | 'review-needed';
 
@@ -131,7 +131,7 @@ const ALL_PLANS: DomainPlan[] = [
   { domain: 'pysioadmin.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
   { domain: 'psychologistassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
   { domain: 'psychassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
-  { domain: 'psychologistmorningtonpeninsula.com.au', status: 'pending-sale', price: 1997 },
+  { domain: 'psychologistmorningtonpeninsula.com.au', status: 'deployed-sale', price: 1997 },
   { domain: 'chiropractorassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
   { domain: 'chiroassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
   { domain: 'personaltrainerassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
@@ -158,34 +158,34 @@ const ALL_PLANS: DomainPlan[] = [
   { domain: 'buildermornington.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
 
   // 💰 PENDING - FOR SALE (ready to deploy, prices set)
-  { domain: 'dromana.com.au', status: 'pending-sale', price: 25433 },
-  { domain: 'erotica.com.au', status: 'pending-sale', price: 23977 },
-  { domain: 'nakedgirls.com.au', status: 'pending-sale', price: 19744 },
-  { domain: 'findtradesman.com.au', status: 'pending-sale', price: 12344 },
-  { domain: 'decksnpergolas.com.au', status: 'pending-sale', price: 9820 },
-  { domain: 'virtualtaxi.com.au', status: 'pending-sale', price: 9777 },
-  { domain: 'horney.com.au', status: 'pending-sale', price: 9721 },
-  { domain: 'premiumpropertiesaustralia.com.au', status: 'pending-sale', price: 9444 },
-  { domain: 'ifuck.com.au', status: 'pending-sale', price: 9322 },
-  { domain: 'thehealthguide.com.au', status: 'pending-sale', price: 8953 },
-  { domain: 'virtualdriver.com.au', status: 'pending-sale', price: 8933 },
-  { domain: 'virtualcar.com.au', status: 'pending-sale', price: 8930 },
-  { domain: 'lovedating.com.au', status: 'pending-sale', price: 8751 },
-  { domain: 'healthydesserts.com.au', status: 'pending-sale', price: 7655 },
-  { domain: 'brandan.com.au', status: 'pending-sale', price: 5677 },
-  { domain: 'showerscreensperth.com.au', status: 'pending-sale', price: 3984 },
-  { domain: 'carpentercanberra.com', status: 'pending-sale', price: 3966 },
-  { domain: 'carpentercairns.com', status: 'pending-sale', price: 3966 },
-  { domain: 'carpenterdarwin.com', status: 'pending-sale', price: 3964 },
-  { domain: 'stupidshit.com.au', status: 'pending-sale', price: 3455 },
-  { domain: 'builderdarwin.com', status: 'pending-sale', price: 2977 },
-  { domain: 'builderbendigo.com', status: 'pending-sale', price: 2344 },
-  { domain: 'carpenterstkilda.com', status: 'pending-sale', price: 1497 },
+  { domain: 'dromana.com.au', status: 'deployed-sale', price: 25433 },
+  { domain: 'erotica.com.au', status: 'deployed-sale', price: 23977 },
+  { domain: 'nakedgirls.com.au', status: 'deployed-sale', price: 19744 },
+  { domain: 'findtradesman.com.au', status: 'deployed-sale', price: 12344 },
+  { domain: 'decksnpergolas.com.au', status: 'deployed-sale', price: 9820 },
+  { domain: 'virtualtaxi.com.au', status: 'deployed-sale', price: 9777 },
+  { domain: 'horney.com.au', status: 'deployed-sale', price: 9721 },
+  { domain: 'premiumpropertiesaustralia.com.au', status: 'deployed-sale', price: 9444 },
+  { domain: 'ifuck.com.au', status: 'deployed-sale', price: 9322 },
+  { domain: 'thehealthguide.com.au', status: 'deployed-sale', price: 8953 },
+  { domain: 'virtualdriver.com.au', status: 'deployed-sale', price: 8933 },
+  { domain: 'virtualcar.com.au', status: 'deployed-sale', price: 8930 },
+  { domain: 'lovedating.com.au', status: 'deployed-sale', price: 8751 },
+  { domain: 'healthydesserts.com.au', status: 'deployed-sale', price: 7655 },
+  { domain: 'brandan.com.au', status: 'deployed-sale', price: 5677 },
+  { domain: 'showerscreensperth.com.au', status: 'deployed-sale', price: 3984 },
+  { domain: 'carpentercanberra.com', status: 'deployed-sale', price: 3966 },
+  { domain: 'carpentercairns.com', status: 'deployed-sale', price: 3966 },
+  { domain: 'carpenterdarwin.com', status: 'deployed-sale', price: 3964 },
+  { domain: 'stupidshit.com.au', status: 'deployed-sale', price: 3455 },
+  { domain: 'builderdarwin.com', status: 'deployed-sale', price: 2977 },
+  { domain: 'builderbendigo.com', status: 'deployed-sale', price: 2344 },
+  { domain: 'carpenterstkilda.com', status: 'deployed-sale', price: 1497 },
 
   // 🏗️ PENDING - FUNNEL (ready to deploy as redirects)
-  { domain: 'builderportsea.com.au', status: 'pending-funnel', funnelTo: 'primeprojects.com.au' },
-  { domain: 'builderfrankston.com.au', status: 'pending-funnel', funnelTo: 'primeprojects.com.au' },
-  { domain: 'primebuildingprojects.com.au', status: 'pending-funnel', funnelTo: 'primeprojects.com.au' },
+  { domain: 'builderportsea.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
+  { domain: 'builderfrankston.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
+  { domain: 'primebuildingprojects.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
 
   // ❌ SKIP (do nothing)
   { domain: 'cheapwebsite.com.au', status: 'skip' },
@@ -209,19 +209,19 @@ const ALL_PLANS: DomainPlan[] = [
 
   // ⚠️ REVIEW NEEDED (Toby needs to decide)
   { domain: 'physioassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
-  { domain: 'swanst.com.au', status: 'pending-sale', price: 2877 },
-  { domain: 'fitzroyst.com.au', status: 'pending-sale', price: 2877 },
-  { domain: 'brunswickst.com.au', status: 'pending-sale', price: 2877 },
-  { domain: 'carpentermorningtonpeninsula.com.au', status: 'pending-sale', price: 1544 },
-  { domain: 'concretermorningtonpeninsula.com.au', status: 'pending-sale', price: 1544 },
+  { domain: 'swanst.com.au', status: 'deployed-sale', price: 2877 },
+  { domain: 'fitzroyst.com.au', status: 'deployed-sale', price: 2877 },
+  { domain: 'brunswickst.com.au', status: 'deployed-sale', price: 2877 },
+  { domain: 'carpentermorningtonpeninsula.com.au', status: 'deployed-sale', price: 1544 },
+  { domain: 'concretermorningtonpeninsula.com.au', status: 'deployed-sale', price: 1544 },
   { domain: 'carpenterblairgowrie.com.au', status: 'skip' },
-  { domain: 'builderelwood.com', status: 'pending-sale', price: 1544 },
-  { domain: 'builderdandenong.com.au', status: 'pending-sale', price: 1544 },
+  { domain: 'builderelwood.com', status: 'deployed-sale', price: 1544 },
+  { domain: 'builderdandenong.com.au', status: 'deployed-sale', price: 1544 },
   { domain: 'builderbondi.com.au', status: 'deployed-sale' },
-  { domain: 'carpentersurfersparadise.com.au', status: 'pending-sale', price: 1544 },
-  { domain: 'carpentersmorningtonpeninsula.com', status: 'pending-sale', price: 1544 },
-  { domain: 'botoxbrisbane.com.au', status: 'pending-sale', price: 2877 },
-  { domain: 'builderbayside.com', status: 'pending-sale', price: 4577 },
+  { domain: 'carpentersurfersparadise.com.au', status: 'deployed-sale', price: 1544 },
+  { domain: 'carpentersmorningtonpeninsula.com', status: 'deployed-sale', price: 1544 },
+  { domain: 'botoxbrisbane.com.au', status: 'deployed-sale', price: 2877 },
+  { domain: 'builderbayside.com', status: 'deployed-sale', price: 4577 },
   { domain: 'carpenterz.com.au', status: 'skip' },
   { domain: 'carpenterfrankston.com.au', status: 'skip' },
   { domain: 'carpentermteliza.com.au', status: 'skip' },
@@ -233,16 +233,16 @@ const ALL_PLANS: DomainPlan[] = [
   { domain: 'carpenterrye.com.au', status: 'skip' },
   { domain: 'carpentersorrento.com.au', status: 'skip' },
   { domain: 'carpenterportsea.com.au', status: 'skip' },
-  { domain: 'builderflinders.com.au', status: 'pending-funnel', funnelTo: 'primeprojects.com.au' },
-  { domain: 'buildermarthacove.com.au', status: 'pending-funnel', funnelTo: 'primeprojects.com.au' },
-  { domain: 'builderdromana.com.au', status: 'pending-funnel', funnelTo: 'primeprojects.com.au' },
-  { domain: 'builderrosebud.com.au', status: 'pending-funnel', funnelTo: 'primeprojects.com.au' },
-  { domain: 'builderrye.com.au', status: 'pending-funnel', funnelTo: 'primeprojects.com.au' },
-  { domain: 'buildermorningtonpeninsula.com', status: 'pending-funnel', funnelTo: 'primeprojects.com.au' },
-  { domain: 'buildersmorningtonpeninsula.com', status: 'pending-funnel', funnelTo: 'primeprojects.com.au' },
+  { domain: 'builderflinders.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
+  { domain: 'buildermarthacove.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
+  { domain: 'builderdromana.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
+  { domain: 'builderrosebud.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
+  { domain: 'builderrye.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
+  { domain: 'buildermorningtonpeninsula.com', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
+  { domain: 'buildersmorningtonpeninsula.com', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
   { domain: 'electricianmorningtonpeninsula.com', status: 'skip' },
   { domain: 'electriciansmorningtonpeninsula.com', status: 'skip' },
-  { domain: 'carpentermorningtonpeninsula.com', status: 'pending-sale', price: 1544 },
+  { domain: 'carpentermorningtonpeninsula.com', status: 'deployed-sale', price: 1544 },
   { domain: 'electricianmarthacove.com', status: 'skip' },
   { domain: 'electricianmarthacove.com.au', status: 'skip' },
   { domain: 'electriciansomerville.com', status: 'skip' },
@@ -269,8 +269,8 @@ const statusConfig: Record<DomainStatus, { color: string; bg: string; label: str
   'deployed-sale':          { color: '#22c55e', bg: 'rgba(34,197,94,0.12)',   label: 'Deployed – For Sale',     emoji: '✅' },
   'deployed-funnel-va':     { color: '#a855f7', bg: 'rgba(168,85,247,0.12)', label: 'Deployed – VA Funnel',    emoji: '🤖' },
   'deployed-funnel-builder':{ color: '#3b82f6', bg: 'rgba(59,130,246,0.12)', label: 'Deployed – Builder Funnel',emoji: '🏗️' },
-  'pending-sale':           { color: '#84cc16', bg: 'rgba(132,204,22,0.12)', label: 'Pending – For Sale',       emoji: '💰' },
-  'pending-funnel':         { color: '#14b8a6', bg: 'rgba(20,184,166,0.12)', label: 'Pending – Funnel',         emoji: '🔀' },
+  'deployed-sale':           { color: '#84cc16', bg: 'rgba(132,204,22,0.12)', label: 'Pending – For Sale',       emoji: '💰' },
+  'deployed-funnel-builder':         { color: '#14b8a6', bg: 'rgba(20,184,166,0.12)', label: 'Pending – Funnel',         emoji: '🔀' },
   'skip':                   { color: '#6b7280', bg: 'rgba(107,114,128,0.12)','label': 'Skip',                  emoji: '❌' },
   'review-needed':          { color: '#f59e0b', bg: 'rgba(245,158,11,0.12)', label: 'Needs Review',             emoji: '⚠️' },
 };
@@ -402,8 +402,8 @@ export default function DeploymentPlanPage() {
             {' '}<span style={{ color: '#22c55e' }}>✅ {counts['deployed-sale']} for sale</span> ·
             {' '}<span style={{ color: '#a855f7' }}>🤖 {counts['deployed-funnel-va']} VA funnel</span> ·
             {' '}<span style={{ color: '#3b82f6' }}>🏗️ {counts['deployed-funnel-builder']} builder funnel</span> ·
-            {' '}<span style={{ color: '#84cc16' }}>💰 {counts['pending-sale']} pending sale</span> ·
-            {' '}<span style={{ color: '#14b8a6' }}>🔀 {counts['pending-funnel']} pending funnel</span> ·
+            {' '}<span style={{ color: '#84cc16' }}>💰 {counts['deployed-sale']} pending sale</span> ·
+            {' '}<span style={{ color: '#14b8a6' }}>🔀 {counts['deployed-funnel-builder']} pending funnel</span> ·
             {' '}<span style={{ color: '#6b7280' }}>❌ {counts['skip']} skip</span> ·
             {' '}<span style={{ color: '#f59e0b' }}>⚠️ {counts['review-needed']} needs review</span>
           </p>
