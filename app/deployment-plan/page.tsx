@@ -2,175 +2,277 @@
 import { useState } from "react";
 import Link from "next/link";
 
+type DomainStatus =
+  | 'deployed-sale'
+  | 'deployed-funnel-va'
+  | 'deployed-funnel-builder'
+  | 'pending-sale'
+  | 'pending-funnel'
+  | 'skip'
+  | 'review-needed';
+
 type DomainPlan = {
   domain: string;
-  action: 'for-sale' | 'funnel-va' | 'funnel-builder' | 'skip' | 'keep-pending';
-  buy?: number;
-  rent?: number;
-  rentLanding?: number;
+  status: DomainStatus;
+  price?: number;
   funnelTo?: string;
   note?: string;
 };
 
 const ALL_PLANS: DomainPlan[] = [
-  // FOR SALE - List It (97 from confirmed list)
-  { domain: 'sales.net.au', action: 'for-sale', buy: 24997, rent: 497, rentLanding: 697 },
-  { domain: 'virtualcalendar.ai', action: 'for-sale', buy: 4997, rent: 147, rentLanding: 247 },
-  { domain: 'builderbondi.com', action: 'for-sale', buy: 4497, rent: 137, rentLanding: 237, note: '✅ Already live' },
-  { domain: 'tailoredva.ai', action: 'for-sale', buy: 3497, rent: 97, rentLanding: 197 },
-  { domain: 'customva.ai', action: 'for-sale', buy: 3497, rent: 97, rentLanding: 197 },
-  { domain: 'virtualcalendar.com.au', action: 'for-sale', buy: 2997, rent: 97, rentLanding: 197 },
-  { domain: 'darlingharbourrealestate.com', action: 'for-sale', buy: 2997, rent: 97, rentLanding: 197 },
-  { domain: 'darlingharbourrealestate.com.au', action: 'for-sale', buy: 2997, rent: 97, rentLanding: 197 },
-  { domain: 'bondihomes.com', action: 'for-sale', buy: 2997, rent: 97, rentLanding: 197 },
-  { domain: 'darlingpointrealestate.com', action: 'for-sale', buy: 2497, rent: 87, rentLanding: 187 },
-  { domain: 'darlingpointhomes.com.au', action: 'for-sale', buy: 2497, rent: 87, rentLanding: 187 },
-  { domain: 'pointpiperhomes.com.au', action: 'for-sale', buy: 2497, rent: 87, rentLanding: 187 },
-  { domain: 'darlingharbourhomes.com.au', action: 'for-sale', buy: 2497, rent: 87, rentLanding: 187 },
-  { domain: 'morningtonpeninsulatrades.com.au', action: 'for-sale', buy: 2497, rent: 87, rentLanding: 147 },
-  { domain: 'morningtonwineries.com.au', action: 'for-sale', buy: 2497, rent: 87, rentLanding: 147 },
-  { domain: 'buildertoorak.com.au', action: 'for-sale', buy: 2497, rent: 87, rentLanding: 147 },
-  { domain: 'virtualbooking.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'customva.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'physioadmin.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'physioreception.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'psychreception.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'accountantreception.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'accountantadmin.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'linleypointhomes.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'watsonsbayhomes.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'dalkeithhomes.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'dalkeithrelestate.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'bellevuehillrealesate.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'portseahomes.com', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'lavenderbayhomes.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'cremornepointhomes.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'peppermintgrovehomes.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'longuevillehomes.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'kooyonghomes.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'woolwichhomes.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'centennialparkhomes.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'carpenterbondi.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'carpenterbondi.com', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'builderbeaumaris.com', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'pizzabondi.com', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'beautytherapistassistant.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'virtualdiary.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'phillipislandrealestate.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'eaglebayhomes.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'tamaramahomes.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'orangegrovehomes.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'psychologistmornington.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'psychologistfrankston.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'carpenterbrighton.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'plumbermorningtonpeninsula.com', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'carpenterelwood.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'carpenterelwood.com', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'builderfrankston.com.au', action: 'funnel-builder', funnelTo: 'primeprojects.com.au' },
-  { domain: 'carpenterbayside.com', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'carpenterbayside.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'builderbentleigh.com', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'builderbentleigh.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'accountantbayside.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'accountantbayside.com', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'accountantbrighton.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'pizzalygon.com', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'pizzastkilda.com', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'pizzastkilda.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'charityaustralia.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'accountantmornington.com.au', action: 'for-sale', buy: 1297, rent: 37, rentLanding: 77 },
-  { domain: 'accountantmteliza.com.au', action: 'for-sale', buy: 1297, rent: 37, rentLanding: 77 },
-  { domain: 'clouddiary.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'cloudcalendar.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'doublebayhomes.com.au', action: 'for-sale', buy: 1997, rent: 67, rentLanding: 147 },
-  { domain: 'doverheightshomes.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'buildermordialloc.com', action: 'for-sale', buy: 3455, rent: 115, rentLanding: 173 },
-  { domain: 'carpentersheparton.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'rosebudrealestate.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'realestateparkdale.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'carpentertoorak.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'carpentersomerville.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'carpenterhighett.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'carpenterhampton.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'carpenterbeaumaris.com.au', action: 'for-sale', buy: 1497, rent: 47, rentLanding: 97 },
-  { domain: 'carpentermentone.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'carpentermentone.com', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'carpenterlangwarrin.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'carpenterlangwarrin.com', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'carpenterspringvale.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'carpenterspringvale.com', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'carpenterdandenong.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'carpertermordialloc.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'cartrades.com.au', action: 'for-sale', buy: 14566, rent: 485, rentLanding: 728 },
-  { domain: 'pizzabrighton.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'pizzacarlton.com', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'pizzasurfersparadise.com', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'pizzasurfersparadise.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'pizzageelong.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'pizzadromana.com', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'pizzadromana.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'pizzadarwin.com.au', action: 'for-sale', buy: 997, rent: 37, rentLanding: 77 },
-  { domain: 'primebuildinggroup.com.au', action: 'for-sale', buy: 797, rent: 27, rentLanding: 57 },
-  // REVIEW domains with updated prices
-  { domain: 'dromana.com.au', action: 'for-sale', buy: 25433, rent: 848, rentLanding: 1272 },
-  { domain: 'erotica.com.au', action: 'for-sale', buy: 23977, rent: 799, rentLanding: 1199 },
-  { domain: 'nakedgirls.com.au', action: 'for-sale', buy: 19744, rent: 658, rentLanding: 987 },
-  { domain: 'findtradesman.com.au', action: 'for-sale', buy: 12344, rent: 411, rentLanding: 617 },
-  { domain: 'buildingaustralia.com.au', action: 'skip' },
-  { domain: 'premiumpropertiesaustralia.com.au', action: 'for-sale', buy: 9444, rent: 315, rentLanding: 472 },
-  { domain: 'virtualtaxi.com.au', action: 'for-sale', buy: 9777, rent: 326, rentLanding: 489 },
-  { domain: 'decksnpergolas.com.au', action: 'for-sale', buy: 9820, rent: 327, rentLanding: 491 },
-  { domain: 'thehealthguide.com.au', action: 'for-sale', buy: 8953, rent: 298, rentLanding: 448 },
-  { domain: 'horney.com.au', action: 'for-sale', buy: 9721, rent: 324, rentLanding: 486 },
-  { domain: 'ifuck.com.au', action: 'for-sale', buy: 9322, rent: 311, rentLanding: 466 },
-  { domain: 'lovedating.com.au', action: 'for-sale', buy: 8751, rent: 292, rentLanding: 438 },
-  { domain: 'virtualdriver.com.au', action: 'for-sale', buy: 8933, rent: 298, rentLanding: 447 },
-  { domain: 'virtualcar.com.au', action: 'for-sale', buy: 8930, rent: 298, rentLanding: 447 },
-  { domain: 'healthydesserts.com.au', action: 'for-sale', buy: 7655, rent: 255, rentLanding: 383 },
-  { domain: 'brandan.com.au', action: 'for-sale', buy: 5677, rent: 189, rentLanding: 284 },
-  { domain: 'showerscreensperth.com.au', action: 'for-sale', buy: 3984, rent: 133, rentLanding: 199 },
-  { domain: 'stupidshit.com.au', action: 'for-sale', buy: 3455, rent: 115, rentLanding: 173 },
-  { domain: 'carpentercanberra.com', action: 'for-sale', buy: 3966, rent: 132, rentLanding: 198 },
-  { domain: 'carpentercairns.com', action: 'for-sale', buy: 3966, rent: 132, rentLanding: 198 },
-  { domain: 'carpenterdarwin.com', action: 'for-sale', buy: 3964, rent: 132, rentLanding: 198 },
-  { domain: 'builderdarwin.com', action: 'for-sale', buy: 2977, rent: 99, rentLanding: 149 },
-  { domain: 'builderbendigo.com', action: 'for-sale', buy: 2344, rent: 78, rentLanding: 117 },
-  { domain: 'builderportsea.com.au', action: 'funnel-builder', funnelTo: 'primeprojects.com.au' },
-  { domain: 'carpenterstkilda.com', action: 'for-sale', buy: 1497, rent: 50, rentLanding: 75 },
-  { domain: 'primebuildingprojects.com.au', action: 'funnel-builder', funnelTo: 'primeprojects.com.au' },
-  // FUNNELS
-  { domain: 'buildersorrento.com.au', action: 'funnel-builder', funnelTo: 'primeprojects.com.au' },
-  { domain: 'mptrades.com.au', action: 'funnel-builder', funnelTo: 'primeprojects.com.au' },
-  { domain: 'buildermteliza.com.au', action: 'funnel-builder', funnelTo: 'primeprojects.com.au' },
-  { domain: 'buildermtmartha.com.au', action: 'funnel-builder', funnelTo: 'primeprojects.com.au' },
-  { domain: 'buildermornington.com.au', action: 'funnel-builder', funnelTo: 'primeprojects.com.au' },
-  // VA FUNNELS (54 already deployed)
-  { domain: 'lawyerassistant.com.au', action: 'funnel-va', funnelTo: 'virtualassistant.com.au', note: '✅ Already deployed' },
-  { domain: 'dentistassistant.com.au', action: 'funnel-va', funnelTo: 'virtualassistant.com.au', note: '✅ Already deployed' },
-  // SKIP
-  { domain: 'memyselfi.io', action: 'skip' },
-  { domain: 'builtbybanks.com.au', action: 'skip' },
-  { domain: 'broker4.com', action: 'skip' },
-  { domain: 'carpentermcrae.com.au', action: 'skip' },
-  { domain: 'carpentersafteybeach.com.au', action: 'skip' },
-  { domain: 'carpenterredhill.com.au', action: 'skip' },
-  { domain: 'carpenterflinders.com.au', action: 'skip' },
+  // ✅ DEPLOYED - FOR SALE (already live on marketplace)
+  { domain: 'sales.net.au', status: 'deployed-sale' },
+  { domain: 'virtualcalendar.ai', status: 'deployed-sale' },
+  { domain: 'builderbondi.com', status: 'deployed-sale' },
+  { domain: 'tailoredva.ai', status: 'deployed-sale' },
+  { domain: 'customva.ai', status: 'deployed-sale' },
+  { domain: 'virtualcalendar.com.au', status: 'deployed-sale' },
+  { domain: 'darlingharbourrealestate.com', status: 'deployed-sale' },
+  { domain: 'darlingharbourrealestate.com.au', status: 'deployed-sale' },
+  { domain: 'bondihomes.com', status: 'deployed-sale' },
+  { domain: 'darlingpointrealestate.com', status: 'deployed-sale' },
+  { domain: 'darlingpointhomes.com.au', status: 'deployed-sale' },
+  { domain: 'pointpiperhomes.com.au', status: 'deployed-sale' },
+  { domain: 'darlingharbourhomes.com.au', status: 'deployed-sale' },
+  { domain: 'morningtonpeninsulatrades.com.au', status: 'deployed-sale' },
+  { domain: 'morningtonwineries.com.au', status: 'deployed-sale' },
+  { domain: 'buildertoorak.com.au', status: 'deployed-sale' },
+  { domain: 'virtualbooking.com.au', status: 'deployed-sale' },
+  { domain: 'customva.com.au', status: 'deployed-sale' },
+  { domain: 'physioadmin.com.au', status: 'deployed-sale' },
+  { domain: 'physioreception.com.au', status: 'deployed-sale' },
+  { domain: 'psychreception.com.au', status: 'deployed-sale' },
+  { domain: 'accountantreception.com.au', status: 'deployed-sale' },
+  { domain: 'accountantadmin.com.au', status: 'deployed-sale' },
+  { domain: 'linleypointhomes.com.au', status: 'deployed-sale' },
+  { domain: 'watsonsbayhomes.com.au', status: 'deployed-sale' },
+  { domain: 'dalkeithhomes.com.au', status: 'deployed-sale' },
+  { domain: 'dalkeithrelestate.com.au', status: 'deployed-sale' },
+  { domain: 'bellevuehillrealesate.com.au', status: 'deployed-sale' },
+  { domain: 'portseahomes.com', status: 'deployed-sale' },
+  { domain: 'lavenderbayhomes.com.au', status: 'deployed-sale' },
+  { domain: 'cremornepointhomes.com.au', status: 'deployed-sale' },
+  { domain: 'peppermintgrovehomes.com.au', status: 'deployed-sale' },
+  { domain: 'longuevillehomes.com.au', status: 'deployed-sale' },
+  { domain: 'kooyonghomes.com.au', status: 'deployed-sale' },
+  { domain: 'woolwichhomes.com.au', status: 'deployed-sale' },
+  { domain: 'centennialparkhomes.com.au', status: 'deployed-sale' },
+  { domain: 'carpenterbondi.com.au', status: 'deployed-sale' },
+  { domain: 'carpenterbondi.com', status: 'deployed-sale' },
+  { domain: 'builderbeaumaris.com', status: 'deployed-sale' },
+  { domain: 'pizzabondi.com', status: 'deployed-sale' },
+  { domain: 'beautytherapistassistant.com.au', status: 'deployed-sale' },
+  { domain: 'virtualdiary.com.au', status: 'deployed-sale' },
+  { domain: 'phillipislandrealestate.com.au', status: 'deployed-sale' },
+  { domain: 'eaglebayhomes.com.au', status: 'deployed-sale' },
+  { domain: 'tamaramahomes.com.au', status: 'deployed-sale' },
+  { domain: 'orangegrovehomes.com.au', status: 'deployed-sale' },
+  { domain: 'psychologistmornington.com.au', status: 'deployed-sale' },
+  { domain: 'psychologistfrankston.com.au', status: 'deployed-sale' },
+  { domain: 'carpenterbrighton.com.au', status: 'deployed-sale' },
+  { domain: 'plumbermorningtonpeninsula.com', status: 'deployed-sale' },
+  { domain: 'carpenterelwood.com.au', status: 'deployed-sale' },
+  { domain: 'carpenterelwood.com', status: 'deployed-sale' },
+  { domain: 'carpenterbayside.com', status: 'deployed-sale' },
+  { domain: 'carpenterbayside.com.au', status: 'deployed-sale' },
+  { domain: 'builderbentleigh.com', status: 'deployed-sale' },
+  { domain: 'builderbentleigh.com.au', status: 'deployed-sale' },
+  { domain: 'accountantbayside.com.au', status: 'deployed-sale' },
+  { domain: 'accountantbayside.com', status: 'deployed-sale' },
+  { domain: 'accountantbrighton.com.au', status: 'deployed-sale' },
+  { domain: 'pizzalygon.com', status: 'deployed-sale' },
+  { domain: 'pizzastkilda.com', status: 'deployed-sale' },
+  { domain: 'pizzastkilda.com.au', status: 'deployed-sale' },
+  { domain: 'charityaustralia.com.au', status: 'deployed-sale' },
+  { domain: 'accountantmornington.com.au', status: 'deployed-sale' },
+  { domain: 'accountantmteliza.com.au', status: 'deployed-sale' },
+  { domain: 'clouddiary.com.au', status: 'deployed-sale' },
+  { domain: 'cloudcalendar.com.au', status: 'deployed-sale' },
+  { domain: 'doublebayhomes.com.au', status: 'deployed-sale' },
+  { domain: 'doverheightshomes.com.au', status: 'deployed-sale' },
+  { domain: 'buildermordialloc.com', status: 'deployed-sale', note: 'Price raise → $3,455' },
+  { domain: 'carpentersheparton.com.au', status: 'deployed-sale' },
+  { domain: 'rosebudrealestate.com.au', status: 'deployed-sale' },
+  { domain: 'realestateparkdale.com.au', status: 'deployed-sale' },
+  { domain: 'carpentertoorak.com.au', status: 'deployed-sale' },
+  { domain: 'carpentersomerville.com.au', status: 'deployed-sale' },
+  { domain: 'carpenterhighett.com.au', status: 'deployed-sale' },
+  { domain: 'carpenterhampton.com.au', status: 'deployed-sale' },
+  { domain: 'carpenterbeaumaris.com.au', status: 'deployed-sale' },
+  { domain: 'carpentermentone.com.au', status: 'deployed-sale' },
+  { domain: 'carpentermentone.com', status: 'deployed-sale' },
+  { domain: 'carpenterlangwarrin.com.au', status: 'deployed-sale' },
+  { domain: 'carpenterlangwarrin.com', status: 'deployed-sale' },
+  { domain: 'carpenterspringvale.com.au', status: 'deployed-sale' },
+  { domain: 'carpenterspringvale.com', status: 'deployed-sale' },
+  { domain: 'carpenterdandenong.com.au', status: 'deployed-sale' },
+  { domain: 'carpertermordialloc.com.au', status: 'deployed-sale' },
+  { domain: 'cartrades.com.au', status: 'deployed-sale', note: 'Price raise → $14,566' },
+  { domain: 'pizzabrighton.com.au', status: 'deployed-sale' },
+  { domain: 'pizzacarlton.com', status: 'deployed-sale' },
+  { domain: 'pizzasurfersparadise.com', status: 'deployed-sale' },
+  { domain: 'pizzasurfersparadise.com.au', status: 'deployed-sale' },
+  { domain: 'pizzageelong.com.au', status: 'deployed-sale' },
+  { domain: 'pizzadromana.com', status: 'deployed-sale' },
+  { domain: 'pizzadromana.com.au', status: 'deployed-sale' },
+  { domain: 'pizzadarwin.com.au', status: 'deployed-sale' },
+  { domain: 'primebuildinggroup.com.au', status: 'deployed-sale' },
+
+  // 🤖 DEPLOYED - VA FUNNEL → virtualassistant.com.au
+  { domain: 'aivirtualreceptionist.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'aivirtualreceptionist.ai', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'ai-virtualassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'ai-virtualassistant.ai', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'ai-virtualassistant.com', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'lawyerassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'dentistassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'doctorassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'accountantassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'pysioadmin.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'psychologistassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'psychassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'psychologistmorningtonpeninsula.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'chiropractorassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'chiroassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'personaltrainerassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'ptassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'myotherapistassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'myoassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'beautyassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'massageassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'hairdresserassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'consultantassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'mechanicassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'osteoassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'podiatristassistant.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'tradieassistant.ai', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'virtualsolutions.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'accountantfremantle.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+  { domain: 'accountantsurfersparadise.com.au', status: 'deployed-funnel-va', funnelTo: 'virtualassistant.com.au' },
+
+  // 🏗️ DEPLOYED - BUILDER FUNNEL → primeprojects.com.au
+  { domain: 'buildersorrento.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
+  { domain: 'mptrades.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
+  { domain: 'buildermteliza.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
+  { domain: 'buildermtmartha.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
+  { domain: 'buildermornington.com.au', status: 'deployed-funnel-builder', funnelTo: 'primeprojects.com.au' },
+
+  // 💰 PENDING - FOR SALE (ready to deploy, prices set)
+  { domain: 'dromana.com.au', status: 'pending-sale', price: 25433 },
+  { domain: 'erotica.com.au', status: 'pending-sale', price: 23977 },
+  { domain: 'nakedgirls.com.au', status: 'pending-sale', price: 19744 },
+  { domain: 'findtradesman.com.au', status: 'pending-sale', price: 12344 },
+  { domain: 'decksnpergolas.com.au', status: 'pending-sale', price: 9820 },
+  { domain: 'virtualtaxi.com.au', status: 'pending-sale', price: 9777 },
+  { domain: 'horney.com.au', status: 'pending-sale', price: 9721 },
+  { domain: 'premiumpropertiesaustralia.com.au', status: 'pending-sale', price: 9444 },
+  { domain: 'ifuck.com.au', status: 'pending-sale', price: 9322 },
+  { domain: 'thehealthguide.com.au', status: 'pending-sale', price: 8953 },
+  { domain: 'virtualdriver.com.au', status: 'pending-sale', price: 8933 },
+  { domain: 'virtualcar.com.au', status: 'pending-sale', price: 8930 },
+  { domain: 'lovedating.com.au', status: 'pending-sale', price: 8751 },
+  { domain: 'healthydesserts.com.au', status: 'pending-sale', price: 7655 },
+  { domain: 'brandan.com.au', status: 'pending-sale', price: 5677 },
+  { domain: 'showerscreensperth.com.au', status: 'pending-sale', price: 3984 },
+  { domain: 'carpentercanberra.com', status: 'pending-sale', price: 3966 },
+  { domain: 'carpentercairns.com', status: 'pending-sale', price: 3966 },
+  { domain: 'carpenterdarwin.com', status: 'pending-sale', price: 3964 },
+  { domain: 'stupidshit.com.au', status: 'pending-sale', price: 3455 },
+  { domain: 'builderdarwin.com', status: 'pending-sale', price: 2977 },
+  { domain: 'builderbendigo.com', status: 'pending-sale', price: 2344 },
+  { domain: 'carpenterstkilda.com', status: 'pending-sale', price: 1497 },
+
+  // 🏗️ PENDING - FUNNEL (ready to deploy as redirects)
+  { domain: 'builderportsea.com.au', status: 'pending-funnel', funnelTo: 'primeprojects.com.au' },
+  { domain: 'builderfrankston.com.au', status: 'pending-funnel', funnelTo: 'primeprojects.com.au' },
+  { domain: 'primebuildingprojects.com.au', status: 'pending-funnel', funnelTo: 'primeprojects.com.au' },
+
+  // ❌ SKIP (do nothing)
+  { domain: 'cheapwebsite.com.au', status: 'skip' },
+  { domain: 'memyselfi.ai', status: 'skip' },
+  { domain: 'memyselfi.io', status: 'skip' },
+  { domain: 'virtualassistant.com.au', status: 'skip' },
+  { domain: 'tobybanks.com', status: 'skip' },
+  { domain: 'juliabanks.com.au', status: 'skip' },
+  { domain: 'tobiasbanks.com.au', status: 'skip' },
+  { domain: 'cohenbanks.com.au', status: 'skip' },
+  { domain: 'cohenbanks.com', status: 'skip' },
+  { domain: 'florencebanks.com.au', status: 'skip' },
+  { domain: 'noahatkins.com.au', status: 'skip' },
+  { domain: 'builtbybanks.com.au', status: 'skip' },
+  { domain: 'broker4.com', status: 'skip' },
+  { domain: 'buildingaustralia.com.au', status: 'skip' },
+  { domain: 'carpentermccrae.com.au', status: 'skip' },
+  { domain: 'carpentersafteybeach.com.au', status: 'skip' },
+  { domain: 'carpenterredhill.com.au', status: 'skip' },
+  { domain: 'carpenterflinders.com.au', status: 'skip' },
+
+  // ⚠️ REVIEW NEEDED (Toby needs to decide)
+  { domain: 'physioassistant.com.au', status: 'review-needed' },
+  { domain: 'swanst.com.au', status: 'review-needed' },
+  { domain: 'fitzroyst.com.au', status: 'review-needed' },
+  { domain: 'brunswickst.com.au', status: 'review-needed' },
+  { domain: 'carpentermorningtonpeninsula.com.au', status: 'review-needed' },
+  { domain: 'concretermorningtonpeninsula.com.au', status: 'review-needed' },
+  { domain: 'carpenterblairgowrie.com.au', status: 'review-needed' },
+  { domain: 'builderelwood.com', status: 'review-needed' },
+  { domain: 'builderdandenong.com.au', status: 'review-needed' },
+  { domain: 'builderbondi.com.au', status: 'review-needed' },
+  { domain: 'carpentersurfersparadise.com.au', status: 'review-needed' },
+  { domain: 'carpentersmorningtonpeninsula.com', status: 'review-needed' },
+  { domain: 'botoxbrisbane.com.au', status: 'review-needed' },
+  { domain: 'builderbayside.com', status: 'review-needed' },
+  { domain: 'carpenterz.com.au', status: 'review-needed' },
+  { domain: 'carpenterfrankston.com.au', status: 'review-needed' },
+  { domain: 'carpentermteliza.com.au', status: 'review-needed' },
+  { domain: 'carpentermornington.com.au', status: 'review-needed' },
+  { domain: 'carpentermtmartha.com.au', status: 'review-needed' },
+  { domain: 'carpenterdromana.com', status: 'review-needed' },
+  { domain: 'carpenterdromana.com.au', status: 'review-needed' },
+  { domain: 'carpenterrosebud.com.au', status: 'review-needed' },
+  { domain: 'carpenterrye.com.au', status: 'review-needed' },
+  { domain: 'carpentersorrento.com.au', status: 'review-needed' },
+  { domain: 'carpenterportsea.com.au', status: 'review-needed' },
+  { domain: 'builderflinders.com.au', status: 'review-needed' },
+  { domain: 'buildermarthacove.com.au', status: 'review-needed' },
+  { domain: 'builderdromana.com.au', status: 'review-needed' },
+  { domain: 'builderrosebud.com.au', status: 'review-needed' },
+  { domain: 'builderrye.com.au', status: 'review-needed' },
+  { domain: 'buildermorningtonpeninsula.com', status: 'review-needed' },
+  { domain: 'buildersmorningtonpeninsula.com', status: 'review-needed' },
+  { domain: 'electricianmorningtonpeninsula.com', status: 'review-needed' },
+  { domain: 'electriciansmorningtonpeninsula.com', status: 'review-needed' },
+  { domain: 'carpentermorningtonpeninsula.com', status: 'review-needed' },
+  { domain: 'electricianmarthacove.com', status: 'review-needed' },
+  { domain: 'electricianmarthacove.com.au', status: 'review-needed' },
+  { domain: 'electriciansomerville.com', status: 'review-needed' },
+  { domain: 'electricianmentone.com', status: 'review-needed' },
+  { domain: 'electriciancranbourne.com', status: 'review-needed' },
+  { domain: 'electricianflinders.com', status: 'review-needed' },
+  { domain: 'electricianflinders.com.au', status: 'review-needed' },
+  { domain: 'electricianfrankston.com', status: 'review-needed' },
+  { domain: 'electricianmteliza.com', status: 'review-needed' },
+  { domain: 'electricianmteliza.com.au', status: 'review-needed' },
+  { domain: 'electricianmornington.com', status: 'review-needed' },
+  { domain: 'electricianmtmartha.com', status: 'review-needed' },
+  { domain: 'electriciandromana.com', status: 'review-needed' },
+  { domain: 'electricianmccrae.com', status: 'review-needed' },
+  { domain: 'electricianmccrae.com.au', status: 'review-needed' },
+  { domain: 'electricianrosebud.com', status: 'review-needed' },
+  { domain: 'electricianrye.com', status: 'review-needed' },
+  { domain: 'electriciansorrento.com', status: 'review-needed' },
+  { domain: 'electricianportsea.com', status: 'review-needed' },
+  { domain: 'electricianportsea.com.au', status: 'review-needed' },
 ];
 
-const actionColors: Record<string, string> = {
-  'for-sale': '#22c55e',
-  'funnel-builder': '#3b82f6',
-  'funnel-va': '#8b5cf6',
-  'skip': '#6b7280',
-  'keep-pending': '#f59e0b',
-};
-
-const actionLabels: Record<string, string> = {
-  'for-sale': '💰 For Sale',
-  'funnel-builder': '🏗️ Funnel → Prime',
-  'funnel-va': '🤖 Funnel → VA',
-  'skip': '❌ Skip',
-  'keep-pending': '⏳ Pending',
+const statusConfig: Record<DomainStatus, { color: string; bg: string; label: string; emoji: string }> = {
+  'deployed-sale':          { color: '#22c55e', bg: 'rgba(34,197,94,0.12)',   label: 'Deployed – For Sale',     emoji: '✅' },
+  'deployed-funnel-va':     { color: '#a855f7', bg: 'rgba(168,85,247,0.12)', label: 'Deployed – VA Funnel',    emoji: '🤖' },
+  'deployed-funnel-builder':{ color: '#3b82f6', bg: 'rgba(59,130,246,0.12)', label: 'Deployed – Builder Funnel',emoji: '🏗️' },
+  'pending-sale':           { color: '#84cc16', bg: 'rgba(132,204,22,0.12)', label: 'Pending – For Sale',       emoji: '💰' },
+  'pending-funnel':         { color: '#14b8a6', bg: 'rgba(20,184,166,0.12)', label: 'Pending – Funnel',         emoji: '🔀' },
+  'skip':                   { color: '#6b7280', bg: 'rgba(107,114,128,0.12)','label': 'Skip',                  emoji: '❌' },
+  'review-needed':          { color: '#f59e0b', bg: 'rgba(245,158,11,0.12)', label: 'Needs Review',             emoji: '⚠️' },
 };
 
 export default function DeploymentPlanPage() {
@@ -187,86 +289,124 @@ export default function DeploymentPlanPage() {
     });
   };
 
-  const filtered = filter === 'all' ? ALL_PLANS : ALL_PLANS.filter(d => d.action === filter);
+  const filtered = filter === 'all' ? ALL_PLANS : ALL_PLANS.filter(d => d.status === filter);
   const wrongList = ALL_PLANS.filter(d => wrong.has(d.domain));
 
   const copyWrong = () => {
-    const msg = `❌ Wrong domains — please correct:\n\n${wrongList.map(d => `${d.domain} (currently: ${actionLabels[d.action]})`).join('\n')}`;
+    const msg = `❌ Wrong domains — please correct:\n\n${wrongList.map(d => `${d.domain} (currently: ${statusConfig[d.status].label})`).join('\n')}`;
     navigator.clipboard.writeText(msg).then(() => { setCopied(true); setTimeout(() => setCopied(false), 3000); });
   };
 
-  const counts = {
-    'for-sale': ALL_PLANS.filter(d => d.action === 'for-sale').length,
-    'funnel-builder': ALL_PLANS.filter(d => d.action === 'funnel-builder').length,
-    'funnel-va': ALL_PLANS.filter(d => d.action === 'funnel-va').length,
-    'skip': ALL_PLANS.filter(d => d.action === 'skip').length,
-  };
+  const counts: Record<string, number> = { all: ALL_PLANS.length };
+  for (const s of Object.keys(statusConfig) as DomainStatus[]) {
+    counts[s] = ALL_PLANS.filter(d => d.status === s).length;
+  }
 
   return (
     <div style={{ backgroundColor: "var(--bg)", color: "var(--text)", minHeight: "100vh", padding: "24px" }}>
-      <div style={{ maxWidth: 900, margin: "0 auto" }}>
+      <div style={{ maxWidth: 960, margin: "0 auto" }}>
         <Link href="/internal-domains" style={{ color: "var(--muted)", fontSize: 14 }}>← Back to domains</Link>
-        <h1 style={{ color: "#FFD700", fontSize: "2rem", fontWeight: 900, margin: "20px 0 8px" }}>📋 Full Deployment Plan</h1>
-        <p style={{ color: "var(--muted)", marginBottom: 16 }}>Click ❌ on any domain that's wrong. Then copy the list to Discord.</p>
+        <h1 style={{ color: "#FFD700", fontSize: "2rem", fontWeight: 900, margin: "20px 0 4px" }}>
+          📋 Full Deployment Plan
+        </h1>
+        <p style={{ color: "var(--muted)", marginBottom: 20 }}>
+          All {ALL_PLANS.length} domains from Toby&apos;s Dreamscape account. Click ❌ Wrong on any that needs correcting.
+        </p>
 
-        {/* Summary */}
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 24 }}>
-          {Object.entries(counts).map(([action, count]) => (
-            <div key={action} onClick={() => setFilter(filter === action ? 'all' : action)}
-              style={{ padding: "8px 16px", borderRadius: 8, cursor: "pointer", fontWeight: 700, fontSize: 13,
-                backgroundColor: filter === action ? actionColors[action] : "var(--card)",
-                color: filter === action ? "#000" : actionColors[action],
-                border: `1px solid ${actionColors[action]}` }}>
-              {actionLabels[action]}: {count}
-            </div>
-          ))}
-          <div onClick={() => setFilter('all')} style={{ padding: "8px 16px", borderRadius: 8, cursor: "pointer",
-            fontWeight: 700, fontSize: 13, backgroundColor: filter === 'all' ? "#FFD700" : "var(--card)",
-            color: filter === 'all' ? "#000" : "#FFD700", border: "1px solid #FFD700" }}>
-            All: {ALL_PLANS.length}
+        {/* Summary filter pills */}
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
+          <div onClick={() => setFilter('all')}
+            style={{ padding: "7px 14px", borderRadius: 8, cursor: "pointer", fontWeight: 700, fontSize: 12,
+              backgroundColor: filter === 'all' ? "#FFD700" : "var(--card)",
+              color: filter === 'all' ? "#000" : "#FFD700", border: "1px solid #FFD700" }}>
+            ALL: {counts.all}
           </div>
+          {(Object.keys(statusConfig) as DomainStatus[]).map(s => {
+            const cfg = statusConfig[s];
+            const active = filter === s;
+            return (
+              <div key={s} onClick={() => setFilter(filter === s ? 'all' : s)}
+                style={{ padding: "7px 14px", borderRadius: 8, cursor: "pointer", fontWeight: 700, fontSize: 12,
+                  backgroundColor: active ? cfg.color : "var(--card)",
+                  color: active ? "#000" : cfg.color, border: `1px solid ${cfg.color}` }}>
+                {cfg.emoji} {cfg.label}: {counts[s]}
+              </div>
+            );
+          })}
         </div>
 
+        {/* Wrong list banner */}
         {wrong.size > 0 && (
           <div style={{ backgroundColor: "rgba(239,68,68,0.1)", border: "1px solid #ef4444", borderRadius: 12, padding: 16, marginBottom: 24 }}>
-            <p style={{ color: "#ef4444", fontWeight: 700, margin: "0 0 8px" }}>❌ {wrong.size} wrong domains flagged:</p>
-            <p style={{ color: "var(--muted)", fontSize: 13, margin: "0 0 12px" }}>{wrongList.map(d => d.domain).join(', ')}</p>
-            <button onClick={copyWrong} style={{ padding: "8px 16px", borderRadius: 8, backgroundColor: "#ef4444", color: "white", fontWeight: 700, border: "none", cursor: "pointer" }}>
-              {copied ? "✅ Copied!" : "Copy Wrong List → Paste to Monty"}
+            <p style={{ color: "#ef4444", fontWeight: 700, margin: "0 0 8px" }}>❌ {wrong.size} domain{wrong.size > 1 ? 's' : ''} flagged as wrong:</p>
+            <p style={{ color: "var(--muted)", fontSize: 13, margin: "0 0 12px", wordBreak: "break-word" }}>
+              {wrongList.map(d => d.domain).join(', ')}
+            </p>
+            <button onClick={copyWrong} style={{
+              padding: "8px 16px", borderRadius: 8, backgroundColor: "#ef4444",
+              color: "white", fontWeight: 700, border: "none", cursor: "pointer", fontSize: 13
+            }}>
+              {copied ? "✅ Copied to clipboard!" : "📋 Copy Wrong List → Paste to Monty"}
             </button>
           </div>
         )}
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          {filtered.map(plan => (
-            <div key={plan.domain} style={{
-              display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12,
-              backgroundColor: wrong.has(plan.domain) ? "rgba(239,68,68,0.08)" : "var(--card)",
-              border: `1px solid ${wrong.has(plan.domain) ? "#ef4444" : "var(--border)"}`,
-              borderRadius: 10, padding: "12px 16px"
-            }}>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontWeight: 700, fontSize: "0.95rem" }}>{plan.domain}</div>
-                <div style={{ display: "flex", gap: 12, marginTop: 4, flexWrap: "wrap" }}>
-                  <span style={{ fontSize: 12, color: actionColors[plan.action], fontWeight: 700 }}>
-                    {actionLabels[plan.action]}
-                  </span>
-                  {plan.buy && <span style={{ fontSize: 12, color: "var(--muted)" }}>Buy: ${plan.buy.toLocaleString()}</span>}
-                  {plan.rent && <span style={{ fontSize: 12, color: "var(--muted)" }}>Rent: ${plan.rent}/mo</span>}
-                  {plan.funnelTo && <span style={{ fontSize: 12, color: "var(--muted)" }}>→ {plan.funnelTo}</span>}
-                  {plan.note && <span style={{ fontSize: 12, color: "#22c55e" }}>{plan.note}</span>}
-                </div>
-              </div>
-              <button onClick={() => toggleWrong(plan.domain)} style={{
-                padding: "6px 12px", borderRadius: 6, border: `1px solid ${wrong.has(plan.domain) ? "#ef4444" : "var(--border)"}`,
-                backgroundColor: wrong.has(plan.domain) ? "#ef4444" : "transparent",
-                color: wrong.has(plan.domain) ? "white" : "var(--muted)",
-                cursor: "pointer", fontSize: 13, fontWeight: 700, flexShrink: 0
+        {/* Domain list */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          {filtered.map(plan => {
+            const cfg = statusConfig[plan.status];
+            const isWrong = wrong.has(plan.domain);
+            return (
+              <div key={plan.domain} style={{
+                display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12,
+                backgroundColor: isWrong ? "rgba(239,68,68,0.08)" : cfg.bg,
+                border: `1px solid ${isWrong ? "#ef4444" : cfg.color}`,
+                borderRadius: 10, padding: "10px 14px"
               }}>
-                {wrong.has(plan.domain) ? "✓ Flagged" : "❌ Wrong"}
-              </button>
-            </div>
-          ))}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 700, fontSize: "0.9rem", wordBreak: "break-word" }}>{plan.domain}</div>
+                  <div style={{ display: "flex", gap: 10, marginTop: 3, flexWrap: "wrap", alignItems: "center" }}>
+                    <span style={{ fontSize: 11, color: cfg.color, fontWeight: 700, whiteSpace: "nowrap" }}>
+                      {cfg.emoji} {cfg.label}
+                    </span>
+                    {plan.price && (
+                      <span style={{ fontSize: 11, color: "#84cc16", fontWeight: 700 }}>
+                        ${plan.price.toLocaleString()}
+                      </span>
+                    )}
+                    {plan.funnelTo && (
+                      <span style={{ fontSize: 11, color: "var(--muted)" }}>→ {plan.funnelTo}</span>
+                    )}
+                    {plan.note && (
+                      <span style={{ fontSize: 11, color: "#f59e0b" }}>{plan.note}</span>
+                    )}
+                  </div>
+                </div>
+                <button onClick={() => toggleWrong(plan.domain)} style={{
+                  padding: "5px 10px", borderRadius: 6,
+                  border: `1px solid ${isWrong ? "#ef4444" : "var(--border)"}`,
+                  backgroundColor: isWrong ? "#ef4444" : "transparent",
+                  color: isWrong ? "white" : "var(--muted)",
+                  cursor: "pointer", fontSize: 12, fontWeight: 700, flexShrink: 0, whiteSpace: "nowrap"
+                }}>
+                  {isWrong ? "✓ Flagged" : "❌ Wrong"}
+                </button>
+              </div>
+            );
+          })}
+        </div>
+
+        <div style={{ marginTop: 32, padding: 16, backgroundColor: "var(--card)", borderRadius: 12, border: "1px solid var(--border)" }}>
+          <p style={{ color: "var(--muted)", fontSize: 13, margin: 0 }}>
+            Total: <strong style={{ color: "var(--text)" }}>{ALL_PLANS.length} domains</strong> —
+            {' '}<span style={{ color: '#22c55e' }}>✅ {counts['deployed-sale']} for sale</span> ·
+            {' '}<span style={{ color: '#a855f7' }}>🤖 {counts['deployed-funnel-va']} VA funnel</span> ·
+            {' '}<span style={{ color: '#3b82f6' }}>🏗️ {counts['deployed-funnel-builder']} builder funnel</span> ·
+            {' '}<span style={{ color: '#84cc16' }}>💰 {counts['pending-sale']} pending sale</span> ·
+            {' '}<span style={{ color: '#14b8a6' }}>🔀 {counts['pending-funnel']} pending funnel</span> ·
+            {' '}<span style={{ color: '#6b7280' }}>❌ {counts['skip']} skip</span> ·
+            {' '}<span style={{ color: '#f59e0b' }}>⚠️ {counts['review-needed']} needs review</span>
+          </p>
         </div>
       </div>
     </div>
