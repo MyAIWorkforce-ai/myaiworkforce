@@ -19,6 +19,7 @@ const domains: Domain[] = [
   // ── PREMIUM GENERICS ──────────────────────────────────────────────────────
   {
     name: 'virtualassistant.com.au',
+    defaultStatus: 'review' as DomainStatus,
     valueLow: 29997,
     valueHigh: 29997,
     category: 'AI/Tech',
@@ -28,6 +29,7 @@ const domains: Domain[] = [
   },
   {
     name: 'sales.net.au',
+    defaultStatus: 'review' as DomainStatus,
     valueLow: 24997,
     valueHigh: 24997,
     category: 'Other',
@@ -37,6 +39,7 @@ const domains: Domain[] = [
   },
   {
     name: 'dromana.com.au',
+    defaultStatus: 'review' as DomainStatus,
     valueLow: 12997,
     valueHigh: 12997,
     category: 'Other',
@@ -47,6 +50,7 @@ const domains: Domain[] = [
   // ── AI / TECH ─────────────────────────────────────────────────────────────
   {
     name: 'aivirtualreceptionist.ai',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 8997,
     valueHigh: 8997,
     category: 'AI/Tech',
@@ -56,6 +60,7 @@ const domains: Domain[] = [
   },
   {
     name: 'ai-virtualassistant.ai',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 7997,
     valueHigh: 7997,
     category: 'AI/Tech',
@@ -65,6 +70,7 @@ const domains: Domain[] = [
   },
   {
     name: 'aivirtualreceptionist.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 6997,
     valueHigh: 6997,
     category: 'AI/Tech',
@@ -74,6 +80,7 @@ const domains: Domain[] = [
   },
   {
     name: 'ai-virtualassistant.com',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 6497,
     valueHigh: 6497,
     category: 'AI/Tech',
@@ -83,6 +90,7 @@ const domains: Domain[] = [
   },
   {
     name: 'lawyerassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 6997,
     valueHigh: 6997,
     category: 'AI/Tech',
@@ -92,6 +100,7 @@ const domains: Domain[] = [
   },
   {
     name: 'ai-virtualassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 5497,
     valueHigh: 5497,
     category: 'AI/Tech',
@@ -101,6 +110,7 @@ const domains: Domain[] = [
   },
   {
     name: 'tradieassistant.ai',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 4497,
     valueHigh: 4497,
     category: 'AI/Tech',
@@ -110,6 +120,7 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualcalendar.ai',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 4997,
     valueHigh: 4997,
     category: 'AI/Tech',
@@ -119,6 +130,7 @@ const domains: Domain[] = [
   },
   {
     name: 'psychologistassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 3997,
     valueHigh: 3997,
     category: 'AI/Tech',
@@ -128,6 +140,7 @@ const domains: Domain[] = [
   },
   {
     name: 'tailoredva.ai',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 3497,
     valueHigh: 3497,
     category: 'AI/Tech',
@@ -137,6 +150,7 @@ const domains: Domain[] = [
   },
   {
     name: 'customva.ai',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 3497,
     valueHigh: 3497,
     category: 'AI/Tech',
@@ -146,6 +160,7 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualcalendar.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 2997,
     valueHigh: 2997,
     category: 'AI/Tech',
@@ -155,6 +170,7 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualsolutions.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -164,6 +180,7 @@ const domains: Domain[] = [
   },
   {
     name: 'physioassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 2497,
     valueHigh: 2497,
     category: 'AI/Tech',
@@ -173,6 +190,7 @@ const domains: Domain[] = [
   },
   {
     name: 'dentistassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 5997,
     valueHigh: 5997,
     category: 'AI/Tech',
@@ -182,6 +200,7 @@ const domains: Domain[] = [
   },
   {
     name: 'doctorassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 5997,
     valueHigh: 5997,
     category: 'AI/Tech',
@@ -191,6 +210,7 @@ const domains: Domain[] = [
   },
   {
     name: 'chiropractorassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 2497,
     valueHigh: 2497,
     category: 'AI/Tech',
@@ -200,6 +220,7 @@ const domains: Domain[] = [
   },
   {
     name: 'consultantassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 2997,
     valueHigh: 2997,
     category: 'AI/Tech',
@@ -209,6 +230,7 @@ const domains: Domain[] = [
   },
   {
     name: 'personaltrainerassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 2497,
     valueHigh: 2497,
     category: 'AI/Tech',
@@ -218,6 +240,7 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualbooking.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -227,6 +250,7 @@ const domains: Domain[] = [
   },
   {
     name: 'customva.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -236,6 +260,7 @@ const domains: Domain[] = [
   },
   {
     name: 'mechanicassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -245,6 +270,7 @@ const domains: Domain[] = [
   },
   {
     name: 'myotherapistassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -254,6 +280,7 @@ const domains: Domain[] = [
   },
   {
     name: 'osteoassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -263,6 +290,7 @@ const domains: Domain[] = [
   },
   {
     name: 'ptassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -272,6 +300,7 @@ const domains: Domain[] = [
   },
   {
     name: 'myoassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 997,
     valueHigh: 997,
     category: 'AI/Tech',
@@ -281,6 +310,7 @@ const domains: Domain[] = [
   },
   {
     name: 'podiatristassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -290,6 +320,7 @@ const domains: Domain[] = [
   },
   {
     name: 'beautyassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1497,
     valueHigh: 1497,
     category: 'AI/Tech',
@@ -299,6 +330,7 @@ const domains: Domain[] = [
   },
   {
     name: 'chiroassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -308,6 +340,7 @@ const domains: Domain[] = [
   },
   {
     name: 'physioadmin.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -317,6 +350,7 @@ const domains: Domain[] = [
   },
   {
     name: 'physioreception.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -326,6 +360,7 @@ const domains: Domain[] = [
   },
   {
     name: 'psychreception.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -335,6 +370,7 @@ const domains: Domain[] = [
   },
   {
     name: 'psychassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -344,6 +380,7 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantreception.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -353,6 +390,7 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 2497,
     valueHigh: 2497,
     category: 'AI/Tech',
@@ -362,6 +400,7 @@ const domains: Domain[] = [
   },
   {
     name: 'massageassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1497,
     valueHigh: 1497,
     category: 'AI/Tech',
@@ -371,6 +410,7 @@ const domains: Domain[] = [
   },
   {
     name: 'beautytherapistassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1497,
     valueHigh: 1497,
     category: 'AI/Tech',
@@ -380,6 +420,7 @@ const domains: Domain[] = [
   },
   {
     name: 'hairdresserassistant.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1497,
     valueHigh: 1497,
     category: 'AI/Tech',
@@ -389,6 +430,7 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantadmin.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -416,6 +458,7 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualdiary.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1497,
     valueHigh: 1497,
     category: 'AI/Tech',
@@ -425,6 +468,7 @@ const domains: Domain[] = [
   },
   {
     name: 'pysioadmin.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 997,
     valueHigh: 997,
     category: 'AI/Tech',
@@ -435,6 +479,7 @@ const domains: Domain[] = [
   // ── ADULT DOMAINS ─────────────────────────────────────────────────────────
   {
     name: 'erotica.com.au',
+    defaultStatus: 'review' as DomainStatus,
     valueLow: 14997,
     valueHigh: 14997,
     category: 'Other',
@@ -444,6 +489,7 @@ const domains: Domain[] = [
   },
   {
     name: 'nakedgirls.com.au',
+    defaultStatus: 'review' as DomainStatus,
     valueLow: 12997,
     valueHigh: 12997,
     category: 'Other',
@@ -480,6 +526,7 @@ const domains: Domain[] = [
   },
   {
     name: 'stupidshit.com.au',
+    defaultStatus: 'skip' as DomainStatus,
     valueLow: 297,
     valueHigh: 297,
     category: 'Other',
@@ -544,6 +591,7 @@ const domains: Domain[] = [
   },
   {
     name: 'premiumpropertiesaustralia.com.au',
+    defaultStatus: 'review' as DomainStatus,
     valueLow: 4997,
     valueHigh: 4997,
     category: 'Other',
@@ -779,6 +827,7 @@ const domains: Domain[] = [
   // ── TRADE / LOCAL ─────────────────────────────────────────────────────────
   {
     name: 'buildingaustralia.com.au',
+    defaultStatus: 'review' as DomainStatus,
     valueLow: 5997,
     valueHigh: 5997,
     category: 'Trade/Local',
@@ -815,6 +864,7 @@ const domains: Domain[] = [
   },
   {
     name: 'psychologistmorningtonpeninsula.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'Trade/Local',
@@ -824,6 +874,7 @@ const domains: Domain[] = [
   },
   {
     name: 'psychologistmornington.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1497,
     valueHigh: 1497,
     category: 'Trade/Local',
@@ -833,6 +884,7 @@ const domains: Domain[] = [
   },
   {
     name: 'psychologistfrankston.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1497,
     valueHigh: 1497,
     category: 'Trade/Local',
@@ -1724,6 +1776,7 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantmornington.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1297,
     valueHigh: 1297,
     category: 'Trade/Local',
@@ -1733,6 +1786,7 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantmteliza.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1297,
     valueHigh: 1297,
     category: 'Trade/Local',
@@ -1742,6 +1796,7 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantbayside.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1497,
     valueHigh: 1497,
     category: 'Trade/Local',
@@ -1751,6 +1806,7 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantbayside.com',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1497,
     valueHigh: 1497,
     category: 'Trade/Local',
@@ -1760,6 +1816,7 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantfremantle.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 997,
     valueHigh: 997,
     category: 'Trade/Local',
@@ -1769,6 +1826,7 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantbrighton.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1497,
     valueHigh: 1497,
     category: 'Trade/Local',
@@ -1778,6 +1836,7 @@ const domains: Domain[] = [
   },
   {
     name: 'accountantsurfersparadise.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 997,
     valueHigh: 997,
     category: 'Trade/Local',
@@ -1924,6 +1983,7 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualtaxi.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 2497,
     valueHigh: 2497,
     category: 'Other',
@@ -1933,6 +1993,7 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualdriver.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'Other',
@@ -1942,6 +2003,7 @@ const domains: Domain[] = [
   },
   {
     name: 'virtualcar.com.au',
+    defaultStatus: 'keep' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'Other',
@@ -1988,6 +2050,7 @@ const domains: Domain[] = [
   // ── PERSONAL / FAMILY ─────────────────────────────────────────────────────
   {
     name: 'builtbybanks.com.au',
+    defaultStatus: 'skip' as DomainStatus,
     valueLow: 297,
     valueHigh: 297,
     category: 'Personal/Family',
@@ -1997,6 +2060,7 @@ const domains: Domain[] = [
   },
   {
     name: 'brandan.com.au',
+    defaultStatus: 'skip' as DomainStatus,
     valueLow: 297,
     valueHigh: 297,
     category: 'Personal/Family',
@@ -2006,6 +2070,7 @@ const domains: Domain[] = [
   },
   {
     name: 'tobybanks.com',
+    defaultStatus: 'skip' as DomainStatus,
     valueLow: 297,
     valueHigh: 297,
     category: 'Personal/Family',
@@ -2015,6 +2080,7 @@ const domains: Domain[] = [
   },
   {
     name: 'juliabanks.com.au',
+    defaultStatus: 'skip' as DomainStatus,
     valueLow: 197,
     valueHigh: 197,
     category: 'Personal/Family',
@@ -2024,6 +2090,7 @@ const domains: Domain[] = [
   },
   {
     name: 'tobiasbanks.com.au',
+    defaultStatus: 'skip' as DomainStatus,
     valueLow: 197,
     valueHigh: 197,
     category: 'Personal/Family',
@@ -2033,6 +2100,7 @@ const domains: Domain[] = [
   },
   {
     name: 'cohenbanks.com.au',
+    defaultStatus: 'skip' as DomainStatus,
     valueLow: 197,
     valueHigh: 197,
     category: 'Personal/Family',
@@ -2042,6 +2110,7 @@ const domains: Domain[] = [
   },
   {
     name: 'cohenbanks.com',
+    defaultStatus: 'skip' as DomainStatus,
     valueLow: 197,
     valueHigh: 197,
     category: 'Personal/Family',
@@ -2051,6 +2120,7 @@ const domains: Domain[] = [
   },
   {
     name: 'florencebanks.com.au',
+    defaultStatus: 'skip' as DomainStatus,
     valueLow: 197,
     valueHigh: 197,
     category: 'Personal/Family',
@@ -2060,6 +2130,7 @@ const domains: Domain[] = [
   },
   {
     name: 'noahatkins.com.au',
+    defaultStatus: 'skip' as DomainStatus,
     valueLow: 197,
     valueHigh: 197,
     category: 'Personal/Family',
@@ -2070,6 +2141,7 @@ const domains: Domain[] = [
   // ── MEMYSELFI ─────────────────────────────────────────────────────────────
   {
     name: 'memyselfi.ai',
+    defaultStatus: 'review' as DomainStatus,
     valueLow: 1997,
     valueHigh: 1997,
     category: 'AI/Tech',
@@ -2079,6 +2151,7 @@ const domains: Domain[] = [
   },
   {
     name: 'memyselfi.io',
+    defaultStatus: 'skip' as DomainStatus,
     valueLow: 597,
     valueHigh: 597,
     category: 'AI/Tech',
@@ -2089,6 +2162,7 @@ const domains: Domain[] = [
   // ── HIDDEN / IN USE ───────────────────────────────────────────────────────
   {
     name: 'cheapwebsite.com.au',
+    defaultStatus: 'skip' as DomainStatus,
     valueLow: 997,
     valueHigh: 997,
     category: 'Other',
