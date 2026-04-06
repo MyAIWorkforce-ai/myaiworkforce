@@ -70,35 +70,35 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "bellevuehillrealesate.com.au",
-    "price": 1497
+    "price": 1997
   },
   {
     "domain": "bondihomes.com",
-    "price": 2497
+    "price": 2997
   },
   {
     "domain": "botoxbrisbane.com.au",
-    "price": 1497
+    "price": 2877
   },
   {
     "domain": "brandan.com.au",
-    "price": 1497
+    "price": 5677
   },
   {
     "domain": "brunswickst.com.au",
-    "price": 1497
+    "price": 2877
   },
   {
     "domain": "builderbayside.com",
-    "price": 2497
+    "price": 4577
   },
   {
     "domain": "builderbeaumaris.com",
-    "price": 1497
+    "price": 1997
   },
   {
     "domain": "builderbendigo.com",
-    "price": 1497
+    "price": 2344
   },
   {
     "domain": "builderbentleigh.com",
@@ -110,7 +110,7 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "builderbondi.com",
-    "price": 2997
+    "price": 4497
   },
   {
     "domain": "builderbondi.com.au",
@@ -118,11 +118,11 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "builderdandenong.com.au",
-    "price": 1497
+    "price": 1544
   },
   {
     "domain": "builderdarwin.com",
-    "price": 2497
+    "price": 2977
   },
   {
     "domain": "builderdromana.com.au",
@@ -130,7 +130,7 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "builderelwood.com",
-    "price": 1497
+    "price": 1544
   },
   {
     "domain": "builderflinders.com.au",
@@ -146,7 +146,7 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "buildermordialloc.com",
-    "price": 1497
+    "price": 3455
   },
   {
     "domain": "buildermornington.com.au",
@@ -166,7 +166,7 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "builderportsea.com.au",
-    "price": 1497
+    "price": 1997
   },
   {
     "domain": "builderrosebud.com.au",
@@ -186,135 +186,135 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "buildertoorak.com.au",
-    "price": 2997
+    "price": 2497
   },
   {
     "domain": "buildingaustralia.com.au",
-    "price": 1497
+    "price": 15488
   },
   {
     "domain": "carpenterbayside.com",
-    "price": 1247
+    "price": 1497
   },
   {
     "domain": "carpenterbayside.com.au",
-    "price": 1247
+    "price": 1497
   },
   {
     "domain": "carpenterbeaumaris.com.au",
-    "price": 1247
+    "price": 1497
   },
   {
     "domain": "carpenterbondi.com",
-    "price": 1247
+    "price": 1997
   },
   {
     "domain": "carpenterbondi.com.au",
-    "price": 1247
+    "price": 1997
   },
   {
     "domain": "carpenterbrighton.com.au",
-    "price": 1247
+    "price": 1497
   },
   {
     "domain": "carpentercairns.com",
-    "price": 1247
+    "price": 3966
   },
   {
     "domain": "carpentercanberra.com",
-    "price": 1247
+    "price": 3966
   },
   {
     "domain": "carpenterdandenong.com.au",
-    "price": 1247
+    "price": 997
   },
   {
     "domain": "carpenterdarwin.com",
-    "price": 1247
+    "price": 3964
   },
   {
     "domain": "carpenterelwood.com",
-    "price": 1247
+    "price": 1497
   },
   {
     "domain": "carpenterelwood.com.au",
-    "price": 1247
+    "price": 1497
   },
   {
     "domain": "carpenterhampton.com.au",
-    "price": 1247
+    "price": 997
   },
   {
     "domain": "carpenterhighett.com.au",
-    "price": 1247
+    "price": 997
   },
   {
     "domain": "carpenterlangwarrin.com",
-    "price": 1247
+    "price": 997
   },
   {
     "domain": "carpenterlangwarrin.com.au",
-    "price": 1247
+    "price": 997
   },
   {
     "domain": "carpentermentone.com",
-    "price": 1247
+    "price": 997
   },
   {
     "domain": "carpentermentone.com.au",
-    "price": 1247
+    "price": 997
   },
   {
     "domain": "carpentermorningtonpeninsula.com",
-    "price": 1247
+    "price": 1544
   },
   {
     "domain": "carpentermorningtonpeninsula.com.au",
-    "price": 1247
+    "price": 1544
   },
   {
     "domain": "carpentersheparton.com.au",
-    "price": 1247
+    "price": 997
   },
   {
     "domain": "carpentersmorningtonpeninsula.com",
-    "price": 1247
+    "price": 1544
   },
   {
     "domain": "carpentersomerville.com.au",
-    "price": 1247
+    "price": 997
   },
   {
     "domain": "carpenterspringvale.com",
-    "price": 1247
+    "price": 997
   },
   {
     "domain": "carpenterspringvale.com.au",
-    "price": 1247
+    "price": 997
   },
   {
     "domain": "carpenterstkilda.com",
-    "price": 1247
+    "price": 1497
   },
   {
     "domain": "carpentersurfersparadise.com.au",
-    "price": 1247
+    "price": 1544
   },
   {
     "domain": "carpentertoorak.com.au",
-    "price": 1247
+    "price": 1497
   },
   {
     "domain": "carpertermordialloc.com.au",
-    "price": 1497
+    "price": 997
   },
   {
     "domain": "cartrades.com.au",
-    "price": 1497
+    "price": 14566
   },
   {
     "domain": "centennialparkhomes.com.au",
-    "price": 1997
+    "price": 1497
   },
   {
     "domain": "charityaustralia.com.au",
@@ -342,7 +342,7 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "concretermorningtonpeninsula.com.au",
-    "price": 1497
+    "price": 1544
   },
   {
     "domain": "consultantassistant.com.au",
@@ -354,11 +354,11 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "customva.ai",
-    "price": 1997
+    "price": 3497
   },
   {
     "domain": "customva.com.au",
-    "price": 1497
+    "price": 1997
   },
   {
     "domain": "dalkeithhomes.com.au",
@@ -366,31 +366,31 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "dalkeithrelestate.com.au",
-    "price": 1497
+    "price": 1997
   },
   {
     "domain": "darlingharbourhomes.com.au",
-    "price": 1997
+    "price": 2497
   },
   {
     "domain": "darlingharbourrealestate.com",
-    "price": 1997
+    "price": 2997
   },
   {
     "domain": "darlingharbourrealestate.com.au",
-    "price": 1997
+    "price": 2997
   },
   {
     "domain": "darlingpointhomes.com.au",
-    "price": 1997
+    "price": 2497
   },
   {
     "domain": "darlingpointrealestate.com",
-    "price": 1997
+    "price": 2497
   },
   {
     "domain": "decksnpergolas.com.au",
-    "price": 1497
+    "price": 9820
   },
   {
     "domain": "dentistassistant.com.au",
@@ -406,27 +406,27 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "doverheightshomes.com.au",
-    "price": 1997
+    "price": 1497
   },
   {
     "domain": "dromana.com.au",
-    "price": 7497
+    "price": 25433
   },
   {
     "domain": "eaglebayhomes.com.au",
-    "price": 1997
+    "price": 1497
   },
   {
     "domain": "erotica.com.au",
-    "price": 6997
+    "price": 23977
   },
   {
     "domain": "findtradesman.com.au",
-    "price": 4997
+    "price": 12344
   },
   {
     "domain": "fitzroyst.com.au",
-    "price": 2497
+    "price": 2877
   },
   {
     "domain": "hairdresserassistant.com.au",
@@ -434,15 +434,15 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "healthydesserts.com.au",
-    "price": 1497
+    "price": 7655
   },
   {
     "domain": "horney.com.au",
-    "price": 1497
+    "price": 9721
   },
   {
     "domain": "ifuck.com.au",
-    "price": 1497
+    "price": 9322
   },
   {
     "domain": "kooyonghomes.com.au",
@@ -466,7 +466,7 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "lovedating.com.au",
-    "price": 1497
+    "price": 8751
   },
   {
     "domain": "massageassistant.com.au",
@@ -482,11 +482,11 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "morningtonpeninsulatrades.com.au",
-    "price": 1497
+    "price": 2497
   },
   {
     "domain": "morningtonwineries.com.au",
-    "price": 2997
+    "price": 2497
   },
   {
     "domain": "mptrades.com.au",
@@ -502,11 +502,11 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "nakedgirls.com.au",
-    "price": 5997
+    "price": 19744
   },
   {
     "domain": "orangegrovehomes.com.au",
-    "price": 1997
+    "price": 1497
   },
   {
     "domain": "osteoassistant.com.au",
@@ -522,7 +522,7 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "phillipislandrealestate.com.au",
-    "price": 1997
+    "price": 1497
   },
   {
     "domain": "physioadmin.com.au",
@@ -542,51 +542,51 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "pizzabrighton.com.au",
-    "price": 1997
+    "price": 997
   },
   {
     "domain": "pizzacarlton.com",
-    "price": 1997
+    "price": 997
   },
   {
     "domain": "pizzadarwin.com.au",
-    "price": 1997
+    "price": 997
   },
   {
     "domain": "pizzadromana.com",
-    "price": 1997
+    "price": 997
   },
   {
     "domain": "pizzadromana.com.au",
-    "price": 1997
+    "price": 997
   },
   {
     "domain": "pizzageelong.com.au",
-    "price": 1997
+    "price": 997
   },
   {
     "domain": "pizzalygon.com",
-    "price": 1997
+    "price": 1497
   },
   {
     "domain": "pizzastkilda.com",
-    "price": 1997
+    "price": 1497
   },
   {
     "domain": "pizzastkilda.com.au",
-    "price": 1997
+    "price": 1497
   },
   {
     "domain": "pizzasurfersparadise.com",
-    "price": 1997
+    "price": 997
   },
   {
     "domain": "pizzasurfersparadise.com.au",
-    "price": 1997
+    "price": 997
   },
   {
     "domain": "plumbermorningtonpeninsula.com",
-    "price": 1247
+    "price": 1497
   },
   {
     "domain": "podiatristassistant.com.au",
@@ -594,7 +594,7 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "pointpiperhomes.com.au",
-    "price": 1997
+    "price": 2497
   },
   {
     "domain": "portseahomes.com",
@@ -602,15 +602,15 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "premiumpropertiesaustralia.com.au",
-    "price": 2497
+    "price": 9444
   },
   {
     "domain": "primebuildinggroup.com.au",
-    "price": 1497
+    "price": 797
   },
   {
     "domain": "primebuildingprojects.com.au",
-    "price": 1497
+    "price": 797
   },
   {
     "domain": "psychassistant.com.au",
@@ -630,7 +630,7 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "psychologistmorningtonpeninsula.com.au",
-    "price": 1497
+    "price": 1997
   },
   {
     "domain": "psychreception.com.au",
@@ -646,39 +646,39 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "realestateparkdale.com.au",
-    "price": 1997
+    "price": 997
   },
   {
     "domain": "rosebudrealestate.com.au",
-    "price": 1997
+    "price": 997
   },
   {
     "domain": "sales.net.au",
-    "price": 14997
+    "price": 24997
   },
   {
     "domain": "showerscreensperth.com.au",
-    "price": 1497
+    "price": 3984
   },
   {
     "domain": "stupidshit.com.au",
-    "price": 1497
+    "price": 3455
   },
   {
     "domain": "swanst.com.au",
-    "price": 1497
+    "price": 2877
   },
   {
     "domain": "tailoredva.ai",
-    "price": 1997
+    "price": 3497
   },
   {
     "domain": "tamaramahomes.com.au",
-    "price": 1997
+    "price": 1497
   },
   {
     "domain": "thehealthguide.com.au",
-    "price": 1497
+    "price": 8953
   },
   {
     "domain": "tradieassistant.ai",
@@ -686,19 +686,19 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "virtualbooking.com.au",
-    "price": 1497
-  },
-  {
-    "domain": "virtualcalendar.ai",
     "price": 1997
   },
   {
+    "domain": "virtualcalendar.ai",
+    "price": 4997
+  },
+  {
     "domain": "virtualcalendar.com.au",
-    "price": 1497
+    "price": 2997
   },
   {
     "domain": "virtualcar.com.au",
-    "price": 1497
+    "price": 8930
   },
   {
     "domain": "virtualdiary.com.au",
@@ -706,11 +706,11 @@ export default function DomainStatusPage() {
   },
   {
     "domain": "virtualdriver.com.au",
-    "price": 1497
+    "price": 8933
   },
   {
     "domain": "virtualtaxi.com.au",
-    "price": 1497
+    "price": 9777
   },
   {
     "domain": "watsonsbayhomes.com.au",
@@ -779,7 +779,7 @@ export default function DomainStatusPage() {
   return (
     <div style={{fontFamily:'sans-serif', maxWidth:'1100px', margin:'0 auto', padding:'2rem'}}>
       <h1 style={{fontSize:'2rem', fontWeight:'bold', marginBottom:'0.5rem'}}>🌐 Domain Status Dashboard</h1>
-      <p style={{color:'#666', marginBottom:'2rem'}}>All 230 domains — nameserver status and buy prices.</p>
+      <p style={{color:'#666', marginBottom:'2rem'}}>All 230 domains — nameserver status and prices.</p>
 
       <div style={{display:'flex', gap:'1rem', marginBottom:'2rem', flexWrap:'wrap'}}>
         <div style={{background:'#d1fae5', borderRadius:'12px', padding:'1rem 1.5rem', flex:1, minWidth:'180px'}}>
