@@ -45,7 +45,7 @@ export async function sendPurchaseConfirmation({
           </a>
 
           <p style="color:#666666;font-size:14px;text-align:center;margin:0;">
-            Link expires in 7 days. Questions? Reply to this email or contact <a href="mailto:toby@myaiworkforce.ai" style="color:#FFD700;">toby@myaiworkforce.ai</a>
+            Link expires in 7 days. Questions? Reply to this email or contact <a href="mailto:hi@myaiworkforce.ai" style="color:#FFD700;">hi@myaiworkforce.ai</a>
           </p>
         </div>
 
@@ -59,7 +59,7 @@ export async function sendPurchaseConfirmation({
 
   return resend.emails.send({
     from: 'My AI Workforce <onboarding@resend.dev>',
-    replyTo: 'toby@myaiworkforce.ai',
+    replyTo: 'hi@myaiworkforce.ai',
     to,
     subject,
     html,
@@ -128,7 +128,7 @@ export async function sendOnboardingWelcome({
 
   return resend.emails.send({
     from: 'My AI Workforce <onboarding@resend.dev>',
-    replyTo: 'toby@myaiworkforce.ai',
+    replyTo: 'hi@myaiworkforce.ai',
     to,
     subject: `Welcome to My AI Workforce, ${clientName}! Your AI workforce is being built 🚀`,
     html,
