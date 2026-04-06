@@ -43,7 +43,7 @@ export default function DomainStatusPage() {
             <tr key={d.domain} style={{ borderBottom: '1px solid #f3f4f6' }}>
               <td style={{ padding: '7px 12px', color: '#999', fontSize: '0.8rem' }}>{d.i}</td>
               <td style={{ padding: '7px 12px', fontWeight: 500 }}>{d.domain}</td>
-              <td style={{ padding: '7px 12px', fontWeight: 700, color: '#065f46' }}>${d.buy.toLocaleString()}</td>
+              <td style={{ padding: '7px 12px', fontWeight: 700, color: '#065f46' }}>{d.price ? `$${d.price.toLocaleString()}` : 'TBD'}</td>
               <td style={{ padding: '7px 12px', color: '#555' }}>${d.rent}</td>
               <td style={{ padding: '7px 12px', color: '#555' }}>${d.rentl}</td>
               <td style={{ padding: '7px 12px' }}>
