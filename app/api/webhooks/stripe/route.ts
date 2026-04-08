@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
           || (session.metadata?.customerEmail ?? null);
 
         const productName = session.metadata?.productName || 'Your purchase';
-        const productType = (session.metadata?.productType as 'guide' | 'agent') || 'guide';
+        const productType = (session.metadata?.productType as 'guide' | 'agent' | 'done-for-you') || 'guide';
         const amountTotal = session.amount_total ? `$${(session.amount_total / 100).toFixed(2)} AUD` : '';
 
         // Save purchase to Supabase
