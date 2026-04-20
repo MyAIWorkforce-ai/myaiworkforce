@@ -62,14 +62,13 @@ export async function POST(request: NextRequest) {
         });
 
         // Send notification email to Toby
-        await sendPurchaseConfirmation({
+        const { Resend } = await import('resend');
+        const resendClient = new Resend(process.env.RESEND_API_KEY || 're_Po7ZvpkS_PBzPLvcaGFc8b7DSEaZWCpCA');
+        await resendClient.emails.send({
+          from: 'Monty <monty@myaiworkforce.ai>',
           to: 'toby@myaiworkforce.ai',
-          productName,
-          downloadUrl: 'https://myaiworkforce.ai/dashboard',
-          price: amountTotal,
-          type: productType,
-          isAdminNotification: true,
-          customerEmail: customerEmail || 'unknown',
+          subject: `🎉 New Purchase: ${productName} — ${amountTotal}`,
+          html: `<div style="font-family:'Helvetica Neue',Arial,sans-serif;max-width:600px;margin:0 auto;"><div style="background:#1a1a2e;padding:24px 40px;border-radius:8px 8px 0 0;"><p style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin:0 0 10px;">MY AI WORKFORCE</p><h1 style="color:#fff;font-size:1.4rem;font-weight:700;margin:0;">🎉 New Purchase Received!</h1></div><div style="background:#fff;padding:32px 40px;border:1px solid #e8e8e8;border-top:none;border-radius:0 0 8px 8px;"><p style="color:#333;font-size:0.95rem;">A new purchase has been made on myaiworkforce.ai</p><div style="background:#f0f2ff;border-radius:8px;padding:20px 24px;margin:20px 0;"><p style="color:#1a1a2e;margin:6px 0;"><strong>Product:</strong> ${productName}</p><p style="color:#1a1a2e;margin:6px 0;"><strong>Amount:</strong> ${amountTotal}</p><p style="color:#1a1a2e;margin:6px 0;"><strong>Type:</strong> ${productType}</p><p style="color:#1a1a2e;margin:6px 0;"><strong>Buyer email:</strong> ${customerEmail || 'unknown'}</p></div><p style="color:#888;font-size:0.85rem;">My AI Workforce &bull; myaiworkforce.ai</p></div></div>`,
         }).catch(e => console.error('Admin notification failed:', e));
 
         if (customerEmail) {
