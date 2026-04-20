@@ -61,6 +61,16 @@ export async function POST(request: NextRequest) {
           product_slug: productSlug,
         });
 
+        // Alert Monty on Telegram immediately
+        const telegramToken = process.env.TELEGRAM_BOT_TOKEN || '7558657789:AAHGYsZjm_7k7k5aZFi8qfhvV2S0uo5SXSU';
+        const tobyChatId = '8758892826';
+        const alertMsg = `🎉 NEW PAYMENT RECEIVED!\n\nProduct: ${productName}\nAmount: ${amountTotal}\nEmail: ${customerEmail || 'unknown'}\nType: ${productType}\n\nAction required: Check client and kick off onboarding if DFY purchase.`;
+        await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: tobyChatId, text: alertMsg }),
+        }).catch(e => console.error('Telegram alert failed:', e));
+
         if (customerEmail) {
           console.log('[Stripe Webhook] Sending purchase confirmation to:', customerEmail);
           await sendPurchaseConfirmation({
