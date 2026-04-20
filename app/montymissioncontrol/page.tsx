@@ -154,23 +154,25 @@ export default function MissionControl() {
             <div className="card-header"><h2>📋 Office Tasks</h2></div>
             <div className="card-body">
               {[
-                [1,'⏳ Set up premiumdomainsales.com.au email forwarding via ImprovMX','todo'],
-                [2,'❌ Anthropic credit — write-off','done'],
-                [3,'✅ Fix Resend DNS — DONE','done'],
-                [4,'✅ Fix Stripe business name — DONE','done'],
-                [5,'⏳ Connect toby@myaiworkforce.ai to Monty','todo'],
-                [6,'⏳ Set up Namecheap','todo'],
-                [7,'✅ Telegram bot — DONE','done'],
-                [8,'⏳ Social handles @myaiworkforce','todo'],
-                [9,'⏳ Buffer → connect socials','todo'],
-                [10,'✅ hi@myaiworkforce.ai forwarding — DONE','done'],
-                [11,'⏳ ElevenLabs API key','todo'],
-                [12,'⏳ Google Search Console — submit sitemaps','todo'],
-                [13,'⏳ HeyGen account + API key','todo'],
-                [14,'⏳ Pictory account + API key','todo'],
-                [15,'⏳ Monty Mission Control (this!)','todo'],
-                [16,'⏳ Fix sender display name → "Monty - My AI Workforce"','todo'],
-                [17,'✅ Supabase restored to healthy','done'],
+                [1,'⏳ Fix sender display name → "Monty - My AI Workforce" (Google Admin → Users → Monty → name) URGENT','todo'],
+                [2,'⏳ Turn on Stripe payment notifications + ImprovMX aliases (monty@ + toby@ → myaiworkforce.ai)','todo'],
+                [3,'❌ Anthropic credit — write-off (credit wasn\'t there)','done'],
+                [4,'✅ Fix Resend DNS in GoDaddy — DONE','done'],
+                [5,'⏳ Fix Stripe business name spelling: "My AI Wrokforce" → "My AI Workforce"','todo'],
+                [6,'⏳ Connect toby@myaiworkforce.ai to Monty (Gmail API OAuth)','todo'],
+                [7,'⏳ Set up Namecheap for new client domain registrations','todo'],
+                [8,'✅ Telegram bot — DONE','done'],
+                [9,'⏳ Social handles @myaiworkforce on all platforms','todo'],
+                [10,'⏳ Buffer → connect socials → send API token','todo'],
+                [11,'⏳ Set up hi@myaiworkforce.ai forwarding → toby@myaiworkforce.ai','todo'],
+                [12,'⏳ ElevenLabs API key','todo'],
+                [13,'⏳ Google Search Console — add builderdromana.com.au + physioassistant.com.au, submit sitemaps','todo'],
+                [14,'⏳ Submit all VA funnel pages to Google Search Console','todo'],
+                [15,'⏳ HeyGen — set up account + send API key','todo'],
+                [16,'⏳ Pictory — set up account + send API key','todo'],
+                [17,'✅ Monty Mission Control — LIVE','done'],
+                [18,'✅ Supabase restored to healthy','done'],
+                [19,'✅ Vercel team URL change (me-myself-i → myaiworkforce) — DONE','done'],
               ].map(([num,text,type]) => (
                 <div className="task" key={num}>
                   <span className="task-num">{num}</span>
@@ -185,14 +187,16 @@ export default function MissionControl() {
             <div className="card-header"><h2>⚡ Recent Activity</h2></div>
             <div className="card-body">
               {[
-                ['24 cold emails sent to Bondi builders','Today — Apr 17'],
-                ['ImprovMX forwarding set up for premiumdomainsales.com.au','Today — Apr 17'],
-                ['builderdromana.com.au deployed ✅','Yesterday — Apr 16'],
-                ['physioassistant.com.au deployed ✅','Yesterday — Apr 16'],
-                ['178 Vercel DNS zones activated','Yesterday — Apr 16'],
-                ['Vercel support case #01109721 resolved','Yesterday — Apr 16'],
-                ['Supabase project restored to healthy','Yesterday — Apr 16'],
-                ['Dreamscape ticket IEML-1659251 raised','Yesterday — Apr 16'],
+                ['Mission Control updated ✅','Today — Apr 21'],
+                ['AI model strategy reviewed: Sonnet orchestration + Codex for code','Today — Apr 21'],
+                ['24 cold emails sent to Bondi builders','Apr 17'],
+                ['ImprovMX forwarding set up for premiumdomainsales.com.au','Apr 17'],
+                ['builderdromana.com.au deployed ✅','Apr 16'],
+                ['physioassistant.com.au deployed ✅','Apr 16'],
+                ['178 Vercel DNS zones activated','Apr 16'],
+                ['Vercel support case #01109721 resolved','Apr 16'],
+                ['Supabase project restored to healthy','Apr 16'],
+                ['Dreamscape ticket IEML-1659251 raised','Apr 16'],
               ].map(([text,time]) => (
                 <div className="act" key={text as string}>
                   <div className="act-dot"></div>
