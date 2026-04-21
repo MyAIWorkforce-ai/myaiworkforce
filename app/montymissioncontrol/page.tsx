@@ -99,8 +99,9 @@ export default function MissionControl() {
                 ['cheapwebsite.com.au','Automated website service','live'],
                 ['primeprojects.com.au',"Toby's building business",'live'],
                 ['builderdromana.com.au','Funnel → primeprojects.com.au','live'],
-                ['21 VA funnel pages','physio, doctor, dentist, lawyer + 17 more','live'],
+                ['21 VA funnel pages','physio, doctor, dentist, lawyer + 17 more → virtualassistant.com.au','live'],
                 ['tradieassistant.ai','Hub page — all trades → virtualassistant.com.au','live'],
+                ['memyselfi.ai','Project TBD — in progress','new'],
               ].map(([name,desc,type]) => (
                 <div className="proj" key={name}>
                   <div><div className="proj-name">{name}</div><div className="proj-url">{desc}</div></div>
@@ -115,15 +116,15 @@ export default function MissionControl() {
             <div className="card-header"><h2>🌐 Domain Portfolio</h2></div>
             <div className="domain-grid">
               <div className="d-stat"><div className="big">230</div><div className="big-label">Total</div></div>
-              <div className="d-stat"><div className="big">178</div><div className="big-label">DNS Live</div></div>
-              <div className="d-stat"><div className="big">39</div><div className="big-label">Review</div></div>
+              <div className="d-stat"><div className="big">177</div><div className="big-label">Deployed</div></div>
+              <div className="d-stat"><div className="big">53</div><div className="big-label">Skipped</div></div>
             </div>
             <div className="card-body">
-              <div className="row"><span className="label">For-sale pages deployed</span><span className="val green">~97 ✅</span></div>
-              <div className="row"><span className="label">VA funnel pages deployed</span><span className="val green">~54 ✅</span></div>
-              <div className="row"><span className="label">DNS zones activated</span><span className="val green">178 ✅</span></div>
-              <div className="row"><span className="label">Vercel support case</span><span className="val green">#01109721 ✅</span></div>
-              <div className="row"><span className="label">Dreamscape ticket</span><span className="val gold">IEML-1659251 ⏳</span></div>
+              <div className="row"><span className="label">For-sale pages deployed</span><span className="val green">133 ✅</span></div>
+              <div className="row"><span className="label">VA funnel pages deployed</span><span className="val green">29 ✅</span></div>
+              <div className="row"><span className="label">Builder funnel pages deployed</span><span className="val green">15 ✅</span></div>
+              <div className="row"><span className="label">Skipped (existing sites)</span><span className="val">53</span></div>
+              <div className="row"><span className="label">Needs review</span><span className="val green">0 ✅</span></div>
               <div style={{marginTop:'12px',display:'flex',gap:'8px',flexWrap:'wrap'}}>
                 <a href="https://myaiworkforce.ai/domain-status" target="_blank" className="link">Domain Status →</a>
                 <a href="https://myaiworkforce.ai/deployment-plan" target="_blank" className="link">Deployment Plan →</a>
