@@ -98,8 +98,9 @@ export default function MissionControl() {
                 ['premiumdomainsales.com.au','Domain portfolio sales','live'],
                 ['cheapwebsite.com.au','Automated website service','live'],
                 ['primeprojects.com.au',"Toby's building business",'live'],
-                ['builderdromana.com.au','Funnel → primeprojects.com.au','new'],
-                ['physioassistant.com.au','Funnel → virtualassistant.com.au','new'],
+                ['builderdromana.com.au','Funnel → primeprojects.com.au','live'],
+                ['21 VA funnel pages','physio, doctor, dentist, lawyer + 17 more','live'],
+                ['tradieassistant.ai','Hub page — all trades → virtualassistant.com.au','live'],
               ].map(([name,desc,type]) => (
                 <div className="proj" key={name}>
                   <div><div className="proj-name">{name}</div><div className="proj-url">{desc}</div></div>
@@ -187,16 +188,16 @@ export default function MissionControl() {
             <div className="card-header"><h2>⚡ Recent Activity</h2></div>
             <div className="card-body">
               {[
+                ['All 21 VA funnel pages live ✅','Today — Apr 21'],
+                ['tradieassistant.ai live — hub for all trades ✅','Today — Apr 21'],
+                ['massageassistant, hairdresser, consultant, mechanic deployed ✅','Today — Apr 21'],
+                ['Session history recovered from reset transcript ✅','Today — Apr 21'],
                 ['Mission Control updated ✅','Today — Apr 21'],
-                ['AI model strategy reviewed: Sonnet orchestration + Codex for code','Today — Apr 21'],
                 ['24 cold emails sent to Bondi builders','Apr 17'],
-                ['ImprovMX forwarding set up for premiumdomainsales.com.au','Apr 17'],
                 ['builderdromana.com.au deployed ✅','Apr 16'],
-                ['physioassistant.com.au deployed ✅','Apr 16'],
                 ['178 Vercel DNS zones activated','Apr 16'],
                 ['Vercel support case #01109721 resolved','Apr 16'],
                 ['Supabase project restored to healthy','Apr 16'],
-                ['Dreamscape ticket IEML-1659251 raised','Apr 16'],
               ].map(([text,time]) => (
                 <div className="act" key={text as string}>
                   <div className="act-dot"></div>
