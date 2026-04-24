@@ -23,11 +23,6 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const clientId = searchParams.get('client') || '';
 
-  if (!CLIENT_ID) {
-    // Xero not set up yet — redirect to a friendly holding page
-    return NextResponse.redirect(new URL('/connect/xero-pending', request.url));
-  }
-
   const params = new URLSearchParams({
     response_type: 'code',
     client_id: CLIENT_ID,
