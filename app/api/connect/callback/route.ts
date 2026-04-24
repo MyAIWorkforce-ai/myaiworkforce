@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFileSync, mkdirSync } from 'fs';
+import { writeFileSync, mkdirSync, readFileSync } from 'fs';
 import { join } from 'path';
 
 const CLIENT_ID = process.env.GOOGLE_OAUTH_CLIENT_ID || '';
@@ -11,15 +11,27 @@ const REDIRECT_URI = process.env.NEXT_PUBLIC_BASE_URL
 const CLIENTS_DIR = process.env.CLIENTS_DIR ||
   '/Users/myaiwokforce/.openclaw/workspace/client-system/clients';
 
+function resolveToken(token: string): string {
+  try {
+    const tokensPath = join(CLIENTS_DIR, '..', 'connect-tokens.json');
+    const tokensData = JSON.parse(readFileSync(tokensPath, 'utf8'));
+    return tokensData.tokens?.[token]?.clientId || token;
+  } catch {
+    return token;
+  }
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const code = searchParams.get('code');
-  const clientId = searchParams.get('state') || 'unknown';
+  const token = searchParams.get('state') || '';
   const error = searchParams.get('error');
 
   if (error || !code) {
     return NextResponse.redirect(new URL('/connect/error', request.url));
   }
+
+  const clientId = resolveToken(token);
 
   try {
     // Exchange code for tokens

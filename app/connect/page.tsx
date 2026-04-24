@@ -1,9 +1,9 @@
 interface ConnectPageProps {
-  searchParams: { client?: string };
+  searchParams: { token?: string };
 }
 
 export default function ConnectPage({ searchParams }: ConnectPageProps) {
-  const clientId = searchParams.client || '';
+  const token = searchParams.token || '';
 
   const tools = [
     {
@@ -12,7 +12,7 @@ export default function ConnectPage({ searchParams }: ConnectPageProps) {
       name: 'Gmail & Google Calendar',
       description: 'Let your agent read and reply to emails, and manage your calendar appointments — all on your behalf.',
       buttonText: 'Connect Gmail & Calendar',
-      href: `/api/connect/auth?client=${clientId}&service=google`,
+      href: `/api/connect/auth?token=${token}&service=google`,
     },
     {
       id: 'xero',
@@ -20,7 +20,7 @@ export default function ConnectPage({ searchParams }: ConnectPageProps) {
       name: 'Xero',
       description: 'Let your agent access your Xero account to help with invoicing, payments, and financial admin.',
       buttonText: 'Connect Xero',
-      href: `/api/connect/xero?client=${clientId}`,
+      href: `/api/connect/xero?token=${token}`,
     },
   ];
 

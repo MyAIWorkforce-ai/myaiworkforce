@@ -15,7 +15,7 @@ const SCOPES = [
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const clientId = searchParams.get('client') || '';
+  const token = searchParams.get('token') || '';
 
   const params = new URLSearchParams({
     client_id: CLIENT_ID,
@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
     scope: SCOPES,
     access_type: 'offline',
     prompt: 'consent',
-    state: clientId, // pass client ID through OAuth flow
+    state: token, // pass token through OAuth flow
   });
 
   const authUrl = `https://accounts.google.com/o/oauth2/auth?${params.toString()}`;
