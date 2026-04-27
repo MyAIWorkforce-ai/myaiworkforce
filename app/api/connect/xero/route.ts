@@ -13,13 +13,10 @@ const SCOPES = [
   'openid',
   'profile',
   'email',
-  'accounting.transactions.read',
-  'accounting.transactions',
-  'accounting.contacts.read',
-  'accounting.contacts',
-  'accounting.settings.read',
-  'accounting.settings',
   'offline_access',
+  'accounting.transactions',
+  'accounting.contacts',
+  'accounting.settings',
 ].join(' ');
 
 export async function GET(request: NextRequest) {
