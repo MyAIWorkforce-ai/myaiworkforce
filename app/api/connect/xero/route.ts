@@ -13,22 +13,25 @@ const SCOPES = [
   'openid',
   'profile',
   'email',
+  'accounting.transactions.read',
   'accounting.transactions',
+  'accounting.contacts.read',
   'accounting.contacts',
+  'accounting.settings.read',
   'accounting.settings',
   'offline_access',
 ].join(' ');
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const clientId = searchParams.get('client') || '';
+  const token = searchParams.get('token') || '';
 
   const params = new URLSearchParams({
     response_type: 'code',
     client_id: CLIENT_ID,
     redirect_uri: REDIRECT_URI,
     scope: SCOPES,
-    state: clientId,
+    state: token,
   });
 
   return NextResponse.redirect(
