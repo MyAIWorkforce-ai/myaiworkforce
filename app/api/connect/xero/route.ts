@@ -14,9 +14,11 @@ const SCOPES = [
   'profile',
   'email',
   'offline_access',
-  'accounting.transactions',
-  'accounting.contacts',
-  'accounting.settings',
+  'accounting.transactions.read',
+  'accounting.transactions.create',
+  'accounting.contacts.read',
+  'accounting.contacts.create',
+  'accounting.settings.read',
 ].join(' ');
 
 export async function GET(request: NextRequest) {
