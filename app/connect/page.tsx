@@ -14,14 +14,15 @@ export default function ConnectPage({ searchParams }: ConnectPageProps) {
       buttonText: 'Connect Gmail & Calendar',
       href: `/api/connect/auth?token=${token}&service=google`,
     },
-    {
-      id: 'xero',
-      icon: '💼',
-      name: 'Xero',
-      description: 'Let your agent access your Xero account to help with invoicing, payments, and financial admin.',
-      buttonText: 'Connect Xero',
-      href: `/api/connect/xero?token=${token}`,
-    },
+    // Xero coming soon
+    // {
+    //   id: 'xero',
+    //   icon: '💼',
+    //   name: 'Xero',
+    //   description: 'Let your agent access your Xero account to help with invoicing, payments, and financial admin.',
+    //   buttonText: 'Connect Xero',
+    //   href: `/api/connect/xero?token=${token}`,
+    // },
   ];
 
   return (
