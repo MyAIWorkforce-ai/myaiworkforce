@@ -7,18 +7,18 @@
 /* ── Light mode (default) ── */
 :root,
 .light {
-  --yellow: #FFD700;
+  --yellow: #c9a84c;
   --red: #E63946;
-  --bg: #FFFFFF;
-  --bg-section: #F8F8F8;
+  --bg: #ffffff;
+  --bg-section: #f4f6fa;
   --card: #FFFFFF;
   --border: #E8E8E8;
   --muted: #666666;
-  --text: #111111;
+  --text: #1a1a2e;
   --text-dim: #555555;
   --text-dimmer: #999999;
-  --nav-bg: rgba(255, 255, 255, 0.92);
-  --nav-border: #E8E8E8;
+  --nav-bg: rgba(26, 26, 46, 0.97);
+  --nav-border: #2a2a4e;
   --scrollbar-track: #F5F5F5;
   --scrollbar-thumb: #CCCCCC;
   --hero-gradient: radial-gradient(ellipse 100% 60% at 50% 0%, rgba(255,215,0,0.06) 0%, transparent 65%);
@@ -34,12 +34,12 @@
 
 /* ── Dark mode ── */
 .dark {
-  --yellow: #FFD700;
+  --yellow: #c9a84c;
   --red: #E63946;
-  --bg: #0A0A0A;
-  --bg-section: #0D0D0D;
-  --card: #111111;
-  --border: #222222;
+  --bg: #0f0f1e;
+  --bg-section: #13132a;
+  --card: #1a1a2e;
+  --border: #2a2a4e;
   --muted: #888888;
   --text: #ffffff;
   --text-dim: #888888;

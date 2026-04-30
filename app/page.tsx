@@ -81,7 +81,7 @@ function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}>
-          <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+          <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
@@ -100,7 +100,7 @@ function Nav() {
           <Link
             href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
-            style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+            style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
           >
             Book a Free Call
           </Link>
@@ -141,7 +141,7 @@ function Nav() {
             <Link
               href="/contact"
               className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
-              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+              style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
               onClick={() => setOpen(false)}
             >
               Book a Free Call
@@ -161,7 +161,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></div>
+            <div className="text-xl font-bold mb-2" style={{ color: "#c9a84c" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
@@ -230,9 +230,9 @@ function Hero() {
       <div className="relative max-w-4xl mx-auto">
         <div
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-8"
-          style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.25)" }}
+          style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.25)" }}
         >
-          <span style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "#FFD700", display: "inline-block" }}></span>
+          <span style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "#c9a84c", display: "inline-block" }}></span>
           AI Workforce Platform — Built for Business Owners
         </div>
         <h1
@@ -249,7 +249,7 @@ function Hero() {
           <Link
             href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
             className="px-8 py-4 rounded-xl text-lg font-bold text-center text-black glow-yellow"
-            style={{ backgroundColor: "#FFD700" }}
+            style={{ backgroundColor: "#c9a84c" }}
           >
             Start Automating Today →
           </Link>
@@ -262,7 +262,7 @@ function Hero() {
           </Link>
         </div>
         <div className="mt-8">
-          <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
+          <span style={{ border: "2px dashed #c9a84c", color: "#c9a84c", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
             🏷️ First client this month gets 20% off — Book now
           </span>
         </div>
@@ -284,9 +284,9 @@ function StatsBar() {
     <section style={{ backgroundColor: "var(--bg-section)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((s, i) => (
-          <div key={i} className="text-center p-6 rounded-xl stat-card" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", borderTop: "2px solid rgba(255,215,0,0.3)" }}>
+          <div key={i} className="text-center p-6 rounded-xl stat-card" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", borderTop: "2px solid rgba(201,168,76,0.3)" }}>
             <div className="text-2xl mb-1">{s.icon}</div>
-            <div className="text-3xl md:text-4xl font-extrabold mb-1" style={{ color: "#FFD700", letterSpacing: "-0.03em" }}>{s.value}</div>
+            <div className="text-3xl md:text-4xl font-extrabold mb-1" style={{ color: "#c9a84c", letterSpacing: "-0.03em" }}>{s.value}</div>
             <div className="text-sm font-medium" style={{ color: "var(--muted)" }}>{s.label}</div>
           </div>
         ))}
@@ -346,8 +346,8 @@ function ThreePillars() {
               key={i}
               className="p-8 rounded-2xl flex flex-col card-hover"
               style={{
-                backgroundColor: p.highlight ? "rgba(255,215,0,0.05)" : "var(--card)",
-                border: p.highlight ? "2px solid #FFD700" : "1px solid var(--border)",
+                backgroundColor: p.highlight ? "rgba(201,168,76,0.05)" : "var(--card)",
+                border: p.highlight ? "2px solid #c9a84c" : "1px solid var(--border)",
               }}
             >
               <div className="text-4xl mb-4">{p.icon}</div>
@@ -357,7 +357,7 @@ function ThreePillars() {
               <Link
                 href={p.href}
                 className="text-sm font-bold transition-colors"
-                style={{ color: p.highlight ? "#FFD700" : "var(--text-dim)" }}
+                style={{ color: p.highlight ? "#c9a84c" : "var(--text-dim)" }}
               >
                 {p.cta}
               </Link>
@@ -409,8 +409,8 @@ function HowItWorks() {
               className="relative p-8 rounded-2xl card-hover"
               style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}
             >
-              <div className="flex items-center justify-center w-14 h-14 rounded-full text-2xl mb-4" style={{ backgroundColor: "rgba(255,215,0,0.15)", border: "2px solid rgba(255,215,0,0.3)" }}>{s.icon}</div>
-              <div className="text-5xl font-extrabold mb-4" style={{ color: "rgba(255,215,0,0.15)", letterSpacing: "-0.04em" }}>{s.num}</div>
+              <div className="flex items-center justify-center w-14 h-14 rounded-full text-2xl mb-4" style={{ backgroundColor: "rgba(201,168,76,0.15)", border: "2px solid rgba(201,168,76,0.3)" }}>{s.icon}</div>
+              <div className="text-5xl font-extrabold mb-4" style={{ color: "rgba(201,168,76,0.15)", letterSpacing: "-0.04em" }}>{s.num}</div>
               <h3 className="text-xl font-bold mb-3">{s.title}</h3>
               <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>{s.desc}</p>
               {i < steps.length - 1 && (
@@ -423,7 +423,7 @@ function HowItWorks() {
           <Link
             href="/contact"
             className="px-8 py-4 rounded-xl text-lg font-bold text-black inline-block glow-yellow"
-            style={{ backgroundColor: "#FFD700" }}
+            style={{ backgroundColor: "#c9a84c" }}
           >
             Start Your Free Discovery Call →
           </Link>
@@ -470,13 +470,13 @@ function SecuritySection() {
   ];
   return (
     <section className="py-24 px-6" style={{ position: "relative" }}>
-      <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,215,0,0.06) 1px, transparent 1px)", backgroundSize: "24px 24px", pointerEvents: "none", zIndex: 0 }} />
+      <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(201,168,76,0.06) 1px, transparent 1px)", backgroundSize: "24px 24px", pointerEvents: "none", zIndex: 0 }} />
       <div className="max-w-7xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
         <div className="text-center mb-16">
           <p className="section-label justify-center mb-4">Security First</p>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
             Enterprise-Grade Security.<br />
-            <span style={{ color: "#FFD700" }}>Built In From Day One.</span>
+            <span style={{ color: "#c9a84c" }}>Built In From Day One.</span>
           </h2>
           <p className="max-w-2xl mx-auto" style={{ color: "var(--muted)" }}>
             We know you're trusting us with sensitive business data. Security isn't an add-on — it's the foundation every deployment is built on.
@@ -497,9 +497,9 @@ function SecuritySection() {
         </div>
         <div
           className="mt-10 p-6 rounded-xl text-center"
-          style={{ backgroundColor: "rgba(255,215,0,0.05)", border: "1px solid rgba(255,215,0,0.2)" }}
+          style={{ backgroundColor: "rgba(201,168,76,0.05)", border: "1px solid rgba(201,168,76,0.2)" }}
         >
-          <p className="font-semibold" style={{ color: "#FFD700" }}>
+          <p className="font-semibold" style={{ color: "#c9a84c" }}>
             🛡️ Every Done-For-You deployment includes a private VPS, encrypted communications, and full audit logging — at no extra cost.
           </p>
         </div>
@@ -512,7 +512,7 @@ function SecuritySection() {
 
 function SectionDivider() {
   return (
-    <div style={{ height: 2, background: "linear-gradient(to right, transparent, #F97316 30%, #FFD700 50%, #F97316 70%, transparent)", opacity: 0.4 }} />
+    <div style={{ height: 2, background: "linear-gradient(to right, transparent, #c9a84c 30%, #c9a84c 50%, #c9a84c 70%, transparent)", opacity: 0.4 }} />
   );
 }
 
@@ -534,8 +534,8 @@ function FeaturedAgents() {
     {
       name: "Social Media Scheduler",
       category: "Marketing",
-      categoryColor: "#FFD700",
-      categoryBg: "rgba(255,215,0,0.12)",
+      categoryColor: "#c9a84c",
+      categoryBg: "rgba(201,168,76,0.12)",
       desc: "Plans, writes, and schedules posts across LinkedIn, Twitter, and Instagram using your brand voice and content calendar.",
       price: "$29/mo",
       rating: 5,
@@ -567,7 +567,7 @@ function FeaturedAgents() {
   ];
 
   return (
-    <section className="py-24 px-6 relative" style={{ backgroundColor: "var(--bg-section)", backgroundImage: "radial-gradient(circle, rgba(255,215,0,0.04) 1px, transparent 1px)", backgroundSize: "28px 28px" }}>
+    <section className="py-24 px-6 relative" style={{ backgroundColor: "var(--bg-section)", backgroundImage: "radial-gradient(circle, rgba(201,168,76,0.04) 1px, transparent 1px)", backgroundSize: "28px 28px" }}>
       <div className="max-w-7xl mx-auto">
         <p className="section-label justify-center mb-4">Marketplace</p>
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.03em" }}>
@@ -577,7 +577,7 @@ function FeaturedAgents() {
           500+ ready-made AI agents. Deploy in minutes. No technical setup required.
         </p>
         <div className="flex justify-center mb-12">
-          <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
+          <span style={{ border: "2px dashed #c9a84c", color: "#c9a84c", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
             🏷️ 500+ agents — new ones added weekly
           </span>
         </div>
@@ -595,13 +595,13 @@ function FeaturedAgents() {
                 >
                   {a.category}
                 </span>
-                <span className="text-sm font-bold" style={{ color: "#FFD700" }}>{a.price}</span>
+                <span className="text-sm font-bold" style={{ color: "#c9a84c" }}>{a.price}</span>
               </div>
               <h3 className="font-bold mb-2">{a.name}</h3>
               <p className="text-xs mb-4 flex-1" style={{ color: "var(--muted)", lineHeight: "1.6" }}>{a.desc}</p>
               <div className="flex items-center gap-1 mb-4">
                 {Array.from({ length: 5 }).map((_, j) => (
-                  <span key={j} style={{ color: j < a.rating ? "#FFD700" : "var(--border)", fontSize: "12px" }}>★</span>
+                  <span key={j} style={{ color: j < a.rating ? "#c9a84c" : "var(--border)", fontSize: "12px" }}>★</span>
                 ))}
                 <span className="text-xs ml-1" style={{ color: "var(--muted)" }}>({a.reviews})</span>
               </div>
@@ -619,7 +619,7 @@ function FeaturedAgents() {
           <Link
             href="/marketplace"
             className="px-8 py-4 rounded-xl font-bold text-black inline-block"
-            style={{ backgroundColor: "#FFD700" }}
+            style={{ backgroundColor: "#c9a84c" }}
           >
             Browse All 500+ Agents →
           </Link>
@@ -668,7 +668,7 @@ function Testimonials() {
             >
               <div className="flex mb-4">
                 {Array.from({ length: 5 }).map((_, j) => (
-                  <span key={j} style={{ color: "#FFD700" }}>★</span>
+                  <span key={j} style={{ color: "#c9a84c" }}>★</span>
                 ))}
               </div>
               <p className="text-sm mb-6 flex-1" style={{ color: "var(--text-dim)", lineHeight: "1.7", fontStyle: "italic" }}>
@@ -677,7 +677,7 @@ function Testimonials() {
               <div className="flex items-center gap-3">
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
-                  style={{ backgroundColor: "#FFD700", color: "#0A0A0A", boxShadow: "0 0 0 3px rgba(255,215,0,0.2)" }}
+                  style={{ backgroundColor: "#c9a84c", color: "#0A0A0A", boxShadow: "0 0 0 3px rgba(201,168,76,0.2)" }}
                 >
                   {t.initials}
                 </div>
@@ -704,20 +704,20 @@ function PricingTeaser() {
           <div>
             <p className="section-label mb-4">Pricing</p>
             <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
-              Plans from<br /><span style={{ color: "#FFD700" }}>$997/mo</span>
+              Plans from<br /><span style={{ color: "#c9a84c" }}>$997/mo</span>
             </h2>
             <p className="mb-6" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
               No hidden fees. No long-term lock-in. Cancel any time with 30 days notice. Every plan includes dedicated deployment, ongoing management, and monthly performance reports.
             </p>
             <div className="mb-6">
-              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
+              <span style={{ border: "2px dashed #c9a84c", color: "#c9a84c", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
                 🏷️ No lock-in contracts — cancel anytime
               </span>
             </div>
             <Link
               href="/pricing"
               className="px-8 py-4 rounded-xl font-bold text-black inline-block"
-              style={{ backgroundColor: "#FFD700" }}
+              style={{ backgroundColor: "#c9a84c" }}
             >
               See All Plans →
             </Link>
@@ -732,15 +732,15 @@ function PricingTeaser() {
                 key={i}
                 className="p-5 rounded-xl flex items-center justify-between"
                 style={{
-                  backgroundColor: plan.highlight ? "rgba(255,215,0,0.08)" : "var(--card)",
-                  border: plan.highlight ? "2px solid #FFD700" : "1px solid var(--border)",
+                  backgroundColor: plan.highlight ? "rgba(201,168,76,0.08)" : "var(--card)",
+                  border: plan.highlight ? "2px solid #c9a84c" : "1px solid var(--border)",
                 }}
               >
                 <div>
                   <div className="font-bold">{plan.name}</div>
                   <div className="text-sm" style={{ color: "var(--muted)" }}>{plan.agents}</div>
                 </div>
-                <div className="font-extrabold text-lg" style={{ color: plan.highlight ? "#FFD700" : "var(--text)" }}>
+                <div className="font-extrabold text-lg" style={{ color: plan.highlight ? "#c9a84c" : "var(--text)" }}>
                   {plan.price}
                 </div>
               </div>
@@ -776,7 +776,7 @@ function CTABanner() {
             <Link
               href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
               className="px-8 py-4 rounded-xl text-lg font-bold text-black glow-yellow"
-              style={{ backgroundColor: "#FFD700" }}
+              style={{ backgroundColor: "#c9a84c" }}
             >
               Book a Free Call →
             </Link>
