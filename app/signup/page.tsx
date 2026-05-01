@@ -57,17 +57,17 @@ export default function SignupPage() {
 
   if (step === 'choose') {
     return (
-      <div className="min-h-screen flex items-center justify-center px-6 py-12" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
+      <div className="min-h-screen flex items-center justify-center px-6 py-12" style={{ backgroundColor: "#1a1a2e", color: "#ffffff" }}>
         <div className="w-full max-w-sm">
           <div className="text-center mb-8">
             <Link href="/" className="text-2xl font-extrabold" style={{ letterSpacing: "-0.02em" }}>
-              <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+              <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
             </Link>
             <p className="mt-2 text-sm font-semibold" style={{ color: "#22c55e" }}>✅ Account created! Welcome aboard.</p>
           </div>
-          <div className="rounded-2xl p-8" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+          <div className="rounded-2xl p-8" style={{ backgroundColor: "#ffffff", border: "1px solid #dde3f0" }}>
             <h2 className="text-xl font-extrabold text-center mb-2">What would you like to do?</h2>
-            <p className="text-sm text-center mb-6" style={{ color: "var(--muted)" }}>You can do both — this just gets you started.</p>
+            <p className="text-sm text-center mb-6" style={{ color: "#777777" }}>You can do both — this just gets you started.</p>
             <div className="flex flex-col gap-4">
               <button
                 onClick={() => router.push('/marketplace')}
@@ -75,22 +75,22 @@ export default function SignupPage() {
                 style={{ backgroundColor: "var(--bg)", border: "2px solid var(--yellow)" }}
               >
                 <div className="text-2xl mb-2">🛒</div>
-                <div className="font-bold mb-1" style={{ color: "#FFD700" }}>Buy Agents & Skills</div>
-                <div className="text-sm" style={{ color: "var(--muted)" }}>Browse 500+ ready-made AI agents and skill files for your business.</div>
+                <div className="font-bold mb-1" style={{ color: "#c9a84c" }}>Buy Agents & Skills</div>
+                <div className="text-sm" style={{ color: "#777777" }}>Browse 500+ ready-made AI agents and skill files for your business.</div>
               </button>
               <button
                 onClick={() => router.push('/creator')}
                 className="w-full p-5 rounded-xl text-left transition-all card-hover"
-                style={{ backgroundColor: "var(--bg)", border: "2px solid #F97316" }}
+                style={{ backgroundColor: "var(--bg)", border: "2px solid #c9a84c" }}
               >
                 <div className="text-2xl mb-2">💰</div>
-                <div className="font-bold mb-1" style={{ color: "#F97316" }}>Sell Agents & Skills</div>
-                <div className="text-sm" style={{ color: "var(--muted)" }}>List your AI agents, skills, prompt packs and earn 75% on every sale.</div>
+                <div className="font-bold mb-1" style={{ color: "#c9a84c" }}>Sell Agents & Skills</div>
+                <div className="text-sm" style={{ color: "#777777" }}>List your AI agents, skills, prompt packs and earn 75% on every sale.</div>
               </button>
               <button
                 onClick={() => router.push('/dashboard')}
                 className="text-sm text-center mt-2"
-                style={{ color: "var(--muted)" }}
+                style={{ color: "#777777" }}
               >
                 Go to my dashboard →
               </button>
@@ -102,15 +102,15 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 py-12" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
+    <div className="min-h-screen flex items-center justify-center px-6 py-12" style={{ backgroundColor: "#1a1a2e", color: "#ffffff" }}>
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <Link href="/" className="text-2xl font-extrabold" style={{ letterSpacing: "-0.02em" }}>
-            <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+            <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
           </Link>
-          <p className="mt-2 text-sm" style={{ color: "var(--text-dim)" }}>Create your free account to buy and sell AI agents and skills</p>
+          <p className="mt-2 text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>Create your free account to buy and sell AI agents and skills</p>
         </div>
-        <div className="rounded-2xl p-8" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+        <div className="rounded-2xl p-8" style={{ backgroundColor: "#ffffff", border: "1px solid #dde3f0" }}>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             {[
               { label: "Full Name", key: "name", type: "text", placeholder: "John Smith" },
@@ -118,22 +118,22 @@ export default function SignupPage() {
               { label: "Password", key: "password", type: "password", placeholder: "Min. 8 characters" },
             ].map(field => (
               <div key={field.key}>
-                <label className="block text-sm font-medium mb-1.5">{field.label}</label>
+                <label className="block text-sm font-medium mb-1.5" style={{ color: "#1a1a2e" }}>{field.label}</label>
                 <input type={field.type} required placeholder={field.placeholder}
                   value={form[field.key as keyof typeof form]}
                   onChange={e => setForm({ ...form, [field.key]: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
-                  style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }} />
+                  style={{ backgroundColor: "#ffffff", border: "1px solid #dde3f0", color: "#1a1a2e" }} />
               </div>
             ))}
             <div>
-              <label className="block text-sm font-medium mb-1.5">Country</label>
+              <label className="block text-sm font-medium mb-1.5" style={{ color: "#1a1a2e" }}>Country</label>
               <select
                 required
                 value={form.country}
                 onChange={e => setForm({ ...form, country: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
-                style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: form.country ? "var(--text)" : "var(--text-dim)" }}
+                style={{ backgroundColor: "#ffffff", border: "1px solid #dde3f0", color: form.country ? "var(--text)" : "var(--text-dim)" }}
               >
                 <option value="" disabled>Select your country</option>
                 {COUNTRIES.map(c => (
@@ -149,12 +149,12 @@ export default function SignupPage() {
               {loading ? "Creating account..." : success ? "Success! ✅" : "Create Free Account →"}
             </button>
           </form>
-          <p className="text-xs text-center mt-4" style={{ color: "var(--text-dim)" }}>
+          <p className="text-xs text-center mt-4" style={{ color: "#555555" }}>
             By signing up you agree to our{" "}
             <Link href="/terms" style={{ color: "var(--yellow)" }}>Terms</Link> and{" "}
             <Link href="/privacy" style={{ color: "var(--yellow)" }}>Privacy Policy</Link>
           </p>
-          <div className="mt-6 pt-6 border-t text-center text-sm" style={{ borderColor: "var(--border)", color: "var(--text-dim)" }}>
+          <div className="mt-6 pt-6 border-t text-center text-sm" style={{ borderColor: "var(--border)", color: "#555555" }}>
             Already have an account?{" "}
             <Link href="/login" style={{ color: "var(--yellow)" }}>Sign in</Link>
           </div>

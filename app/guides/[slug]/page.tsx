@@ -438,14 +438,14 @@ function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}>
-          <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+          <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
           {[
-            { label: "Marketplace", href: "/marketplace" },
-            { label: "Guides", href: "/guides" },
-            { label: "Done-For-You", href: "/done-for-you" },
-            { label: "Pricing", href: "/pricing" },
+            { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
+            
             { label: "About", href: "/about" },
             { label: "Blog", href: "/blog" },
           ].map((link) => (
@@ -460,11 +460,11 @@ function Nav() {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <a href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "var(--text-dim)", border: "1px solid var(--border)" }}>Login</a>
+          <a href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}>Login</a>
           <a
-            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
-            style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+            style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
           >
             Book a Free Call
           </a>
@@ -484,14 +484,14 @@ function Nav() {
       {open && (
         <div
           className="md:hidden border-t mobile-menu"
-          style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--mobile-menu-bg)" }}
+          style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}
         >
           <div className="px-6 py-4 flex flex-col gap-4">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
-              { label: "Pricing", href: "/pricing" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
+              
               { label: "About", href: "/about" },
               { label: "Blog", href: "/blog" },
             ].map((link) => (
@@ -499,7 +499,7 @@ function Nav() {
                 key={link.label}
                 href={link.href}
                 className="text-sm font-medium transition-colors"
-                style={{ color: "var(--text-dim)" }}
+                style={{ color: "rgba(255,255,255,0.88)" }}
                 onClick={() => setOpen(false)}
               >
                 {link.label}
@@ -508,7 +508,7 @@ function Nav() {
             <a
               href="/contact"
               className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
-              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+              style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
               onClick={() => setOpen(false)}
             >
               Book a Free Call
@@ -524,7 +524,7 @@ function Footer() {
   return (
     <footer className="border-t py-10 mt-20" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--bg)" }}>
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <span className="font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></span>
+        <span className="font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></span>
         <p className="text-sm" style={{ color: "var(--text-dim)" }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
         <div className="flex gap-6 text-sm">
           <Link href="/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
@@ -583,7 +583,7 @@ function GuideBuyButton({ guide }: { guide: Guide & { difficulty: string; title:
         onClick={handleBuy}
         disabled={loading}
         className="inline-block px-12 py-4 rounded-xl font-extrabold text-lg glow-yellow"
-        style={{ backgroundColor: "#FFD700", color: "#0A0A0A", opacity: loading ? 0.7 : 1, cursor: loading ? 'wait' : 'pointer' }}
+        style={{ backgroundColor: "#c9a84c", color: "#0A0A0A", opacity: loading ? 0.7 : 1, cursor: loading ? 'wait' : 'pointer' }}
       >
         {loading ? 'Redirecting to checkout…' : `Buy Now — ${convertPrice(price, userCountry)} →`}
       </button>
@@ -611,14 +611,14 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
             </div>
             {/* Meta badges */}
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="text-xs px-3 py-1 rounded-full font-medium" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.3)" }}>
+              <span className="text-xs px-3 py-1 rounded-full font-medium" style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "var(--yellow)", border: "1px solid rgba(201,168,76,0.3)" }}>
                 {guide.category}
               </span>
               <span className="text-xs font-semibold" style={{ color: difficultyColors[guide.difficulty] }}>
                 {guide.difficulty}
               </span>
               <span className="text-xs" style={{ color: "var(--text-dim)" }}>📖 {guide.readTime} read</span>
-              <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: "rgba(255,215,0,0.15)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.4)" }}>
+              <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: "rgba(201,168,76,0.15)", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.4)" }}>
                 ${guidePrices[guide.difficulty]} one-time
               </span>
             </div>
@@ -662,7 +662,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
                   <div className="shrink-0 flex flex-col items-center">
                     <div
                       className="w-12 h-12 rounded-full flex items-center justify-center text-base font-extrabold"
-                      style={{ backgroundColor: "#FFD700", color: "#0A0A0A", border: "2px solid rgba(255,215,0,0.6)", boxShadow: "0 0 0 4px rgba(255,215,0,0.15)", flexShrink: 0 }}
+                      style={{ backgroundColor: "#c9a84c", color: "#0A0A0A", border: "2px solid rgba(201,168,76,0.6)", boxShadow: "0 0 0 4px rgba(201,168,76,0.15)", flexShrink: 0 }}
                     >
                       {i + 1}
                     </div>
@@ -685,11 +685,11 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
           <section className="mb-14">
             <div
               className="rounded-xl p-6"
-              style={{ backgroundColor: "rgba(255,215,0,0.06)", border: "1px solid rgba(255,215,0,0.3)" }}
+              style={{ backgroundColor: "rgba(201,168,76,0.06)", border: "1px solid rgba(201,168,76,0.3)" }}
             >
               <div className="flex items-center gap-2 mb-3">
                 <span style={{ fontSize: "2rem" }}>💡</span>
-                <span className="text-base font-bold" style={{ color: "#FFD700" }}>Pro Tip</span>
+                <span className="text-base font-bold" style={{ color: "#c9a84c" }}>Pro Tip</span>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: "var(--text-dim)", lineHeight: "1.75" }}>
                 {guide.tip}
@@ -700,13 +700,13 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
           {/* Buy Now CTA */}
           <section
             className="rounded-2xl p-10 text-center mb-8"
-            style={{ backgroundColor: "rgba(255,215,0,0.06)", border: "2px solid rgba(255,215,0,0.4)", boxShadow: "0 0 60px rgba(255,215,0,0.08)" }}
+            style={{ backgroundColor: "rgba(201,168,76,0.06)", border: "2px solid rgba(201,168,76,0.4)", boxShadow: "0 0 60px rgba(201,168,76,0.08)" }}
           >
             <p className="text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "var(--muted)" }}>Get Full Access</p>
             <h2 className="text-3xl font-extrabold mb-2" style={{ letterSpacing: "-0.02em" }}>
               Get the Full Guide
             </h2>
-            <p className="text-5xl font-extrabold mb-1" style={{ color: "#FFD700", letterSpacing: "-0.03em" }}>
+            <p className="text-5xl font-extrabold mb-1" style={{ color: "#c9a84c", letterSpacing: "-0.03em" }}>
               ${guidePrices[guide.difficulty]}
             </p>
             <p className="text-sm mb-8 max-w-md mx-auto" style={{ color: "var(--text-dim)" }}>
@@ -730,7 +730,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
             <Link
               href="/marketplace"
               className="inline-block px-8 py-3 rounded-xl font-bold text-sm"
-              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+              style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
             >
               Browse the Marketplace →
             </Link>

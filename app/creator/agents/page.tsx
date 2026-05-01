@@ -5,10 +5,10 @@ import Link from "next/link";
 function Nav() {
   const [open, setOpen] = useState(false);
   const links = [
-    { label: "Marketplace", href: "/marketplace" },
-    { label: "Guides", href: "/guides" },
-    { label: "Done-For-You", href: "/done-for-you" },
-    { label: "Pricing", href: "/pricing" },
+    { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
+    
     { label: "About", href: "/about" },
     { label: "Blog", href: "/blog" },
   ];
@@ -16,7 +16,7 @@ function Nav() {
     <header className="sticky top-0 z-50 backdrop-blur-md" style={{ backgroundColor: "var(--nav-bg)", borderBottom: "1px solid var(--nav-border)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}>
-          <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+          <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
@@ -24,17 +24,18 @@ function Nav() {
           ))}
         </div>
         <div className="hidden md:flex items-center gap-3">
-          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "var(--text-dim)", border: "1px solid var(--border)" }}>Login</Link>
-          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
+          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}>Login</Link>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden">
           <button onClick={() => setOpen(!open)} style={{ color: "var(--text-dim)" }}>☰</button>
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t px-6 py-4 flex flex-col gap-4" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
+        <div className="md:hidden border-t px-6 py-4 flex flex-col gap-4" style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}>
           {links.map((link) => (
-            <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
+            <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.88)" }}
+                onClick={() => setOpen(false)}>{link.label}</Link>
           ))}
         </div>
       )}
@@ -86,9 +87,9 @@ export default function SellAgentsPage() {
         <Nav />
         <div className="max-w-2xl mx-auto px-6 py-32 text-center">
           <div className="text-6xl mb-6">🎉</div>
-          <h1 className="text-3xl font-extrabold mb-4" style={{ color: "#FFD700" }}>Agent Submitted!</h1>
+          <h1 className="text-3xl font-extrabold mb-4" style={{ color: "#c9a84c" }}>Agent Submitted!</h1>
           <p className="text-lg mb-8" style={{ color: "var(--muted)" }}>Thanks for submitting your AI agent. We'll review it within 48 hours and email you when it's approved and live on the marketplace.</p>
-          <Link href="/marketplace" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Browse the Marketplace →</Link>
+          <Link href="/marketplace" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>Browse the Marketplace →</Link>
         </div>
       </div>
     );
@@ -100,9 +101,9 @@ export default function SellAgentsPage() {
       <main className="max-w-3xl mx-auto px-6 py-16">
         {/* Hero */}
         <div className="text-center mb-12">
-          <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>🤖 Sell Your AI Agents</div>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>List Your <span style={{ color: "#FFD700" }}>AI Agent</span></h1>
-          <p style={{ color: "var(--muted)" }}>Submit a fully built AI agent — OpenClaw configs, SOUL.md, AGENTS.md, deployment scripts. You earn <strong style={{ color: "#FFD700" }}>75%</strong> of every sale.</p>
+          <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4" style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.3)" }}>🤖 Sell Your AI Agents</div>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>List Your <span style={{ color: "#c9a84c" }}>AI Agent</span></h1>
+          <p style={{ color: "var(--muted)" }}>Submit a fully built AI agent — OpenClaw configs, SOUL.md, AGENTS.md, deployment scripts. You earn <strong style={{ color: "#c9a84c" }}>75%</strong> of every sale.</p>
           <div className="flex justify-center gap-4 mt-4 text-sm" style={{ color: "var(--muted)" }}>
             <span>🤖 Agents &amp; configs</span>
             <span>⚙️ OpenClaw compatible</span>
@@ -113,7 +114,7 @@ export default function SellAgentsPage() {
         {/* Form */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="p-8 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-            <h2 className="text-xl font-bold mb-6" style={{ color: "#FFD700" }}>Agent Details</h2>
+            <h2 className="text-xl font-bold mb-6" style={{ color: "#c9a84c" }}>Agent Details</h2>
             <div className="flex flex-col gap-4">
               <div>
                 <label className="block text-sm font-medium mb-2" style={{ color: "var(--muted)" }}>Agent Name *</label>
@@ -156,7 +157,7 @@ export default function SellAgentsPage() {
           </div>
 
           <div className="p-8 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-            <h2 className="text-xl font-bold mb-6" style={{ color: "#FFD700" }}>Payout Details</h2>
+            <h2 className="text-xl font-bold mb-6" style={{ color: "#c9a84c" }}>Payout Details</h2>
             <div className="flex flex-col gap-4">
               <div>
                 <label className="block text-sm font-medium mb-2" style={{ color: "var(--muted)" }}>Your Email *</label>
@@ -172,22 +173,22 @@ export default function SellAgentsPage() {
                 <input name="paypal_email" type="email" placeholder="paypal@example.com" className="w-full px-4 py-3 rounded-lg text-sm outline-none" style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }} />
               </div>
               <div className="p-4 rounded-xl" style={{ backgroundColor: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.3)" }}>
-                <p className="text-sm" style={{ color: "#F97316" }}>💰 You earn <strong>75%</strong> of every sale. My AI Workforce retains 25% as a platform fee. Payouts processed within 7 days of each sale.</p>
+                <p className="text-sm" style={{ color: "#c9a84c" }}>💰 You earn <strong>75%</strong> of every sale. My AI Workforce retains 25% as a platform fee. Payouts processed within 7 days of each sale.</p>
               </div>
               <label className="flex items-start gap-3 cursor-pointer">
                 <input type="checkbox" required className="mt-1 w-4 h-4" />
-                <span className="text-sm" style={{ color: "var(--muted)" }}>I agree to the 75/25 revenue split and <Link href="/terms" style={{ color: "#FFD700" }}>marketplace terms</Link>. I confirm this agent is my original work.</span>
+                <span className="text-sm" style={{ color: "var(--muted)" }}>I agree to the 75/25 revenue split and <Link href="/terms" style={{ color: "#c9a84c" }}>marketplace terms</Link>. I confirm this agent is my original work.</span>
               </label>
             </div>
           </div>
 
-          <button type="submit" disabled={loading} className="w-full py-4 rounded-xl font-bold text-lg glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>
+          <button type="submit" disabled={loading} className="w-full py-4 rounded-xl font-bold text-lg glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>
             {loading ? "Submitting..." : "Submit Agent for Review →"}
           </button>
         </form>
 
         <p className="text-center text-sm mt-6" style={{ color: "var(--muted)" }}>
-          Want to sell skills instead? <Link href="/creator/skills" style={{ color: "#FFD700" }}>Submit a skill →</Link>
+          Want to sell skills instead? <Link href="/creator/skills" style={{ color: "#c9a84c" }}>Submit a skill →</Link>
         </p>
       </main>
     </div>

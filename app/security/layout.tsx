@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Security & Privacy | MyAIWorkforce.ai',
-  description: 'Your data stays on your private server. End-to-end encrypted, human oversight, audit logs. Enterprise-grade security for every Done-For-You client.',
+  description: 'Your data stays on your private server. End-to-end encrypted, human oversight, audit logs. Enterprise-grade security for every Build My Agent client.',
   keywords: ['AI security', 'AI privacy', 'secure AI agents', 'private AI workforce', 'enterprise AI security'],
   openGraph: {
     title: 'Security & Privacy | MyAIWorkforce.ai',
-    description: 'Your data stays on your private server. End-to-end encrypted, human oversight, audit logs. Enterprise-grade security for every Done-For-You client.',
+    description: 'Your data stays on your private server. End-to-end encrypted, human oversight, audit logs. Enterprise-grade security for every Build My Agent client.',
     url: 'https://MyAIWorkforce.ai/security',
     siteName: 'My AI Workforce',
     type: 'website',

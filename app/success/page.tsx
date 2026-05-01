@@ -20,7 +20,7 @@ export default function SuccessPage() {
         style={{
           maxWidth: 480,
           backgroundColor: "var(--card)",
-          border: "2px solid rgba(255,215,0,0.4)",
+          border: "2px solid rgba(201,168,76,0.4)",
           borderRadius: "1.5rem",
           padding: "3rem 2rem",
         }}
@@ -32,7 +32,7 @@ export default function SuccessPage() {
             fontWeight: 800,
             letterSpacing: "-0.03em",
             marginBottom: "0.75rem",
-            color: "#FFD700",
+            color: "#c9a84c",
           }}
         >
           Payment Successful!
@@ -52,7 +52,7 @@ export default function SuccessPage() {
           style={{
             display: "inline-block",
             padding: "0.875rem 2rem",
-            backgroundColor: "#FFD700",
+            backgroundColor: "#c9a84c",
             color: "#0A0A0A",
             borderRadius: "0.75rem",
             fontWeight: 700,

@@ -87,14 +87,14 @@ function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}>
-          <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+          <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
           {[
-            { label: "Marketplace", href: "/marketplace" },
-            { label: "Guides", href: "/guides" },
-            { label: "Done-For-You", href: "/done-for-you" },
-            { label: "Pricing", href: "/pricing" },
+            { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
+            
             { label: "About", href: "/about" },
             { label: "Blog", href: "/blog" },
           ].map((link) => (
@@ -109,11 +109,11 @@ function Nav() {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <a href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "var(--text-dim)", border: "1px solid var(--border)" }}>Login</a>
+          <a href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}>Login</a>
           <a
-            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
-            style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+            style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
           >
             Book a Free Call
           </a>
@@ -133,14 +133,14 @@ function Nav() {
       {open && (
         <div
           className="md:hidden border-t mobile-menu"
-          style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--mobile-menu-bg)" }}
+          style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}
         >
           <div className="px-6 py-4 flex flex-col gap-4">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
-              { label: "Pricing", href: "/pricing" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
+              
               { label: "About", href: "/about" },
               { label: "Blog", href: "/blog" },
             ].map((link) => (
@@ -148,7 +148,7 @@ function Nav() {
                 key={link.label}
                 href={link.href}
                 className="text-sm font-medium transition-colors"
-                style={{ color: "var(--text-dim)" }}
+                style={{ color: "rgba(255,255,255,0.88)" }}
                 onClick={() => setOpen(false)}
               >
                 {link.label}
@@ -157,7 +157,7 @@ function Nav() {
             <a
               href="/contact"
               className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
-              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+              style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
               onClick={() => setOpen(false)}
             >
               Book a Free Call
@@ -173,7 +173,7 @@ function Footer() {
   return (
     <footer className="border-t py-10 mt-20" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--bg)" }}>
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <span className="font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></span>
+        <span className="font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></span>
         <p className="text-sm" style={{ color: "var(--text-dim)" }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
         <div className="flex gap-6 text-sm">
           <Link href="/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
@@ -214,10 +214,10 @@ export default function GuidesPage() {
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent, var(--bg-section))", zIndex: 1 }} />
           <div className="max-w-3xl mx-auto" style={{ position: "relative", zIndex: 2 }}>
 
-            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.3)" }}>DIY Guides — From {convertPrice(9, userCountry)}</div>
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "var(--yellow)", border: "1px solid rgba(201,168,76,0.3)" }}>DIY Guides — From {convertPrice(9, userCountry)}</div>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>Build Your Own<br /><span style={{ color: "var(--yellow)" }}>AI Workforce</span></h1>
             <p className="text-lg mb-6" style={{ color: "var(--text-dim)" }}>Step-by-step guides for business owners who want to build powerful AI agents using OpenClaw, n8n, Make, ChatGPT and more — no technical team required.</p>
-            <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block" }}>
+            <span style={{ border: "2px dashed #c9a84c", color: "#c9a84c", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block" }}>
               🏷️ One-time purchase — yours forever
             </span>
           </div>
@@ -245,7 +245,7 @@ export default function GuidesPage() {
               <div key={i} className="rounded-xl p-6 flex flex-col card-hover relative h-full"
                 style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs px-3 py-1 rounded-full font-semibold" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.25)" }}>{guide.category}</span>
+                  <span className="text-xs px-3 py-1 rounded-full font-semibold" style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "var(--yellow)", border: "1px solid rgba(201,168,76,0.25)" }}>{guide.category}</span>
                   <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: `${difficultyColors[guide.difficulty]}18`, color: difficultyColors[guide.difficulty], border: `1px solid ${difficultyColors[guide.difficulty]}40` }}>{guide.difficulty}</span>
                 </div>
                 <h3 className="font-bold text-lg leading-snug mb-2">{guide.title}</h3>
@@ -257,7 +257,7 @@ export default function GuidesPage() {
                 <Link
                   href={`/guides/${guide.slug}`}
                   className="w-full py-2.5 px-4 rounded-lg text-sm font-bold text-center transition-all duration-200 glow-yellow"
-                  style={{ backgroundColor: "#FFD700", color: "#0A0A0A", display: "block" }}
+                  style={{ backgroundColor: "#c9a84c", color: "#0A0A0A", display: "block" }}
                 >
                   Buy Guide — {convertPrice(guide.price, userCountry)} →
                 </Link>

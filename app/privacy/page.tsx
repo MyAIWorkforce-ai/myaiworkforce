@@ -66,14 +66,14 @@ function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}>
-          <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+          <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
           {[
-            { label: "Marketplace", href: "/marketplace" },
-            { label: "Guides", href: "/guides" },
-            { label: "Done-For-You", href: "/done-for-you" },
-            { label: "Pricing", href: "/pricing" },
+            { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
+            
             { label: "About", href: "/about" },
             { label: "Blog", href: "/blog" },
           ].map((link) => (
@@ -81,7 +81,7 @@ function Nav() {
               key={link.label}
               href={link.href}
               className="text-sm font-medium transition-colors duration-200"
-              style={{ color: link.href === "/privacy" ? "#FFD700" : "var(--text-dim)" }}
+              style={{ color: link.href === "/privacy" ? "#c9a84c" : "var(--text-dim)" }}
             >
               {link.label}
             </a>
@@ -90,9 +90,9 @@ function Nav() {
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <a
-            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
-            style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+            style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
           >
             Book a Free Call
           </a>
@@ -112,20 +112,20 @@ function Nav() {
       {open && (
         <div
           className="md:hidden border-t mobile-menu"
-          style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--mobile-menu-bg)" }}
+          style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}
         >
           <div className="px-6 py-4 flex flex-col gap-4">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
               { label: "About", href: "/about" },
             ].map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 className="text-sm font-medium transition-colors"
-                style={{ color: "var(--text-dim)" }}
+                style={{ color: "rgba(255,255,255,0.88)" }}
                 onClick={() => setOpen(false)}
               >
                 {link.label}
@@ -134,7 +134,7 @@ function Nav() {
             <a
               href="/contact"
               className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
-              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+              style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
               onClick={() => setOpen(false)}
             >
               Book a Free Call

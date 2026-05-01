@@ -60,13 +60,13 @@ export default function ReviewPricingPage() {
     <div style={{ backgroundColor: "var(--bg)", color: "var(--text)", minHeight: "100vh", padding: "24px" }}>
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
         <Link href="/internal-domains" style={{ color: "var(--muted)", fontSize: 14 }}>← Back to domains</Link>
-        <h1 style={{ color: "#FFD700", fontSize: "2rem", fontWeight: 900, margin: "20px 0 8px" }}>
+        <h1 style={{ color: "#c9a84c", fontSize: "2rem", fontWeight: 900, margin: "20px 0 8px" }}>
           ⚠️ Review Domains — Set Prices
         </h1>
         <p style={{ color: "var(--muted)", marginBottom: 8 }}>
           {REVIEW_DOMAINS.length} domains need a price increase before going live.
         </p>
-        <p style={{ color: "#F97316", fontSize: 13, marginBottom: 32 }}>
+        <p style={{ color: "#c9a84c", fontSize: 13, marginBottom: 32 }}>
           💡 Enter your new Buy It Now price. Leave blank to keep current price. Hit Confirm to copy list to Discord.
         </p>
 
@@ -80,7 +80,7 @@ export default function ReviewPricingPage() {
               <div>
                 <div style={{ fontWeight: 700 }}>{domain.name}</div>
                 <div style={{ color: "var(--muted)", fontSize: 12, marginTop: 2 }}>
-                  Current: <span style={{ color: "#F97316" }}>${domain.current.toLocaleString()}</span>
+                  Current: <span style={{ color: "#c9a84c" }}>${domain.current.toLocaleString()}</span>
                 </div>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
@@ -102,7 +102,7 @@ export default function ReviewPricingPage() {
 
         <button onClick={handleConfirm} style={{
           width: "100%", padding: "16px", borderRadius: 12, fontSize: 16, fontWeight: 700,
-          backgroundColor: "#FFD700", color: "#0A0A0A", border: "none", cursor: "pointer"
+          backgroundColor: "#c9a84c", color: "#0A0A0A", border: "none", cursor: "pointer"
         }}>
           {copied ? "✅ Copied! Paste to Monty in Discord" : "✅ Confirm Prices — Copy to Clipboard"}
         </button>

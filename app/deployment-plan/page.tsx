@@ -304,7 +304,7 @@ export default function DeploymentPlanPage() {
     <div style={{ backgroundColor: "var(--bg)", color: "var(--text)", minHeight: "100vh", padding: "24px" }}>
       <div style={{ maxWidth: 960, margin: "0 auto" }}>
         <Link href="/internal-domains" style={{ color: "var(--muted)", fontSize: 14 }}>← Back to domains</Link>
-        <h1 style={{ color: "#FFD700", fontSize: "2rem", fontWeight: 900, margin: "20px 0 4px" }}>
+        <h1 style={{ color: "#c9a84c", fontSize: "2rem", fontWeight: 900, margin: "20px 0 4px" }}>
           📋 Full Deployment Plan
         </h1>
         <p style={{ color: "var(--muted)", marginBottom: 20 }}>
@@ -315,8 +315,8 @@ export default function DeploymentPlanPage() {
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
           <div onClick={() => setFilter('all')}
             style={{ padding: "7px 14px", borderRadius: 8, cursor: "pointer", fontWeight: 700, fontSize: 12,
-              backgroundColor: filter === 'all' ? "#FFD700" : "var(--card)",
-              color: filter === 'all' ? "#000" : "#FFD700", border: "1px solid #FFD700" }}>
+              backgroundColor: filter === 'all' ? "#c9a84c" : "var(--card)",
+              color: filter === 'all' ? "#000" : "#c9a84c", border: "1px solid #c9a84c" }}>
             ALL: {counts.all}
           </div>
           {(Object.keys(statusConfig) as DomainStatus[]).map(s => {

@@ -163,7 +163,7 @@ export default function AdminPage() {
               style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)", color: "var(--text)" }}
             />
             {passwordError && <p className="text-sm text-center" style={{ color: "#F87171" }}>{passwordError}</p>}
-            <button type="submit" className="py-3 rounded-xl text-sm font-bold" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>
+            <button type="submit" className="py-3 rounded-xl text-sm font-bold" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>
               Unlock
             </button>
           </form>
@@ -184,9 +184,9 @@ export default function AdminPage() {
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md h-14 flex items-center px-6 justify-between" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
         <div className="flex items-center gap-3">
           <Link href="/" className="text-base font-bold">
-            <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+            <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
           </Link>
-          <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ backgroundColor: "rgba(249,115,22,0.2)", color: "#F97316" }}>Admin</span>
+          <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ backgroundColor: "rgba(249,115,22,0.2)", color: "#c9a84c" }}>Admin</span>
         </div>
         <div className="flex items-center gap-3">
           <ThemeToggle />
@@ -208,7 +208,7 @@ export default function AdminPage() {
                 onClick={() => setActiveTab(tab)}
                 className="px-4 py-2 rounded-lg text-sm font-medium capitalize transition-all"
                 style={{
-                  backgroundColor: activeTab === tab ? "#FFD700" : "var(--card-bg)",
+                  backgroundColor: activeTab === tab ? "#c9a84c" : "var(--card-bg)",
                   color: activeTab === tab ? "#0A0A0A" : "var(--muted)",
                   border: "1px solid var(--border)",
                 }}
@@ -238,7 +238,7 @@ export default function AdminPage() {
                   { label: "Total Revenue", value: `$${(totalRevenue / 100).toFixed(2)}` },
                 ].map((stat) => (
                   <div key={stat.label} style={cardStyle}>
-                    <div className="text-2xl font-bold" style={{ color: "#FFD700" }}>{stat.value}</div>
+                    <div className="text-2xl font-bold" style={{ color: "#c9a84c" }}>{stat.value}</div>
                     <div className="text-xs mt-1" style={{ color: "var(--muted)" }}>{stat.label}</div>
                   </div>
                 ))}
@@ -251,7 +251,7 @@ export default function AdminPage() {
                   <button
                     onClick={handleTestEmail}
                     className="px-4 py-2.5 rounded-lg text-sm font-semibold transition-all"
-                    style={{ backgroundColor: "rgba(255,215,0,0.15)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}
+                    style={{ backgroundColor: "rgba(201,168,76,0.15)", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.3)" }}
                   >
                     📧 Send Test Email
                   </button>
@@ -344,7 +344,7 @@ export default function AdminPage() {
                         <tr key={s.id} style={{ borderBottom: "1px solid var(--border)" }}>
                           <td className="py-3 pr-4 font-medium">{s.name}</td>
                           <td className="py-3 pr-4" style={{ color: "var(--muted)" }}>{s.category}</td>
-                          <td className="py-3 pr-4" style={{ color: "#FFD700" }}>${s.price}</td>
+                          <td className="py-3 pr-4" style={{ color: "#c9a84c" }}>${s.price}</td>
                           <td className="py-3 pr-4" style={{ color: "var(--muted)" }}>{s.email}</td>
                           <td className="py-3 pr-4">
                             <span className="text-xs px-2 py-0.5 rounded-full" style={{ backgroundColor: "rgba(251,191,36,0.15)", color: "#FBBF24" }}>

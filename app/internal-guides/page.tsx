@@ -132,8 +132,8 @@ export default function InternalGuidesPage() {
         <div style={{
           display: 'inline-block',
           background: '#1a1a0a',
-          border: '1px solid #FFD700',
-          color: '#FFD700',
+          border: '1px solid #c9a84c',
+          color: '#c9a84c',
           fontSize: 13,
           fontWeight: 600,
           padding: '6px 16px',
@@ -145,7 +145,7 @@ export default function InternalGuidesPage() {
         </div>
         <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.2 }}>
           How DIY Guides &amp; Payments Work
-          <span style={{ display: 'block', color: '#FFD700' }}>Internal Guide</span>
+          <span style={{ display: 'block', color: '#c9a84c' }}>Internal Guide</span>
         </h1>
         <p style={{ color: '#aaa', fontSize: 18, maxWidth: 620, margin: '0 auto', lineHeight: 1.6 }}>
           Everything you need to know about the guides product and how money flows through the site.
@@ -168,7 +168,7 @@ export default function InternalGuidesPage() {
               <CardTitle>Priced by Difficulty</CardTitle>
               <CardText>
                 <PriceBadge level="Beginner" price="$9" color="#22c55e" />
-                <PriceBadge level="Intermediate" price="$14" color="#F97316" />
+                <PriceBadge level="Intermediate" price="$14" color="#c9a84c" />
                 <PriceBadge level="Advanced" price="$19" color="#ef4444" />
                 One-time payment. No recurring fees.
               </CardText>
@@ -187,7 +187,7 @@ export default function InternalGuidesPage() {
               <CardIcon>🔄</CardIcon>
               <CardTitle>The Business Strategy</CardTitle>
               <CardText>
-                This is the <strong style={{ color: '#FFD700' }}>low-ticket entry point</strong> — gets people into the ecosystem. 
+                This is the <strong style={{ color: '#c9a84c' }}>low-ticket entry point</strong> — gets people into the ecosystem. 
                 They buy a $9 guide, see results, then upgrade to Done-For-You ($3k–$8k). 
                 Guides are the top of the funnel.
               </CardText>
@@ -207,7 +207,7 @@ export default function InternalGuidesPage() {
                     width: 40,
                     height: 40,
                     borderRadius: '50%',
-                    background: step.done ? '#FFD700' : '#333',
+                    background: step.done ? '#c9a84c' : '#333',
                     color: step.done ? '#0A0A0A' : '#888',
                     display: 'flex',
                     alignItems: 'center',
@@ -224,7 +224,7 @@ export default function InternalGuidesPage() {
                     <div style={{
                       width: 2,
                       flex: 1,
-                      background: step.done ? '#FFD700' : '#333',
+                      background: step.done ? '#c9a84c' : '#333',
                       minHeight: 24,
                     }} />
                   )}
@@ -246,7 +246,7 @@ export default function InternalGuidesPage() {
                       <span style={{ fontSize: 20 }}>{step.icon}</span>
                       <strong style={{ color: step.done ? '#fff' : '#888', fontSize: 15 }}>{step.title}</strong>
                       {!step.done && (
-                        <span style={{ background: '#F97316', color: '#fff', fontSize: 11, padding: '2px 8px', borderRadius: 10, fontWeight: 600 }}>
+                        <span style={{ background: '#c9a84c', color: '#fff', fontSize: 11, padding: '2px 8px', borderRadius: 10, fontWeight: 600 }}>
                           Coming Soon
                         </span>
                       )}
@@ -260,7 +260,7 @@ export default function InternalGuidesPage() {
           <div style={{
             marginTop: 20,
             background: '#1a1000',
-            border: '1px solid #F97316',
+            border: '1px solid #c9a84c',
             borderRadius: 12,
             padding: '16px 20px',
           }}>
@@ -279,9 +279,9 @@ export default function InternalGuidesPage() {
               The marketplace agents work the exact same way as guides. The same Stripe checkout, the same success page.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12, marginTop: 16 }}>
-              <MiniCard icon="💰" title="Paid Agents" text="$29/mo, $49/mo — 'Get Agent →' triggers Stripe checkout → Success page" color="#FFD700" />
+              <MiniCard icon="💰" title="Paid Agents" text="$29/mo, $49/mo — 'Get Agent →' triggers Stripe checkout → Success page" color="#c9a84c" />
               <MiniCard icon="🆓" title="Free Agents" text="'Get Agent →' goes to /contact (Book a Call) — no payment needed" color="#22c55e" />
-              <MiniCard icon="📧" title="Same Gap" text="Automated email delivery of agent files after purchase is also not built yet" color="#F97316" />
+              <MiniCard icon="📧" title="Same Gap" text="Automated email delivery of agent files after purchase is also not built yet" color="#c9a84c" />
             </div>
           </div>
         </section>
@@ -332,9 +332,9 @@ export default function InternalGuidesPage() {
               <CardTitle>User Accounts</CardTitle>
               <CardText>When someone signs up at /signup → account created in Supabase. When they log in at /login → Supabase verifies their password. It&apos;s all handled automatically.</CardText>
             </Card>
-            <Card style={{ border: '1px solid #F97316', background: '#1a0f00' }}>
+            <Card style={{ border: '1px solid #c9a84c', background: '#1a0f00' }}>
               <CardIcon>⚡</CardIcon>
-              <CardTitle style={{ color: '#F97316' }}>Currently: Purchase Recording Not Active</CardTitle>
+              <CardTitle style={{ color: '#c9a84c' }}>Currently: Purchase Recording Not Active</CardTitle>
               <CardText>Supabase is connected but not yet recording purchases automatically. That needs the Stripe webhook to be configured first.</CardText>
             </Card>
             <Card>
@@ -419,7 +419,7 @@ export default function InternalGuidesPage() {
                   width: 36,
                   height: 36,
                   borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #FFD700, #F97316)',
+                  background: 'linear-gradient(135deg, #c9a84c, #c9a84c)',
                   color: '#0A0A0A',
                   display: 'flex',
                   alignItems: 'center',
@@ -433,7 +433,7 @@ export default function InternalGuidesPage() {
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <span style={{ fontSize: 16 }}>{step.icon}</span>
-                    <strong style={{ color: '#FFD700', fontSize: 15 }}>{step.title}</strong>
+                    <strong style={{ color: '#c9a84c', fontSize: 15 }}>{step.title}</strong>
                   </div>
                   <p style={{ color: '#aaa', margin: '4px 0 0', fontSize: 14, lineHeight: 1.5 }}>{step.desc}</p>
                 </div>
@@ -449,8 +449,8 @@ export default function InternalGuidesPage() {
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <thead>
                 <tr style={{ background: '#1a1a00', borderBottom: '1px solid #333' }}>
-                  <th style={{ padding: '14px 20px', textAlign: 'left', color: '#FFD700', fontSize: 14, fontWeight: 600 }}>Sales Volume</th>
-                  <th style={{ padding: '14px 20px', textAlign: 'right', color: '#FFD700', fontSize: 14, fontWeight: 600 }}>Monthly Revenue</th>
+                  <th style={{ padding: '14px 20px', textAlign: 'left', color: '#c9a84c', fontSize: 14, fontWeight: 600 }}>Sales Volume</th>
+                  <th style={{ padding: '14px 20px', textAlign: 'right', color: '#c9a84c', fontSize: 14, fontWeight: 600 }}>Monthly Revenue</th>
                 </tr>
               </thead>
               <tbody>
@@ -479,7 +479,7 @@ export default function InternalGuidesPage() {
         {/* Footer */}
         <div style={{ marginTop: 80, paddingTop: 32, borderTop: '1px solid #222', display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-            <Link href="/internal" style={{ color: '#FFD700', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>
+            <Link href="/internal" style={{ color: '#c9a84c', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>
               ← Internal Hub
             </Link>
             <Link href="/" style={{ color: '#aaa', textDecoration: 'none', fontSize: 14 }}>
@@ -497,8 +497,8 @@ export default function InternalGuidesPage() {
             alignItems: 'center',
             gap: 6,
             background: '#1a1a0a',
-            border: '1px solid #FFD700',
-            color: '#FFD700',
+            border: '1px solid #c9a84c',
+            color: '#c9a84c',
             fontSize: 12,
             padding: '6px 12px',
             borderRadius: 20,
@@ -522,7 +522,7 @@ function SectionHeader({ number, title, subtitle }: { number: number; title: str
         width: 40,
         height: 40,
         borderRadius: 10,
-        background: 'linear-gradient(135deg, #FFD700, #F97316)',
+        background: 'linear-gradient(135deg, #c9a84c, #c9a84c)',
         color: '#0A0A0A',
         display: 'flex',
         alignItems: 'center',

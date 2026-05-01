@@ -24,7 +24,7 @@ const posts: Record<string, {
     sections: [
       { heading: "The automation gap is widening fast", content: "In 2024, early adopters gained a 30–40% operational efficiency advantage over peers who waited. In 2025, that gap is compounding. Every month you delay is another month your competitors are reclaiming hours, cutting costs, and reinvesting that time into growth." },
       { heading: "What an AI workforce actually does", content: "An AI workforce handles the repetitive, high-volume tasks that drain your team: email triage, lead qualification, invoice processing, customer support, data entry, social media scheduling, market research. These aren't futuristic capabilities — they're available today, off the shelf." },
-      { heading: "The ROI is immediate and measurable", content: "The average Done-For-You client saves 15–25 hours per week in the first month. At an average hourly cost of $50 (salary + overhead), that's $750–$1,250 in recovered capacity every week. The agents pay for themselves within the first billing cycle." },
+      { heading: "The ROI is immediate and measurable", content: "The average Build My Agent client saves 15–25 hours per week in the first month. At an average hourly cost of $50 (salary + overhead), that's $750–$1,250 in recovered capacity every week. The agents pay for themselves within the first billing cycle." },
       { heading: "The window is closing", content: "First-mover advantage in AI automation is real. Once your competitors have agents handling their operations, the gap becomes structural — not just tactical. The time to build is now, before it becomes a catching-up exercise." },
     ],
     cta: "Ready to build your AI workforce? Book a free consultation and we'll identify your highest-impact automation opportunities in 30 minutes.",
@@ -75,7 +75,7 @@ const posts: Record<string, {
       { heading: "Week by week results", content: "Week 1: Agent live, handling 40% of volume. Week 2: Confidence threshold tuned — handling 58%. Week 3: Documentation expanded based on gaps — 67%. Week 4: Full month result — 71% deflection rate. Human team response time dropped from 48 hours to under 4 hours on the remaining tickets." },
       { heading: "What we learned", content: "The biggest surprise was how quickly the documentation gaps became visible. The agent's uncertainty flags showed exactly where the knowledge base was missing. Within two weeks, the client had a more complete support knowledge base than they'd had in three years — as a side effect of the deployment." },
     ],
-    cta: "Want results like this? Our Inbound Triage Agent is available in the marketplace, or we can build a custom version as part of a Done-For-You deployment.",
+    cta: "Want results like this? Our Inbound Triage Agent is available in the marketplace, or we can build a custom version as part of a Build My Agent deployment.",
   },
   "security-first-why-we-deploy-on-private-vps": {
     title: "Security First: Why We Deploy AI Agents on Private VPS",
@@ -91,7 +91,7 @@ const posts: Record<string, {
       { heading: "The compliance angle", content: "For businesses handling customer data, financial records, or healthcare information, private deployment isn't just a preference — it's often a compliance requirement. GDPR, HIPAA, and SOC2 frameworks all have provisions around data residency and shared infrastructure that private VPS deployment helps satisfy." },
       { heading: "Our security stack", content: "Each deployment includes: end-to-end encrypted communications, SSH key-only server access, automated security patching, regular audit logging, and optional human oversight gates for sensitive actions. Security isn't an add-on — it's the foundation." },
     ],
-    cta: "Security is non-negotiable for us. Every Done-For-You client gets a private VPS deployment as standard. Book a call to learn more about our security architecture.",
+    cta: "Security is non-negotiable for us. Every Build My Agent client gets a private VPS deployment as standard. Book a call to learn more about our security architecture.",
   },
   "the-complete-guide-to-ai-agent-roi": {
     title: "The Complete Guide to AI Agent ROI",
@@ -117,16 +117,16 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
   Technology:   { bg: "rgba(183,148,246,0.12)", text: "#B794F6" },
   "Case Study": { bg: "rgba(104,211,145,0.12)", text: "#68D391" },
   Security:     { bg: "rgba(230,57,70,0.12)", text: "#E63946" },
-  Strategy:     { bg: "rgba(255,215,0,0.12)", text: "#FFD700" },
+  Strategy:     { bg: "rgba(201,168,76,0.12)", text: "#c9a84c" },
 };
 
 function Nav() {
   const [open, setOpen] = useState(false);
   const links = [
-    { label: "Marketplace", href: "/marketplace" },
-    { label: "Guides", href: "/guides" },
-    { label: "Done-For-You", href: "/done-for-you" },
-    { label: "Pricing", href: "/pricing" },
+    { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
+    
     { label: "About", href: "/about" },
     { label: "Blog", href: "/blog" },
   ];
@@ -134,7 +134,7 @@ function Nav() {
     <header className="sticky top-0 z-50 backdrop-blur-md" style={{ backgroundColor: "var(--nav-bg)", borderBottom: "1px solid var(--nav-border)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}>
-          <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+          <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
@@ -143,19 +143,20 @@ function Nav() {
           ))}
         </div>
         <div className="hidden md:flex items-center gap-3">
-          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "var(--text-dim)", border: "1px solid var(--border)" }}>Login</Link>
-          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
+          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}>Login</Link>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden">
           <button onClick={() => setOpen(!open)} style={{ color: "var(--text-dim)" }}>☰</button>
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t px-6 py-4 flex flex-col gap-4" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
+        <div className="md:hidden border-t px-6 py-4 flex flex-col gap-4" style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}>
           {links.map((link) => (
-            <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
+            <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.88)" }}
+                onClick={() => setOpen(false)}>{link.label}</Link>
           ))}
-          <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
+          <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
         </div>
       )}
     </header>
@@ -168,7 +169,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = posts[params.slug];
   if (!post) notFound();
 
-  const colors = categoryColors[post.category] || { bg: "rgba(255,215,0,0.12)", text: "#FFD700" };
+  const colors = categoryColors[post.category] || { bg: "rgba(201,168,76,0.12)", text: "#c9a84c" };
 
   return (
     <div style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
@@ -192,13 +193,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <h1 className="text-3xl md:text-5xl font-extrabold mb-8" style={{ letterSpacing: "-0.03em", lineHeight: "1.1" }}>{post.title}</h1>
 
           {/* Intro pull-quote */}
-          <p className="text-xl mb-10 leading-relaxed" style={{ color: "var(--text-dim)", borderLeft: "4px solid #FFD700", paddingLeft: "1.5rem", fontStyle: "italic", fontSize: "1.15rem", lineHeight: "1.8" }}>{post.intro}</p>
+          <p className="text-xl mb-10 leading-relaxed" style={{ color: "var(--text-dim)", borderLeft: "4px solid #c9a84c", paddingLeft: "1.5rem", fontStyle: "italic", fontSize: "1.15rem", lineHeight: "1.8" }}>{post.intro}</p>
 
           {/* Sections */}
           <div className="flex flex-col gap-10">
             {post.sections.map((section, i) => (
               <section key={i}>
-                <h2 className="text-xl font-bold mb-3" style={{ color: "#FFD700" }}>{section.heading}</h2>
+                <h2 className="text-xl font-bold mb-3" style={{ color: "#c9a84c" }}>{section.heading}</h2>
                 <p className="leading-relaxed" style={{ color: "var(--muted)" }}>{section.content}</p>
               </section>
             ))}
@@ -207,7 +208,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {/* CTA */}
           <div className="mt-16 p-8 rounded-2xl text-center" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
             <p className="text-lg mb-6" style={{ color: "var(--muted)" }}>{post.cta}</p>
-            <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold inline-block glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call →</Link>
+            <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-xl font-bold inline-block glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>Book a Free Call →</Link>
           </div>
 
           {/* Back link */}

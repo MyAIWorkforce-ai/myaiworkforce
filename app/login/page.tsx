@@ -30,44 +30,44 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-6" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
+    <div className="min-h-screen flex items-center justify-center px-6" style={{ backgroundColor: "#1a1a2e", color: "#ffffff" }}>
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <Link href="/" className="text-2xl font-extrabold" style={{ letterSpacing: "-0.02em" }}>
-            <span style={{ color: "#FFD700" }}>My </span>
-            <span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span>
-            <span style={{ color: "#FFD700" }}>Workforce</span>
+            <span style={{ color: "#c9a84c" }}>My </span>
+            <span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span>
+            <span style={{ color: "#c9a84c" }}>Workforce</span>
           </Link>
-          <p className="mt-2 text-sm" style={{ color: "var(--text-dim)" }}>Sign in to your account</p>
+          <p className="mt-2 text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>Sign in to your account</p>
         </div>
-        <div className="rounded-2xl p-8" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+        <div className="rounded-2xl p-8" style={{ backgroundColor: "#ffffff", border: "1px solid #dde3f0" }}>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div>
-              <label className="block text-sm font-medium mb-1.5">Email address</label>
+              <label className="block text-sm font-medium mb-1.5" style={{ color: "#1a1a2e" }}>Email address</label>
               <input type="email" required value={email} onChange={e => setEmail(e.target.value)}
                 placeholder="you@example.com" className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
-                style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }} />
+                style={{ backgroundColor: "#ffffff", border: "1px solid #dde3f0", color: "#1a1a2e" }} />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1.5">Password</label>
+              <label className="block text-sm font-medium mb-1.5" style={{ color: "#1a1a2e" }}>Password</label>
               <input type="password" required value={password} onChange={e => setPassword(e.target.value)}
                 placeholder="••••••••" className="w-full px-4 py-2.5 rounded-lg text-sm outline-none"
-                style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }} />
+                style={{ backgroundColor: "#ffffff", border: "1px solid #dde3f0", color: "#1a1a2e" }} />
             </div>
             {error && <p className="text-sm text-center py-2 px-3 rounded-lg" style={{ color: "#E63946", backgroundColor: "rgba(230,57,70,0.08)" }}>{error}</p>}
             <button type="submit" disabled={loading}
-              className="py-3 rounded-lg font-bold text-sm text-black mt-1 glow-yellow"
-              style={{ backgroundColor: "#FFD700", opacity: loading ? 0.7 : 1 }}>
+              className="py-3 rounded-lg font-bold text-sm mt-1 glow-yellow"
+              style={{ backgroundColor: "#c9a84c", color: "#1a1a2e", opacity: loading ? 0.7 : 1 }}>
               {loading ? "Signing in..." : "Sign In →"}
             </button>
           </form>
-          <div className="mt-6 pt-6 border-t text-center text-sm" style={{ borderColor: "var(--border)", color: "var(--text-dim)" }}>
+          <div className="mt-6 pt-6 border-t text-center text-sm" style={{ borderColor: "#dde3f0", color: "#555555" }}>
             Don&apos;t have an account?{" "}
-            <Link href="/signup" style={{ color: "var(--yellow)" }}>Sign up free</Link>
+            <Link href="/signup" style={{ color: "#c9a84c" }}>Sign up free</Link>
           </div>
         </div>
-        <p className="text-center text-xs mt-6" style={{ color: "var(--text-dim)" }}>
-          <Link href="/" style={{ color: "var(--text-dim)" }}>← Back to MyAIWorkforce.ai</Link>
+        <p className="text-center text-xs mt-6" style={{ color: "rgba(255,255,255,0.5)" }}>
+          <Link href="/" style={{ color: "rgba(255,255,255,0.5)" }}>← Back to MyAIWorkforce.ai</Link>
         </p>
       </div>
     </div>

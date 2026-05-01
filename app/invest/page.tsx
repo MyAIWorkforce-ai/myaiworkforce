@@ -21,7 +21,7 @@ function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
   return (
     <div className="min-h-screen flex items-center justify-center px-6" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
       <div className="max-w-sm w-full text-center">
-        <Link href="/" className="text-2xl font-extrabold mb-8 block" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
+        <Link href="/" className="text-2xl font-extrabold mb-8 block" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></Link>
         <div className="p-8 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
           <div className="text-4xl mb-4">🔒</div>
           <h1 className="text-xl font-bold mb-2">Investor Access</h1>
@@ -113,14 +113,14 @@ function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}>
-          <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+          <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
           {[
-            { label: "Marketplace", href: "/marketplace" },
-            { label: "Guides", href: "/guides" },
-            { label: "Done-For-You", href: "/done-for-you" },
-            { label: "Pricing", href: "/pricing" },
+            { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
+            
             { label: "About", href: "/about" },
             { label: "Blog", href: "/blog" },
           ].map((link) => (
@@ -128,7 +128,7 @@ function Nav() {
               key={link.label}
               href={link.href}
               className="text-sm font-medium transition-colors duration-200"
-              style={{ color: link.href === "/invest" ? "#FFD700" : "var(--text-dim)" }}
+              style={{ color: link.href === "/invest" ? "#c9a84c" : "var(--text-dim)" }}
             >
               {link.label}
             </a>
@@ -137,9 +137,9 @@ function Nav() {
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <a
-            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
-            style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+            style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
           >
             Book a Free Call
           </a>
@@ -159,20 +159,20 @@ function Nav() {
       {open && (
         <div
           className="md:hidden border-t mobile-menu"
-          style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--mobile-menu-bg)" }}
+          style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}
         >
           <div className="px-6 py-4 flex flex-col gap-4">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
               { label: "About", href: "/about" },
             ].map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 className="text-sm font-medium transition-colors"
-                style={{ color: "var(--text-dim)" }}
+                style={{ color: "rgba(255,255,255,0.88)" }}
                 onClick={() => setOpen(false)}
               >
                 {link.label}
@@ -181,7 +181,7 @@ function Nav() {
             <a
               href="/contact"
               className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
-              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+              style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
               onClick={() => setOpen(false)}
             >
               Book a Free Call
@@ -210,7 +210,7 @@ const revenues = [
 ];
 
 const roadmap = [
-  { month: "Month 1", items: ["Launch live marketplace with payments", "10 real listings", "First 3 Done-For-You clients", "$3k MRR"] },
+  { month: "Month 1", items: ["Launch live marketplace with payments", "10 real listings", "First 3 Build My Agent clients", "$3k MRR"] },
   { month: "Month 2", items: ["100 marketplace listings", "10 DFY clients", "$15k MRR", "Newsletter: 1,000 subscribers"] },
   { month: "Month 3", items: ["500 listings", "25 DFY clients", "$40k MRR", "Creator program launched"] },
   { month: "Month 12", items: ["$500k+ ARR", "2,000+ listings", "100+ DFY clients", "250+ active creators"] },
@@ -239,11 +239,11 @@ export default function InvestPage() {
         {/* Hero */}
         <section className="py-24 px-6 text-center" style={{ backgroundColor: "var(--bg-section)" }}>
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)", border: "1px solid rgba(255,215,0,0.3)" }}>Investor Brief — Confidential</div>
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "var(--yellow)", border: "1px solid rgba(201,168,76,0.3)" }}>Investor Brief — Confidential</div>
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.04em" }}>The <span style={{ color: "var(--yellow)" }}>Shopify App Store</span><br />for AI Agents</h1>
             <p className="text-xl max-w-3xl mx-auto mb-8" style={{ color: "var(--text-dim)" }}>My AI Workforce is a two-sided marketplace where businesses buy and deploy AI agents, and creators earn 75% selling their AI skills, workflows, and tools.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold text-black inline-block" style={{ backgroundColor: "var(--yellow)" }}>Request a Meeting →</Link>
+              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-xl font-bold text-black inline-block" style={{ backgroundColor: "var(--yellow)" }}>Request a Meeting →</Link>
               <a href="mailto:toby@MyAIWorkforce.ai" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ border: "2px solid var(--yellow)", color: "var(--yellow)" }}>toby@MyAIWorkforce.ai</a>
             </div>
           </div>
@@ -326,7 +326,7 @@ export default function InvestPage() {
         <section className="py-16 px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-4 text-center">Unit Economics</h2>
-            <p className="text-center mb-12" style={{ color: "var(--text-dim)" }}>Done-For-You client economics — the highest margin business model in the portfolio.</p>
+            <p className="text-center mb-12" style={{ color: "var(--text-dim)" }}>Build My Agent client economics — the highest margin business model in the portfolio.</p>
             <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid var(--border)" }}>
               {[
                 { label: "Client retainer (average)", value: "$1,500/mo", highlight: false },
@@ -336,7 +336,7 @@ export default function InvestPage() {
                 { label: "Onboarding time (automated)", value: "~30 minutes", highlight: false },
                 { label: "MRR at 50 clients", value: "$75,000/mo", highlight: true },
               ].map((row, i) => (
-                <div key={i} className="flex justify-between px-8 py-4" style={{ backgroundColor: row.highlight ? "rgba(255,215,0,0.05)" : "transparent", borderBottom: i < 5 ? "1px solid var(--border)" : "none" }}>
+                <div key={i} className="flex justify-between px-8 py-4" style={{ backgroundColor: row.highlight ? "rgba(201,168,76,0.05)" : "transparent", borderBottom: i < 5 ? "1px solid var(--border)" : "none" }}>
                   <span style={{ color: "var(--text-dim)" }}>{row.label}</span>
                   <span className="font-bold" style={{ color: row.highlight ? "var(--yellow)" : "var(--text)" }}>{row.value}</span>
                 </div>
@@ -355,7 +355,7 @@ export default function InvestPage() {
                 <span>Platform</span><span>Focus</span><span>Commission</span><span>Limitation</span>
               </div>
               {competitors.map((c, i) => (
-                <div key={i} className="grid grid-cols-4 px-6 py-4 text-sm" style={{ backgroundColor: c.isUs ? "rgba(255,215,0,0.05)" : "transparent", borderBottom: i < competitors.length - 1 ? "1px solid var(--border)" : "none", color: c.isUs ? "var(--text)" : "var(--text-dim)", fontWeight: c.isUs ? "600" : "normal" }}>
+                <div key={i} className="grid grid-cols-4 px-6 py-4 text-sm" style={{ backgroundColor: c.isUs ? "rgba(201,168,76,0.05)" : "transparent", borderBottom: i < competitors.length - 1 ? "1px solid var(--border)" : "none", color: c.isUs ? "var(--text)" : "var(--text-dim)", fontWeight: c.isUs ? "600" : "normal" }}>
                   <span style={{ color: c.isUs ? "var(--yellow)" : "inherit" }}>{c.name}</span>
                   <span>{c.focus}</span>
                   <span>{c.cut}</span>
@@ -412,9 +412,9 @@ export default function InvestPage() {
         <section className="py-24 px-6 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Interested in Investing?</h2>
-            <p className="mb-8 text-lg" style={{ color: "var(--text-dim)" }}>We're raising a seed round to complete the marketplace payment infrastructure, hire engineers, and scale the Done-For-You client base.</p>
+            <p className="mb-8 text-lg" style={{ color: "var(--text-dim)" }}>We're raising a seed round to complete the marketplace payment infrastructure, hire engineers, and scale the Build My Agent client base.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold text-black inline-block" style={{ backgroundColor: "var(--yellow)" }}>Request a Meeting →</Link>
+              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-xl font-bold text-black inline-block" style={{ backgroundColor: "var(--yellow)" }}>Request a Meeting →</Link>
               <a href="mailto:toby@MyAIWorkforce.ai" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ border: "2px solid var(--yellow)", color: "var(--yellow)" }}>toby@MyAIWorkforce.ai</a>
             </div>
             <p className="mt-8 text-sm" style={{ color: "var(--text-dim)" }}>This document is confidential and intended solely for prospective investors.</p>

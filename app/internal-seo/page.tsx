@@ -60,7 +60,7 @@ const seoPages = [
   {
     name: 'Done-For-You',
     path: '/done-for-you',
-    title: 'Done-For-You AI Workforce | From $997/mo | MyAIWorkforce.ai',
+    title: 'Build My Agent | From $997/mo | MyAIWorkforce.ai',
     titleLen: 59,
     metaDesc: 'We build, deploy & manage your AI workforce. Private VPS, custom agents, 24/7 monitoring. Email triage, lead gen, CRM automation and more. Book a free audit.',
     metaLen: 157,
@@ -92,7 +92,7 @@ const seoPages = [
     path: '/about',
     title: 'About My AI Workforce | Australian AI Agency & Marketplace',
     titleLen: 56,
-    metaDesc: 'My AI Workforce is Australia\'s leading AI agent marketplace and done-for-you AI agency. Built by founders who know automation. Meet the team behind your AI workforce.',
+    metaDesc: 'My AI Workforce is Australia\'s leading AI agent marketplace and AI agent-building agency. Built by founders who know automation. Meet the team behind your AI workforce.',
     metaLen: 160,
     primaryKeyword: 'Australian AI agency',
     secondaryKeywords: ['AI company Australia', 'AI startup Australia', 'who is My AI Workforce', 'AI workforce team', 'Australian AI founders'],
@@ -284,13 +284,13 @@ export default function InternalSEOPage() {
           borderRadius: '6px',
           padding: '4px 12px',
           fontSize: '13px',
-          color: '#FFD700',
+          color: '#c9a84c',
           marginBottom: '20px',
           fontWeight: 600,
         }}>
           🔒 Private
         </div>
-        <h1 style={{ fontSize: '42px', fontWeight: 800, color: '#FFD700', margin: '0 0 16px' }}>
+        <h1 style={{ fontSize: '42px', fontWeight: 800, color: '#c9a84c', margin: '0 0 16px' }}>
           SEO Strategy — Internal Review
         </h1>
         <p style={{ fontSize: '18px', color: '#888', margin: 0, maxWidth: '600px' }}>
@@ -301,7 +301,7 @@ export default function InternalSEOPage() {
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '40px 40px 80px' }}>
 
         {/* Section 1: Per-page SEO cards */}
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#FFD700', marginBottom: '8px' }}>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#c9a84c', marginBottom: '8px' }}>
           📄 Page-by-Page SEO Plan
         </h2>
         <p style={{ color: '#666', marginBottom: '32px', fontSize: '14px' }}>
@@ -342,7 +342,7 @@ export default function InternalSEOPage() {
                 {/* Left col */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div>
-                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#FFD700', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#c9a84c', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>
                       Page Title ({page.titleLen} chars)
                     </div>
                     <div style={{ background: '#0d0d0d', border: '1px solid #1e1e1e', borderRadius: '6px', padding: '10px 14px', fontSize: '14px', color: '#d4d4d4', fontFamily: 'monospace' }}>
@@ -351,7 +351,7 @@ export default function InternalSEOPage() {
                   </div>
 
                   <div>
-                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#FFD700', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#c9a84c', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>
                       Meta Description ({page.metaLen} chars)
                     </div>
                     <div style={{ background: '#0d0d0d', border: '1px solid #1e1e1e', borderRadius: '6px', padding: '10px 14px', fontSize: '14px', color: '#aaa', lineHeight: '1.5', fontFamily: 'monospace' }}>
@@ -360,7 +360,7 @@ export default function InternalSEOPage() {
                   </div>
 
                   <div>
-                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#FFD700', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#c9a84c', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>
                       H1 Tag
                     </div>
                     <div style={{ fontSize: '15px', color: '#e5e5e5', fontStyle: 'italic' }}>
@@ -372,7 +372,7 @@ export default function InternalSEOPage() {
                 {/* Right col */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div>
-                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#FFD700', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#c9a84c', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
                       Primary Keyword
                     </div>
                     <span style={{ background: '#1a2a1a', border: '1px solid #2a4a2a', borderRadius: '4px', padding: '4px 10px', fontSize: '13px', color: '#22c55e', fontWeight: 600 }}>
@@ -381,7 +381,7 @@ export default function InternalSEOPage() {
                   </div>
 
                   <div>
-                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#FFD700', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#c9a84c', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
                       Secondary Keywords
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -394,7 +394,7 @@ export default function InternalSEOPage() {
                   </div>
 
                   <div>
-                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#FFD700', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#c9a84c', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>
                       Schema Type
                     </div>
                     <div style={{ fontSize: '13px', color: '#f59e0b' }}>
@@ -403,7 +403,7 @@ export default function InternalSEOPage() {
                   </div>
 
                   <div>
-                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#FFD700', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#c9a84c', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
                       Internal Links → 
                     </div>
                     <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
@@ -428,7 +428,7 @@ export default function InternalSEOPage() {
         </div>
 
         {/* Section 2: Global SEO Checklist */}
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#FFD700', marginBottom: '8px' }}>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#c9a84c', marginBottom: '8px' }}>
           ✅ Global SEO Checklist
         </h2>
         <p style={{ color: '#666', marginBottom: '24px', fontSize: '14px' }}>Items that apply across the entire site</p>
@@ -481,7 +481,7 @@ export default function InternalSEOPage() {
         </div>
 
         {/* Section 3: Blog SEO Strategy */}
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#FFD700', marginBottom: '8px' }}>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#c9a84c', marginBottom: '8px' }}>
           ✍️ Blog SEO Strategy
         </h2>
         <p style={{ color: '#666', marginBottom: '24px', fontSize: '14px' }}>10 high-value blog posts — ordered by quick-win potential</p>
@@ -524,7 +524,7 @@ export default function InternalSEOPage() {
         </div>
 
         {/* Section 4: Quick Wins */}
-        <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#FFD700', marginBottom: '8px' }}>
+        <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#c9a84c', marginBottom: '8px' }}>
           ⚡ Quick Wins — Implement First
         </h2>
         <p style={{ color: '#666', marginBottom: '24px', fontSize: '14px' }}>Do these 5 things before anything else. Fastest path to SEO results.</p>
@@ -544,7 +544,7 @@ export default function InternalSEOPage() {
                 width: '40px',
                 height: '40px',
                 borderRadius: '8px',
-                background: '#FFD700',
+                background: '#c9a84c',
                 color: '#0A0A0A',
                 display: 'flex',
                 alignItems: 'center',
@@ -576,14 +576,14 @@ export default function InternalSEOPage() {
         {/* Section 5: Implement */}
         <div style={{
           background: 'linear-gradient(135deg, #1a1500 0%, #111 100%)',
-          border: '1px solid #FFD700',
+          border: '1px solid #c9a84c',
           borderRadius: '16px',
           padding: '40px',
           textAlign: 'center',
           marginBottom: '64px',
         }}>
           <div style={{ fontSize: '40px', marginBottom: '16px' }}>🚀</div>
-          <h3 style={{ fontSize: '24px', fontWeight: 800, color: '#FFD700', margin: '0 0 12px' }}>
+          <h3 style={{ fontSize: '24px', fontWeight: 800, color: '#c9a84c', margin: '0 0 12px' }}>
             Ready to Implement?
           </h3>
           <p style={{ fontSize: '16px', color: '#888', margin: '0 0 24px', maxWidth: '500px', marginLeft: 'auto', marginRight: 'auto', lineHeight: '1.6' }}>
@@ -597,7 +597,7 @@ export default function InternalSEOPage() {
             display: 'inline-block',
             fontFamily: 'monospace',
             fontSize: '15px',
-            color: '#FFD700',
+            color: '#c9a84c',
           }}>
             &ldquo;Monty, implement the approved SEO strategy across all pages&rdquo;
           </div>

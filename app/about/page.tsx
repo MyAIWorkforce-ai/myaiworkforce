@@ -51,10 +51,10 @@ function ThemeToggle() {
 }
 
 const NAV_LINKS = [
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Build My Agent", href: "/done-for-you" },
   { label: "Guides", href: "/guides" },
-  { label: "Done-For-You", href: "/done-for-you" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Marketplace", href: "/marketplace" },
+  
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
@@ -64,7 +64,7 @@ function Nav({ active }: { active?: string }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
+        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200 nav-link"
@@ -73,8 +73,8 @@ function Nav({ active }: { active?: string }) {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "var(--text-dim)", border: "1px solid var(--border)" }}>Login</Link>
-          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
+          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}>Login</Link>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
@@ -82,13 +82,14 @@ function Nav({ active }: { active?: string }) {
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
+        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}>
           <div className="px-6 py-4 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
+              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.88)" }}
+                onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
             <div className="flex gap-2 mt-2"><Link href="/login" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--border)", color: "var(--text-dim)" }} onClick={() => setOpen(false)}>Login</Link><Link href="/signup" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--yellow)", color: "var(--yellow)" }} onClick={() => setOpen(false)}>Sign Up</Link></div>
-            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
+            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
           </div>
         </div>
       )}
@@ -102,14 +103,14 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></div>
+            <div className="text-xl font-bold mb-2" style={{ color: "#c9a84c" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
               { label: "Dashboard", href: "/dashboard" },
               { label: "Sell Your Agents", href: "/creator/agents" },
               { label: "Sell Your Skills", href: "/creator/skills" },
@@ -180,11 +181,11 @@ export default function AboutPage() {
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent, var(--bg-section))", zIndex: 1 }} />
           <div className="max-w-4xl mx-auto relative" style={{ zIndex: 2 }}>
-            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.3)" }}>
               About Us
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em" }}>
-              We Build AI Workforces<br /><span style={{ color: "#FFD700" }}>That Actually Work</span>
+              We Build AI Workforces<br /><span style={{ color: "#c9a84c" }}>That Actually Work</span>
             </h1>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
               Our mission is simple: make AI automation accessible to every business — not just the ones with technical teams and unlimited budgets. We&apos;re the bridge between AI&apos;s capabilities and real business outcomes.
@@ -196,14 +197,14 @@ export default function AboutPage() {
         <section className="py-16 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex justify-center mb-6">
-              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
+              <span style={{ border: "2px dashed #c9a84c", color: "#c9a84c", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
                 🏷️ Australian-owned &amp; operated
               </span>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((s, i) => (
-                <div key={i} className="text-center p-6 rounded-xl card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", borderTop: "2px solid rgba(255,215,0,0.3)", background: "linear-gradient(135deg, rgba(255,215,0,0.07) 0%, var(--card) 60%)" }}>
-                  <div className="text-5xl font-extrabold mb-1" style={{ color: "#FFD700", letterSpacing: "-0.03em" }}>{s.value}</div>
+                <div key={i} className="text-center p-6 rounded-xl card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", borderTop: "2px solid rgba(201,168,76,0.3)", background: "linear-gradient(135deg, rgba(201,168,76,0.07) 0%, var(--card) 60%)" }}>
+                  <div className="text-5xl font-extrabold mb-1" style={{ color: "#c9a84c", letterSpacing: "-0.03em" }}>{s.value}</div>
                   <div className="text-sm" style={{ color: "var(--muted)" }}>{s.label}</div>
                 </div>
               ))}
@@ -217,7 +218,7 @@ export default function AboutPage() {
             <div>
               <p className="section-label mb-4">Our Story</p>
               <h2 className="text-3xl font-extrabold mb-6" style={{ letterSpacing: "-0.02em" }}>
-                Built by a Business Owner, <span style={{ color: "#FFD700" }}>for Business Owners</span>
+                Built by a Business Owner, <span style={{ color: "#c9a84c" }}>for Business Owners</span>
               </h2>
               <div className="flex flex-col gap-4 text-base" style={{ color: "var(--muted)", lineHeight: "1.8" }}>
                 <p>
@@ -227,17 +228,17 @@ export default function AboutPage() {
                   The tools existed. The models were extraordinary. But the gap between &ldquo;AI is amazing&rdquo; and &ldquo;AI is working in my business&rdquo; was enormous. Most businesses didn&apos;t have the technical team to bridge it — and consultants were charging enterprise prices for mediocre results.
                 </p>
                 <p>
-                  So Toby built the platform he wished existed: a marketplace of battle-tested agents, practical DIY guides, and a done-for-you service that takes businesses from zero to fully automated in weeks — not months.
+                  So Toby built the platform he wished existed: a marketplace of battle-tested agents, practical DIY guides, and a build my agent service that takes businesses from zero to fully automated in weeks — not months.
                 </p>
                 <p>
-                  Today, My AI Workforce serves businesses across 25+ countries, with 500+ agents in the marketplace and a growing roster of Done-For-You clients who&apos;ve reclaimed thousands of hours from manual work.
+                  Today, My AI Workforce serves businesses across 25+ countries, with 500+ agents in the marketplace and a growing roster of Build My Agent clients who&apos;ve reclaimed thousands of hours from manual work.
                 </p>
               </div>
             </div>
             <div className="p-8 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-extrabold mb-4" style={{ backgroundColor: "rgba(255,215,0,0.15)", color: "#FFD700" }}>TB</div>
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-extrabold mb-4" style={{ backgroundColor: "rgba(201,168,76,0.15)", color: "#c9a84c" }}>TB</div>
               <h3 className="text-xl font-bold mb-1">Toby Banks</h3>
-              <p className="text-sm font-medium mb-4" style={{ color: "#FFD700" }}>Founder & CEO</p>
+              <p className="text-sm font-medium mb-4" style={{ color: "#c9a84c" }}>Founder & CEO</p>
               <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
                 Australian entrepreneur with a background in business operations and automation. Built My AI Workforce to make enterprise-grade AI accessible to every business owner, regardless of technical background.
               </p>
@@ -258,7 +259,7 @@ export default function AboutPage() {
               {values.map((v, i) => (
                 <div key={i} className="p-8 rounded-xl card-hover flex flex-col" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", minHeight: 240 }}>
                   <div className="text-5xl mb-4" style={{ lineHeight: 1 }}>{v.icon}</div>
-                  <h3 className="text-xl font-bold mb-3" style={{ color: "#FFD700" }}>{v.title}</h3>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: "#c9a84c" }}>{v.title}</h3>
                   <p className="text-sm flex-1" style={{ color: "var(--muted)", lineHeight: "1.7" }}>{v.desc}</p>
                 </div>
               ))}
@@ -277,22 +278,22 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="p-8 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-24 h-24 rounded-full flex items-center justify-center text-2xl font-extrabold flex-shrink-0" style={{ backgroundColor: "#FFD700", color: "#0A0A0A", boxShadow: "0 0 0 4px rgba(255,215,0,0.4), 0 0 0 7px rgba(255,215,0,0.15)" }}>TB</div>
+                  <div className="w-24 h-24 rounded-full flex items-center justify-center text-2xl font-extrabold flex-shrink-0" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A", boxShadow: "0 0 0 4px rgba(201,168,76,0.4), 0 0 0 7px rgba(201,168,76,0.15)" }}>TB</div>
                   <div>
                     <h3 className="font-bold">Toby Banks</h3>
-                    <p className="text-sm" style={{ color: "#FFD700" }}>Founder & CEO</p>
+                    <p className="text-sm" style={{ color: "#c9a84c" }}>Founder & CEO</p>
                   </div>
                 </div>
                 <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
-                  Leads product strategy, client relationships, and the Done-For-You delivery team. Based in Melbourne, Australia.
+                  Leads product strategy, client relationships, and the Build My Agent delivery team. Based in Melbourne, Australia.
                 </p>
               </div>
               <div className="p-8 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl" style={{ backgroundColor: "rgba(255,215,0,0.15)" }}>🤖</div>
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl" style={{ backgroundColor: "rgba(201,168,76,0.15)" }}>🤖</div>
                   <div>
                     <h3 className="font-bold">Our AI Team</h3>
-                    <p className="text-sm" style={{ color: "#FFD700" }}>AI Engineers & Automation Specialists</p>
+                    <p className="text-sm" style={{ color: "#c9a84c" }}>AI Engineers & Automation Specialists</p>
                   </div>
                 </div>
                 <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
@@ -309,7 +310,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-extrabold mb-4" style={{ letterSpacing: "-0.02em" }}>Ready to Build Your AI Workforce?</h2>
             <p className="mb-8" style={{ color: "var(--muted)" }}>Book a free discovery call and let&apos;s talk about what&apos;s possible for your business.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold text-black inline-block glow-yellow" style={{ backgroundColor: "#FFD700" }}>
+              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-xl font-bold text-black inline-block glow-yellow" style={{ backgroundColor: "#c9a84c" }}>
                 Book a Free Call →
               </Link>
               <Link href="/marketplace" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ border: "2px solid var(--border)", color: "var(--text-dim)" }}>

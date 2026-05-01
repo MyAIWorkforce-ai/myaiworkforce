@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Internal Ops Guide — MyAIWorkforce.ai',
-  description: 'Internal operations guide for Done-For-You client onboarding.',
+  description: 'Internal operations guide for Build My Agent client onboarding.',
   robots: {
     index: false,
     follow: false,
@@ -152,11 +152,11 @@ export default function InternalPage() {
       {/* Private banner */}
       <div style={{
         background: '#1a1000',
-        borderBottom: '1px solid #FFD700',
+        borderBottom: '1px solid #c9a84c',
         padding: '10px 24px',
         textAlign: 'center',
         fontSize: '13px',
-        color: '#FFD700',
+        color: '#c9a84c',
         letterSpacing: '0.03em',
       }}>
         🔒 Private — share this URL only with yourself. Not indexed or linked.
@@ -168,12 +168,12 @@ export default function InternalPage() {
         <div style={{ textAlign: 'center', marginBottom: '64px' }}>
           <div style={{
             display: 'inline-block',
-            background: 'rgba(255,215,0,0.1)',
-            border: '1px solid rgba(255,215,0,0.3)',
+            background: 'rgba(201,168,76,0.1)',
+            border: '1px solid rgba(201,168,76,0.3)',
             borderRadius: '20px',
             padding: '6px 16px',
             fontSize: '13px',
-            color: '#FFD700',
+            color: '#c9a84c',
             marginBottom: '20px',
           }}>
             🔒 Internal use only — not linked from the main site
@@ -181,7 +181,7 @@ export default function InternalPage() {
           <h1 style={{
             fontSize: 'clamp(28px, 5vw, 48px)',
             fontWeight: '800',
-            background: 'linear-gradient(135deg, #FFD700, #F97316)',
+            background: 'linear-gradient(135deg, #c9a84c, #c9a84c)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -227,11 +227,11 @@ export default function InternalPage() {
             </div>
 
             {/* Monty */}
-            <div style={cardStyle('#1a1200', '#FFD700')}>
+            <div style={cardStyle('#1a1200', '#c9a84c')}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
                 <span style={{ fontSize: '36px' }}>🤖</span>
                 <div>
-                  <div style={{ fontSize: '11px', color: '#FFD700', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.1em' }}>That&apos;s me</div>
+                  <div style={{ fontSize: '11px', color: '#c9a84c', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.1em' }}>That&apos;s me</div>
                   <div style={{ fontSize: '22px', fontWeight: '700', color: '#fff' }}>Monty&apos;s Role</div>
                 </div>
               </div>
@@ -247,7 +247,7 @@ export default function InternalPage() {
                   'Handle all technical issues',
                 ].map((item) => (
                   <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#ccc', fontSize: '15px' }}>
-                    <span style={{ color: '#FFD700', marginTop: '2px', flexShrink: 0 }}>✓</span>
+                    <span style={{ color: '#c9a84c', marginTop: '2px', flexShrink: 0 }}>✓</span>
                     {item}
                   </li>
                 ))}
@@ -269,7 +269,7 @@ export default function InternalPage() {
                     height: '44px',
                     borderRadius: '50%',
                     background: step.who === 'toby' ? '#1a1a2e' : step.who === 'monty' ? '#1a1200' : '#1a1a1a',
-                    border: `2px solid ${step.who === 'toby' ? '#4A90E2' : step.who === 'monty' ? '#FFD700' : '#F97316'}`,
+                    border: `2px solid ${step.who === 'toby' ? '#4A90E2' : step.who === 'monty' ? '#c9a84c' : '#c9a84c'}`,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -292,8 +292,8 @@ export default function InternalPage() {
                       fontSize: '11px',
                       padding: '2px 8px',
                       borderRadius: '10px',
-                      background: step.who === 'toby' ? 'rgba(74,144,226,0.2)' : step.who === 'monty' ? 'rgba(255,215,0,0.15)' : 'rgba(249,115,22,0.15)',
-                      color: step.who === 'toby' ? '#4A90E2' : step.who === 'monty' ? '#FFD700' : '#F97316',
+                      background: step.who === 'toby' ? 'rgba(74,144,226,0.2)' : step.who === 'monty' ? 'rgba(201,168,76,0.15)' : 'rgba(249,115,22,0.15)',
+                      color: step.who === 'toby' ? '#4A90E2' : step.who === 'monty' ? '#c9a84c' : '#c9a84c',
                       fontWeight: '600',
                       textTransform: 'uppercase',
                       letterSpacing: '0.05em',
@@ -322,7 +322,7 @@ export default function InternalPage() {
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
                   <span style={{ fontSize: '24px' }}>{tool.icon}</span>
-                  <span style={{ fontWeight: '700', fontSize: '16px', color: '#FFD700' }}>{tool.name}</span>
+                  <span style={{ fontWeight: '700', fontSize: '16px', color: '#c9a84c' }}>{tool.name}</span>
                 </div>
                 <p style={{ color: '#aaa', fontSize: '14px', margin: 0, lineHeight: '1.6' }}>{tool.plain}</p>
               </div>
@@ -335,11 +335,11 @@ export default function InternalPage() {
           <SectionHeading number="04" title="What You Need From a New Client" />
           <div style={{
             background: '#111',
-            border: '1px solid #F97316',
+            border: '1px solid #c9a84c',
             borderRadius: '16px',
             padding: '28px',
           }}>
-            <p style={{ color: '#F97316', fontWeight: '600', marginBottom: '20px', marginTop: 0, fontSize: '14px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            <p style={{ color: '#c9a84c', fontWeight: '600', marginBottom: '20px', marginTop: 0, fontSize: '14px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               📋 Collect this before Monty can start setup
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -351,7 +351,7 @@ export default function InternalPage() {
                       width: '18px',
                       height: '18px',
                       marginTop: '1px',
-                      accentColor: '#F97316',
+                      accentColor: '#c9a84c',
                       flexShrink: 0,
                     }}
                   />
@@ -369,7 +369,7 @@ export default function InternalPage() {
             {pricing.map((row, i) => (
               <div key={row.plan} style={{
                 background: i === 1 ? 'linear-gradient(135deg, #1a1200, #1a0a00)' : '#111',
-                border: `1px solid ${i === 1 ? '#FFD700' : '#222'}`,
+                border: `1px solid ${i === 1 ? '#c9a84c' : '#222'}`,
                 borderRadius: '14px',
                 padding: '24px',
                 textAlign: 'center',
@@ -381,7 +381,7 @@ export default function InternalPage() {
                     top: '-12px',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    background: '#FFD700',
+                    background: '#c9a84c',
                     color: '#000',
                     fontSize: '11px',
                     fontWeight: '700',
@@ -391,7 +391,7 @@ export default function InternalPage() {
                   }}>MOST POPULAR</div>
                 )}
                 <div style={{ fontSize: '18px', fontWeight: '700', color: '#fff', marginBottom: '4px' }}>{row.plan}</div>
-                <div style={{ fontSize: '26px', fontWeight: '800', color: '#FFD700', marginBottom: '12px' }}>{row.price}</div>
+                <div style={{ fontSize: '26px', fontWeight: '800', color: '#c9a84c', marginBottom: '12px' }}>{row.price}</div>
                 <div style={{ fontSize: '13px', color: '#888', marginBottom: '6px' }}>{row.agents}</div>
                 <div style={{ fontSize: '13px', color: '#888', marginBottom: '12px' }}>Server: {row.server}</div>
                 <div style={{
@@ -422,7 +422,7 @@ export default function InternalPage() {
             {mrr.map((row) => (
               <div key={row.clients}>
                 <div style={{ fontSize: '13px', color: '#888', marginBottom: '4px' }}>{row.clients}</div>
-                <div style={{ fontSize: '20px', fontWeight: '700', color: '#F97316' }}>{row.value}</div>
+                <div style={{ fontSize: '20px', fontWeight: '700', color: '#c9a84c' }}>{row.value}</div>
               </div>
             ))}
           </div>
@@ -442,7 +442,7 @@ export default function InternalPage() {
                 <div style={{ display: 'flex', gap: '12px', marginBottom: '12px', alignItems: 'flex-start' }}>
                   <span style={{
                     background: 'rgba(249,115,22,0.2)',
-                    color: '#F97316',
+                    color: '#c9a84c',
                     fontWeight: '800',
                     fontSize: '13px',
                     padding: '3px 8px',
@@ -454,8 +454,8 @@ export default function InternalPage() {
                 </div>
                 <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                   <span style={{
-                    background: 'rgba(255,215,0,0.15)',
-                    color: '#FFD700',
+                    background: 'rgba(201,168,76,0.15)',
+                    color: '#c9a84c',
                     fontWeight: '800',
                     fontSize: '13px',
                     padding: '3px 8px',
@@ -496,7 +496,7 @@ function SectionHeading({ number, title }: { number: string; title: string }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '28px' }}>
       <span style={{
-        background: 'linear-gradient(135deg, #FFD700, #F97316)',
+        background: 'linear-gradient(135deg, #c9a84c, #c9a84c)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         backgroundClip: 'text',

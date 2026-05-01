@@ -50,10 +50,10 @@ function ThemeToggle() {
 }
 
 const NAV_LINKS = [
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Build My Agent", href: "/done-for-you" },
   { label: "Guides", href: "/guides" },
-  { label: "Done-For-You", href: "/done-for-you" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Marketplace", href: "/marketplace" },
+  
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
@@ -63,7 +63,7 @@ function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
+        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200 nav-link"
@@ -72,8 +72,8 @@ function Nav() {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "var(--text-dim)", border: "1px solid var(--border)" }}>Login</Link>
-          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
+          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}>Login</Link>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
@@ -81,13 +81,14 @@ function Nav() {
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
+        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}>
           <div className="px-6 py-4 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
+              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.88)" }}
+                onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
             <div className="flex gap-2 mt-2"><Link href="/login" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--border)", color: "var(--text-dim)" }} onClick={() => setOpen(false)}>Login</Link><Link href="/signup" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--yellow)", color: "var(--yellow)" }} onClick={() => setOpen(false)}>Sign Up</Link></div>
-            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
+            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
           </div>
         </div>
       )}
@@ -101,14 +102,14 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></div>
+            <div className="text-xl font-bold mb-2" style={{ color: "#c9a84c" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
               { label: "Dashboard", href: "/dashboard" },
               { label: "Sell Your Agents", href: "/creator/agents" },
               { label: "Sell Your Skills", href: "/creator/skills" },
@@ -156,13 +157,13 @@ export default function ContactPage() {
       <main className="pt-16">
         {/* Hero */}
         <section className="py-20 px-6 text-center relative overflow-hidden" style={{ backgroundColor: "var(--bg-section)" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,215,0,0.05) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none", zIndex: 0 }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(201,168,76,0.05) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none", zIndex: 0 }} />
           <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
-            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.3)" }}>
               Contact Us
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
-              Let&apos;s <span style={{ color: "#FFD700" }}>Talk</span>
+              Let&apos;s <span style={{ color: "#c9a84c" }}>Talk</span>
             </h1>
             <p style={{ color: "var(--muted)", lineHeight: "1.7" }}>
               Book a free discovery call, send us a message, or just say hello. We respond within 24 hours — usually much faster.
@@ -175,7 +176,7 @@ export default function ContactPage() {
             {/* Left: Book a Call + Details */}
             <div className="md:col-span-2 flex flex-col gap-6">
               {/* Book a Call Card */}
-              <div className="rounded-xl overflow-hidden" style={{ backgroundColor: "rgba(255,215,0,0.05)", border: "2px solid rgba(255,215,0,0.3)" }}>
+              <div className="rounded-xl overflow-hidden" style={{ backgroundColor: "rgba(201,168,76,0.05)", border: "2px solid rgba(201,168,76,0.3)" }}>
                 <div className="relative h-36 overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80&auto=format&fit=crop"
@@ -198,12 +199,12 @@ export default function ContactPage() {
                     "No technical knowledge required",
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-2 text-sm">
-                      <span style={{ color: "#FFD700" }}>✓</span>
+                      <span style={{ color: "#c9a84c" }}>✓</span>
                       <span style={{ color: "var(--muted)" }}>{item}</span>
                     </div>
                   ))}
                 </div>
-                <a href="mailto:toby@MyAIWorkforce.ai?subject=Book a Free Discovery Call" className="py-3 rounded-xl font-bold text-center text-black block w-full glow-yellow" style={{ backgroundColor: "#FFD700" }}>
+                <a href="mailto:toby@MyAIWorkforce.ai?subject=Book a Free Discovery Call" className="py-3 rounded-xl font-bold text-center text-black block w-full glow-yellow" style={{ backgroundColor: "#c9a84c" }}>
                   Book My Free Call →
                 </a>
                 <p className="text-xs text-center mt-3" style={{ color: "var(--muted)" }}>Usually responds within a few hours</p>
@@ -218,7 +219,7 @@ export default function ContactPage() {
                     <span className="text-lg">✉️</span>
                     <div>
                       <div className="font-medium">Email</div>
-                      <a href="mailto:toby@MyAIWorkforce.ai" style={{ color: "#FFD700" }}>toby@MyAIWorkforce.ai</a>
+                      <a href="mailto:toby@MyAIWorkforce.ai" style={{ color: "#c9a84c" }}>toby@MyAIWorkforce.ai</a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 text-sm">
@@ -257,7 +258,7 @@ export default function ContactPage() {
                   <div className="text-5xl mb-4">🎉</div>
                   <h3 className="font-bold text-2xl mb-3">Message Sent!</h3>
                   <p className="mb-6" style={{ color: "var(--muted)" }}>Thank you for reaching out. We&apos;ll be in touch within 24 hours.</p>
-                  <Link href="/" className="px-6 py-3 rounded-lg font-semibold text-black inline-block" style={{ backgroundColor: "#FFD700" }}>Back to Home</Link>
+                  <Link href="/" className="px-6 py-3 rounded-lg font-semibold text-black inline-block" style={{ backgroundColor: "#c9a84c" }}>Back to Home</Link>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -269,7 +270,7 @@ export default function ContactPage() {
                         value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
                         className="w-full px-4 py-3 rounded-lg text-sm"
                         style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)", outline: "none", transition: "border-color 0.2s" }}
-                        onFocus={e => e.target.style.borderColor = "#FFD700"}
+                        onFocus={e => e.target.style.borderColor = "#c9a84c"}
                         onBlur={e => e.target.style.borderColor = "var(--border)"}
                       />
                     </div>
@@ -280,7 +281,7 @@ export default function ContactPage() {
                         value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
                         className="w-full px-4 py-3 rounded-lg text-sm"
                         style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)", outline: "none", transition: "border-color 0.2s" }}
-                        onFocus={e => e.target.style.borderColor = "#FFD700"}
+                        onFocus={e => e.target.style.borderColor = "#c9a84c"}
                         onBlur={e => e.target.style.borderColor = "var(--border)"}
                       />
                     </div>
@@ -292,7 +293,7 @@ export default function ContactPage() {
                       value={form.company} onChange={e => setForm({ ...form, company: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg text-sm"
                       style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)", outline: "none", transition: "border-color 0.2s" }}
-                      onFocus={e => e.target.style.borderColor = "#FFD700"}
+                      onFocus={e => e.target.style.borderColor = "#c9a84c"}
                       onBlur={e => e.target.style.borderColor = "var(--border)"}
                     />
                   </div>
@@ -303,11 +304,11 @@ export default function ContactPage() {
                       value={form.helpType} onChange={e => setForm({ ...form, helpType: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg text-sm"
                       style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: form.helpType ? "var(--text)" : "var(--muted)", outline: "none", transition: "border-color 0.2s" }}
-                      onFocus={e => (e.target as HTMLSelectElement).style.borderColor = "#FFD700"}
+                      onFocus={e => (e.target as HTMLSelectElement).style.borderColor = "#c9a84c"}
                       onBlur={e => (e.target as HTMLSelectElement).style.borderColor = "var(--border)"}
                     >
                       <option value="">Select an option...</option>
-                      <option value="done-for-you">Done-For-You AI Workforce</option>
+                      <option value="done-for-you">Build My Agent</option>
                       <option value="marketplace">Marketplace — Buying an Agent</option>
                       <option value="selling">Selling on the Marketplace</option>
                       <option value="guides">Guides & DIY Help</option>
@@ -324,11 +325,11 @@ export default function ContactPage() {
                       value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg text-sm resize-none"
                       style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)", outline: "none", transition: "border-color 0.2s" }}
-                      onFocus={e => e.target.style.borderColor = "#FFD700"}
+                      onFocus={e => e.target.style.borderColor = "#c9a84c"}
                       onBlur={e => e.target.style.borderColor = "var(--border)"}
                     />
                   </div>
-                  <button type="submit" className="w-full py-4 rounded-xl font-bold text-black text-base glow-yellow" style={{ backgroundColor: "#FFD700" }}>
+                  <button type="submit" className="w-full py-4 rounded-xl font-bold text-black text-base glow-yellow" style={{ backgroundColor: "#c9a84c" }}>
                     Send Message →
                   </button>
                   <p className="text-xs text-center" style={{ color: "var(--muted)" }}>

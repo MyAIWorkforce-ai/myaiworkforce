@@ -813,14 +813,14 @@ function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}>
-          <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+          <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
           {[
-            { label: "Marketplace", href: "/marketplace" },
-            { label: "Guides", href: "/guides" },
-            { label: "Done-For-You", href: "/done-for-you" },
-            { label: "Pricing", href: "/pricing" },
+            { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
+            
             { label: "About", href: "/about" },
             { label: "Blog", href: "/blog" },
           ].map((link) => (
@@ -836,9 +836,9 @@ function Nav() {
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
           <a
-            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
-            style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+            style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
           >
             Book a Free Call
           </a>
@@ -858,14 +858,14 @@ function Nav() {
       {open && (
         <div
           className="md:hidden border-t mobile-menu"
-          style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--mobile-menu-bg)" }}
+          style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}
         >
           <div className="px-6 py-4 flex flex-col gap-4">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
-              { label: "Pricing", href: "/pricing" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
+              
               { label: "About", href: "/about" },
               { label: "Blog", href: "/blog" },
             ].map((link) => (
@@ -873,7 +873,7 @@ function Nav() {
                 key={link.label}
                 href={link.href}
                 className="text-sm font-medium transition-colors"
-                style={{ color: "var(--text-dim)" }}
+                style={{ color: "rgba(255,255,255,0.88)" }}
                 onClick={() => setOpen(false)}
               >
                 {link.label}
@@ -882,7 +882,7 @@ function Nav() {
             <a
               href="/contact"
               className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
-              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+              style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
               onClick={() => setOpen(false)}
             >
               Book a Free Call
@@ -940,7 +940,7 @@ function BuyButton({ agent }: { agent: { price: string; title: string } }) {
         onClick={handleBuy}
         disabled={loading}
         className="w-full py-4 rounded-xl font-bold text-center text-black block mb-3 glow-yellow"
-        style={{ backgroundColor: "#FFD700", opacity: loading ? 0.7 : 1, cursor: loading ? 'wait' : 'pointer', fontSize: "1rem" }}
+        style={{ backgroundColor: "#c9a84c", opacity: loading ? 0.7 : 1, cursor: loading ? 'wait' : 'pointer', fontSize: "1rem" }}
       >
         {loading ? 'Redirecting to checkout…' : amount === 0 ? 'Get This Agent (Free) →' : `Get This Agent ${agent.price} →`}
       </button>
@@ -961,7 +961,7 @@ export default function AgentPage({ params }: { params: { slug: string } }) {
       <main>
         {/* Hero pattern strip */}
         <div className="relative" style={{ borderBottom: "1px solid var(--nav-border)" }}>
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,215,0,0.06) 1px, transparent 1px)", backgroundSize: "20px 20px", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(201,168,76,0.06) 1px, transparent 1px)", backgroundSize: "20px 20px", pointerEvents: "none" }} />
           {/* Breadcrumb */}
           <div className="px-6 py-4 relative">
           <div className="max-w-6xl mx-auto text-sm" style={{ color: "var(--text-dim)" }}>
@@ -974,13 +974,13 @@ export default function AgentPage({ params }: { params: { slug: string } }) {
           {/* Main content */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs px-2 py-1 rounded-full font-medium" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "var(--yellow)" }}>{agent.category}</span>
+              <span className="text-xs px-2 py-1 rounded-full font-medium" style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "var(--yellow)" }}>{agent.category}</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-3" style={{ letterSpacing: "-0.03em", lineHeight: "1.1" }}>{agent.title}</h1>
             <div className="flex items-center gap-3 mb-6">
               <div className="flex gap-0.5">
                 {stars.map((filled, i) => (
-                  <span key={i} style={{ color: filled ? "#FFD700" : "var(--border)", fontSize: "18px" }}>★</span>
+                  <span key={i} style={{ color: filled ? "#c9a84c" : "var(--border)", fontSize: "18px" }}>★</span>
                 ))}
               </div>
               <span className="text-sm" style={{ color: "var(--text-dim)" }}>({agent.reviews} reviews)</span>
@@ -1010,7 +1010,7 @@ export default function AgentPage({ params }: { params: { slug: string } }) {
               <div className="grid md:grid-cols-2 gap-3">
                 {agent.features.map((f, i) => (
                   <div key={i} className="flex items-center gap-3 p-4 rounded-lg card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                    <span style={{ color: "#FFD700", fontSize: "1.1rem" }}>✦</span>
+                    <span style={{ color: "#c9a84c", fontSize: "1.1rem" }}>✦</span>
                     <span className="text-sm font-medium">{f}</span>
                   </div>
                 ))}
@@ -1029,8 +1029,8 @@ export default function AgentPage({ params }: { params: { slug: string } }) {
 
           {/* Sidebar */}
           <div>
-            <div className="sticky top-24 rounded-xl p-6" style={{ backgroundColor: "var(--card)", border: "2px solid #FFD700", boxShadow: "0 0 40px rgba(255,215,0,0.1)" }}>
-              <div className="text-5xl font-extrabold mb-1" style={{ color: "#FFD700", letterSpacing: "-0.03em" }}>{agent.price}</div>
+            <div className="sticky top-24 rounded-xl p-6" style={{ backgroundColor: "var(--card)", border: "2px solid #c9a84c", boxShadow: "0 0 40px rgba(201,168,76,0.1)" }}>
+              <div className="text-5xl font-extrabold mb-1" style={{ color: "#c9a84c", letterSpacing: "-0.03em" }}>{agent.price}</div>
               <p className="text-sm mb-6" style={{ color: "var(--text-dim)" }}>One-time purchase. Use forever.</p>
               <BuyButton agent={agent} />
               <p className="text-xs text-center mb-6" style={{ color: "var(--text-dim)" }}>Instant download after purchase</p>
@@ -1046,17 +1046,17 @@ export default function AgentPage({ params }: { params: { slug: string } }) {
                 <p className="text-xs font-semibold mb-2">Tags</p>
                 <div className="flex flex-wrap gap-1.5">
                   {agent.tags.map((tag, i) => (
-                    <span key={i} className="text-xs px-2 py-1 rounded-md" style={{ backgroundColor: "var(--bg)", color: "var(--text-dim)", border: "1px solid var(--border)" }}>{tag}</span>
+                    <span key={i} className="text-xs px-2 py-1 rounded-md" style={{ backgroundColor: "var(--bg)", color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}>{tag}</span>
                   ))}
                 </div>
               </div>
 
               {/* Security Trust Badge */}
               <div className="mt-6 pt-6 border-t" style={{ borderColor: "var(--border)" }}>
-                <div className="p-4 rounded-xl" style={{ backgroundColor: "rgba(255,215,0,0.05)", border: "1px solid rgba(255,215,0,0.2)" }}>
+                <div className="p-4 rounded-xl" style={{ backgroundColor: "rgba(201,168,76,0.05)", border: "1px solid rgba(201,168,76,0.2)" }}>
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-lg">🛡️</span>
-                    <span className="text-sm font-bold" style={{ color: "#FFD700" }}>Secure Deployment Included</span>
+                    <span className="text-sm font-bold" style={{ color: "#c9a84c" }}>Secure Deployment Included</span>
                   </div>
                   <div className="flex flex-col gap-1.5">
                     {[
@@ -1067,7 +1067,7 @@ export default function AgentPage({ params }: { params: { slug: string } }) {
                       "SOC2-ready architecture",
                     ].map((point, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs">
-                        <span style={{ color: "#FFD700" }}>✓</span>
+                        <span style={{ color: "#c9a84c" }}>✓</span>
                         <span style={{ color: "var(--text-dim)" }}>{point}</span>
                       </div>
                     ))}

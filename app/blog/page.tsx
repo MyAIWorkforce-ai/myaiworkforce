@@ -50,10 +50,10 @@ function ThemeToggle() {
 }
 
 const NAV_LINKS = [
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Build My Agent", href: "/done-for-you" },
   { label: "Guides", href: "/guides" },
-  { label: "Done-For-You", href: "/done-for-you" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Marketplace", href: "/marketplace" },
+  
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
@@ -63,7 +63,7 @@ function Nav({ active }: { active?: string }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
+        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200 nav-link"
@@ -72,8 +72,8 @@ function Nav({ active }: { active?: string }) {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "var(--text-dim)", border: "1px solid var(--border)" }}>Login</Link>
-          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
+          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}>Login</Link>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
@@ -81,13 +81,14 @@ function Nav({ active }: { active?: string }) {
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
+        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}>
           <div className="px-6 py-4 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
+              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.88)" }}
+                onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
             <div className="flex gap-2 mt-2"><Link href="/login" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--border)", color: "var(--text-dim)" }} onClick={() => setOpen(false)}>Login</Link><Link href="/signup" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--yellow)", color: "var(--yellow)" }} onClick={() => setOpen(false)}>Sign Up</Link></div>
-            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
+            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
           </div>
         </div>
       )}
@@ -101,14 +102,14 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></div>
+            <div className="text-xl font-bold mb-2" style={{ color: "#c9a84c" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
               { label: "Dashboard", href: "/dashboard" },
               { label: "Sell Your Agents", href: "/creator/agents" },
               { label: "Sell Your Skills", href: "/creator/skills" },
@@ -141,7 +142,7 @@ const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
   Technology:    { bg: "rgba(183,148,246,0.12)", text: "#B794F6" },
   "Case Study":  { bg: "rgba(104,211,145,0.12)", text: "#68D391" },
   Security:      { bg: "rgba(230,57,70,0.12)", text: "#E63946" },
-  Strategy:      { bg: "rgba(255,215,0,0.12)", text: "#FFD700" },
+  Strategy:      { bg: "rgba(201,168,76,0.12)", text: "#c9a84c" },
 };
 
 const posts = [
@@ -227,11 +228,11 @@ export default function BlogPage() {
         {/* Hero */}
         <section className="py-24 px-6 text-center" style={{ backgroundColor: "var(--bg-section)" }}>
           <div className="max-w-3xl mx-auto">
-            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.3)" }}>
               The AI Workforce Blog
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
-              Insights for the<br /><span style={{ color: "#FFD700" }}>AI-Powered Business</span>
+              Insights for the<br /><span style={{ color: "#c9a84c" }}>AI-Powered Business</span>
             </h1>
             <p style={{ color: "var(--muted)" }}>
               Practical guides, case studies, and deep dives on AI automation for business owners who want results, not theory.
@@ -242,7 +243,7 @@ export default function BlogPage() {
         <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
             {/* Featured Post */}
-            <div className="rounded-2xl mb-12 overflow-hidden card-hover" style={{ backgroundColor: "var(--card)", border: "2px solid #FFD700" }}>
+            <div className="rounded-2xl mb-12 overflow-hidden card-hover" style={{ backgroundColor: "var(--card)", border: "2px solid #c9a84c" }}>
               <div className="relative overflow-hidden" style={{ height: 320 }}>
                 <img
                   src={featured.image}
@@ -253,7 +254,7 @@ export default function BlogPage() {
               </div>
               <div className="p-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs px-2 py-1 rounded-full font-bold" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>FEATURED</span>
+                  <span className="text-xs px-2 py-1 rounded-full font-bold" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>FEATURED</span>
                   <span className="text-xs px-2 py-1 rounded-full font-semibold" style={{ backgroundColor: CATEGORY_COLORS[featured.category]?.bg, color: CATEGORY_COLORS[featured.category]?.text }}>
                     {featured.category}
                   </span>
@@ -262,22 +263,22 @@ export default function BlogPage() {
                 </div>
                 <h2 className="text-3xl font-extrabold mb-4" style={{ letterSpacing: "-0.02em" }}>{featured.title}</h2>
                 <p className="text-lg mb-6 max-w-3xl" style={{ color: "var(--muted)" }}>{featured.excerpt}</p>
-                <Link href={`/blog/${featured.slug}`} className="font-semibold" style={{ color: "#FFD700" }}>Read Article →</Link>
+                <Link href={`/blog/${featured.slug}`} className="font-semibold" style={{ color: "#c9a84c" }}>Read Article →</Link>
               </div>
             </div>
 
             {/* Latest Posts label */}
             <div className="flex items-center gap-3 mb-6">
               <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "#F97316" }}></span>
-                <span className="relative inline-flex rounded-full h-3 w-3" style={{ backgroundColor: "#F97316" }}></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "#c9a84c" }}></span>
+                <span className="relative inline-flex rounded-full h-3 w-3" style={{ backgroundColor: "#c9a84c" }}></span>
               </span>
-              <span className="text-sm font-bold uppercase tracking-widest" style={{ color: "#F97316" }}>Latest Posts</span>
+              <span className="text-sm font-bold uppercase tracking-widest" style={{ color: "#c9a84c" }}>Latest Posts</span>
             </div>
             {/* Posts Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {rest.map((post, i) => {
-                const colors = CATEGORY_COLORS[post.category] ?? { bg: "rgba(255,215,0,0.1)", text: "#FFD700" };
+                const colors = CATEGORY_COLORS[post.category] ?? { bg: "rgba(201,168,76,0.1)", text: "#c9a84c" };
                 return (
                   <div key={i} className="rounded-xl flex flex-col card-hover overflow-hidden" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
                     <div className="overflow-hidden" style={{ height: 200, borderRadius: "0.75rem 0.75rem 0 0" }}>
@@ -297,7 +298,7 @@ export default function BlogPage() {
                       </div>
                       <h3 className="font-bold text-lg leading-snug">{post.title}</h3>
                       <p className="text-sm flex-1" style={{ color: "var(--muted)", lineHeight: "1.6" }}>{post.excerpt}</p>
-                      <Link href={`/blog/${post.slug}`} className="text-sm font-semibold mt-auto" style={{ color: "#FFD700" }}>Read Article →</Link>
+                      <Link href={`/blog/${post.slug}`} className="text-sm font-semibold mt-auto" style={{ color: "#c9a84c" }}>Read Article →</Link>
                     </div>
                   </div>
                 );
@@ -321,7 +322,7 @@ export default function BlogPage() {
                 <input type="email" required placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)}
                   className="flex-1 px-4 py-3 rounded-lg text-sm outline-none"
                   style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)" }} />
-                <button type="submit" className="px-6 py-3 rounded-lg font-semibold text-sm text-black" style={{ backgroundColor: "#FFD700" }}>Subscribe</button>
+                <button type="submit" className="px-6 py-3 rounded-lg font-semibold text-sm text-black" style={{ backgroundColor: "#c9a84c" }}>Subscribe</button>
               </form>
             )}
           </div>

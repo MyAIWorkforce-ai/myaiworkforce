@@ -51,10 +51,10 @@ function ThemeToggle() {
 }
 
 const NAV_LINKS = [
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Build My Agent", href: "/done-for-you" },
   { label: "Guides", href: "/guides" },
-  { label: "Done-For-You", href: "/done-for-you" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Marketplace", href: "/marketplace" },
+  
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
@@ -64,7 +64,7 @@ function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
+        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200 nav-link">{link.label}</Link>
@@ -72,8 +72,8 @@ function Nav() {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "var(--text-dim)", border: "1px solid var(--border)" }}>Login</Link>
-          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
+          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}>Login</Link>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
@@ -81,12 +81,13 @@ function Nav() {
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
+        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}>
           <div className="px-6 py-4 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
+              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.88)" }}
+                onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
-            <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
+            <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
           </div>
         </div>
       )}
@@ -100,14 +101,14 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2"><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></div>
+            <div className="text-xl font-bold mb-2"><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
               { label: "Contact", href: "/contact" },
               { label: "Invest with Us", href: "/invest" },
               { label: "Website Refresh", href: "https://cheapwebsite-j1k0zcvlh-me-myself-i.vercel.app" },
@@ -225,14 +226,14 @@ export default function SecurityPage() {
         {/* Hero */}
         <section className="py-24 px-6 text-center" style={{ backgroundColor: "var(--bg-section)" }}>
           <div className="max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.3)" }}>
               🔒 Security & Trust
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em", lineHeight: "1.05" }}>
-              Your Security Is<br /><span style={{ color: "#FFD700" }}>Our Foundation</span>
+              Your Security Is<br /><span style={{ color: "#c9a84c" }}>Our Foundation</span>
             </h1>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
-              Every Done-For-You deployment is built on principles of privacy, isolation, and transparency. We believe you deserve to know exactly what we can and cannot access — and why.
+              Every Build My Agent deployment is built on principles of privacy, isolation, and transparency. We believe you deserve to know exactly what we can and cannot access — and why.
             </p>
           </div>
         </section>
@@ -297,17 +298,17 @@ export default function SecurityPage() {
             {/* Architecture diagram */}
             <div className="mb-12">
               <div className="p-8 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                <p className="text-center text-sm font-semibold mb-6" style={{ color: "#FFD700" }}>✅ How YOUR setup works</p>
+                <p className="text-center text-sm font-semibold mb-6" style={{ color: "#c9a84c" }}>✅ How YOUR setup works</p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
-                  <div className="p-4 rounded-xl font-semibold text-sm" style={{ backgroundColor: "rgba(255,215,0,0.1)", border: "2px solid #FFD700", color: "#FFD700", minWidth: 140 }}>
+                  <div className="p-4 rounded-xl font-semibold text-sm" style={{ backgroundColor: "rgba(201,168,76,0.1)", border: "2px solid #c9a84c", color: "#c9a84c", minWidth: 140 }}>
                     Your Business Data<br /><span className="text-xs font-normal opacity-70">(Gmail, CRM, Calendar)</span>
                   </div>
-                  <div className="text-2xl" style={{ color: "#FFD700" }}>↔</div>
-                  <div className="p-4 rounded-xl font-semibold text-sm" style={{ backgroundColor: "rgba(249,115,22,0.1)", border: "2px solid #F97316", color: "#F97316", minWidth: 140 }}>
+                  <div className="text-2xl" style={{ color: "#c9a84c" }}>↔</div>
+                  <div className="p-4 rounded-xl font-semibold text-sm" style={{ backgroundColor: "rgba(249,115,22,0.1)", border: "2px solid #c9a84c", color: "#c9a84c", minWidth: 140 }}>
                     Your Private VPS<br /><span className="text-xs font-normal opacity-70">(dedicated to you only)</span>
                   </div>
-                  <div className="text-2xl" style={{ color: "#F97316" }}>↔</div>
-                  <div className="p-4 rounded-xl font-semibold text-sm" style={{ backgroundColor: "rgba(255,215,0,0.1)", border: "2px solid #FFD700", color: "#FFD700", minWidth: 140 }}>
+                  <div className="text-2xl" style={{ color: "#c9a84c" }}>↔</div>
+                  <div className="p-4 rounded-xl font-semibold text-sm" style={{ backgroundColor: "rgba(201,168,76,0.1)", border: "2px solid #c9a84c", color: "#c9a84c", minWidth: 140 }}>
                     Your AI Agents<br /><span className="text-xs font-normal opacity-70">(running only for you)</span>
                   </div>
                 </div>
@@ -423,7 +424,7 @@ export default function SecurityPage() {
                     "We confirm all agent processes are stopped within 1 hour",
                   ].map((step, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs" style={{ color: "var(--muted)" }}>
-                      <span className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>{i + 1}</span>
+                      <span className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>{i + 1}</span>
                       {step}
                     </li>
                   ))}
@@ -438,7 +439,7 @@ export default function SecurityPage() {
                 </p>
                 <Link href="mailto:toby@MyAIWorkforce.ai?subject=Data Deletion Request"
                   className="text-sm font-semibold"
-                  style={{ color: "#FFD700" }}
+                  style={{ color: "#c9a84c" }}
                 >
                   Request deletion → toby@MyAIWorkforce.ai
                 </Link>
@@ -477,7 +478,7 @@ export default function SecurityPage() {
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   >
                     <h3 className="font-bold text-sm">{faq.q}</h3>
-                    <span style={{ color: "#FFD700", fontSize: "20px", flexShrink: 0 }}>{openFaq === i ? "−" : "+"}</span>
+                    <span style={{ color: "#c9a84c", fontSize: "20px", flexShrink: 0 }}>{openFaq === i ? "−" : "+"}</span>
                   </button>
                   {openFaq === i && (
                     <div className="px-6 pb-6">
@@ -502,9 +503,9 @@ export default function SecurityPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
+                href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer"
                 className="px-8 py-4 rounded-xl font-bold text-black inline-block text-base glow-yellow"
-                style={{ backgroundColor: "#FFD700" }}
+                style={{ backgroundColor: "#c9a84c" }}
               >
                 Book a Security Briefing Call →
               </Link>
@@ -517,7 +518,7 @@ export default function SecurityPage() {
               </Link>
             </div>
             <p className="mt-6 text-sm" style={{ color: "var(--muted)" }}>
-              Or read our <Link href="/privacy" style={{ color: "#FFD700" }}>Privacy Policy</Link> and <Link href="/terms" style={{ color: "#FFD700" }}>Terms of Service</Link>
+              Or read our <Link href="/privacy" style={{ color: "#c9a84c" }}>Privacy Policy</Link> and <Link href="/terms" style={{ color: "#c9a84c" }}>Terms of Service</Link>
             </p>
           </div>
         </section>

@@ -20,7 +20,7 @@ const contentCalendar: DayContent[] = [
     title: "Launch / Awareness",
     LinkedIn: `We just launched something I've been building for the past year — and I'm genuinely excited to share it.
 
-MyAIWorkforce.ai is Australia's AI agent marketplace and done-for-you agency, built specifically for business owners who want to automate the repetitive work that's eating up their team's time — without needing a tech team to do it.
+MyAIWorkforce.ai is Australia's AI agent marketplace and AI agent-building agency, built specifically for business owners who want to automate the repetitive work that's eating up their team's time — without needing a tech team to do it.
 
 Here's how it works across three pillars:
 
@@ -60,13 +60,13 @@ If you're a business owner in Australia who wants to automate the grind — tap 
 
 If you're a business owner who's tired of your team spending hours on repetitive tasks — this one's for you.
 
-We've built an AI agent marketplace and done-for-you service designed for Aussie business owners. No tech skills needed. No developers required.
+We've built an AI agent marketplace and build my agent service designed for Aussie business owners. No tech skills needed. No developers required.
 
 Here's what we offer:
 
 ✅ Marketplace — browse AI agents for email, lead gen, CRM, support and more
 ✅ Step-by-step guides to implement AI yourself
-✅ Done-For-You service — we build and deploy custom agents in your business
+✅ Build My Agent service — we build and deploy custom agents in your business
 
 It's not about replacing your team. It's about freeing them up for the work that actually matters.
 
@@ -205,7 +205,7 @@ The numbers after 30 days:
 
 Nobody lost their job. The team just stopped doing the boring stuff.
 
-This is exactly what we do in our Done-For-You service. Interested in a similar result for your business?
+This is exactly what we do in our Build My Agent service. Interested in a similar result for your business?
 
 👉 Book a call at MyAIWorkforce.ai/done-for-you`,
   },
@@ -440,7 +440,7 @@ Automation and security shouldn't be a trade-off.
     title: "CTA — Done-For-You",
     LinkedIn: `We have 2 Done-For-You spots open this month. Here's what that means.
 
-Every month, we take on a small number of Done-For-You clients — businesses where we custom-build and deploy AI agents directly into their operations.
+Every month, we take on a small number of Build My Agent clients — businesses where we custom-build and deploy AI agents directly into their operations.
 
 Not templates. Not generic tools. Purpose-built agents designed around your specific workflows, systems, and team.
 
@@ -477,7 +477,7 @@ Not many. Not for long.
 👉 MyAIWorkforce.ai/done-for-you`,
     Instagram: `Two spots. This month. That's it. ⚡
 
-Our Done-For-You service is exactly what it sounds like — we build custom AI agents and deploy them directly into your business.
+Our Build My Agent service is exactly what it sounds like — we build custom AI agents and deploy them directly into your business.
 
 You don't learn a new tool.
 You don't manage a tech project.
@@ -497,7 +497,7 @@ If you're serious about automating your business — DM us or tap the link in bi
 #DoneForYou #AIAutomation #AustralianBusiness #AIAgents #BusinessGrowth #Automation #AIWorkforce #SmallBusiness #FounderLife #WorkSmarter`,
     Facebook: `Two Done-For-You spots open this month — and I want to be honest about why we keep it small.
 
-Our Done-For-You service isn't a cookie-cutter package. We sit down with each client, map their business, identify exactly where AI automation will have the biggest impact, then build and deploy custom agents directly into their systems.
+Our Build My Agent service isn't a cookie-cutter package. We sit down with each client, map their business, identify exactly where AI automation will have the biggest impact, then build and deploy custom agents directly into their systems.
 
 It takes real time and real attention. So we cap it at two new clients per month.
 
@@ -566,9 +566,9 @@ function CopyButton({ text }: { text: string }) {
       style={{
         padding: "6px 14px",
         background: copied ? "rgba(255, 215, 0, 0.2)" : "rgba(255,255,255,0.07)",
-        border: `1px solid ${copied ? "#FFD700" : "rgba(255,255,255,0.15)"}`,
+        border: `1px solid ${copied ? "#c9a84c" : "rgba(255,255,255,0.15)"}`,
         borderRadius: "6px",
-        color: copied ? "#FFD700" : "#999",
+        color: copied ? "#c9a84c" : "#999",
         fontSize: "12px",
         cursor: "pointer",
         transition: "all 0.2s",
@@ -618,7 +618,7 @@ function DayCard({ data }: { data: DayContent }) {
             alignItems: "center",
             justifyContent: "center",
             fontWeight: "700",
-            color: "#FFD700",
+            color: "#c9a84c",
             fontSize: "14px",
             flexShrink: 0,
           }}
@@ -695,7 +695,7 @@ function DayCard({ data }: { data: DayContent }) {
               <span
                 style={{
                   fontSize: "12px",
-                  color: charCount > 280 ? "#ef4444" : charCount > 240 ? "#F97316" : "#666",
+                  color: charCount > 280 ? "#ef4444" : charCount > 240 ? "#c9a84c" : "#666",
                   fontVariantNumeric: "tabular-nums",
                 }}
               >
@@ -776,7 +776,7 @@ export default function ContentPreviewPage() {
         <Link
           href="/"
           style={{
-            color: "#FFD700",
+            color: "#c9a84c",
             textDecoration: "none",
             fontWeight: "700",
             fontSize: "16px",
@@ -820,7 +820,7 @@ export default function ContentPreviewPage() {
             background: "rgba(255, 215, 0, 0.1)",
             border: "1px solid rgba(255, 215, 0, 0.3)",
             borderRadius: "20px",
-            color: "#FFD700",
+            color: "#c9a84c",
             fontSize: "12px",
             fontWeight: "600",
             letterSpacing: "0.08em",
@@ -835,7 +835,7 @@ export default function ContentPreviewPage() {
             fontSize: "clamp(28px, 5vw, 48px)",
             fontWeight: "800",
             margin: "0 0 16px",
-            background: "linear-gradient(135deg, #FFD700 0%, #F97316 100%)",
+            background: "linear-gradient(135deg, #c9a84c 0%, #c9a84c 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -908,7 +908,7 @@ export default function ContentPreviewPage() {
           fontSize: "13px",
         }}
       >
-        <Link href="/" style={{ color: "#FFD700", textDecoration: "none", fontWeight: "600" }}>
+        <Link href="/" style={{ color: "#c9a84c", textDecoration: "none", fontWeight: "600" }}>
           MyAIWorkforce.ai
         </Link>{" "}
         · Social Media Content Calendar Week 1 · All rights reserved

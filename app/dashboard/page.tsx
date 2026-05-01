@@ -63,10 +63,10 @@ function ThemeToggle() {
 }
 
 const NAV_LINKS = [
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Build My Agent", href: "/done-for-you" },
   { label: "Guides", href: "/guides" },
-  { label: "Done-For-You", href: "/done-for-you" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Marketplace", href: "/marketplace" },
+  
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
@@ -80,7 +80,7 @@ function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}>
-          <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+          <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
@@ -99,9 +99,9 @@ function Nav() {
             Login
           </Link>
           <Link
-            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
-            style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+            style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
           >
             Book a Free Call
           </Link>
@@ -114,17 +114,19 @@ function Nav() {
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
+        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}>
           <div className="px-6 py-4 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>
+              <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors" style={{ color: "rgba(255,255,255,0.88)" }}
+                onClick={() => setOpen(false)}>
                 {link.label}
               </Link>
             ))}
-            <Link href="/login" className="text-sm font-medium transition-colors" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>
+            <Link href="/login" className="text-sm font-medium transition-colors" style={{ color: "rgba(255,255,255,0.88)" }}
+                onClick={() => setOpen(false)}>
               Login
             </Link>
-            <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>
+            <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }} onClick={() => setOpen(false)}>
               Book a Free Call
             </Link>
           </div>
@@ -140,14 +142,14 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2"><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></div>
+            <div className="text-xl font-bold mb-2"><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
               { label: "Dashboard", href: "/dashboard" },
               { label: "Sell Your Agents", href: "/creator/agents" },
               { label: "Sell Your Skills", href: "/creator/skills" },
@@ -207,7 +209,7 @@ function NotLoggedIn() {
       <main className="pt-24 pb-20 px-6">
         <div className="max-w-xl mx-auto text-center py-20">
           <div className="text-6xl mb-6">🔒</div>
-          <h1 className="text-3xl font-bold mb-4" style={{ color: "#FFD700" }}>
+          <h1 className="text-3xl font-bold mb-4" style={{ color: "#c9a84c" }}>
             Please Log In
           </h1>
           <p className="text-lg mb-8" style={{ color: "var(--muted)" }}>
@@ -217,7 +219,7 @@ function NotLoggedIn() {
             <Link
               href="/login"
               className="px-8 py-3 rounded-xl text-sm font-semibold transition-all duration-200"
-              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+              style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
             >
               Log In
             </Link>
@@ -312,7 +314,7 @@ export default function DashboardPage() {
             {/* Welcome header */}
             <div className="mb-10">
               <h1 className="text-4xl font-bold mb-2" style={{ letterSpacing: "-0.02em" }}>
-                Welcome back, <span style={{ color: "#FFD700" }}>{user.name}</span>! 👋
+                Welcome back, <span style={{ color: "#c9a84c" }}>{user.name}</span>! 👋
               </h1>
               <p className="text-base" style={{ color: "var(--muted)" }}>
                 Here&apos;s everything in your account.
@@ -327,8 +329,8 @@ export default function DashboardPage() {
                   onClick={() => setActiveTab(tab)}
                   className="px-6 py-3 text-sm font-semibold transition-all duration-200 capitalize"
                   style={{
-                    borderBottom: activeTab === tab ? "2px solid #FFD700" : "2px solid transparent",
-                    color: activeTab === tab ? "#FFD700" : "var(--muted)",
+                    borderBottom: activeTab === tab ? "2px solid #c9a84c" : "2px solid transparent",
+                    color: activeTab === tab ? "#c9a84c" : "var(--muted)",
                     marginBottom: "-1px",
                     background: "none",
                   }}
@@ -353,7 +355,7 @@ export default function DashboardPage() {
                     <Link
                       href="/marketplace"
                       className="px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 inline-block"
-                      style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+                      style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
                     >
                       Browse the marketplace →
                     </Link>
@@ -379,7 +381,7 @@ export default function DashboardPage() {
                           </div>
                           <div className="flex items-center gap-4">
                             {purchase.amount != null && (
-                              <span className="text-sm font-semibold" style={{ color: "#FFD700" }}>
+                              <span className="text-sm font-semibold" style={{ color: "#c9a84c" }}>
                                 AUD ${Number(purchase.amount).toFixed(2)}
                               </span>
                             )}
@@ -397,7 +399,7 @@ export default function DashboardPage() {
                               target="_blank"
                               rel="noopener noreferrer"
                               className="px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200"
-                              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+                              style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
                             >
                               Download
                             </a>
@@ -421,7 +423,7 @@ export default function DashboardPage() {
                       <Link
                         href="/creator/agents"
                         className="px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200"
-                        style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+                        style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
                       >
                         List an Agent →
                       </Link>
@@ -453,7 +455,7 @@ export default function DashboardPage() {
                                 {sub.type && <span className="capitalize">{sub.type}</span>}
                                 {sub.category && <span>· {sub.category}</span>}
                                 {sub.price != null && (
-                                  <span style={{ color: "#F97316" }}>· ${sub.price}</span>
+                                  <span style={{ color: "#c9a84c" }}>· ${sub.price}</span>
                                 )}
                               </div>
                             </div>
@@ -477,7 +479,7 @@ export default function DashboardPage() {
               className="mt-16 p-6 rounded-2xl"
               style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)" }}
             >
-              <h2 className="text-lg font-semibold mb-4" style={{ color: "#FFD700" }}>Account</h2>
+              <h2 className="text-lg font-semibold mb-4" style={{ color: "#c9a84c" }}>Account</h2>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <p className="text-sm font-medium">{user.name}</p>

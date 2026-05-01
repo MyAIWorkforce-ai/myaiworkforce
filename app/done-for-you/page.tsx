@@ -50,10 +50,10 @@ function ThemeToggle() {
 }
 
 const NAV_LINKS = [
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Build My Agent", href: "/done-for-you" },
   { label: "Guides", href: "/guides" },
-  { label: "Done-For-You", href: "/done-for-you" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Marketplace", href: "/marketplace" },
+  
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
@@ -63,7 +63,7 @@ function Nav({ active }: { active?: string }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
+        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200 nav-link"
@@ -72,8 +72,8 @@ function Nav({ active }: { active?: string }) {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "var(--text-dim)", border: "1px solid var(--border)" }}>Login</Link>
-          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
+          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}>Login</Link>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
@@ -81,13 +81,14 @@ function Nav({ active }: { active?: string }) {
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
+        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}>
           <div className="px-6 py-4 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
+              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.88)" }}
+                onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
             <div className="flex gap-2 mt-2"><Link href="/login" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--border)", color: "var(--text-dim)" }} onClick={() => setOpen(false)}>Login</Link><Link href="/signup" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--yellow)", color: "var(--yellow)" }} onClick={() => setOpen(false)}>Sign Up</Link></div>
-            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
+            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
           </div>
         </div>
       )}
@@ -101,14 +102,14 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></div>
+            <div className="text-xl font-bold mb-2" style={{ color: "#c9a84c" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
               { label: "Dashboard", href: "/dashboard" },
               { label: "Sell Your Agents", href: "/creator/agents" },
               { label: "Sell Your Skills", href: "/creator/skills" },
@@ -117,7 +118,7 @@ function Footer() {
               { label: "Website Refresh", href: "https://cheapwebsite-j1k0zcvlh-me-myself-i.vercel.app" },
             ].map((link) => (
               <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
-                style={{ color: ["Invest with Us", "Sell Your Agents"].includes(link.label) ? "var(--yellow)" : "var(--muted)", fontWeight: ["Invest with Us", "Sell Your Agents"].includes(link.label) ? "600" : "normal" }}
+                style={{ color: link.label === "Invest with Us" ? "var(--yellow)" : "var(--muted)", fontWeight: link.label === "Invest with Us" ? "600" : "normal" }}
               >{link.label}</Link>
             ))}
           </div>
@@ -136,19 +137,18 @@ function Footer() {
 }
 
 const included = [
-  { icon: "🔧", item: "Custom AI agents built specifically for your business" },
-  { icon: "🚀", item: "Full setup and deployment on your private VPS" },
+  { icon: "🔧", item: "Custom OpenClaw AI agent built for your business — powered by Claude, GPT or your chosen AI model" },
+  { icon: "🚀", item: "Full setup and deployment on your own private, secure server (VPS)" },
+  { icon: "💬", item: "Chat with your agent via Telegram — anywhere, anytime" },
+  { icon: "📧", item: "Reads, replies to and manages your emails automatically" },
+  { icon: "📅", item: "Manages your calendar, appointments and bookings" },
+  { icon: "💳", item: "Processes invoices, receipts and data entry" },
+  { icon: "🔗", item: "Connects to 10,000+ apps and tools via integrations" },
+  { icon: "🔍", item: "Researches the web, competitors and market trends" },
+  { icon: "🗣️", item: "Handles customer enquiries and follow-ups" },
+  { icon: "🛡️", item: "Enterprise-grade security — your data never leaves your server" },
   { icon: "📊", item: "Monthly performance reporting and analytics" },
-  { icon: "🔄", item: "Continuous monitoring and optimisation" },
-  { icon: "🛡️", item: "Enterprise-grade security — your data stays yours" },
-  { icon: "🔗", item: "Integration with your existing tools and workflows" },
-  { icon: "👥", item: "Dedicated support team available via email + chat" },
-  { icon: "📈", item: "Quarterly business reviews and strategy sessions" },
-  { icon: "🔁", item: "Regular agent updates as AI models improve" },
-  { icon: "📋", item: "Full documentation and training for your team" },
-  { icon: "⚡", item: "Priority access to new agents and features" },
-  { icon: "✅", item: "30-day satisfaction guarantee on all plans" },
-  { icon: "🖥️", item: "Claw.so dashboard — see your agents working in real time, approve actions, review outputs" },
+  { icon: "🔄", item: "Ongoing management, monitoring and optimisation" },
 ];
 
 const plans = [
@@ -164,7 +164,6 @@ const plans = [
       "Private VPS deployment",
       "Monthly performance report",
       "Email support (48hr response)",
-      "30-day satisfaction guarantee",
     ],
     cta: "Get Started",
     note: "Best for: Small businesses automating 1-2 core processes",
@@ -210,35 +209,35 @@ const plans = [
 const process = [
   {
     step: "01",
-    title: "Discovery Call",
-    desc: "30-minute free consultation to understand your business, identify automation opportunities, and determine the highest-ROI starting point.",
+    title: "Fill In the Form",
+    desc: "Tell us about your business, what you want your agent to do, and choose your package. Takes 2 minutes.",
   },
   {
     step: "02",
-    title: "Strategy & Planning",
-    desc: "We document your workflows, map your existing tools, and design an AI architecture tailored specifically to your operations.",
+    title: "We Get to Work",
+    desc: "Our team designs and builds your custom AI agent — tailored to your business, your tools, and your workflows.",
   },
   {
     step: "03",
     title: "Build & Test",
-    desc: "Our team builds your custom agents, tests them against real scenarios, and refines until performance meets our quality bar.",
+    desc: "We test your agent against real scenarios and refine until it performs exactly how you need it to.",
   },
   {
     step: "04",
-    title: "Deploy & Train",
-    desc: "We deploy to your private VPS, integrate with your tools, and run your team through a handover session so everyone knows what to expect.",
+    title: "Go Live",
+    desc: "Your agent is deployed on your own private server and connected to your email, calendar, and other tools. Usually within 2 weeks.",
   },
   {
     step: "05",
-    title: "Manage & Optimise",
-    desc: "We monitor everything 24/7, send monthly performance reports, and continuously improve your agents as your business evolves.",
+    title: "We Manage It For You",
+    desc: "We monitor everything 24/7, send monthly performance reports, and keep improving your agent as your business grows.",
   },
 ];
 
 const faqs = [
   {
     q: "How long does setup take?",
-    a: "Most clients are live within 2 weeks. Complex enterprise setups with many integrations may take 4–6 weeks. We'll give you a clear timeline after the discovery call.",
+    a: "Most clients are live within 24–48 hours. We move fast — once you submit your form, we get straight to work.",
   },
   {
     q: "Do I need any technical knowledge?",
@@ -258,7 +257,6 @@ const faqs = [
   },
   {
     q: "What if I'm not happy with the results?",
-    a: "Every plan comes with a 30-day satisfaction guarantee. If we don't deliver the results we promised in month one, we'll refund your subscription in full. No questions asked.",
   },
 ];
 
@@ -268,7 +266,7 @@ const caseStudies = [
     industry: "Logistics & Transport",
     result: "15 hours/week saved",
     stat: "15 hrs/wk",
-    desc: "Deployed 3 agents handling invoice processing, shipment status updates, and customer query resolution. The team reclaimed 15 hours a week within the first month.",
+    desc: "Deployed an AI agent handling invoice processing, shipment status updates, and customer query resolution. The team reclaimed 15 hours a week within the first month.",
     quote: "We were drowning in admin. Now it just... handles itself.",
     person: "Sarah Chen, COO",
   },
@@ -300,29 +298,23 @@ export default function DoneForYouPage() {
       <Nav active="Done-For-You" />
       <main className="pt-16">
         {/* Hero */}
-        <section className="py-24 px-6 text-center relative overflow-hidden" style={{ backgroundColor: "var(--bg-section)" }}>
-          <img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=80&auto=format&fit=crop"
-            alt="Professional team working on AI solutions"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.10, pointerEvents: "none", zIndex: 0 }}
-          />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.4), var(--bg-section))", zIndex: 1 }} />
-          <div className="max-w-4xl mx-auto relative" style={{ zIndex: 2 }}>
-            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
-              Done-For-You Service
+        <section className="py-24 px-6 text-center relative overflow-hidden" style={{ backgroundColor: "#f4f6fa" }}>
+          <div className="max-w-4xl mx-auto relative">
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-bold mb-6" style={{ backgroundColor: "rgba(201,168,76,0.2)", color: "#5a3e08", border: "2px solid rgba(201,168,76,0.5)" }}>
+              Build My Agent
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em", lineHeight: "1.05" }}>
-              We Build. We Deploy.<br />We Manage.<br /><span style={{ color: "#FFD700" }}>You Just Get Results.</span>
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em", lineHeight: "1.05", color: "#1a1a2e" }}>
+              We Build. We Deploy.<br />We Manage.<br /><span style={{ color: "#c9a84c" }}>You Just Get Results.</span>
             </h1>
-            <p className="text-lg max-w-2xl mx-auto mb-10" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
-              Stop spending time learning AI tools. Hand us your business challenges and we&apos;ll build a custom AI workforce that runs 24/7 — all on your own private, secure infrastructure.
+            <p className="text-lg max-w-2xl mx-auto mb-10" style={{ color: "#5a6a8a", lineHeight: "1.7" }}>
+              Hand us your business challenges and we&apos;ll build you a custom AI agent that runs 24/7 on your very own private, secure infrastructure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold text-black inline-block text-lg glow-yellow" style={{ backgroundColor: "#FFD700" }}>
-                Book Your Free Discovery Call →
+              <Link href="/get-started" className="px-8 py-4 rounded-xl font-bold inline-block text-lg glow-yellow" style={{ backgroundColor: "#1a1a2e", color: "#ffffff", border: "2px solid #c9a84c" }}>
+                Build My Agent Now →
               </Link>
-              <Link href="#pricing" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ border: "2px solid var(--border)", color: "var(--text-dim)" }}>
-                See Pricing
+              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ border: "2px solid #c9a84c", color: "#c9a84c", background: "rgba(201,168,76,0.08)" }}>
+                Book a Free Discovery Call
               </Link>
             </div>
           </div>
@@ -333,10 +325,10 @@ export default function DoneForYouPage() {
           <div className="max-w-6xl mx-auto">
             <p className="section-label justify-center mb-4">What You Get</p>
             <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Everything Included. Nothing Hidden.</h2>
-            <p className="text-center max-w-xl mx-auto mb-12" style={{ color: "var(--muted)" }}>Every Done-For-You plan includes full-service delivery from discovery through to ongoing management.</p>
+            <p className="text-center max-w-xl mx-auto mb-12" style={{ color: "var(--muted)" }}>From the moment you get started, we handle everything — build, deployment, and ongoing management.</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {included.map((item, i) => (
-                <div key={i} className="p-4 rounded-xl flex items-start gap-3" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", borderLeft: "2px solid rgba(255,215,0,0.5)" }}>
+                <div key={i} className="p-4 rounded-xl flex items-start gap-3" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", borderLeft: "2px solid rgba(201,168,76,0.5)" }}>
                   <span className="text-xl mt-0.5">{item.icon}</span>
                   <span className="text-sm font-medium">{item.item}</span>
                 </div>
@@ -356,10 +348,10 @@ export default function DoneForYouPage() {
                   <span style={{ fontSize: "2rem" }}>🛡️</span>
                 </div>
                 <h2 className="text-3xl font-extrabold mb-6" style={{ letterSpacing: "-0.02em" }}>
-                  Your Data Stays Yours.<br /><span style={{ color: "#FFD700" }}>Always.</span>
+                  Your Data Stays Yours.<br /><span style={{ color: "#c9a84c" }}>Always.</span>
                 </h2>
                 <p className="mb-6" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
-                  We know that handing your business data to an AI system requires enormous trust. That&apos;s why every Done-For-You deployment is built on a private infrastructure model that keeps your data completely isolated.
+                  We know that handing your business data to an AI system requires enormous trust. That&apos;s why every Build My Agent deployment is built on a private infrastructure model that keeps your data completely isolated.
                 </p>
                 <div className="flex flex-col gap-3">
                   {[
@@ -377,7 +369,7 @@ export default function DoneForYouPage() {
                   ))}
                 </div>
               </div>
-              <div className="p-8 rounded-2xl" style={{ backgroundColor: "rgba(255,215,0,0.04)", border: "2px solid rgba(255,215,0,0.2)" }}>
+              <div className="p-8 rounded-2xl" style={{ backgroundColor: "rgba(201,168,76,0.04)", border: "2px solid rgba(201,168,76,0.2)" }}>
                 <div className="text-4xl mb-4">🛡️</div>
                 <h3 className="text-xl font-bold mb-4">The Private VPS Promise</h3>
                 <p className="text-sm mb-6" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
@@ -392,22 +384,22 @@ export default function DoneForYouPage() {
                     "Meets strict data residency requirements",
                   ].map((point, i) => (
                     <div key={i} className="flex items-start gap-2 text-sm">
-                      <span style={{ color: "#FFD700" }}>✓</span>
+                      <span style={{ color: "#c9a84c" }}>✓</span>
                       <span style={{ color: "var(--muted)" }}>{point}</span>
                     </div>
                   ))}
                 </div>
-                <div className="mt-6 pt-6 border-t" style={{ borderColor: "rgba(255,215,0,0.2)" }}>
-                  <p className="text-xs font-semibold" style={{ color: "#FFD700" }}>
+                <div className="mt-6 pt-6 border-t" style={{ borderColor: "rgba(201,168,76,0.2)" }}>
+                  <p className="text-xs font-semibold" style={{ color: "#c9a84c" }}>
                     🛡️ Every plan includes a dedicated private VPS at no extra cost.
                   </p>
                   <div className="mt-3">
-                    <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 12, fontWeight: 700, display: "inline-block",  }}>
+                    <span style={{ border: "2px dashed #c9a84c", color: "#c9a84c", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 12, fontWeight: 700, display: "inline-block",  }}>
                       🏷️ Your data never leaves your server
                     </span>
                   </div>
                   <div className="mt-4">
-                    <Link href="/security" className="text-sm font-semibold" style={{ color: "#FFD700" }}>
+                    <Link href="/security" className="text-sm font-semibold" style={{ color: "#c9a84c" }}>
                       Learn more about our security →
                     </Link>
                   </div>
@@ -421,64 +413,98 @@ export default function DoneForYouPage() {
         <section className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
             <p className="section-label justify-center mb-4">The Process</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>From Discovery to Results in 5 Steps</h2>
-            <p className="text-center max-w-xl mx-auto mb-12" style={{ color: "var(--muted)" }}>A clear, structured process that gets you results fast — without the confusion.</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Have Your Very Own Live Agent in 5 Steps</h2>
+            <p className="text-center max-w-xl mx-auto mb-12" style={{ color: "var(--muted)" }}>Simple, fast, and fully managed. You fill in a form — we do the rest.</p>
             <div className="grid md:grid-cols-5 gap-4">
               {process.map((s, i) => (
                 <div key={i} className="p-6 rounded-xl flex flex-col card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-extrabold mb-4 flex-shrink-0" style={{ backgroundColor: "#FFD700", color: "#0A0A0A", boxShadow: "0 0 0 3px rgba(255,215,0,0.2)" }}>{s.step}</div>
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-extrabold mb-4 flex-shrink-0" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A", boxShadow: "0 0 0 3px rgba(201,168,76,0.2)" }}>{s.step}</div>
                   <h3 className="font-bold mb-2 text-sm">{s.title}</h3>
                   <p className="text-xs flex-1" style={{ color: "var(--muted)", lineHeight: "1.6" }}>{s.desc}</p>
                 </div>
               ))}
+            </div>
+            <div className="text-center mt-10">
+              <Link href="/get-started" className="px-8 py-4 rounded-xl font-bold text-lg inline-block glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
+                Get Started Now →
+              </Link>
             </div>
           </div>
         </section>
 
         {/* Pricing */}
         <section id="pricing" className="py-20 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <p className="section-label justify-center mb-4">Pricing</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Simple, Transparent Pricing</h2>
-            <p className="text-center max-w-xl mx-auto mb-4" style={{ color: "var(--muted)" }}>All plans include full setup, ongoing management, and private VPS deployment.</p>
-            <div className="flex justify-center mb-10">
-              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
-                🏷️ First month 20% off for new clients
-              </span>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6 items-start">
-              {plans.map((plan, i) => (
-                <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.highlight ? "rgba(255,215,0,0.05)" : "var(--card)", border: `2px solid ${plan.highlight ? "#FFD700" : "var(--border)"}`, transform: plan.highlight ? "scale(1.02)" : "scale(1)", boxShadow: plan.highlight ? "0 0 40px rgba(255,215,0,0.12)" : "none" }}>
-                  {plan.highlight && <div className="text-xs font-bold px-3 py-1 rounded-full self-start" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>MOST POPULAR</div>}
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-extrabold">{plan.price}</span>
-                      <span style={{ color: "var(--muted)" }}>{plan.period}</span>
-                    </div>
-                    <p className="text-sm mt-1 font-medium" style={{ color: "#FFD700" }}>{plan.agents}</p>
-                    <p className="text-xs mt-2" style={{ color: "var(--muted)" }}>{plan.note}</p>
-                  </div>
-                  <ul className="flex flex-col gap-2 flex-1">
-                    {plan.features.map((f, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm">
-                        <span style={{ color: "#FFD700" }}>✓</span>{f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/contact" className="py-3 rounded-lg font-semibold text-center text-sm transition-all" style={{ backgroundColor: plan.highlight ? "#FFD700" : "transparent", color: plan.highlight ? "#0A0A0A" : "#FFD700", border: plan.highlight ? "none" : "1px solid #FFD700" }}>
-                    {plan.cta}
-                  </Link>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>One Plan. Everything Included.</h2>
+            <p className="text-center max-w-xl mx-auto mb-12" style={{ color: "var(--muted)" }}>No hidden fees. No lock-in contracts. Get started in minutes — cancel anytime with 30 days notice.</p>
+            <div className="grid md:grid-cols-2 gap-6 items-start">
+              {/* Main card */}
+              <div className="p-10 rounded-2xl" style={{ backgroundColor: "#1a1a2e", border: "2px solid #c9a84c" }}>
+                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-6" style={{ backgroundColor: "rgba(201,168,76,0.2)", color: "#c9a84c", border: "1px solid #c9a84c" }}>GET STARTED TODAY</div>
+                <h3 className="text-2xl font-extrabold text-white mb-2">Build My Agent</h3>
+                <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>Your own OpenClaw AI agent — built on Claude, GPT or any leading AI model — deployed and running in as little as 24 hours.</p>
+                <div className="mb-1">
+                  <span className="text-5xl font-extrabold text-white">$497</span>
+                  <span className="text-lg font-medium ml-2" style={{ color: "#c9a84c" }}>USD setup</span>
                 </div>
-              ))}
-            </div>
-            <div className="mt-8 text-center p-6 rounded-xl" style={{ backgroundColor: "rgba(255,215,0,0.05)", border: "1px solid rgba(255,215,0,0.2)" }}>
-              <p className="font-semibold" style={{ color: "#FFD700" }}>🛡️ 30-Day Satisfaction Guarantee — if we don&apos;t deliver results in month one, we&apos;ll refund you in full.</p>
-            </div>
-            <div className="flex justify-center mt-4">
-              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
-                🏷️ 30-day money-back guarantee — zero risk
-              </span>
+                <div className="mb-1" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>≈ $770 AUD one-time</div>
+                <div className="mt-4 mb-1">
+                  <span className="text-3xl font-extrabold text-white">$99</span>
+                  <span className="text-base font-medium ml-2" style={{ color: "#c9a84c" }}>USD / month</span>
+                </div>
+                <div className="mb-8" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>≈ $155 AUD / month ongoing</div>
+                <ul className="space-y-2 mb-8">
+                  {[
+                    "Custom AI agent built for your business",
+                    "Powered by Claude, GPT or any leading AI",
+                    "Runs 24/7 on your own private server",
+                    "Chat via Telegram — anywhere, anytime",
+                    "Reads & replies to your emails automatically",
+                    "Manages your calendar & bookings",
+                    "Handles customer enquiries & follow-ups",
+                    "Processes invoices, receipts & data entry",
+                    "Connects to 10,000+ apps",
+                    "Ongoing management & support",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm" style={{ color: "rgba(255,255,255,0.85)" }}>
+                      <span style={{ color: "#c9a84c", fontWeight: 700 }}>✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/get-started" className="block w-full text-center py-4 rounded-xl font-bold text-lg glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
+                  Build My Agent Now →
+                </Link>
+              </div>
+              {/* Custom card */}
+              <div className="p-10 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-6" style={{ backgroundColor: "rgba(201,168,76,0.08)", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.3)" }}>ENTERPRISE</div>
+                <h3 className="text-2xl font-extrabold mb-2">Custom Solution</h3>
+                <p className="text-sm mb-6" style={{ color: "var(--muted)" }}>For larger businesses needing multiple agents across teams.</p>
+                <div className="mb-8"><span className="text-3xl font-extrabold">Let&apos;s Talk</span></div>
+                <ul className="space-y-2 mb-8">
+                  {[
+                    "Multiple AI agents across your team",
+                    "Each team member gets their own agent",
+                    "Custom integrations & workflows",
+                    "Dedicated account manager",
+                    "Priority support & SLA",
+                    "Tailored onboarding & training",
+                    "Advanced security & compliance",
+                    "Custom reporting & dashboards",
+                    "White-label options available",
+                    "Scalable as your team grows",
+                    "Custom pricing based on scope",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm" style={{ color: "var(--muted)" }}>
+                      <span style={{ color: "#c9a84c", fontWeight: 700 }}>✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="block w-full text-center py-4 rounded-xl font-bold text-lg" style={{ border: "2px solid #c9a84c", color: "#c9a84c", background: "rgba(201,168,76,0.06)" }}>
+                  Book a 30-Min Call →
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -491,9 +517,9 @@ export default function DoneForYouPage() {
             <div className="grid md:grid-cols-3 gap-6">
               {caseStudies.map((cs, i) => (
                 <div key={i} className="p-8 rounded-xl flex flex-col card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", minHeight: 320 }}>
-                  <div className="text-6xl font-serif leading-none mb-2" style={{ color: "#FFD700", opacity: 0.5, lineHeight: 0.8 }}>&ldquo;</div>
+                  <div className="text-6xl font-serif leading-none mb-2" style={{ color: "#c9a84c", opacity: 0.5, lineHeight: 0.8 }}>&ldquo;</div>
                   <div className="mb-4">
-                    <div className="text-4xl font-extrabold mb-1" style={{ color: "#FFD700", letterSpacing: "-0.04em" }}>{cs.stat}</div>
+                    <div className="text-4xl font-extrabold mb-1" style={{ color: "#c9a84c", letterSpacing: "-0.04em" }}>{cs.stat}</div>
                     <div className="text-sm font-semibold">{cs.result}</div>
                     <div className="text-xs mt-1" style={{ color: "var(--muted)" }}>{cs.industry}</div>
                   </div>
@@ -501,7 +527,7 @@ export default function DoneForYouPage() {
                   <div className="pt-4 border-t" style={{ borderColor: "var(--border)" }}>
                     <p className="text-sm italic mb-2" style={{ color: "var(--text-dim)" }}>&ldquo;{cs.quote}&rdquo;</p>
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: "rgba(255,215,0,0.15)", color: "#FFD700" }}>
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: "rgba(201,168,76,0.15)", color: "#c9a84c" }}>
                         {cs.person.split(" ").map(n => n[0]).slice(0, 2).join("")}
                       </div>
                       <span className="text-xs font-medium">{cs.person}</span>
@@ -525,7 +551,7 @@ export default function DoneForYouPage() {
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   >
                     <h3 className="font-bold text-sm">{faq.q}</h3>
-                    <span style={{ color: "#FFD700", fontSize: "20px", flexShrink: 0 }}>{openFaq === i ? "−" : "+"}</span>
+                    <span style={{ color: "#c9a84c", fontSize: "20px", flexShrink: 0 }}>{openFaq === i ? "−" : "+"}</span>
                   </button>
                   {openFaq === i && (
                     <div className="px-6 pb-6">
@@ -540,14 +566,25 @@ export default function DoneForYouPage() {
 
         {/* Final CTA */}
         <section className="py-20 px-6 text-center">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-extrabold mb-4" style={{ letterSpacing: "-0.02em" }}>Ready to Build Your AI Workforce?</h2>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-extrabold mb-4" style={{ letterSpacing: "-0.02em" }}>Ready to Build Your AI Agent?</h2>
             <p className="mb-8" style={{ color: "var(--muted)" }}>
-              Book a free 30-minute discovery call. No commitment, no sales pitch — just an honest conversation about what AI can do for your business.
+              No commitment, no sales pitch — just an honest conversation about what AI can do for your business.
             </p>
-            <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold text-black inline-block text-lg glow-yellow" style={{ backgroundColor: "#FFD700" }}>
-              Book Your Free Discovery Call →
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-xl font-bold inline-block text-lg glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
+                Book a Free Call →
+              </Link>
+              <Link href="/get-started" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ backgroundColor: "#1a1a2e", color: "#ffffff", border: "2px solid #c9a84c" }}>
+                Build My Agent Now →
+              </Link>
+              <Link href="/guides" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ border: "2px solid var(--border)", color: "var(--muted)" }}>
+                DIY Guides
+              </Link>
+              <Link href="/marketplace" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ border: "2px solid var(--border)", color: "var(--muted)" }}>
+                Browse Marketplace
+              </Link>
+            </div>
           </div>
         </section>
       </main>

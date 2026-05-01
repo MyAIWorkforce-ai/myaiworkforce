@@ -52,10 +52,10 @@ function ThemeToggle() {
 }
 
 const NAV_LINKS = [
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Build My Agent", href: "/done-for-you" },
   { label: "Guides", href: "/guides" },
-  { label: "Done-For-You", href: "/done-for-you" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Marketplace", href: "/marketplace" },
+  
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
@@ -66,7 +66,7 @@ function Nav() {
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}>
-          <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+          <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
@@ -75,7 +75,7 @@ function Nav() {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>
             Book a Free Call
           </Link>
         </div>
@@ -87,13 +87,14 @@ function Nav() {
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
+        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}>
           <div className="px-6 py-4 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
+              <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors" style={{ color: "rgba(255,255,255,0.88)" }}
+                onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
             <div className="flex gap-2 mt-2"><Link href="/login" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--border)", color: "var(--text-dim)" }} onClick={() => setOpen(false)}>Login</Link><Link href="/signup" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--yellow)", color: "var(--yellow)" }} onClick={() => setOpen(false)}>Sign Up</Link></div>
-            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
+            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
           </div>
         </div>
       )}
@@ -107,14 +108,14 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2"><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></div>
+            <div className="text-xl font-bold mb-2"><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
               { label: "Dashboard", href: "/dashboard" },
               { label: "Sell Your Agents", href: "/creator/agents" },
               { label: "Sell Your Skills", href: "/creator/skills" },
@@ -223,12 +224,12 @@ export default function CreatorPage() {
 
           {/* Header */}
           <div className="mb-10 text-center">
-            <div className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4" style={{ backgroundColor: "rgba(249,115,22,0.15)", color: "#F97316" }}>
+            <div className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4" style={{ backgroundColor: "rgba(249,115,22,0.15)", color: "#c9a84c" }}>
               Seller Program
             </div>
             <h1 className="text-4xl font-bold mb-3" style={{ letterSpacing: "-0.02em" }}>
               Sell Your AI Agents.<br />
-              <span style={{ color: "#FFD700" }}>Earn 75%.</span>
+              <span style={{ color: "#c9a84c" }}>Earn 75%.</span>
             </h1>
             <p className="text-lg" style={{ color: "var(--muted)" }}>
               Submit your AI agent, workflow, or automation — we handle the marketplace, payments, and delivery. You keep 75% of every sale.
@@ -243,7 +244,7 @@ export default function CreatorPage() {
               { value: "24h", label: "Review time" },
             ].map((s) => (
               <div key={s.label} className="text-center p-4 rounded-xl" style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)" }}>
-                <div className="text-2xl font-bold" style={{ color: "#FFD700" }}>{s.value}</div>
+                <div className="text-2xl font-bold" style={{ color: "#c9a84c" }}>{s.value}</div>
                 <div className="text-xs mt-1" style={{ color: "var(--muted)" }}>{s.label}</div>
               </div>
             ))}
@@ -256,7 +257,7 @@ export default function CreatorPage() {
               <p className="text-sm mb-6" style={{ color: "var(--muted)" }}>
                 Thanks for submitting your AI agent. We&apos;ll review it within 24 hours and reach out to <strong style={{ color: "var(--text)" }}>{form.email}</strong>.
               </p>
-              <Link href="/marketplace" className="px-6 py-3 rounded-xl text-sm font-semibold" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>
+              <Link href="/marketplace" className="px-6 py-3 rounded-xl text-sm font-semibold" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>
                 Browse Marketplace
               </Link>
             </div>
@@ -350,11 +351,11 @@ export default function CreatorPage() {
                   checked={form.terms}
                   onChange={(e) => set("terms", e.target.checked)}
                   className="mt-0.5"
-                  style={{ accentColor: "#FFD700", width: 16, height: 16 }}
+                  style={{ accentColor: "#c9a84c", width: 16, height: 16 }}
                 />
                 <label htmlFor="terms" className="text-sm" style={{ color: "var(--muted)" }}>
                   I agree to the{" "}
-                  <Link href="/terms" className="underline" style={{ color: "#FFD700" }}>Terms of Service</Link>
+                  <Link href="/terms" className="underline" style={{ color: "#c9a84c" }}>Terms of Service</Link>
                   {" "}and confirm this is my original work. I understand My AI Workforce takes a 25% platform fee.
                 </label>
               </div>
@@ -365,7 +366,7 @@ export default function CreatorPage() {
                 type="submit"
                 disabled={loading}
                 className="w-full py-4 rounded-xl text-base font-bold transition-all duration-200 disabled:opacity-50"
-                style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+                style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
               >
                 {loading ? "Submitting…" : "Submit My AI Agent →"}
               </button>

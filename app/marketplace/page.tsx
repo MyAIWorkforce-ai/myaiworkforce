@@ -80,14 +80,14 @@ function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}>
-          <span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span>
+          <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
           {[
-            { label: "Marketplace", href: "/marketplace" },
-            { label: "Guides", href: "/guides" },
-            { label: "Done-For-You", href: "/done-for-you" },
-            { label: "Pricing", href: "/pricing" },
+            { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
+            
             { label: "About", href: "/about" },
             { label: "Blog", href: "/blog" },
           ].map((link) => (
@@ -102,11 +102,11 @@ function Nav() {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <a href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "var(--text-dim)", border: "1px solid var(--border)" }}>Login</a>
+          <a href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}>Login</a>
           <a
-            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow"
-            style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+            style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
           >
             Book a Free Call
           </a>
@@ -126,20 +126,20 @@ function Nav() {
       {open && (
         <div
           className="md:hidden border-t mobile-menu"
-          style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--mobile-menu-bg)" }}
+          style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}
         >
           <div className="px-6 py-4 flex flex-col gap-4">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
               { label: "About", href: "/about" },
             ].map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 className="text-sm font-medium transition-colors"
-                style={{ color: "var(--text-dim)" }}
+                style={{ color: "rgba(255,255,255,0.88)" }}
                 onClick={() => setOpen(false)}
               >
                 {link.label}
@@ -148,7 +148,7 @@ function Nav() {
             <a
               href="/contact"
               className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
-              style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+              style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
               onClick={() => setOpen(false)}
             >
               Book a Free Call
@@ -168,14 +168,14 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}>My AI Workforce</div>
+            <div className="text-xl font-bold mb-2" style={{ color: "#c9a84c" }}>My AI Workforce</div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
               { label: "Dashboard", href: "/dashboard" },
               { label: "Sell Your Agents", href: "/creator/agents" },
               { label: "Sell Your Skills", href: "/creator/skills" },
@@ -238,7 +238,7 @@ interface Agent {
 
 const CATEGORY_COLORS: Record<Exclude<Category, "All">, { bg: string; text: string }> = {
   Sales:            { bg: "rgba(230,57,70,0.12)",   text: "#E63946" },
-  Marketing:        { bg: "rgba(255,215,0,0.12)",   text: "#FFD700" },
+  Marketing:        { bg: "rgba(201,168,76,0.12)",   text: "#c9a84c" },
   Operations:       { bg: "rgba(99,179,237,0.12)",  text: "#63B3ED" },
   "Customer Support": { bg: "rgba(104,211,145,0.12)", text: "#68D391" },
   Finance:          { bg: "rgba(246,173,85,0.12)",  text: "#F6AD55" },
@@ -547,7 +547,7 @@ function StarRating({ rating }: { rating: number }) {
   return (
     <span className="flex gap-0.5">
       {[1, 2, 3, 4, 5].map((i) => (
-        <span key={i} style={{ color: i <= rating ? "#FFD700" : "var(--border)", fontSize: "14px" }}>★</span>
+        <span key={i} style={{ color: i <= rating ? "#c9a84c" : "var(--border)", fontSize: "14px" }}>★</span>
       ))}
     </span>
   );
@@ -608,7 +608,7 @@ function AgentCard({ agent, country }: { agent: Agent; country: string }) {
           <span
             key={tag}
             className="text-xs px-2 py-0.5 rounded-md font-medium"
-            style={{ backgroundColor: "var(--bg)", color: "var(--text-dim)", border: "1px solid var(--border)" }}
+            style={{ backgroundColor: "var(--bg)", color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}
           >
             {tag}
           </span>
@@ -627,7 +627,7 @@ function AgentCard({ agent, country }: { agent: Agent; country: string }) {
         <a
           href={`/marketplace/${agent.slug}`}
           className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 glow-yellow whitespace-nowrap"
-          style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+          style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
         >
           Get Agent →
         </a>
@@ -691,16 +691,16 @@ export default function MarketplacePage() {
         <div className="relative max-w-4xl mx-auto text-center">
           <div
             className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full text-sm font-medium border"
-            style={{ borderColor: "#FFD700", color: "#FFD700", backgroundColor: "rgba(255,215,0,0.05)" }}
+            style={{ borderColor: "#c9a84c", color: "#c9a84c", backgroundColor: "rgba(201,168,76,0.05)" }}
           >
-            <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "#FFD700" }} />
+            <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "#c9a84c" }} />
             500+ Ready-made AI Agents
           </div>
           <h1
             className="text-5xl md:text-6xl font-extrabold mb-4"
             style={{ letterSpacing: "-0.04em", lineHeight: "1.05", color: "var(--text)" }}
           >
-            AI Agent <span style={{ color: "#FFD700" }}>Marketplace</span>
+            AI Agent <span style={{ color: "#c9a84c" }}>Marketplace</span>
           </h1>
           <p className="text-lg md:text-xl mb-8 max-w-xl mx-auto" style={{ color: "var(--muted)" }}>
             Browse skill files, workflows, and ready-made agents for OpenClaw, n8n, and more.
@@ -725,7 +725,7 @@ export default function MarketplacePage() {
                 border: "1px solid var(--border)",
                 color: "var(--text)",
               }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "#FFD700")}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "#c9a84c")}
               onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
             />
           </div>
@@ -746,9 +746,9 @@ export default function MarketplacePage() {
                 onClick={() => setActiveCategory(cat)}
                 className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200"
                 style={{
-                  backgroundColor: activeCategory === cat ? "#FFD700" : "var(--card)",
+                  backgroundColor: activeCategory === cat ? "#c9a84c" : "var(--card)",
                   color: activeCategory === cat ? "#0A0A0A" : "var(--text-dim)",
-                  border: `1px solid ${activeCategory === cat ? "#FFD700" : "var(--border)"}`,
+                  border: `1px solid ${activeCategory === cat ? "#c9a84c" : "var(--border)"}`,
                 }}
               >
                 {cat}
@@ -766,9 +766,9 @@ export default function MarketplacePage() {
                   onClick={() => setSort(opt)}
                   className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200"
                   style={{
-                    backgroundColor: sort === opt ? "rgba(255,215,0,0.1)" : "transparent",
-                    color: sort === opt ? "#FFD700" : "var(--text-dim)",
-                    border: `1px solid ${sort === opt ? "#FFD700" : "transparent"}`,
+                    backgroundColor: sort === opt ? "rgba(201,168,76,0.1)" : "transparent",
+                    color: sort === opt ? "#c9a84c" : "var(--text-dim)",
+                    border: `1px solid ${sort === opt ? "#c9a84c" : "transparent"}`,
                   }}
                 >
                   {opt}
@@ -821,15 +821,15 @@ export default function MarketplacePage() {
             style={{ letterSpacing: "-0.03em", color: "var(--text)" }}
           >
             Can&apos;t find what you need?<br />
-            <span style={{ color: "#FFD700" }}>We&apos;ll build it for you.</span>
+            <span style={{ color: "#c9a84c" }}>We&apos;ll build it for you.</span>
           </h2>
           <p className="text-lg mb-10 max-w-lg mx-auto" style={{ color: "var(--muted)" }}>
             Tell us what you want to automate and we&apos;ll scope, build, and run a custom AI agent for your exact workflow.
           </p>
           <a
-            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer"
             className="inline-block px-10 py-4 rounded-xl text-base font-bold transition-all duration-200 glow-yellow"
-            style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}
+            style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
           >
             Book a Free Consultation
           </a>
@@ -839,18 +839,18 @@ export default function MarketplacePage() {
       {/* Sell on Marketplace CTA */}
       <section className="py-16 px-6" style={{ backgroundColor: "var(--bg-section)", borderTop: "1px solid var(--border)" }}>
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4" style={{ backgroundColor: "rgba(249,115,22,0.1)", color: "#F97316", border: "1px solid rgba(249,115,22,0.3)" }}>💰 Earn 75% per sale</div>
+          <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4" style={{ backgroundColor: "rgba(249,115,22,0.1)", color: "#c9a84c", border: "1px solid rgba(249,115,22,0.3)" }}>💰 Earn 75% per sale</div>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
-            Built something great? <span style={{ color: "#FFD700" }}>Sell it here.</span>
+            Built something great? <span style={{ color: "#c9a84c" }}>Sell it here.</span>
           </h2>
           <p className="text-lg mb-8 max-w-xl mx-auto" style={{ color: "var(--muted)" }}>
             List your AI agents, SKILL.md files, prompt packs, or workflows. You earn 75% of every sale — we handle payments, hosting, and delivery.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/creator/agents" className="px-8 py-3 rounded-xl font-bold text-sm glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>
+            <a href="/creator/agents" className="px-8 py-3 rounded-xl font-bold text-sm glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>
               🤖 List Your Agent →
             </a>
-            <a href="/creator/skills" className="px-8 py-3 rounded-xl font-bold text-sm" style={{ border: "2px solid #F97316", color: "#F97316" }}>
+            <a href="/creator/skills" className="px-8 py-3 rounded-xl font-bold text-sm" style={{ border: "2px solid #c9a84c", color: "#c9a84c" }}>
               🧠 List Your Skill →
             </a>
           </div>

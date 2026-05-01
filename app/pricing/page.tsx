@@ -50,10 +50,10 @@ function ThemeToggle() {
 }
 
 const NAV_LINKS = [
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Build My Agent", href: "/done-for-you" },
   { label: "Guides", href: "/guides" },
-  { label: "Done-For-You", href: "/done-for-you" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Marketplace", href: "/marketplace" },
+  
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
@@ -63,7 +63,7 @@ function Nav({ active }: { active?: string }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></Link>
+        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200 nav-link"
@@ -72,8 +72,8 @@ function Nav({ active }: { active?: string }) {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "var(--text-dim)", border: "1px solid var(--border)" }}>Login</Link>
-          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>Book a Free Call</Link>
+          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}>Login</Link>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
@@ -81,13 +81,14 @@ function Nav({ active }: { active?: string }) {
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
+        <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}>
           <div className="px-6 py-4 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(false)}>{link.label}</Link>
+              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.88)" }}
+                onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
             <div className="flex gap-2 mt-2"><Link href="/login" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--border)", color: "var(--text-dim)" }} onClick={() => setOpen(false)}>Login</Link><Link href="/signup" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--yellow)", color: "var(--yellow)" }} onClick={() => setOpen(false)}>Sign Up</Link></div>
-            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
+            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
           </div>
         </div>
       )}
@@ -101,14 +102,14 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2" style={{ color: "#FFD700" }}><span style={{ color: "#FFD700" }}>My </span><span style={{ color: "#F97316", fontSize: "1.2em" }}>AI </span><span style={{ color: "#FFD700" }}>Workforce</span></div>
+            <div className="text-xl font-bold mb-2" style={{ color: "#c9a84c" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
-              { label: "Marketplace", href: "/marketplace" },
-              { label: "Guides", href: "/guides" },
-              { label: "Done-For-You", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Guides", href: "/guides" },
+  { label: "Marketplace", href: "/marketplace" },
               { label: "Dashboard", href: "/dashboard" },
               { label: "Sell Your Agents", href: "/creator/agents" },
               { label: "Sell Your Skills", href: "/creator/skills" },
@@ -201,7 +202,6 @@ const dfy_plans = [
       "Private VPS deployment",
       "Monthly performance report",
       "Email support",
-      "30-day money-back guarantee",
     ],
     cta: "Get Started",
   },
@@ -254,15 +254,13 @@ const faqs = [
   },
   {
     q: "Is there a free trial for Done-For-You?",
-    a: "We offer a free 30-minute discovery call and a 30-day satisfaction guarantee on all DFY plans. If you're not happy with results in month one, you get a full refund.",
   },
   {
     q: "What does 'private VPS' mean?",
-    a: "Every Done-For-You client gets their own dedicated Virtual Private Server. Your AI agents and data never run on shared infrastructure. It's the same approach enterprise companies use — included at no extra cost.",
+    a: "Every Build My Agent client gets their own dedicated Virtual Private Server. Your AI agents and data never run on shared infrastructure. It's the same approach enterprise companies use — included at no extra cost.",
   },
   {
     q: "Do you offer refunds?",
-    a: "Yes. Marketplace plans have a 14-day free trial. Done-For-You plans include a 30-day satisfaction guarantee — full refund if we don't deliver.",
   },
 ];
 
@@ -277,15 +275,15 @@ export default function PricingPage() {
         {/* Hero */}
         <section className="py-20 px-6 text-center" style={{ backgroundColor: "var(--bg-section)" }}>
           <div className="max-w-3xl mx-auto">
-            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(255,215,0,0.1)", color: "#FFD700", border: "1px solid rgba(255,215,0,0.3)" }}>
+            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.3)" }}>
               Pricing
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold mb-4" style={{ letterSpacing: "-0.03em" }}>
-              Simple, Transparent<br /><span style={{ color: "#FFD700" }}>Pricing</span>
+              Simple, Transparent<br /><span style={{ color: "#c9a84c" }}>Pricing</span>
             </h1>
             <p className="text-lg mb-6" style={{ color: "var(--muted)" }}>Start free. Scale when you&apos;re ready. No hidden fees, no surprises.</p>
             <div>
-              <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
+              <span style={{ border: "2px dashed #c9a84c", color: "#c9a84c", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 13, fontWeight: 700, display: "inline-block",  }}>
                 🏷️ No setup fees — start immediately
               </span>
             </div>
@@ -301,19 +299,19 @@ export default function PricingPage() {
                 <p className="text-sm mt-1" style={{ color: "var(--muted)" }}>Browse and deploy pre-built agents yourself</p>
               </div>
               <div className="inline-flex items-center gap-1 p-1 rounded-xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                <button onClick={() => setAnnual(false)} className="px-4 py-2 rounded-lg text-sm font-semibold transition-all" style={{ backgroundColor: !annual ? "#FFD700" : "transparent", color: !annual ? "#0A0A0A" : "var(--text-dim)" }}>Monthly</button>
-                <button onClick={() => setAnnual(true)} className="px-4 py-2 rounded-lg text-sm font-semibold transition-all" style={{ backgroundColor: annual ? "#FFD700" : "transparent", color: annual ? "#0A0A0A" : "var(--text-dim)" }}>Annual <span className="text-xs ml-1" style={{ color: annual ? "#0A0A0A" : "#22c55e" }}>−20%</span></button>
+                <button onClick={() => setAnnual(false)} className="px-4 py-2 rounded-lg text-sm font-semibold transition-all" style={{ backgroundColor: !annual ? "#c9a84c" : "transparent", color: !annual ? "#0A0A0A" : "var(--text-dim)" }}>Monthly</button>
+                <button onClick={() => setAnnual(true)} className="px-4 py-2 rounded-lg text-sm font-semibold transition-all" style={{ backgroundColor: annual ? "#c9a84c" : "transparent", color: annual ? "#0A0A0A" : "var(--text-dim)" }}>Annual <span className="text-xs ml-1" style={{ color: annual ? "#0A0A0A" : "#22c55e" }}>−20%</span></button>
               </div>
             </div>
             <div className="grid md:grid-cols-3 gap-6 items-start">
               {marketplacePlans.map((plan, i) => {
                 const price = annual ? plan.annualPrice : plan.monthlyPrice;
                 return (
-                  <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.featured ? "rgba(255,215,0,0.05)" : "var(--card)", border: `2px solid ${plan.featured ? "#FFD700" : "var(--border)"}`, transform: plan.featured ? "scale(1.02)" : "scale(1)", boxShadow: plan.featured ? "0 0 40px rgba(255,215,0,0.1)" : "none" }}>
+                  <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.featured ? "rgba(201,168,76,0.05)" : "var(--card)", border: `2px solid ${plan.featured ? "#c9a84c" : "var(--border)"}`, transform: plan.featured ? "scale(1.02)" : "scale(1)", boxShadow: plan.featured ? "0 0 40px rgba(201,168,76,0.1)" : "none" }}>
                     {plan.featured && (
                       <div className="flex flex-wrap gap-2 items-center">
-                        <div className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>MOST POPULAR</div>
-                        <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "4px 10px", fontSize: 11, fontWeight: 700, display: "inline-block",  }}>
+                        <div className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>MOST POPULAR</div>
+                        <span style={{ border: "2px dashed #c9a84c", color: "#c9a84c", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "4px 10px", fontSize: 11, fontWeight: 700, display: "inline-block",  }}>
                           🏷️ Most Popular — Best Value
                         </span>
                       </div>
@@ -329,11 +327,11 @@ export default function PricingPage() {
                     <ul className="flex flex-col gap-2 flex-1">
                       {plan.features.map((f, j) => (
                         <li key={j} className="flex items-start gap-2 text-sm">
-                          <span style={{ color: "#FFD700" }}>✓</span>{f}
+                          <span style={{ color: "#c9a84c" }}>✓</span>{f}
                         </li>
                       ))}
                     </ul>
-                    <Link href={plan.href} className="py-3 rounded-lg font-semibold text-center text-sm" style={{ backgroundColor: plan.featured ? "#FFD700" : "transparent", color: plan.featured ? "#0A0A0A" : "#FFD700", border: plan.featured ? "none" : "1px solid #FFD700" }}>{plan.cta}</Link>
+                    <Link href={plan.href} className="py-3 rounded-lg font-semibold text-center text-sm" style={{ backgroundColor: plan.featured ? "#c9a84c" : "transparent", color: plan.featured ? "#0A0A0A" : "#c9a84c", border: plan.featured ? "none" : "1px solid #c9a84c" }}>{plan.cta}</Link>
                   </div>
                 );
               })}
@@ -350,11 +348,11 @@ export default function PricingPage() {
             </div>
             <div className="grid md:grid-cols-3 gap-6 items-start">
               {dfy_plans.map((plan, i) => (
-                <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.highlight ? "rgba(255,215,0,0.05)" : "var(--card)", border: `2px solid ${plan.highlight ? "#FFD700" : "var(--border)"}`, transform: plan.highlight ? "scale(1.02)" : "scale(1)", boxShadow: plan.highlight ? "0 0 40px rgba(255,215,0,0.1)" : "none" }}>
+                <div key={i} className="rounded-xl p-8 flex flex-col gap-6" style={{ backgroundColor: plan.highlight ? "rgba(201,168,76,0.05)" : "var(--card)", border: `2px solid ${plan.highlight ? "#c9a84c" : "var(--border)"}`, transform: plan.highlight ? "scale(1.02)" : "scale(1)", boxShadow: plan.highlight ? "0 0 40px rgba(201,168,76,0.1)" : "none" }}>
                   {plan.highlight && (
                     <div className="flex flex-wrap gap-2 items-center">
-                      <div className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: "#FFD700", color: "#0A0A0A" }}>MOST POPULAR</div>
-                      <span style={{ border: "2px dashed #F97316", color: "#F97316", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "4px 10px", fontSize: 11, fontWeight: 700, display: "inline-block",  }}>
+                      <div className="text-xs font-bold px-3 py-1 rounded-full" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>MOST POPULAR</div>
+                      <span style={{ border: "2px dashed #c9a84c", color: "#c9a84c", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "4px 10px", fontSize: 11, fontWeight: 700, display: "inline-block",  }}>
                         🏷️ Most Popular — Best Value
                       </span>
                     </div>
@@ -365,22 +363,21 @@ export default function PricingPage() {
                       <span className="text-4xl font-extrabold">{plan.price}</span>
                       <span style={{ color: "var(--muted)" }}>{plan.period}</span>
                     </div>
-                    <p className="text-sm mt-1 font-medium" style={{ color: "#FFD700" }}>{plan.agents}</p>
+                    <p className="text-sm mt-1 font-medium" style={{ color: "#c9a84c" }}>{plan.agents}</p>
                   </div>
                   <ul className="flex flex-col gap-2 flex-1">
                     {plan.features.map((f, j) => (
                       <li key={j} className="flex items-start gap-2 text-sm">
-                        <span style={{ color: "#FFD700" }}>✓</span>{f}
+                        <span style={{ color: "#c9a84c" }}>✓</span>{f}
                       </li>
                     ))}
                   </ul>
-                  <Link href="/contact" className="py-3 rounded-lg font-semibold text-center text-sm" style={{ backgroundColor: plan.highlight ? "#FFD700" : "transparent", color: plan.highlight ? "#0A0A0A" : "#FFD700", border: plan.highlight ? "none" : "1px solid #FFD700" }}>{plan.cta}</Link>
+                  <Link href="/contact" className="py-3 rounded-lg font-semibold text-center text-sm" style={{ backgroundColor: plan.highlight ? "#c9a84c" : "transparent", color: plan.highlight ? "#0A0A0A" : "#c9a84c", border: plan.highlight ? "none" : "1px solid #c9a84c" }}>{plan.cta}</Link>
                 </div>
               ))}
             </div>
-            <div className="mt-8 p-6 rounded-xl text-center" style={{ backgroundColor: "rgba(255,215,0,0.05)", border: "1px solid rgba(255,215,0,0.2)" }}>
-              <p className="font-semibold" style={{ color: "#FFD700" }}>
-                🛡️ All Done-For-You plans include a private VPS deployment, end-to-end encryption, and a 30-day money-back guarantee.
+            <div className="mt-8 p-6 rounded-xl text-center" style={{ backgroundColor: "rgba(201,168,76,0.05)", border: "1px solid rgba(201,168,76,0.2)" }}>
+              <p className="font-semibold" style={{ color: "#c9a84c" }}>
               </p>
             </div>
           </div>
@@ -395,7 +392,7 @@ export default function PricingPage() {
                 <div>Feature</div>
                 <div className="text-center">Marketplace</div>
                 <div className="text-center">Marketplace Pro</div>
-                <div className="text-center" style={{ color: "#FFD700" }}>Done-For-You</div>
+                <div className="text-center" style={{ color: "#c9a84c" }}>Done-For-You</div>
               </div>
               {[
                 { feature: "Pre-built agents", marketplace: "✓", pro: "✓", dfy: "✓" },
@@ -411,7 +408,7 @@ export default function PricingPage() {
                   <div style={{ color: "var(--text)" }}>{row.feature}</div>
                   <div className="text-center" style={{ color: row.marketplace === "✓" ? "#22c55e" : "var(--muted)" }}>{row.marketplace}</div>
                   <div className="text-center" style={{ color: row.pro === "✓" ? "#22c55e" : "var(--muted)" }}>{row.pro}</div>
-                  <div className="text-center" style={{ color: row.dfy === "✓" ? "#FFD700" : "var(--muted)" }}>{row.dfy}</div>
+                  <div className="text-center" style={{ color: row.dfy === "✓" ? "#c9a84c" : "var(--muted)" }}>{row.dfy}</div>
                 </div>
               ))}
             </div>
@@ -424,7 +421,6 @@ export default function PricingPage() {
             <div className="text-3xl mb-3">💚</div>
             <h3 className="text-xl font-bold mb-2">30-Day Money-Back Guarantee</h3>
             <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
-              All Done-For-You plans and Marketplace paid plans come with a 30-day satisfaction guarantee. If you&apos;re not happy in your first 30 days, we&apos;ll refund your subscription in full — no questions asked.
             </p>
           </div>
         </section>
@@ -438,7 +434,7 @@ export default function PricingPage() {
                 <div key={i} className="rounded-xl overflow-hidden" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
                   <button className="w-full p-6 text-left flex items-center justify-between gap-4" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
                     <h3 className="font-bold text-sm"><span className="mr-2">❓</span>{faq.q}</h3>
-                    <span style={{ color: "#FFD700", fontSize: "20px", flexShrink: 0 }}>{openFaq === i ? "−" : "+"}</span>
+                    <span style={{ color: "#c9a84c", fontSize: "20px", flexShrink: 0 }}>{openFaq === i ? "−" : "+"}</span>
                   </button>
                   {openFaq === i && (
                     <div className="px-6 pb-6">
@@ -457,7 +453,7 @@ export default function PricingPage() {
             <h2 className="text-3xl font-extrabold mb-4" style={{ letterSpacing: "-0.02em" }}>Ready to Get Started?</h2>
             <p className="mb-8" style={{ color: "var(--muted)" }}>Browse the marketplace for free, or book a call to discuss a Done-For-You solution.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" className="px-8 py-4 rounded-xl font-bold text-black inline-block glow-yellow" style={{ backgroundColor: "#FFD700" }}>Book a Free Call →</Link>
+              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-xl font-bold text-black inline-block glow-yellow" style={{ backgroundColor: "#c9a84c" }}>Book a Free Call →</Link>
               <Link href="/marketplace" className="px-8 py-4 rounded-xl font-bold inline-block" style={{ border: "2px solid var(--border)", color: "var(--text-dim)" }}>Browse Marketplace</Link>
             </div>
           </div>
