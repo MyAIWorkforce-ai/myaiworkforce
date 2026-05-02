@@ -310,7 +310,7 @@ export default function DoneForYouPage() {
               Hand us your business challenges and we&apos;ll build you a custom AI agent that runs 24/7 on your very own private, secure infrastructure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/get-started" className="px-8 py-4 rounded-xl font-bold inline-block text-lg glow-yellow" style={{ backgroundColor: "#1a1a2e", color: "#ffffff", border: "2px solid #c9a84c" }}>
+              <Link href="/done-for-you" className="px-8 py-4 rounded-xl font-bold inline-block text-lg glow-yellow" style={{ backgroundColor: "#1a1a2e", color: "#ffffff", border: "2px solid #c9a84c" }}>
                 Build My Agent Now →
               </Link>
               <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ border: "2px solid #c9a84c", color: "#c9a84c", background: "rgba(201,168,76,0.08)" }}>
@@ -425,7 +425,7 @@ export default function DoneForYouPage() {
               ))}
             </div>
             <div className="text-center mt-10">
-              <Link href="/get-started" className="px-8 py-4 rounded-xl font-bold text-lg inline-block glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
+              <Link href="/done-for-you" className="px-8 py-4 rounded-xl font-bold text-lg inline-block glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
                 Get Started Now →
               </Link>
             </div>
@@ -472,7 +472,7 @@ export default function DoneForYouPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/get-started" className="block w-full text-center py-4 rounded-xl font-bold text-lg glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
+                <Link href="/done-for-you" className="block w-full text-center py-4 rounded-xl font-bold text-lg glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
                   Build My Agent Now →
                 </Link>
               </div>
@@ -575,7 +575,7 @@ export default function DoneForYouPage() {
               <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-xl font-bold inline-block text-lg glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
                 Book a Free Call →
               </Link>
-              <Link href="/get-started" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ backgroundColor: "#1a1a2e", color: "#ffffff", border: "2px solid #c9a84c" }}>
+              <Link href="/done-for-you" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ backgroundColor: "#1a1a2e", color: "#ffffff", border: "2px solid #c9a84c" }}>
                 Build My Agent Now →
               </Link>
               <Link href="/guides" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ border: "2px solid var(--border)", color: "var(--muted)" }}>
