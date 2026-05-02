@@ -271,7 +271,7 @@ export default function GuidesPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Want Us to Do It For You?</h2>
             <p className="mb-8" style={{ color: "var(--text-dim)" }}>Skip the learning curve. Our team builds and runs your entire AI workforce — you just get the results.</p>
-            <Link href="/done-for-you" className="px-8 py-4 rounded-xl font-bold text-black inline-block" style={{ backgroundColor: "var(--yellow)" }}>See Done-For-You Plans →</Link>
+            <Link href="/buildagent" className="px-8 py-4 rounded-xl font-bold text-black inline-block" style={{ backgroundColor: "var(--yellow)" }}>See Done-For-You Plans →</Link>
           </div>
         </section>
       </main>
