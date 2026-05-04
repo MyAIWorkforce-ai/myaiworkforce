@@ -1,7 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
-import { useTheme } from "next-themes";
 
 function IconMenu() {
   return (
@@ -17,78 +16,44 @@ function IconX() {
     </svg>
   );
 }
-function IconSun() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="5"/>
-      <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-      <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-    </svg>
-  );
-}
-function IconMoon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-    </svg>
-  );
-}
-
-function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return <div style={{ width: 36, height: 36 }} />;
-  const isDark = theme === "dark";
-  return (
-    <button className="theme-toggle" onClick={() => setTheme(isDark ? "light" : "dark")} aria-label="Toggle theme">
-      {isDark ? <IconSun /> : <IconMoon />}
-    </button>
-  );
-}
 
 const NAV_LINKS = [
   { label: "Build My Agent", href: "/done-for-you" },
   { label: "Guides", href: "/guides" },
   { label: "Marketplace", href: "/marketplace" },
-  
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
 
-function Nav({ active }: { active?: string }) {
+function Nav() {
   const [open, setOpen] = useState(false);
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: "1px solid var(--nav-border)", backgroundColor: "var(--nav-bg)" }}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></Link>
+        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: "-0.02em" }}>
+          <span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span>
+        </Link>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200 nav-link"
-            >{link.label}</Link>
+            <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200 nav-link">{link.label}</Link>
           ))}
         </div>
         <div className="hidden md:flex items-center gap-3">
-          <ThemeToggle />
           <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.3)" }}>Login</Link>
-          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>Book a Free Call</Link>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}>Book a Free Call</Link>
         </div>
-        <div className="md:hidden flex items-center gap-2">
-          <ThemeToggle />
-          <button style={{ color: "var(--text-dim)" }} onClick={() => setOpen(!open)} aria-label="Toggle menu">{open ? <IconX /> : <IconMenu />}</button>
-        </div>
+        <button className="md:hidden" style={{ color: "var(--text-dim)" }} onClick={() => setOpen(!open)} aria-label="Toggle menu">
+          {open ? <IconX /> : <IconMenu />}
+        </button>
       </div>
       {open && (
         <div className="md:hidden border-t" style={{ borderColor: "var(--nav-border)", backgroundColor: "#1a1a2e" }}>
           <div className="px-6 py-4 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.88)" }}
-                onClick={() => setOpen(false)}>{link.label}</Link>
+              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.88)" }} onClick={() => setOpen(false)}>{link.label}</Link>
             ))}
-            <div className="flex gap-2 mt-2"><Link href="/login" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--border)", color: "var(--text-dim)" }} onClick={() => setOpen(false)}>Login</Link><Link href="/signup" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--yellow)", color: "var(--yellow)" }} onClick={() => setOpen(false)}>Sign Up</Link></div>
-            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
+            <Link href="/login" className="py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: "1px solid var(--border)", color: "var(--text-dim)" }} onClick={() => setOpen(false)}>Login</Link>
+            <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }} onClick={() => setOpen(false)}>Book a Free Call</Link>
           </div>
         </div>
       )}
@@ -102,492 +67,394 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <div className="text-xl font-bold mb-2" style={{ color: "#c9a84c" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></div>
+            <div className="text-xl font-bold mb-2"><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></div>
             <p className="text-sm" style={{ color: "var(--muted)" }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
               { label: "Build My Agent", href: "/done-for-you" },
-  { label: "Guides", href: "/guides" },
-  { label: "Marketplace", href: "/marketplace" },
-              { label: "Dashboard", href: "/dashboard" },
-              { label: "Sell Your Agents", href: "/creator/agents" },
-              { label: "Sell Your Skills", href: "/creator/skills" },
+              { label: "Guides", href: "/guides" },
+              { label: "Marketplace", href: "/marketplace" },
               { label: "Contact", href: "/contact" },
-              { label: "Invest with Us", href: "/invest" },
-              { label: "Website Refresh", href: "https://cheapwebsite-j1k0zcvlh-me-myself-i.vercel.app" },
+              { label: "Privacy Policy", href: "/privacy" },
+              { label: "Terms", href: "/terms" },
             ].map((link) => (
-              <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
-                style={{ color: link.label === "Invest with Us" ? "var(--yellow)" : "var(--muted)", fontWeight: link.label === "Invest with Us" ? "600" : "normal" }}
-              >{link.label}</Link>
+              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: "var(--muted)" }}>{link.label}</Link>
             ))}
           </div>
         </div>
         <div className="border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: "var(--border)" }}>
           <p className="text-sm" style={{ color: "var(--muted)" }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="text-sm" style={{ color: "var(--muted)" }}>Privacy Policy</Link>
-            <Link href="/terms" className="text-sm" style={{ color: "var(--muted)" }}>Terms of Service</Link>
-            <Link href="/security" className="text-sm" style={{ color: "var(--muted)" }}>Security</Link>
-          </div>
         </div>
       </div>
     </footer>
   );
 }
 
-const included = [
-  { icon: "🔧", item: "Custom OpenClaw AI agent built for your business — powered by Claude, GPT or your chosen AI model" },
-  { icon: "🚀", item: "Full setup and deployment on your own private, secure server (VPS)" },
-  { icon: "💬", item: "Chat with your agent via Telegram — anywhere, anytime" },
-  { icon: "📧", item: "Reads, replies to and manages your emails automatically" },
-  { icon: "📅", item: "Manages your calendar, appointments and bookings" },
-  { icon: "💳", item: "Processes invoices, receipts and data entry" },
-  { icon: "🔗", item: "Connects to 10,000+ apps and tools via integrations" },
-  { icon: "🔍", item: "Researches the web, competitors and market trends" },
-  { icon: "🗣️", item: "Handles customer enquiries and follow-ups" },
-  { icon: "🛡️", item: "Enterprise-grade security — your data never leaves your server" },
-  { icon: "📊", item: "Monthly performance reporting and analytics" },
-  { icon: "🔄", item: "Ongoing management, monitoring and optimisation" },
+const TOOLS_LIST = [
+  "Gmail", "Outlook", "Xero", "MYOB", "HubSpot", "Salesforce",
+  "Slack", "Microsoft Teams", "Shopify", "WooCommerce", "Stripe",
+  "Xero", "Notion", "Google Calendar", "Calendly", "Other",
 ];
 
-const plans = [
+const PLANS = [
   {
+    id: "starter",
     name: "Starter",
     price: "$997",
-    period: "/mo",
+    period: "/mo AUD",
     agents: "2 Custom Agents",
     highlight: false,
-    features: [
-      "Discovery & strategy session",
-      "2 fully custom AI agents",
-      "Private VPS deployment",
-      "Monthly performance report",
-      "Email support (48hr response)",
-    ],
-    cta: "Get Started",
-    note: "Best for: Small businesses automating 1-2 core processes",
+    features: ["2 fully custom AI agents", "Private VPS deployment", "Email + calendar automation", "Monthly performance report", "Email support"],
+    note: "Perfect for small businesses ready to automate their first workflows",
   },
   {
+    id: "growth",
     name: "Growth",
     price: "$1,497",
-    period: "/mo",
+    period: "/mo AUD",
     agents: "5 Custom Agents",
     highlight: true,
-    features: [
-      "Everything in Starter",
-      "5 fully custom AI agents",
-      "Priority support (12hr response)",
-      "Monthly strategy call",
-      "Advanced integrations",
-      "Quarterly business review",
-      "Early access to new agents",
-    ],
-    cta: "Most Popular",
-    note: "Best for: Growing businesses ready to automate across departments",
+    features: ["5 fully custom AI agents", "Priority support (12hr response)", "Monthly strategy call", "Advanced integrations", "Quarterly business review"],
+    note: "Best for growing businesses automating across multiple departments",
   },
   {
+    id: "enterprise",
     name: "Enterprise",
-    price: "$2,497",
-    period: "/mo",
+    price: "Custom",
+    period: "",
     agents: "Unlimited Agents",
     highlight: false,
-    features: [
-      "Everything in Growth",
-      "Unlimited custom agents",
-      "Dedicated account manager",
-      "SLA guarantee (99.9% uptime)",
-      "Custom integrations",
-      "On-site training available",
-      "White-label options",
-    ],
-    cta: "Contact Us",
-    note: "Best for: Enterprises automating entire departments",
+    features: ["Unlimited custom agents", "Dedicated account manager", "SLA guarantee", "Custom integrations", "White-label options"],
+    note: "For enterprises automating entire departments — let's talk",
   },
 ];
 
-const process = [
-  {
-    step: "01",
-    title: "Fill In the Form",
-    desc: "Tell us about your business, what you want your agent to do, and choose your package. Takes 2 minutes.",
-  },
-  {
-    step: "02",
-    title: "We Get to Work",
-    desc: "Our team designs and builds your custom AI agent — tailored to your business, your tools, and your workflows.",
-  },
-  {
-    step: "03",
-    title: "Build & Test",
-    desc: "We test your agent against real scenarios and refine until it performs exactly how you need it to.",
-  },
-  {
-    step: "04",
-    title: "Go Live",
-    desc: "Your agent is deployed on your own private server and connected to your email, calendar, and other tools. Usually within 2 weeks.",
-  },
-  {
-    step: "05",
-    title: "We Manage It For You",
-    desc: "We monitor everything 24/7, send monthly performance reports, and keep improving your agent as your business grows.",
-  },
-];
+export default function BuildAgentPage() {
+  const formRef = useRef<HTMLDivElement>(null);
+  const [selectedPlan, setSelectedPlan] = useState("growth");
+  const [selectedTools, setSelectedTools] = useState<string[]>([]);
+  const [form, setForm] = useState({ name: "", business: "", email: "", phone: "", description: "" });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-const faqs = [
-  {
-    q: "How long does setup take?",
-    a: "Most clients are live within 24–48 hours. We move fast — once you submit your form, we get straight to work.",
-  },
-  {
-    q: "Do I need any technical knowledge?",
-    a: "None whatsoever. We handle everything — servers, configuration, integrations, and ongoing management. You just tell us your goals.",
-  },
-  {
-    q: "What does 'private VPS' mean for my business?",
-    a: "It means your agents run on a dedicated server that only you access. Your data never mingles with other clients' data. No shared infrastructure, no data exposure risk. It's the same approach used by enterprise companies worth billions.",
-  },
-  {
-    q: "Can I cancel anytime?",
-    a: "Yes. All plans are month-to-month with 30 days notice to cancel. No lock-in contracts, no cancellation fees.",
-  },
-  {
-    q: "What tools and platforms do you integrate with?",
-    a: "We integrate with virtually any tool via APIs. Deep expertise in Gmail, Outlook, Slack, HubSpot, Salesforce, Xero, Shopify, Zendesk, and hundreds more. If it has an API, we can connect to it.",
-  },
-  {
-    q: "What if I'm not happy with the results?",
-  },
-];
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
-const caseStudies = [
-  {
-    company: "Brightfield Logistics",
-    industry: "Logistics & Transport",
-    result: "15 hours/week saved",
-    stat: "15 hrs/wk",
-    desc: "Deployed an AI agent handling invoice processing, shipment status updates, and customer query resolution. The team reclaimed 15 hours a week within the first month.",
-    quote: "We were drowning in admin. Now it just... handles itself.",
-    person: "Sarah Chen, COO",
-  },
-  {
-    company: "Webb Legal Group",
-    industry: "Professional Services",
-    result: "70% support volume automated",
-    stat: "70%",
-    desc: "Built a client intake agent, document request handler, and appointment scheduler. 70% of incoming client queries now resolved without human involvement.",
-    quote: "I thought AI was only for tech companies. This changed everything.",
-    person: "Marcus Webb, Founder",
-  },
-  {
-    company: "Indigo Health",
-    industry: "Healthcare Services",
-    result: "$8,400/mo in saved labour",
-    stat: "$8.4K/mo",
-    desc: "Automated patient appointment reminders, prescription refill requests, and billing queries. Equivalent to 1.5 full-time admin staff — without the overhead.",
-    quote: "The ROI was obvious in week three. We haven't looked back.",
-    person: "Priya Nair, CEO",
-  },
-];
+  const toggleTool = (tool: string) => {
+    setSelectedTools(prev => prev.includes(tool) ? prev.filter(t => t !== tool) : [...prev, tool]);
+  };
 
-export default function DoneForYouPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    if (!form.name || !form.email) { setError("Please enter your name and email."); return; }
+    setLoading(true);
+    try {
+      const res = await fetch("/api/buildagent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          tools: selectedTools.join(", "),
+          plan: selectedPlan,
+        }),
+      });
+      const data = await res.json();
+      if (data.redirect) {
+        window.location.href = data.redirect;
+      } else {
+        setError(data.error || "Something went wrong. Please try again.");
+        setLoading(false);
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
+      setLoading(false);
+    }
+  };
 
   return (
-    <div style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
-      <Nav active="Done-For-You" />
-      <main className="pt-16">
-        {/* Hero */}
-        <section className="py-24 px-6 text-center relative overflow-hidden" style={{ backgroundColor: "#f4f6fa" }}>
-          <div className="max-w-4xl mx-auto relative">
-            <div className="inline-block px-4 py-1.5 rounded-full text-sm font-bold mb-6" style={{ backgroundColor: "rgba(201,168,76,0.2)", color: "#5a3e08", border: "2px solid rgba(201,168,76,0.5)" }}>
-              Build My Agent
-            </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6" style={{ letterSpacing: "-0.03em", lineHeight: "1.05", color: "#1a1a2e" }}>
-              We Build. We Deploy.<br />We Manage.<br /><span style={{ color: "#c9a84c" }}>You Just Get Results.</span>
-            </h1>
-            <p className="text-lg max-w-2xl mx-auto mb-10" style={{ color: "#5a6a8a", lineHeight: "1.7" }}>
-              Hand us your business challenges and we&apos;ll build you a custom AI agent that runs 24/7 on your very own private, secure infrastructure.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/buildagent" className="px-8 py-4 rounded-xl font-bold inline-block text-lg glow-yellow" style={{ backgroundColor: "#1a1a2e", color: "#ffffff", border: "2px solid #c9a84c" }}>
-                Build My Agent Now →
-              </Link>
-              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ border: "2px solid #c9a84c", color: "#c9a84c", background: "rgba(201,168,76,0.08)" }}>
-                Book a Free Discovery Call
-              </Link>
-            </div>
-          </div>
-        </section>
+    <div style={{ backgroundColor: "var(--bg)", color: "var(--text)", minHeight: "100vh" }}>
+      <Nav />
 
-        {/* What's Included */}
-        <section className="py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <p className="section-label justify-center mb-4">What You Get</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Everything Included. Nothing Hidden.</h2>
-            <p className="text-center max-w-xl mx-auto mb-12" style={{ color: "var(--muted)" }}>From the moment you get started, we handle everything — build, deployment, and ongoing management.</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {included.map((item, i) => (
-                <div key={i} className="p-4 rounded-xl flex items-start gap-3" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", borderLeft: "2px solid rgba(201,168,76,0.5)" }}>
-                  <span className="text-xl mt-0.5">{item.icon}</span>
-                  <span className="text-sm font-medium">{item.item}</span>
-                </div>
-              ))}
-            </div>
+      {/* ── HERO ── */}
+      <section className="pt-32 pb-20 px-6 text-center" style={{ background: "linear-gradient(180deg, #0d0d1f 0%, var(--bg) 100%)" }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-8" style={{ backgroundColor: "rgba(201,168,76,0.12)", border: "1px solid rgba(201,168,76,0.3)", color: "#c9a84c" }}>
+            🤖 Done For You · We Build &amp; Manage Everything
           </div>
-        </section>
+          <h1 className="text-5xl md:text-7xl font-black mb-6" style={{ letterSpacing: "-0.04em", lineHeight: 1.05 }}>
+            Your business.<br />
+            <span style={{ color: "#c9a84c" }}>On autopilot.</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-10 max-w-2xl mx-auto" style={{ color: "var(--muted)", lineHeight: 1.6 }}>
+            We build custom AI agents that handle your emails, bookings, follow-ups, and admin — while you focus on the work that actually grows your business.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <button onClick={scrollToForm} className="px-10 py-5 rounded-xl font-black text-lg" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
+              Build My Agent Now →
+            </button>
+            <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-10 py-5 rounded-xl font-bold text-lg" style={{ border: "2px solid rgba(201,168,76,0.4)", color: "#c9a84c" }}>
+              Book a Free Call
+            </Link>
+          </div>
 
-        {/* Security Section */}
-        <section className="py-20 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="section-label mb-4">Security First</p>
-                <div className="flex items-center gap-3 mb-3">
-                  <span style={{ fontSize: "2rem" }}>🔒</span>
-                  <span style={{ fontSize: "2rem" }}>🛡️</span>
-                </div>
-                <h2 className="text-3xl font-extrabold mb-6" style={{ letterSpacing: "-0.02em" }}>
-                  Your Data Stays Yours.<br /><span style={{ color: "#c9a84c" }}>Always.</span>
-                </h2>
-                <p className="mb-6" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
-                  We know that handing your business data to an AI system requires enormous trust. That&apos;s why every Build My Agent deployment is built on a private infrastructure model that keeps your data completely isolated.
-                </p>
-                <div className="flex flex-col gap-3">
-                  {[
-                    { icon: "🔒", text: "Private VPS per client — no shared infrastructure" },
-                    { icon: "🔐", text: "End-to-end encrypted communications" },
-                    { icon: "🏗️", text: "Dedicated environment only you can access" },
-                    { icon: "🔍", text: "Regular security audits and penetration testing" },
-                    { icon: "👁️", text: "Human oversight and full audit logs at every step" },
-                    { icon: "✅", text: "SOC2-ready architecture for compliance-conscious businesses" },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span className="text-xl">{item.icon}</span>
-                      <span className="text-sm">{item.text}</span>
-                    </div>
-                  ))}
+          {/* Trust bar */}
+          <div className="flex flex-wrap justify-center gap-8">
+            {[
+              { icon: "⚡", label: "Live in 2 weeks" },
+              { icon: "🔒", label: "Private VPS — your data only" },
+              { icon: "🤝", label: "No lock-in contracts" },
+              { icon: "📊", label: "24/7 monitoring" },
+            ].map(({ icon, label }) => (
+              <div key={label} className="flex items-center gap-2 text-sm" style={{ color: "var(--muted)" }}>
+                <span>{icon}</span><span>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHAT YOU GET ── */}
+      <section className="py-20 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.03em" }}>
+            One agent. Endless leverage.
+          </h2>
+          <p className="text-center mb-14 text-lg" style={{ color: "var(--muted)" }}>
+            Your AI agent works 24/7, never calls in sick, and gets smarter every month.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { icon: "📧", title: "Email on autopilot", desc: "Reads, sorts, replies to, and follows up on emails — without you touching a thing." },
+              { icon: "📅", title: "Calendar & bookings", desc: "Manages your schedule, confirms appointments, and sends reminders automatically." },
+              { icon: "🗣️", title: "Customer follow-ups", desc: "Chases leads, answers common questions, and keeps clients warm — 24/7." },
+              { icon: "💳", title: "Invoices & admin", desc: "Processes receipts, logs expenses, and keeps your books in order." },
+              { icon: "🔗", title: "10,000+ integrations", desc: "Connects to Gmail, Xero, HubSpot, Slack, Shopify, and thousands more." },
+              { icon: "🛡️", title: "Enterprise-grade security", desc: "Your own private server. Your data never touches shared infrastructure." },
+            ].map(({ icon, title, desc }) => (
+              <div key={title} className="rounded-xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+                <div className="text-3xl mb-3">{icon}</div>
+                <h3 className="font-bold mb-2">{title}</h3>
+                <p className="text-sm" style={{ color: "var(--muted)", lineHeight: 1.7 }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SOCIAL PROOF ── */}
+      <section className="py-16 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            {[
+              { stat: "14hrs", label: "Saved per week on average" },
+              { stat: "2 weeks", label: "Average time to go live" },
+              { stat: "100%", label: "Money-back if we miss your deadline" },
+            ].map(({ stat, label }) => (
+              <div key={label} className="rounded-xl p-8" style={{ backgroundColor: "var(--card)", border: "1px solid rgba(201,168,76,0.2)" }}>
+                <div className="text-4xl font-black mb-2" style={{ color: "#c9a84c" }}>{stat}</div>
+                <div className="text-sm" style={{ color: "var(--muted)" }}>{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOW IT WORKS ── */}
+      <section className="py-20 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-14" style={{ letterSpacing: "-0.03em" }}>How it works</h2>
+          <div className="flex flex-col gap-6">
+            {[
+              { step: "01", title: "Fill in the form below", desc: "Tell us about your business and what you need automated. Takes 2 minutes." },
+              { step: "02", title: "We get straight to work", desc: "Our team designs your custom AI agent — built specifically for your tools, your workflows, your business." },
+              { step: "03", title: "Live in 2 weeks", desc: "We deploy your agent to a private server and connect everything up. You just start using it." },
+              { step: "04", title: "We manage it forever", desc: "We monitor, update, and improve your agent every month. You never have to think about the tech." },
+            ].map(({ step, title, desc }) => (
+              <div key={step} className="flex gap-6 items-start">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-black text-sm" style={{ backgroundColor: "rgba(201,168,76,0.15)", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.3)" }}>{step}</div>
+                <div>
+                  <h3 className="font-bold mb-1">{title}</h3>
+                  <p className="text-sm" style={{ color: "var(--muted)", lineHeight: 1.7 }}>{desc}</p>
                 </div>
               </div>
-              <div className="p-8 rounded-2xl" style={{ backgroundColor: "rgba(201,168,76,0.04)", border: "2px solid rgba(201,168,76,0.2)" }}>
-                <div className="text-4xl mb-4">🛡️</div>
-                <h3 className="text-xl font-bold mb-4">The Private VPS Promise</h3>
-                <p className="text-sm mb-6" style={{ color: "var(--muted)", lineHeight: "1.7" }}>
-                  Unlike SaaS AI tools that process your data on shared servers, we deploy every client on their own dedicated Virtual Private Server. This means:
-                </p>
-                <div className="flex flex-col gap-3">
-                  {[
-                    "Your customer data never leaves your server",
-                    "No risk of data leaking to other tenants",
-                    "You own the server and the data",
-                    "Audit who accessed what and when",
-                    "Meets strict data residency requirements",
-                  ].map((point, i) => (
-                    <div key={i} className="flex items-start gap-2 text-sm">
-                      <span style={{ color: "#c9a84c" }}>✓</span>
-                      <span style={{ color: "var(--muted)" }}>{point}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-6 pt-6 border-t" style={{ borderColor: "rgba(201,168,76,0.2)" }}>
-                  <p className="text-xs font-semibold" style={{ color: "#c9a84c" }}>
-                    🛡️ Every plan includes a dedicated private VPS at no extra cost.
-                  </p>
-                  <div className="mt-3">
-                    <span style={{ border: "2px dashed #c9a84c", color: "#c9a84c", background: "rgba(249,115,22,0.08)", borderRadius: 8, padding: "6px 14px", fontSize: 12, fontWeight: 700, display: "inline-block",  }}>
-                      🏷️ Your data never leaves your server
-                    </span>
-                  </div>
-                  <div className="mt-4">
-                    <Link href="/security" className="text-sm font-semibold" style={{ color: "#c9a84c" }}>
-                      Learn more about our security →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Process */}
-        <section className="py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <p className="section-label justify-center mb-4">The Process</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>Have Your Very Own Live Agent in 5 Steps</h2>
-            <p className="text-center max-w-xl mx-auto mb-12" style={{ color: "var(--muted)" }}>Simple, fast, and fully managed. You fill in a form — we do the rest.</p>
-            <div className="grid md:grid-cols-5 gap-4">
-              {process.map((s, i) => (
-                <div key={i} className="p-6 rounded-xl flex flex-col card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-extrabold mb-4 flex-shrink-0" style={{ backgroundColor: "#c9a84c", color: "#0A0A0A", boxShadow: "0 0 0 3px rgba(201,168,76,0.2)" }}>{s.step}</div>
-                  <h3 className="font-bold mb-2 text-sm">{s.title}</h3>
-                  <p className="text-xs flex-1" style={{ color: "var(--muted)", lineHeight: "1.6" }}>{s.desc}</p>
-                </div>
-              ))}
-            </div>
-            <div className="text-center mt-10">
-              <Link href="/buildagent" className="px-8 py-4 rounded-xl font-bold text-lg inline-block glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
-                Get Started Now →
-              </Link>
-            </div>
+      {/* ── FORM ── */}
+      <section ref={formRef} className="py-20 px-6">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ letterSpacing: "-0.04em" }}>
+              Let&apos;s build your agent.
+            </h2>
+            <p style={{ color: "var(--muted)" }}>Fill in the details below. We&apos;ll handle everything else.</p>
           </div>
-        </section>
 
-        {/* Pricing */}
-        <section id="pricing" className="py-20 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
-          <div className="max-w-4xl mx-auto">
-            <p className="section-label justify-center mb-4">Pricing</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4" style={{ letterSpacing: "-0.02em" }}>One Plan. Everything Included.</h2>
-            <p className="text-center max-w-xl mx-auto mb-12" style={{ color: "var(--muted)" }}>No hidden fees. No lock-in contracts. Get started in minutes — cancel anytime with 30 days notice.</p>
-            <div className="grid md:grid-cols-2 gap-6 items-start">
-              {/* Main card */}
-              <div className="p-10 rounded-2xl" style={{ backgroundColor: "#1a1a2e", border: "2px solid #c9a84c" }}>
-                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-6" style={{ backgroundColor: "rgba(201,168,76,0.2)", color: "#c9a84c", border: "1px solid #c9a84c" }}>GET STARTED TODAY</div>
-                <h3 className="text-2xl font-extrabold text-white mb-2">Build My Agent</h3>
-                <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>Your own OpenClaw AI agent — built on Claude, GPT or any leading AI model — deployed and running in as little as 24 hours.</p>
-                <div className="mb-1">
-                  <span className="text-5xl font-extrabold text-white">$497</span>
-                  <span className="text-lg font-medium ml-2" style={{ color: "#c9a84c" }}>USD setup</span>
-                </div>
-                <div className="mb-1" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>≈ $770 AUD one-time</div>
-                <div className="mt-4 mb-1">
-                  <span className="text-3xl font-extrabold text-white">$99</span>
-                  <span className="text-base font-medium ml-2" style={{ color: "#c9a84c" }}>USD / month</span>
-                </div>
-                <div className="mb-8" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>≈ $155 AUD / month ongoing</div>
-                <ul className="space-y-2 mb-8">
-                  {[
-                    "Custom AI agent built for your business",
-                    "Powered by Claude, GPT or any leading AI",
-                    "Runs 24/7 on your own private server",
-                    "Chat via Telegram — anywhere, anytime",
-                    "Reads & replies to your emails automatically",
-                    "Manages your calendar & bookings",
-                    "Handles customer enquiries & follow-ups",
-                    "Processes invoices, receipts & data entry",
-                    "Connects to 10,000+ apps",
-                    "Ongoing management & support",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm" style={{ color: "rgba(255,255,255,0.85)" }}>
-                      <span style={{ color: "#c9a84c", fontWeight: 700 }}>✓</span> {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/buildagent" className="block w-full text-center py-4 rounded-xl font-bold text-lg glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
-                  Build My Agent Now →
-                </Link>
-              </div>
-              {/* Custom card */}
-              <div className="p-10 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-6" style={{ backgroundColor: "rgba(201,168,76,0.08)", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.3)" }}>ENTERPRISE</div>
-                <h3 className="text-2xl font-extrabold mb-2">Custom Solution</h3>
-                <p className="text-sm mb-6" style={{ color: "var(--muted)" }}>For larger businesses needing multiple agents across teams.</p>
-                <div className="mb-8"><span className="text-3xl font-extrabold">Let&apos;s Talk</span></div>
-                <ul className="space-y-2 mb-8">
-                  {[
-                    "Multiple AI agents across your team",
-                    "Each team member gets their own agent",
-                    "Custom integrations & workflows",
-                    "Dedicated account manager",
-                    "Priority support & SLA",
-                    "Tailored onboarding & training",
-                    "Advanced security & compliance",
-                    "Custom reporting & dashboards",
-                    "White-label options available",
-                    "Scalable as your team grows",
-                    "Custom pricing based on scope",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm" style={{ color: "var(--muted)" }}>
-                      <span style={{ color: "#c9a84c", fontWeight: 700 }}>✓</span> {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="block w-full text-center py-4 rounded-xl font-bold text-lg" style={{ border: "2px solid #c9a84c", color: "#c9a84c", background: "rgba(201,168,76,0.06)" }}>
-                  Book a 30-Min Call →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Case Studies */}
-        <section className="py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <p className="section-label justify-center mb-4">Client Results</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12" style={{ letterSpacing: "-0.02em" }}>Real Businesses. Real Results.</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {caseStudies.map((cs, i) => (
-                <div key={i} className="p-8 rounded-xl flex flex-col card-hover" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", minHeight: 320 }}>
-                  <div className="text-6xl font-serif leading-none mb-2" style={{ color: "#c9a84c", opacity: 0.5, lineHeight: 0.8 }}>&ldquo;</div>
-                  <div className="mb-4">
-                    <div className="text-4xl font-extrabold mb-1" style={{ color: "#c9a84c", letterSpacing: "-0.04em" }}>{cs.stat}</div>
-                    <div className="text-sm font-semibold">{cs.result}</div>
-                    <div className="text-xs mt-1" style={{ color: "var(--muted)" }}>{cs.industry}</div>
-                  </div>
-                  <p className="text-sm mb-4 flex-1" style={{ color: "var(--muted)", lineHeight: "1.7" }}>{cs.desc}</p>
-                  <div className="pt-4 border-t" style={{ borderColor: "var(--border)" }}>
-                    <p className="text-sm italic mb-2" style={{ color: "var(--text-dim)" }}>&ldquo;{cs.quote}&rdquo;</p>
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: "rgba(201,168,76,0.15)", color: "#c9a84c" }}>
-                        {cs.person.split(" ").map(n => n[0]).slice(0, 2).join("")}
-                      </div>
-                      <span className="text-xs font-medium">{cs.person}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="py-20 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-extrabold text-center mb-12" style={{ letterSpacing: "-0.02em" }}>Frequently Asked Questions</h2>
-            <div className="flex flex-col gap-3">
-              {faqs.map((faq, i) => (
-                <div key={i} className="rounded-xl overflow-hidden" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            {/* Plan selector */}
+            <div>
+              <p className="text-sm font-semibold mb-4" style={{ color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em" }}>Choose your plan</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {PLANS.map((plan) => (
                   <button
-                    className="w-full p-6 text-left flex items-center justify-between gap-4"
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    key={plan.id}
+                    type="button"
+                    onClick={() => setSelectedPlan(plan.id)}
+                    className="rounded-xl p-5 text-left transition-all"
+                    style={{
+                      backgroundColor: selectedPlan === plan.id ? "rgba(201,168,76,0.1)" : "var(--card)",
+                      border: selectedPlan === plan.id ? "2px solid #c9a84c" : "2px solid var(--border)",
+                      cursor: "pointer",
+                    }}
                   >
-                    <h3 className="font-bold text-sm">{faq.q}</h3>
-                    <span style={{ color: "#c9a84c", fontSize: "20px", flexShrink: 0 }}>{openFaq === i ? "−" : "+"}</span>
+                    {plan.highlight && (
+                      <div className="text-xs font-bold mb-2" style={{ color: "#c9a84c" }}>⭐ Most Popular</div>
+                    )}
+                    <div className="font-bold mb-1">{plan.name}</div>
+                    <div className="font-black text-xl mb-1" style={{ color: "#c9a84c" }}>{plan.price}<span className="text-xs font-normal" style={{ color: "var(--muted)" }}>{plan.period}</span></div>
+                    <div className="text-xs mb-3" style={{ color: "var(--muted)" }}>{plan.agents}</div>
+                    <ul className="flex flex-col gap-1">
+                      {plan.features.slice(0, 3).map(f => (
+                        <li key={f} className="text-xs flex gap-1.5 items-start" style={{ color: "var(--muted)" }}>
+                          <span style={{ color: "#c9a84c", flexShrink: 0 }}>✓</span>{f}
+                        </li>
+                      ))}
+                    </ul>
                   </button>
-                  {openFaq === i && (
-                    <div className="px-6 pb-6">
-                      <p className="text-sm" style={{ color: "var(--muted)", lineHeight: "1.7" }}>{faq.a}</p>
-                    </div>
-                  )}
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
 
-        {/* Final CTA */}
-        <section className="py-20 px-6 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-extrabold mb-4" style={{ letterSpacing: "-0.02em" }}>Ready to Build Your AI Agent?</h2>
-            <p className="mb-8" style={{ color: "var(--muted)" }}>
-              No commitment, no sales pitch — just an honest conversation about what AI can do for your business.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-xl font-bold inline-block text-lg glow-yellow" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
-                Book a Free Call →
-              </Link>
-              <Link href="/buildagent" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ backgroundColor: "#1a1a2e", color: "#ffffff", border: "2px solid #c9a84c" }}>
-                Build My Agent Now →
-              </Link>
-              <Link href="/guides" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ border: "2px solid var(--border)", color: "var(--muted)" }}>
-                DIY Guides
-              </Link>
-              <Link href="/marketplace" className="px-8 py-4 rounded-xl font-bold inline-block text-lg" style={{ border: "2px solid var(--border)", color: "var(--muted)" }}>
-                Browse Marketplace
-              </Link>
+            {/* Contact details */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-semibold mb-2">Your name *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Jane Smith"
+                  value={form.name}
+                  onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                  className="w-full px-4 py-3 rounded-xl text-sm"
+                  style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold mb-2">Business name</label>
+                <input
+                  type="text"
+                  placeholder="Acme Pty Ltd"
+                  value={form.business}
+                  onChange={e => setForm(f => ({ ...f, business: e.target.value }))}
+                  className="w-full px-4 py-3 rounded-xl text-sm"
+                  style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold mb-2">Email *</label>
+                <input
+                  type="email"
+                  required
+                  placeholder="jane@acme.com.au"
+                  value={form.email}
+                  onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                  className="w-full px-4 py-3 rounded-xl text-sm"
+                  style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold mb-2">Phone (optional)</label>
+                <input
+                  type="tel"
+                  placeholder="0400 000 000"
+                  value={form.phone}
+                  onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
+                  className="w-full px-4 py-3 rounded-xl text-sm"
+                  style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }}
+                />
+              </div>
             </div>
+
+            {/* What do you need */}
+            <div>
+              <label className="block text-sm font-semibold mb-2">What do you want your agent to handle?</label>
+              <textarea
+                rows={4}
+                placeholder="e.g. Reply to customer enquiries, manage my inbox, follow up on unpaid invoices, book appointments..."
+                value={form.description}
+                onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
+                className="w-full px-4 py-3 rounded-xl text-sm resize-none"
+                style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }}
+              />
+            </div>
+
+            {/* Tools */}
+            <div>
+              <label className="block text-sm font-semibold mb-3">Tools &amp; apps you use (select all that apply)</label>
+              <div className="flex flex-wrap gap-2">
+                {TOOLS_LIST.map(tool => (
+                  <button
+                    key={tool}
+                    type="button"
+                    onClick={() => toggleTool(tool)}
+                    className="px-3 py-1.5 rounded-lg text-xs font-medium transition-all"
+                    style={{
+                      backgroundColor: selectedTools.includes(tool) ? "rgba(201,168,76,0.15)" : "var(--card)",
+                      border: selectedTools.includes(tool) ? "1px solid #c9a84c" : "1px solid var(--border)",
+                      color: selectedTools.includes(tool) ? "#c9a84c" : "var(--muted)",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {tool}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {error && (
+              <div className="px-4 py-3 rounded-xl text-sm" style={{ backgroundColor: "rgba(220,38,38,0.1)", border: "1px solid rgba(220,38,38,0.3)", color: "#f87171" }}>
+                {error}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-5 rounded-xl font-black text-lg transition-all"
+              style={{
+                backgroundColor: loading ? "rgba(201,168,76,0.5)" : "#c9a84c",
+                color: "#1a1a2e",
+                cursor: loading ? "not-allowed" : "pointer",
+              }}
+            >
+              {loading ? "Redirecting to payment..." : selectedPlan === "enterprise" ? "Talk to Us About Enterprise →" : "Build My Agent — Proceed to Payment →"}
+            </button>
+
+            <p className="text-center text-xs" style={{ color: "var(--muted)" }}>
+              🔒 Secure payment via Stripe · Cancel anytime · 30 days notice to cancel
+            </p>
+          </form>
+        </div>
+      </section>
+
+      {/* ── FINAL REASSURANCE ── */}
+      <section className="py-16 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-2xl p-8 md:p-12 text-center" style={{ backgroundColor: "var(--card)", border: "1px solid rgba(201,168,76,0.2)" }}>
+            <h3 className="text-2xl font-extrabold mb-3" style={{ letterSpacing: "-0.02em" }}>Not ready to pay yet?</h3>
+            <p className="mb-6" style={{ color: "var(--muted)" }}>No problem. Book a free 20-minute call with Toby — no pressure, no pitch. Just an honest conversation about what AI can do for your business.</p>
+            <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 rounded-xl font-bold" style={{ border: "2px solid #c9a84c", color: "#c9a84c" }}>
+              Book a Free Call →
+            </Link>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
