@@ -639,7 +639,7 @@ function Testimonials() {
       initials: "SC",
     },
     {
-      quote: "I was skeptical. I'm not technical at all and I thought AI automation was something only big companies could afford. My AI Workforce had us up and running in two weeks, and I've never had to touch a line of code.",
+      quote: "I was skeptical. I'm not technical at all and I thought AI automation was something only big companies could afford. My AI Workforce had us up and running in 24 hours, and I've never had to touch a line of code.",
       name: "Marcus Webb",
       role: "Founder, Webb Legal Group",
       initials: "MW",
