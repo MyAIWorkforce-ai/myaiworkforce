@@ -107,9 +107,11 @@ export default function BuildAgentPage() {
           </h1>
           <div className="flex flex-col gap-1.5 mb-6 text-left max-w-sm mx-auto">
             {[
+              "An AI agent that actually does things — not just answers questions",
               "Replies to clients & handles enquiries",
               "Books appointments & manages your calendar",
               "Researches, sets tasks & takes action",
+              "It takes action, not just advice — tell it what you need, it handles it",
             ].map(line => (
               <p key={line} className="text-sm" style={{ color: "var(--muted)" }}>
                 <span style={{ color: "#c9a84c" }}>✓</span> {line}
