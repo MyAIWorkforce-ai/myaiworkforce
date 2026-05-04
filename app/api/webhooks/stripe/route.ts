@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 import Stripe from 'stripe';
-import { sendPurchaseConfirmation } from '@/lib/email';
+import { sendPurchaseConfirmation, sendOnboardingSetup } from '@/lib/email';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -92,6 +92,13 @@ export async function POST(request: NextRequest) {
               html: buildOnboardingEmail1({ name: clientName, email: customerEmail }),
             }).catch(e => console.error('Onboarding email 1 failed:', e));
             console.log('[Stripe Webhook] Onboarding email 1 sent to:', customerEmail);
+
+            // Email #2 — Telegram + AI brain setup (sent 2 hours later in prod; immediately for now)
+            const clientName = session.metadata?.clientName || '';
+            setTimeout(async () => {
+              await sendOnboardingSetup({ to: customerEmail, clientName }).catch(e => console.error('Onboarding email 2 failed:', e));
+              console.log('[Stripe Webhook] Onboarding email 2 sent to:', customerEmail);
+            }, 2 * 60 * 60 * 1000); // 2 hours
           }
         } else {
           console.warn('[Stripe Webhook] No customer email found on session:', session.id);

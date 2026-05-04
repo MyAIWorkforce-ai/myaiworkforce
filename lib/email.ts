@@ -240,3 +240,93 @@ export async function sendOnboardingWelcome({
     html,
   });
 }
+
+// ─── sendOnboardingSetup (Email #2) ──────────────────────────────────────────
+
+export async function sendOnboardingSetup({
+  to,
+  clientName,
+}: {
+  to: string;
+  clientName: string;
+}) {
+  const firstName = clientName ? clientName.split(' ')[0] : '';
+  const greeting = firstName ? `One more thing, ${firstName}` : `One more thing`;
+
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head><meta charset="utf-8"></head>
+    <body style="background:#f5f5f5;color:#1a1a2e;font-family:Helvetica Neue,Arial,sans-serif;margin:0;padding:40px 20px;">
+      <div style="max-width:600px;margin:0 auto;">
+        <div style="background:#1a1a2e;padding:32px 40px;border-radius:8px 8px 0 0;text-align:center;">
+          <p style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin:0 0 10px;">MY AI WORKFORCE</p>
+          <h1 style="color:#ffffff;font-size:1.4rem;font-weight:700;margin:0;">${greeting} — two quick things 👇</h1>
+          <p style="color:rgba(255,255,255,0.6);margin:8px 0 0;font-size:0.9rem;">Needed before we can go live</p>
+        </div>
+        <div style="background:#ffffff;padding:36px 40px;border:1px solid #e8e8e8;border-top:none;border-radius:0 0 8px 8px;">
+
+          <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 28px;">We're already working on your agent. Before we go live, we just need two things from you — shouldn't take more than 5 minutes.</p>
+
+          <!-- Thing 1: Telegram -->
+          <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:20px 24px;margin-bottom:20px;">
+            <p style="color:#1a1a2e;font-weight:700;font-size:1rem;margin:0 0 8px;">📱 1. Set up Telegram</p>
+            <p style="color:#555;font-size:0.9rem;margin:0 0 12px;line-height:1.6;">Telegram is how you'll communicate with your AI agent — send it tasks, ask questions, get updates. It's free and takes 2 minutes to set up.</p>
+            <p style="color:#555;font-size:0.9rem;margin:0 0 4px;line-height:1.6;"><strong>Step 1:</strong> Download Telegram — <a href="https://telegram.org" style="color:#c9a84c;">telegram.org</a> (or search "Telegram" in your app store)</p>
+            <p style="color:#555;font-size:0.9rem;margin:0 0 4px;line-height:1.6;"><strong>Step 2:</strong> Create a free account with your mobile number</p>
+            <p style="color:#555;font-size:0.9rem;margin:0;line-height:1.6;"><strong>Step 3:</strong> Reply to this email with your Telegram username so I can connect your agent to you</p>
+          </div>
+
+          <!-- Thing 2: AI Brain -->
+          <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:20px 24px;margin-bottom:28px;">
+            <p style="color:#1a1a2e;font-weight:700;font-size:1rem;margin:0 0 8px;">🤖 2. Choose your AI brain</p>
+            <p style="color:#555;font-size:0.9rem;margin:0 0 12px;line-height:1.6;">Your agent can run on either Anthropic or OpenAI — both are excellent. Here's a quick comparison:</p>
+            <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:12px;">
+              <tr style="background:#1a1a2e;color:#fff;">
+                <th style="padding:8px 12px;text-align:left;border-radius:6px 0 0 0;"></th>
+                <th style="padding:8px 12px;text-align:left;">Anthropic — Claude Sonnet ⭐ Recommended</th>
+                <th style="padding:8px 12px;text-align:left;border-radius:0 6px 0 0;">OpenAI — ChatGPT</th>
+              </tr>
+              <tr style="background:#f8f8ff;">
+                <td style="padding:8px 12px;color:#555;font-weight:600;">Best for</td>
+                <td style="padding:8px 12px;color:#333;">Business tasks, emails, analysis</td>
+                <td style="padding:8px 12px;color:#333;">General purpose, coding</td>
+              </tr>
+              <tr>
+                <td style="padding:8px 12px;color:#555;font-weight:600;">Speed</td>
+                <td style="padding:8px 12px;color:#333;">Very fast</td>
+                <td style="padding:8px 12px;color:#333;">Fast</td>
+              </tr>
+              <tr style="background:#f8f8ff;">
+                <td style="padding:8px 12px;color:#555;font-weight:600;">Our pick</td>
+                <td style="padding:8px 12px;color:#c9a84c;font-weight:700;">✓ Yes</td>
+                <td style="padding:8px 12px;color:#333;">Also great</td>
+              </tr>
+            </table>
+            <p style="color:#888;font-size:0.85rem;margin:0;">Not sure? Just say "go with your recommendation" and we'll set up Claude Sonnet for you.</p>
+          </div>
+
+          <p style="color:#333;font-size:0.95rem;margin:0;">Just reply to this email with your Telegram username and your AI brain choice — and we'll take it from there.</p>
+          <p style="color:#333;font-size:0.95rem;margin-top:16px;">— <strong>Monty</strong><br><span style="color:#888;font-size:0.85rem;">AI Assistant — My AI Workforce</span></p>
+
+          <div style="border-top:1px solid #e8e8e8;margin-top:32px;padding-top:16px;">
+            <p style="color:#aaa;font-size:0.8rem;text-align:center;margin:0;">Questions? Reply to this email or contact <a href="mailto:monty@myaiworkforce.ai" style="color:#c9a84c;">monty@myaiworkforce.ai</a></p>
+          </div>
+        </div>
+        <p style="color:#888;font-size:12px;text-align:center;margin-top:24px;">© 2026 My AI Workforce · <a href="https://myaiworkforce.ai" style="color:#c9a84c;">myaiworkforce.ai</a></p>
+      </div>
+    </body>
+    </html>
+  `;
+
+  const resendClient = new Resend(process.env.RESEND_API_KEY || 're_Po7ZvpkS_PBzPLvcaGFc8b7DSEaZWCpCA');
+  return resendClient.emails.send({
+    from: 'Monty <monty@myaiworkforce.ai>',
+    replyTo: 'monty@myaiworkforce.ai',
+    to,
+    subject: firstName
+      ? `${firstName}, two quick things before we go live 👇`
+      : `Two quick things before we go live 👇`,
+    html,
+  });
+}
