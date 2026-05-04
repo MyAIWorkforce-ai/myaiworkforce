@@ -64,7 +64,7 @@ function Footer() {
   );
 }
 
-const TOOLS_LIST = ["Gmail", "Outlook", "Xero", "MYOB", "HubSpot", "Salesforce", "Slack", "Teams", "Shopify", "WooCommerce", "Notion", "Google Calendar", "Calendly", "Other"];
+const TOOLS_LIST = ["Gmail", "Outlook", "Google Calendar", "Calendly", "Xero", "MYOB", "QuickBooks", "Stripe", "HubSpot", "Salesforce", "Slack", "Teams", "Shopify", "WooCommerce", "eBay", "Meta / Facebook", "Instagram", "LinkedIn", "GitHub", "Notion", "Trello", "Airtable", "Zapier", "Other"];
 
 export default function BuildAgentPage() {
   const formRef = useRef<HTMLDivElement>(null);
@@ -158,7 +158,7 @@ export default function BuildAgentPage() {
 
             <div>
               <label className="block text-sm font-semibold mb-1">Tools you use</label>
-              <p className="text-xs mb-2" style={{ color: "var(--muted)" }}>Tap any you use — we connect to 10,000+ apps so if yours isn&apos;t listed, no worries.</p>
+              <p className="text-xs mb-2" style={{ color: "var(--muted)" }}>Tap any you use — we connect to thousands of apps &amp; tools. If yours isn&apos;t listed, no worries.</p>
               <div className="flex flex-wrap gap-2">
                 {TOOLS_LIST.map(tool => (
                   <button key={tool} type="button" onClick={() => toggleTool(tool)} className="px-3 py-1.5 rounded-lg text-xs font-medium"
