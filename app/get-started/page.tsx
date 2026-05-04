@@ -105,9 +105,17 @@ export default function BuildAgentPage() {
             Get Your Own AI Agent —{" "}
             <span style={{ color: "#c9a84c" }}>Live Within 24 Hours.</span>
           </h1>
-          <p className="text-base mb-6" style={{ color: "var(--muted)", lineHeight: 1.7 }}>
-            Handles your emails, bookings, and customer enquiries — so you can get on with your day.
-          </p>
+          <div className="flex flex-col gap-1.5 mb-6 text-left max-w-sm mx-auto">
+            {[
+              "Replies to clients & handles enquiries",
+              "Books appointments & manages your calendar",
+              "Researches, sets tasks & takes action",
+            ].map(line => (
+              <p key={line} className="text-sm" style={{ color: "var(--muted)" }}>
+                <span style={{ color: "#c9a84c" }}>✓</span> {line}
+              </p>
+            ))}
+          </div>
           <p className="text-sm font-semibold" style={{ color: "var(--muted)" }}>
             $497 setup · $199/mo USD · Live in 24 hours · Cancel anytime
           </p>
