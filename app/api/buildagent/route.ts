@@ -48,14 +48,14 @@ export async function POST(req: NextRequest) {
               unit_amount: 49700,
             },
           },
-        ],
+        ] as never,
         metadata: {
           clientName: name,
           clientBusiness: business || '',
           clientPhone: phone || '',
           clientTools: tools || '',
         },
-      } as Parameters<typeof stripe.checkout.sessions.create>[0]['subscription_data'],
+      },
       metadata: {
         productName: 'Build My Agent',
         productType: 'done-for-you',
