@@ -332,3 +332,113 @@ export async function sendOnboardingSetup({
     html,
   });
 }
+
+// ─── sendAnthropicSetup (Email #2 — before Telegram) ─────────────────────────
+
+export async function sendAnthropicSetup({
+  to,
+  clientName,
+}: {
+  to: string;
+  clientName: string;
+}) {
+  const firstName = clientName ? clientName.split(' ')[0] : '';
+  const greeting = firstName ? `Hi ${firstName},` : `Hi there,`;
+
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head><meta charset="utf-8"></head>
+    <body style="background:#f5f5f5;color:#1a1a2e;font-family:'Helvetica Neue',Arial,sans-serif;margin:0;padding:40px 20px;">
+      <div style="max-width:600px;margin:0 auto;">
+        <div style="background:#1a1a2e;padding:32px 40px;border-radius:8px 8px 0 0;text-align:center;">
+          <p style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin:0 0 10px;">MY AI WORKFORCE</p>
+          <h1 style="color:#ffffff;font-size:1.4rem;font-weight:700;margin:0;">One quick step — set up your AI credits 🧠</h1>
+          <p style="color:rgba(255,255,255,0.6);margin:8px 0 0;font-size:0.9rem;">Takes about 5 minutes. No tech knowledge needed.</p>
+        </div>
+        <div style="background:#ffffff;padding:36px 40px;border:1px solid #e8e8e8;border-top:none;border-radius:0 0 8px 8px;">
+
+          <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 20px;">${greeting}</p>
+          <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 24px;">Your agent runs on Anthropic's AI — the same technology behind Claude, one of the most advanced AI assistants in the world. To keep your data 100% private and your costs transparent, you'll have your own Anthropic account with your own credits.</p>
+
+          <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:28px;">
+            <p style="color:#1a1a2e;font-weight:700;margin:0 0 6px;">💡 Why your own account?</p>
+            <p style="color:#555;font-size:0.9rem;margin:0;line-height:1.6;">Your conversations stay completely private — they never go through our systems. You only pay for what you use (most clients spend around $5–$15/month in AI credits).</p>
+          </div>
+
+          <p style="color:#1a1a2e;font-weight:700;font-size:1rem;margin:0 0 16px;">Here's how to set it up — 5 easy steps:</p>
+
+          <!-- Step 1 -->
+          <div style="display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;">
+            <div style="min-width:32px;height:32px;background:#c9a84c;border-radius:50%;font-weight:900;color:#1a1a2e;font-size:13px;text-align:center;line-height:32px;flex-shrink:0;">1</div>
+            <div>
+              <p style="color:#1a1a2e;font-weight:700;margin:0 0 2px;font-size:14px;">Go to <a href="https://console.anthropic.com" style="color:#c9a84c;">console.anthropic.com</a></p>
+              <p style="color:#666;font-size:13px;margin:0;line-height:1.6;">Click <strong>Sign Up</strong> and create a free account using your email address.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div style="display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;">
+            <div style="min-width:32px;height:32px;background:#c9a84c;border-radius:50%;font-weight:900;color:#1a1a2e;font-size:13px;text-align:center;line-height:32px;flex-shrink:0;">2</div>
+            <div>
+              <p style="color:#1a1a2e;font-weight:700;margin:0 0 2px;font-size:14px;">Add a payment method</p>
+              <p style="color:#666;font-size:13px;margin:0;line-height:1.6;">Go to <strong>Settings → Billing</strong> and add your credit card. You won't be charged yet — you only pay for what you use.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div style="display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;">
+            <div style="min-width:32px;height:32px;background:#c9a84c;border-radius:50%;font-weight:900;color:#1a1a2e;font-size:13px;text-align:center;line-height:32px;flex-shrink:0;">3</div>
+            <div>
+              <p style="color:#1a1a2e;font-weight:700;margin:0 0 2px;font-size:14px;">Add $10–$20 in credits</p>
+              <p style="color:#666;font-size:13px;margin:0;line-height:1.6;">Under <strong>Billing → Add Credits</strong>, top up with $10 or $20 USD. This typically lasts 1–3 months depending on how much you use your agent.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div style="display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;">
+            <div style="min-width:32px;height:32px;background:#c9a84c;border-radius:50%;font-weight:900;color:#1a1a2e;font-size:13px;text-align:center;line-height:32px;flex-shrink:0;">4</div>
+            <div>
+              <p style="color:#1a1a2e;font-weight:700;margin:0 0 2px;font-size:14px;">Create your API key</p>
+              <p style="color:#666;font-size:13px;margin:0;line-height:1.6;">Go to <strong>Settings → API Keys</strong> → click <strong>Create Key</strong>. Give it any name (e.g. "My Agent"). A long code will appear — copy it straight away as it only shows once.</p>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div style="display:flex;gap:16px;margin-bottom:28px;align-items:flex-start;">
+            <div style="min-width:32px;height:32px;background:#c9a84c;border-radius:50%;font-weight:900;color:#1a1a2e;font-size:13px;text-align:center;line-height:32px;flex-shrink:0;">5</div>
+            <div>
+              <p style="color:#1a1a2e;font-weight:700;margin:0 0 2px;font-size:14px;">Reply to this email with your key</p>
+              <p style="color:#666;font-size:13px;margin:0;line-height:1.6;">Just paste the key in your reply — it looks like this: <code style="background:#f0f2ff;padding:2px 6px;border-radius:4px;font-size:12px;">sk-ant-api03-xxxxxxxxxxxxxxxxxxxx</code></p>
+            </div>
+          </div>
+
+          <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:32px;">
+            <p style="color:#1a1a2e;font-weight:700;margin:0 0 4px;">🔒 Is this safe?</p>
+            <p style="color:#555;font-size:0.9rem;margin:0;line-height:1.6;">Yes — your API key is stored securely on your private server and is never shared with anyone. Only your agent uses it.</p>
+          </div>
+
+          <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0;">Once you send me your key, I'll connect it to your agent and you'll be ready for the next step — setting up Telegram so you can chat with your agent anytime.</p>
+          <p style="color:#333;font-size:0.95rem;margin-top:16px;">— <strong>Monty</strong><br><span style="color:#888;font-size:0.85rem;">AI Assistant — My AI Workforce</span></p>
+
+          <div style="border-top:1px solid #e8e8e8;margin-top:32px;padding-top:16px;">
+            <p style="color:#aaa;font-size:0.8rem;text-align:center;margin:0;">Questions? Just reply to this email — I'm here to help.</p>
+          </div>
+        </div>
+        <p style="color:#888;font-size:12px;text-align:center;margin-top:24px;">© ${new Date().getFullYear()} My AI Workforce · <a href="https://myaiworkforce.ai" style="color:#c9a84c;">myaiworkforce.ai</a></p>
+      </div>
+    </body>
+    </html>
+  `;
+
+  const resendClient = new Resend(process.env.RESEND_API_KEY || 're_Po7ZvpkS_PBzPLvcaGFc8b7DSEaZWCpCA');
+  return resendClient.emails.send({
+    from: 'Monty <monty@myaiworkforce.ai>',
+    replyTo: 'monty@myaiworkforce.ai',
+    to,
+    subject: firstName
+      ? `${firstName}, one quick step — set up your AI credits 🧠`
+      : `One quick step — set up your AI credits 🧠`,
+    html,
+  });
+}

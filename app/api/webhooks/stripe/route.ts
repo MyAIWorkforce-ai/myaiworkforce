@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 import Stripe from 'stripe';
-import { sendPurchaseConfirmation, sendOnboardingSetup } from '@/lib/email';
+import { sendPurchaseConfirmation, sendOnboardingSetup, sendAnthropicSetup } from '@/lib/email';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -97,11 +97,17 @@ export async function POST(request: NextRequest) {
             }).catch(e => console.error('Onboarding email 1 failed:', e));
             console.log('[Stripe Webhook] Onboarding email 1 sent to:', customerEmail);
 
-            // Email #2 — Telegram + AI brain setup (sent 2 hours later in prod; immediately for now)
+            // Email #2 — Anthropic API setup (sent 1 hour after welcome)
             setTimeout(async () => {
-              await sendOnboardingSetup({ to: customerEmail, clientName }).catch(e => console.error('Onboarding email 2 failed:', e));
-              console.log('[Stripe Webhook] Onboarding email 2 sent to:', customerEmail);
-            }, 2 * 60 * 60 * 1000); // 2 hours
+              await sendAnthropicSetup({ to: customerEmail, clientName }).catch(e => console.error('Anthropic setup email failed:', e));
+              console.log('[Stripe Webhook] Anthropic setup email sent to:', customerEmail);
+            }, 1 * 60 * 60 * 1000); // 1 hour
+
+            // Email #3 — Telegram setup (sent 24 hours after welcome, after client has set up Anthropic)
+            setTimeout(async () => {
+              await sendOnboardingSetup({ to: customerEmail, clientName }).catch(e => console.error('Telegram setup email failed:', e));
+              console.log('[Stripe Webhook] Telegram setup email sent to:', customerEmail);
+            }, 24 * 60 * 60 * 1000); // 24 hours
           }
         } else {
           console.warn('[Stripe Webhook] No customer email found on session:', session.id);
