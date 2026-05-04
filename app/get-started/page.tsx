@@ -157,7 +157,8 @@ export default function BuildAgentPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold mb-2">Tools you use (tap to select)</label>
+              <label className="block text-sm font-semibold mb-1">Tools you use</label>
+              <p className="text-xs mb-2" style={{ color: "var(--muted)" }}>Tap any you use — we connect to 10,000+ apps so if yours isn&apos;t listed, no worries.</p>
               <div className="flex flex-wrap gap-2">
                 {TOOLS_LIST.map(tool => (
                   <button key={tool} type="button" onClick={() => toggleTool(tool)} className="px-3 py-1.5 rounded-lg text-xs font-medium"
