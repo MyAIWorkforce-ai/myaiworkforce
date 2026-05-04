@@ -325,12 +325,12 @@ export async function sendAnthropicSetup({
         <div style="background:#1a1a2e;padding:32px 40px;border-radius:8px 8px 0 0;text-align:center;">
           <p style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin:0 0 10px;">MY AI WORKFORCE</p>
           <h1 style="color:#ffffff;font-size:1.4rem;font-weight:700;margin:0;">One quick step — set up your AI credits 🧠</h1>
-          <p style="color:rgba(255,255,255,0.6);margin:8px 0 0;font-size:0.9rem;">We use Claude Sonnet by Anthropic — takes about 5 minutes to set up.</p>
+          <p style="color:rgba(255,255,255,0.6);margin:8px 0 0;font-size:0.9rem;">Powered by Anthropic — takes about 5 minutes to set up.</p>
         </div>
         <div style="background:#ffffff;padding:36px 40px;border:1px solid #e8e8e8;border-top:none;border-radius:0 0 8px 8px;">
 
           <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 20px;">${greeting}</p>
-          <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 24px;">Your agent is powered by <strong>Claude Sonnet</strong> — made by Anthropic, and one of the best AI models in the world for business tasks like emails, scheduling, research and more.</p>
+          <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 24px;">Your agent is powered by <strong>Anthropic's latest AI</strong> — one of the most advanced AI systems in the world, built specifically for business tasks like emails, scheduling, research and more.</p>
           <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 24px;">To keep your data 100% private and your costs transparent, you'll need your own Anthropic account. This means your conversations never go through us — they go directly from your agent to Anthropic, and only you can see them.</p>
 
           <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:28px;">
@@ -411,6 +411,90 @@ export async function sendAnthropicSetup({
     subject: firstName
       ? `${firstName}, one quick step — set up your AI credits 🧠`
       : `One quick step — set up your AI credits 🧠`,
+    html,
+  });
+}
+
+// ─── sendModelExplainer (sent after API key connected) ────────────────────
+
+export async function sendModelExplainer({
+  to,
+  clientName,
+}: {
+  to: string;
+  clientName: string;
+}) {
+  const firstName = clientName ? clientName.split(' ')[0] : '';
+  const greeting = firstName ? `Hi ${firstName},` : `Hi there,`;
+
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head><meta charset="utf-8"></head>
+    <body style="background:#f5f5f5;color:#1a1a2e;font-family:'Helvetica Neue',Arial,sans-serif;margin:0;padding:40px 20px;">
+      <div style="max-width:600px;margin:0 auto;">
+        <div style="background:#1a1a2e;padding:32px 40px;border-radius:8px 8px 0 0;text-align:center;">
+          <p style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin:0 0 10px;">MY AI WORKFORCE</p>
+          <h1 style="color:#ffffff;font-size:1.4rem;font-weight:700;margin:0;">Your API key is connected ✅</h1>
+          <p style="color:rgba(255,255,255,0.6);margin:8px 0 0;font-size:0.9rem;">Here's which AI model your agent is running on — and why.</p>
+        </div>
+        <div style="background:#ffffff;padding:36px 40px;border:1px solid #e8e8e8;border-top:none;border-radius:0 0 8px 8px;">
+
+          <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 24px;">${greeting} Your Anthropic API key is connected and your agent is ready to go.</p>
+
+          <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:28px;">
+            <p style="color:#1a1a2e;font-weight:700;margin:0 0 4px;">🧠 We've set your agent to run on <strong>Claude Sonnet</strong></p>
+            <p style="color:#555;font-size:0.9rem;margin:0;line-height:1.6;">This is Anthropic's most capable everyday model — fast, smart, and great value. It handles the full range of business tasks your agent will do.</p>
+          </div>
+
+          <p style="color:#1a1a2e;font-weight:700;font-size:1rem;margin:0 0 16px;">Anthropic model comparison:</p>
+
+          <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:24px;border-radius:8px;overflow:hidden;">
+            <tr style="background:#1a1a2e;color:#fff;">
+              <th style="padding:10px 14px;text-align:left;">Model</th>
+              <th style="padding:10px 14px;text-align:left;">Best for</th>
+              <th style="padding:10px 14px;text-align:left;">Est. cost/month</th>
+            </tr>
+            <tr style="background:#f0fff4;">
+              <td style="padding:10px 14px;font-weight:700;color:#1a1a2e;">Claude Sonnet ⭐ <span style="color:#c9a84c;font-size:11px;">(Your plan)</span></td>
+              <td style="padding:10px 14px;color:#333;">Emails, research, scheduling, everyday tasks</td>
+              <td style="padding:10px 14px;color:#2a7a2a;font-weight:600;">~$5–15 USD</td>
+            </tr>
+            <tr style="background:#fff8f0;">
+              <td style="padding:10px 14px;font-weight:700;color:#1a1a2e;">Claude Opus</td>
+              <td style="padding:10px 14px;color:#333;">Complex analysis, large documents, deep reasoning</td>
+              <td style="padding:10px 14px;color:#c9a84c;font-weight:600;">~$50–150 USD</td>
+            </tr>
+            <tr style="background:#f8f8ff;">
+              <td style="padding:10px 14px;font-weight:700;color:#1a1a2e;">Claude Haiku</td>
+              <td style="padding:10px 14px;color:#333;">Simple, fast tasks — very high volume</td>
+              <td style="padding:10px 14px;color:#555;font-weight:600;">~$1–5 USD</td>
+            </tr>
+          </table>
+
+          <p style="color:#555;font-size:0.9rem;line-height:1.7;margin:0 0 24px;">For most business owners, <strong>Claude Sonnet</strong> is the sweet spot — powerful enough for anything you'll need day-to-day, at a fraction of the cost of Opus. If you ever want to upgrade to Opus for heavier work, just let me know and I can switch it for you.</p>
+
+          <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0;">Next up — I'll send you instructions to set up Telegram so you can start chatting with your agent.</p>
+          <p style="color:#333;font-size:0.95rem;margin-top:16px;">— <strong>Monty</strong><br><span style="color:#888;font-size:0.85rem;">AI Assistant — My AI Workforce</span></p>
+
+          <div style="border-top:1px solid #e8e8e8;margin-top:32px;padding-top:16px;">
+            <p style="color:#aaa;font-size:0.8rem;text-align:center;margin:0;">Questions? Just reply to this email.</p>
+          </div>
+        </div>
+        <p style="color:#888;font-size:12px;text-align:center;margin-top:24px;">© ${new Date().getFullYear()} My AI Workforce · <a href="https://myaiworkforce.ai" style="color:#c9a84c;">myaiworkforce.ai</a></p>
+      </div>
+    </body>
+    </html>
+  `;
+
+  const resendClient = new Resend(process.env.RESEND_API_KEY || 're_Po7ZvpkS_PBzPLvcaGFc8b7DSEaZWCpCA');
+  return resendClient.emails.send({
+    from: 'Monty <monty@myaiworkforce.ai>',
+    replyTo: 'monty@myaiworkforce.ai',
+    to,
+    subject: firstName
+      ? `${firstName}, your AI key is connected — here's what's running 🧠`
+      : `Your AI key is connected — here's what's running 🧠`,
     html,
   });
 }
