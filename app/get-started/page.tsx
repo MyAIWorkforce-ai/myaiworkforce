@@ -119,7 +119,7 @@ export default function BuildAgentPage() {
             ))}
           </div>
           <p className="text-sm font-semibold" style={{ color: "var(--muted)" }}>
-            $497 setup · $199/mo USD · Live in 24 hours · Cancel anytime
+            $497 setup · First month free · then $199/mo USD · Cancel anytime
           </p>
         </div>
 
