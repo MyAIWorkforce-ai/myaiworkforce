@@ -718,10 +718,10 @@ function PricingTeaser() {
             </div>
             <div className="mb-1" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>≈ $770 AUD one-time</div>
             <div className="mt-4 mb-1">
-              <span className="text-3xl font-extrabold text-white">$99</span>
+              <span className="text-3xl font-extrabold text-white">$199</span>
               <span className="text-base font-medium ml-2" style={{ color: "#c9a84c" }}>USD / month</span>
             </div>
-            <div className="mb-8" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>≈ $155 AUD / month ongoing</div>
+            <div className="mb-8" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>≈ $310 AUD / month ongoing</div>
             <ul className="space-y-2 mb-8">
               {[
                 "Custom AI agent built for your business",
