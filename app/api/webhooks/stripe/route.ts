@@ -48,7 +48,11 @@ export async function POST(request: NextRequest) {
 
         const productName = session.metadata?.productName || 'Your purchase';
         const productType = (session.metadata?.productType as 'guide' | 'agent' | 'done-for-you') || 'guide';
-        const amountTotal = session.amount_total ? `$${(session.amount_total / 100).toFixed(2)} AUD` : '';
+        const amountTotal = session.amount_total
+          ? `$${(session.amount_total / 100).toFixed(2)} AUD`
+          : session.amount_subtotal
+          ? `$${(session.amount_subtotal / 100).toFixed(2)} AUD`
+          : 'See Stripe dashboard';
 
         // Save purchase to Supabase
         const productSlug = session.metadata?.productSlug || productName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
@@ -94,7 +98,6 @@ export async function POST(request: NextRequest) {
             console.log('[Stripe Webhook] Onboarding email 1 sent to:', customerEmail);
 
             // Email #2 — Telegram + AI brain setup (sent 2 hours later in prod; immediately for now)
-            const clientName = session.metadata?.clientName || '';
             setTimeout(async () => {
               await sendOnboardingSetup({ to: customerEmail, clientName }).catch(e => console.error('Onboarding email 2 failed:', e));
               console.log('[Stripe Webhook] Onboarding email 2 sent to:', customerEmail);
