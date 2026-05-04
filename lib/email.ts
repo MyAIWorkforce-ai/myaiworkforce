@@ -253,7 +253,7 @@ export async function sendOnboardingSetup({
   clientName: string;
 }) {
   const firstName = clientName ? clientName.split(' ')[0] : '';
-  const greeting = firstName ? `One more thing, ${firstName}` : `One more thing`;
+  const greeting = firstName ? `Almost there, ${firstName}` : `Almost there`;
 
   const html = `
     <!DOCTYPE html>
@@ -263,23 +263,35 @@ export async function sendOnboardingSetup({
       <div style="max-width:600px;margin:0 auto;">
         <div style="background:#1a1a2e;padding:32px 40px;border-radius:8px 8px 0 0;text-align:center;">
           <p style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin:0 0 10px;">MY AI WORKFORCE</p>
-          <h1 style="color:#ffffff;font-size:1.4rem;font-weight:700;margin:0;">${greeting} — two quick things 👇</h1>
-          <p style="color:rgba(255,255,255,0.6);margin:8px 0 0;font-size:0.9rem;">Needed before we can go live</p>
+          <h1 style="color:#ffffff;font-size:1.4rem;font-weight:700;margin:0;">${greeting} — one quick step 📱</h1>
+          <p style="color:rgba(255,255,255,0.6);margin:8px 0 0;font-size:0.9rem;">Set up Telegram and you're ready to go live</p>
         </div>
         <div style="background:#ffffff;padding:36px 40px;border:1px solid #e8e8e8;border-top:none;border-radius:0 0 8px 8px;">
 
-          <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 28px;">We're already working on your agent. Before we go live, we just need two things from you — shouldn't take more than 5 minutes.</p>
+          <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 28px;">Your AI key is connected and your agent is built. The last step is setting up Telegram — this is how you'll chat with your agent anytime, anywhere. It takes about 3 minutes.</p>
 
-          <!-- Thing 1: Telegram -->
-          <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:20px 24px;margin-bottom:20px;">
-            <p style="color:#1a1a2e;font-weight:700;font-size:1rem;margin:0 0 8px;">📱 1. Set up Telegram</p>
-            <p style="color:#555;font-size:0.9rem;margin:0 0 12px;line-height:1.6;">Telegram is how you'll communicate with your AI agent — send it tasks, ask questions, get updates. It's free and takes 2 minutes to set up.</p>
-            <p style="color:#555;font-size:0.9rem;margin:0 0 4px;line-height:1.6;"><strong>Step 1:</strong> Download Telegram — <a href="https://telegram.org" style="color:#c9a84c;">telegram.org</a> (or search "Telegram" in your app store)</p>
+          <!-- Telegram setup -->
+          <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:20px 24px;margin-bottom:28px;">
+            <p style="color:#1a1a2e;font-weight:700;font-size:1rem;margin:0 0 12px;">📱 Set up your Telegram bot — 3 minutes</p>
+
+            <p style="color:#555;font-size:0.9rem;margin:0 0 4px;line-height:1.6;"><strong>Step 1:</strong> Download Telegram — <a href="https://telegram.org" style="color:#c9a84c;font-weight:600;">telegram.org</a> (free, or search "Telegram" in your app store)</p>
             <p style="color:#555;font-size:0.9rem;margin:0 0 4px;line-height:1.6;"><strong>Step 2:</strong> Create a free account with your mobile number</p>
-            <p style="color:#555;font-size:0.9rem;margin:0;line-height:1.6;"><strong>Step 3:</strong> Reply to this email with your Telegram username so I can connect your agent to you</p>
+            <p style="color:#555;font-size:0.9rem;margin:0 0 4px;line-height:1.6;"><strong>Step 3:</strong> Search for <strong>@BotFather</strong> (look for the blue tick ✅) and tap <strong>Start</strong></p>
+            <p style="color:#555;font-size:0.9rem;margin:0 0 4px;line-height:1.6;"><strong>Step 4:</strong> Type <code style="background:#e8eaff;padding:2px 6px;border-radius:4px;">/newbot</code> and send it</p>
+            <p style="color:#555;font-size:0.9rem;margin:0 0 4px;line-height:1.6;"><strong>Step 5:</strong> Give your bot a name — e.g. <em>"Sarah's Agent"</em></p>
+            <p style="color:#555;font-size:0.9rem;margin:0 0 12px;line-height:1.6;"><strong>Step 6:</strong> Give it a username — e.g. <em>"SarahsAgentBot"</em> (must end in Bot)</p>
+
+            <p style="color:#555;font-size:0.9rem;margin:0 0 6px;line-height:1.6;">BotFather will give you a code that looks like this:</p>
+            <div style="background:#fff;border:1px solid #dde0ff;border-radius:6px;padding:10px 14px;font-family:monospace;font-size:12px;color:#1a1a2e;word-break:break-all;margin-bottom:12px;">1234567890:ABCDefGhIJKlmNoPQRsTUvwXYZ1234567890</div>
+            <p style="color:#555;font-size:0.9rem;margin:0;line-height:1.6;"><strong>Step 7:</strong> Copy that code and reply to this email with it — I'll connect it to your agent straight away.</p>
           </div>
 
-          <p style="color:#333;font-size:0.95rem;margin:0;">Just reply to this email with your Telegram username — and we'll take it from there.</p>
+          <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:14px 20px;margin-bottom:28px;">
+            <p style="color:#1a1a2e;font-weight:700;margin:0 0 4px;">🔒 Is this safe?</p>
+            <p style="color:#555;font-size:0.9rem;margin:0;line-height:1.6;">Yes — this code only connects BotFather to your private agent. No one else can access it.</p>
+          </div>
+
+          <p style="color:#333;font-size:0.95rem;margin:0;">Once you send me the code, your agent will be live within minutes. Reply to this email with your bot token and we're good to go!</p>
           <p style="color:#333;font-size:0.95rem;margin-top:16px;">— <strong>Monty</strong><br><span style="color:#888;font-size:0.85rem;">AI Assistant — My AI Workforce</span></p>
 
           <div style="border-top:1px solid #e8e8e8;margin-top:32px;padding-top:16px;">
