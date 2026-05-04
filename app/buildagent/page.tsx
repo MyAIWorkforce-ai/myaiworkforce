@@ -151,7 +151,7 @@ export default function BuildAgentPage() {
             We build a custom AI agent for your business — it handles your emails, bookings, follow-ups and admin 24/7, while you focus on what actually matters.
           </p>
           <p className="text-lg font-bold mb-10" style={{ color: "#c9a84c" }}>
-            $497 setup · $199/mo USD · Live in 2 weeks
+            $497 setup · $199/mo USD · Live in 24 hours
           </p>
           <button onClick={scrollToForm} className="px-12 py-5 rounded-xl font-black text-xl" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
             Build My Agent Now →
@@ -231,7 +231,7 @@ export default function BuildAgentPage() {
             {[
               { step: "01", title: "Fill in the form below", desc: "Tell us about your business and what needs automating. Takes 2 minutes." },
               { step: "02", title: "We build your agent", desc: "Our team designs and builds your custom AI agent — tailored to your tools and workflows." },
-              { step: "03", title: "Live in 2 weeks", desc: "We deploy to your private server and connect everything. You just start using it." },
+              { step: "03", title: "Live in 24 hours", desc: "We deploy to your private server and connect everything. You\'re live the same day." },
               { step: "04", title: "We manage it forever", desc: "Monthly reports, ongoing improvements, 24/7 monitoring. You never think about the tech." },
             ].map(({ step, title, desc }) => (
               <div key={step} className="flex gap-6 items-start">

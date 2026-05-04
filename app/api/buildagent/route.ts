@@ -21,14 +21,8 @@ export async function POST(req: NextRequest) {
       html: buildNotificationEmail({ name, business, email, phone, description, tools }),
     }).catch(e => console.error('Notification failed:', e));
 
-    // Create a one-time price for the $497 setup fee
-    const setupPrice = await stripe.prices.create({
-      currency: 'usd',
-      unit_amount: 49700,
-      product_data: { name: 'Build My Agent — Setup Fee (one-time)' },
-    });
-
-    // Create Stripe checkout — $497 setup (added to first invoice) + $199/mo subscription
+    // Create Stripe checkout — $199/mo subscription
+    // Setup fee ($497) added via add_invoice_items on first invoice
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'subscription',
@@ -44,15 +38,24 @@ export async function POST(req: NextRequest) {
           quantity: 1,
         },
       ],
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       subscription_data: {
-        add_invoice_items: [{ price: setupPrice.id, quantity: 1 }],
+        add_invoice_items: [
+          {
+            price_data: {
+              currency: 'usd',
+              product_data: { name: 'Build My Agent — Setup Fee (one-time)' },
+              unit_amount: 49700,
+            },
+          },
+        ],
         metadata: {
           clientName: name,
           clientBusiness: business || '',
           clientPhone: phone || '',
           clientTools: tools || '',
         },
-      },
+      } as Parameters<typeof stripe.checkout.sessions.create>[0]['subscription_data'],
       metadata: {
         productName: 'Build My Agent',
         productType: 'done-for-you',

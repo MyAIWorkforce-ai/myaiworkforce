@@ -1,20 +1,20 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Build My Agent | From $997/mo | MyAIWorkforce.ai',
-  description: 'We build, deploy and manage your AI workforce. Private VPS, custom agents, 24/7 monitoring. Email triage, lead gen, CRM automation and more.',
-  keywords: ['done for you AI', 'managed AI workforce', 'AI agency', 'custom AI agents', 'AI automation service'],
+  title: 'Build My Agent | $497 Setup + $199/mo | MyAIWorkforce.ai',
+  description: 'We build, deploy and manage a custom AI agent for your business. $497 setup + $199/mo USD. Live in 24 hours. Handles emails, bookings, follow-ups and admin — 24/7.',
+  keywords: ['build AI agent', 'custom AI agent', 'AI automation service', 'done for you AI', 'managed AI workforce', 'AI agency Australia'],
   openGraph: {
-    title: 'Build My Agent | From $997/mo | MyAIWorkforce.ai',
-    description: 'We build, deploy and manage your AI workforce. Private VPS, custom agents, 24/7 monitoring. Email triage, lead gen, CRM automation and more.',
-    url: 'https://MyAIWorkforce.ai/done-for-you',
+    title: 'Build My Agent | $497 Setup + $199/mo | MyAIWorkforce.ai',
+    description: 'We build, deploy and manage a custom AI agent for your business. $497 setup + $199/mo USD. Live in 24 hours.',
+    url: 'https://myaiworkforce.ai/buildagent',
     siteName: 'My AI Workforce',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Build My Agent | My AI Workforce',
-    description: 'We build, deploy and manage your AI workforce. From $997/mo.',
+    title: 'Build My Agent | $497 Setup + $199/mo | My AI Workforce',
+    description: 'Custom AI agent built, deployed and managed for your business. Live in 24 hours. $497 setup + $199/mo USD.',
   },
 }
 
