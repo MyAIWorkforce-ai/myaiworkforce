@@ -225,7 +225,7 @@ const process = [
   {
     step: "04",
     title: "Go Live",
-    desc: "Your agent is deployed on your own private server and connected to your email, calendar, and other tools. Usually within 2 weeks.",
+    desc: "Your agent is deployed on your own private server and connected to your email, calendar, and other tools. Usually within 24 hours.",
   },
   {
     step: "05",
