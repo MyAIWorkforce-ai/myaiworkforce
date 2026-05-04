@@ -52,7 +52,7 @@ function Footer() {
   return (
     <footer className="py-10 px-6" style={{ borderTop: "1px solid var(--border)", backgroundColor: "var(--bg)" }}>
       <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="font-bold"><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#c9a84c", fontSize: "1.1em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></div>
+        <div className="font-bold"><span style={{ color: "#c9a84c" }}>My AI Workforce</span></div>
         <div className="flex gap-6">
           {[{ label: "Privacy", href: "/privacy" }, { label: "Terms", href: "/terms" }, { label: "Contact", href: "/contact" }].map(l => (
             <Link key={l.label} href={l.href} className="text-sm" style={{ color: "var(--muted)" }}>{l.label}</Link>
@@ -73,7 +73,6 @@ export default function BuildAgentPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const scrollToForm = () => formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   const toggleTool = (tool: string) => setSelectedTools(prev => prev.includes(tool) ? prev.filter(t => t !== tool) : [...prev, tool]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -97,66 +96,32 @@ export default function BuildAgentPage() {
     <div style={{ backgroundColor: "var(--bg)", color: "var(--text)", minHeight: "100vh" }}>
       <Nav />
 
-      {/* HERO */}
-      <section className="pt-36 pb-16 px-6 text-center" style={{ background: "linear-gradient(180deg, #12122a 0%, var(--bg) 100%)" }}>
-        <div className="max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold mb-8" style={{ backgroundColor: "rgba(201,168,76,0.12)", border: "1px solid rgba(201,168,76,0.3)", color: "#c9a84c" }}>
-            🤖 BUILT · DEPLOYED · MANAGED FOR YOU
-          </div>
-          <h1 className="text-4xl md:text-6xl font-black mb-8" style={{ letterSpacing: "-0.03em", lineHeight: 1.1 }}>
+      <div className="max-w-xl mx-auto px-6 pt-32 pb-20">
+
+        {/* HERO */}
+        <div className="text-center mb-12">
+          <h1 className="text-3xl md:text-4xl font-black mb-5" style={{ letterSpacing: "-0.03em", lineHeight: 1.15 }}>
             Your Personal AI Agent — Replies to Clients, Books Appointments, Researches Anything, Sets Tasks.{" "}
             <span style={{ color: "#c9a84c" }}>All While You Get On With Your Day.</span>
           </h1>
-          <div className="flex flex-col gap-3 mb-10 max-w-xl mx-auto">
+          <div className="flex flex-col gap-2 mb-6">
             {[
               "An AI Agent that actually does things — not just answers questions",
               "It takes action, not just advice",
               "Tell it what you need. It handles it.",
             ].map(line => (
-              <div key={line} className="flex items-center gap-3 text-sm font-medium" style={{ color: "var(--muted)" }}>
-                <span style={{ color: "#c9a84c", flexShrink: 0 }}>✓</span>{line}
-              </div>
+              <p key={line} className="text-sm" style={{ color: "var(--muted)" }}>
+                <span style={{ color: "#c9a84c" }}>✓</span> {line}
+              </p>
             ))}
           </div>
-          <p className="text-base font-bold mb-8" style={{ color: "#c9a84c" }}>$497 setup · $199/mo USD · Live in 24 hours</p>
-          <button onClick={scrollToForm} className="px-12 py-5 rounded-xl font-black text-xl" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
-            Build My Agent Now →
-          </button>
-          <p className="mt-4 text-sm" style={{ color: "var(--muted)" }}>No lock-in · Cancel anytime · 100% done for you</p>
+          <p className="text-sm font-semibold" style={{ color: "var(--muted)" }}>
+            $497 setup · $199/mo USD · Live in 24 hours · Cancel anytime
+          </p>
         </div>
-      </section>
 
-      {/* WHAT'S INCLUDED */}
-      <section className="py-16 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-extrabold text-center mb-8" style={{ letterSpacing: "-0.02em" }}>What&apos;s included</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {[
-              "📧 Email — reads, replies & follows up automatically",
-              "📅 Calendar & bookings managed for you",
-              "🗣️ Customer enquiries answered 24/7",
-              "💳 Invoices & admin off your plate",
-              "🔗 Connects to Gmail, Xero, Slack & 1,000s more",
-              "🛡️ Private server — your data only",
-              "📊 Monthly performance reports",
-              "🔄 Ongoing management & improvements",
-            ].map(item => (
-              <div key={item} className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* FORM */}
-      <section ref={formRef} className="py-16 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
-        <div className="max-w-xl mx-auto">
-          <h2 className="text-3xl font-black text-center mb-2" style={{ letterSpacing: "-0.03em" }}>Let&apos;s build your agent.</h2>
-          <p className="text-center text-sm mb-8" style={{ color: "var(--muted)" }}>2 minutes to fill in. We handle everything else.</p>
-
+        {/* FORM */}
+        <div ref={formRef}>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -183,7 +148,8 @@ export default function BuildAgentPage() {
 
             <div>
               <label className="block text-sm font-semibold mb-1.5">What do you want your agent to handle?</label>
-              <textarea rows={3} placeholder="e.g. Reply to customer enquiries, follow up on unpaid invoices, manage my inbox..." value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
+              <textarea rows={3} placeholder="e.g. Reply to customer enquiries, follow up on invoices, manage my inbox, book appointments..."
+                value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
                 className="w-full px-4 py-3 rounded-xl text-sm resize-none" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }} />
             </div>
 
@@ -201,23 +167,27 @@ export default function BuildAgentPage() {
 
             {error && <div className="px-4 py-3 rounded-xl text-sm" style={{ backgroundColor: "rgba(220,38,38,0.1)", border: "1px solid rgba(220,38,38,0.3)", color: "#f87171" }}>{error}</div>}
 
-            <button type="submit" disabled={loading} className="w-full py-5 rounded-xl font-black text-lg"
+            <button type="submit" disabled={loading} className="w-full py-5 rounded-xl font-black text-lg mt-2"
               style={{ backgroundColor: loading ? "rgba(201,168,76,0.5)" : "#c9a84c", color: "#1a1a2e", cursor: loading ? "not-allowed" : "pointer" }}>
               {loading ? "Taking you to payment..." : "Build My Agent — $497 setup + $199/mo →"}
             </button>
-            <p className="text-center text-xs" style={{ color: "var(--muted)" }}>🔒 Secure payment via Stripe · Cancel anytime</p>
+
+            <p className="text-center text-xs" style={{ color: "var(--muted)" }}>
+              🔒 Secure payment via Stripe · Cancel anytime · No lock-in contracts
+            </p>
           </form>
         </div>
-      </section>
 
-      {/* FALLBACK */}
-      <section className="py-12 px-6 text-center">
-        <p className="mb-4" style={{ color: "var(--muted)" }}>Rather talk first?</p>
-        <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 rounded-xl font-bold" style={{ border: "2px solid #c9a84c", color: "#c9a84c" }}>
-          Book a Free Call →
-        </Link>
-      </section>
+        {/* FALLBACK */}
+        <div className="text-center mt-12 pt-8" style={{ borderTop: "1px solid var(--border)" }}>
+          <p className="text-sm mb-3" style={{ color: "var(--muted)" }}>Rather talk first?</p>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer"
+            className="inline-block px-6 py-3 rounded-xl text-sm font-bold" style={{ border: "1px solid #c9a84c", color: "#c9a84c" }}>
+            Book a Free Call →
+          </Link>
+        </div>
 
+      </div>
       <Footer />
     </div>
   );
