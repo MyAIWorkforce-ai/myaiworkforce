@@ -98,7 +98,7 @@ export default function BuildAgentPage() {
       <Nav />
 
       {/* HERO */}
-      <section className="pt-36 pb-16 px-6 text-center" style={{ background: "linear-gradient(180deg, #0d0d1f 0%, var(--bg) 100%)" }}>
+      <section className="pt-36 pb-16 px-6 text-center" style={{ background: "linear-gradient(180deg, #12122a 0%, var(--bg) 100%)" }}>
         <div className="max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold mb-8" style={{ backgroundColor: "rgba(201,168,76,0.12)", border: "1px solid rgba(201,168,76,0.3)", color: "#c9a84c" }}>
             🤖 BUILT · DEPLOYED · MANAGED FOR YOU
@@ -140,20 +140,7 @@ export default function BuildAgentPage() {
         </div>
       </section>
 
-      {/* PRICE */}
-      <section className="py-16 px-6">
-        <div className="max-w-md mx-auto text-center">
-          <div className="rounded-2xl p-8" style={{ backgroundColor: "var(--card)", border: "2px solid rgba(201,168,76,0.4)" }}>
-            <p className="text-xs font-bold mb-4" style={{ color: "#c9a84c", letterSpacing: "0.1em" }}>ONE SIMPLE PRICE</p>
-            <div className="text-5xl font-black mb-1" style={{ color: "#c9a84c" }}>$199<span className="text-xl font-bold" style={{ color: "var(--muted)" }}>/mo USD</span></div>
-            <p className="text-sm mb-6" style={{ color: "var(--muted)" }}>+ $497 USD one-time setup fee</p>
-            <button onClick={scrollToForm} className="w-full py-4 rounded-xl font-black text-base" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
-              Get Started →
-            </button>
-            <p className="mt-3 text-xs" style={{ color: "var(--muted)" }}>Cancel anytime · 30 days notice · Secure via Stripe</p>
-          </div>
-        </div>
-      </section>
+
 
       {/* FORM */}
       <section ref={formRef} className="py-16 px-6" style={{ backgroundColor: "var(--bg-section)" }}>
