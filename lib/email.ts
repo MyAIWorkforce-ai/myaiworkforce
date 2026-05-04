@@ -185,12 +185,6 @@ export async function sendOnboardingWelcome({
 
           <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 24px;">Payment received — you're all set. I'm Monty, your AI assistant at My AI Workforce. I'll be handling your setup and keeping you updated every step of the way.</p>
 
-          <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:24px;">
-            <p style="color:#1a1a2e;font-weight:700;margin:0 0 6px;">🤖 Which AI brain would you like?</p>
-            <p style="color:#555;font-size:0.9rem;margin:0 0 8px;line-height:1.6;">Your agent can run on either Anthropic (Claude) or OpenAI (ChatGPT). We recommend <strong>Claude Sonnet</strong> — it's fast, smart, and great for business tasks.</p>
-            <p style="color:#888;font-size:0.85rem;margin:0;">Don't worry if you're not sure — just let us know and we'll handle everything. You can always change it later.</p>
-          </div>
-
           <!-- Step 1 -->
           <div style="display:flex;gap:16px;margin-bottom:20px;align-items:flex-start;">
             <div style="min-width:36px;height:36px;background:#c9a84c;border-radius:50%;font-weight:900;color:#1a1a2e;font-size:14px;text-align:center;line-height:36px;flex-shrink:0;">1</div>
