@@ -151,7 +151,7 @@ export default function BuildAgentPage() {
 
             <div>
               <label className="block text-sm font-semibold mb-1.5">Website</label>
-              <input type="url" placeholder="https://yourbusiness.com.au" value={form.website} onChange={e => setForm(f => ({ ...f, website: e.target.value }))}
+              <input type="text" placeholder="yourbusiness.com.au" value={form.website} onChange={e => setForm(f => ({ ...f, website: e.target.value }))}
                 className="w-full px-4 py-3 rounded-xl text-sm" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }} />
             </div>
 
