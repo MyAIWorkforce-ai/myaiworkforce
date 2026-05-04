@@ -103,13 +103,22 @@ export default function BuildAgentPage() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold mb-8" style={{ backgroundColor: "rgba(201,168,76,0.12)", border: "1px solid rgba(201,168,76,0.3)", color: "#c9a84c" }}>
             🤖 BUILT · DEPLOYED · MANAGED FOR YOU
           </div>
-          <h1 className="text-5xl md:text-7xl font-black mb-5" style={{ letterSpacing: "-0.04em", lineHeight: 1.05 }}>
-            Your business.<br /><span style={{ color: "#c9a84c" }}>On autopilot.</span>
+          <h1 className="text-4xl md:text-6xl font-black mb-8" style={{ letterSpacing: "-0.03em", lineHeight: 1.1 }}>
+            Your Personal AI Agent — Replies to Clients, Books Appointments, Researches Anything, Sets Tasks.{" "}
+            <span style={{ color: "#c9a84c" }}>All While You Get On With Your Day.</span>
           </h1>
-          <p className="text-xl mb-3" style={{ color: "var(--muted)" }}>
-            We build a custom AI agent that handles your emails, bookings, follow-ups and admin — 24/7.
-          </p>
-          <p className="text-lg font-bold mb-10" style={{ color: "#c9a84c" }}>$497 setup · $199/mo USD · Live in 24 hours</p>
+          <div className="flex flex-col gap-3 mb-10 max-w-xl mx-auto">
+            {[
+              "An AI Agent that actually does things — not just answers questions",
+              "It takes action, not just advice",
+              "Tell it what you need. It handles it.",
+            ].map(line => (
+              <div key={line} className="flex items-center gap-3 text-sm font-medium" style={{ color: "var(--muted)" }}>
+                <span style={{ color: "#c9a84c", flexShrink: 0 }}>✓</span>{line}
+              </div>
+            ))}
+          </div>
+          <p className="text-base font-bold mb-8" style={{ color: "#c9a84c" }}>$497 setup · $199/mo USD · Live in 24 hours</p>
           <button onClick={scrollToForm} className="px-12 py-5 rounded-xl font-black text-xl" style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}>
             Build My Agent Now →
           </button>
