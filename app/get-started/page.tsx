@@ -100,21 +100,14 @@ export default function BuildAgentPage() {
 
         {/* HERO */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-black mb-5" style={{ letterSpacing: "-0.03em", lineHeight: 1.15 }}>
-            Your Personal AI Agent — Replies to Clients, Books Appointments, Researches Anything, Sets Tasks.{" "}
-            <span style={{ color: "#c9a84c" }}>All While You Get On With Your Day.</span>
+          <p className="text-xs font-bold tracking-widest mb-3" style={{ color: "#c9a84c", textTransform: "uppercase", letterSpacing: "3px" }}>MY AI WORKFORCE</p>
+          <h1 className="text-3xl md:text-4xl font-black mb-4" style={{ letterSpacing: "-0.02em", lineHeight: 1.2 }}>
+            Get Your Own AI Agent —{" "}
+            <span style={{ color: "#c9a84c" }}>Live Within 24 Hours.</span>
           </h1>
-          <div className="flex flex-col gap-2 mb-6">
-            {[
-              "An AI Agent that actually does things — not just answers questions",
-              "It takes action, not just advice",
-              "Tell it what you need. It handles it.",
-            ].map(line => (
-              <p key={line} className="text-sm" style={{ color: "var(--muted)" }}>
-                <span style={{ color: "#c9a84c" }}>✓</span> {line}
-              </p>
-            ))}
-          </div>
+          <p className="text-base mb-6" style={{ color: "var(--muted)", lineHeight: 1.7 }}>
+            Handles your emails, bookings, and customer enquiries — so you can get on with your day.
+          </p>
           <p className="text-sm font-semibold" style={{ color: "var(--muted)" }}>
             $497 setup · $199/mo USD · Live in 24 hours · Cancel anytime
           </p>
@@ -167,9 +160,9 @@ export default function BuildAgentPage() {
 
             {error && <div className="px-4 py-3 rounded-xl text-sm" style={{ backgroundColor: "rgba(220,38,38,0.1)", border: "1px solid rgba(220,38,38,0.3)", color: "#f87171" }}>{error}</div>}
 
-            <button type="submit" disabled={loading} className="w-full py-5 rounded-xl font-black text-lg mt-2"
+            <button type="submit" disabled={loading} className="w-full py-4 rounded-xl font-bold text-base mt-2"
               style={{ backgroundColor: loading ? "rgba(201,168,76,0.5)" : "#c9a84c", color: "#1a1a2e", cursor: loading ? "not-allowed" : "pointer" }}>
-              {loading ? "Taking you to payment..." : "Build My Agent — $497 setup + $199/mo →"}
+              {loading ? "Taking you to payment..." : "Build My Agent →"}
             </button>
 
             <p className="text-center text-xs" style={{ color: "var(--muted)" }}>
