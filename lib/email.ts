@@ -483,3 +483,68 @@ export async function sendModelExplainer({
     html,
   });
 }
+
+// ─── sendConnectTools (Email #6 — post go-live) ─────────────────────────────
+
+export async function sendConnectTools({
+  to,
+  clientName,
+  botUsername,
+}: {
+  to: string;
+  clientName: string;
+  botUsername?: string;
+}) {
+  const firstName = clientName ? clientName.split(' ')[0] : '';
+  const agentName = firstName ? `${firstName}'s Agent` : 'your agent';
+  const botHandle = botUsername ? `@${botUsername}` : agentName;
+
+  const html = `
+    <!DOCTYPE html>
+    <html><head><meta charset="utf-8"></head>
+    <body style="background:#f5f5f5;color:#1a1a2e;font-family:'Helvetica Neue',Arial,sans-serif;margin:0;padding:40px 20px;">
+    <div style="max-width:600px;margin:0 auto;">
+      <div style="background:#1a1a2e;padding:24px 40px;border-radius:8px 8px 0 0;">
+        <p style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin:0 0 6px;">${firstName ? firstName.toUpperCase() + "'S AGENT" : 'YOUR AGENT'} — LIVE</p>
+        <h1 style="color:#fff;font-size:1.4rem;font-weight:700;margin:0;">🔌 Now let's connect your tools</h1>
+        <p style="color:rgba(255,255,255,0.6);margin:8px 0 0;font-size:0.9rem;">Your agent can do a lot more once it's connected to the apps you use every day.</p>
+      </div>
+      <div style="background:#fff;padding:36px 40px;border:1px solid #e8e8e8;border-top:none;border-radius:0 0 8px 8px;">
+        <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 24px;">Hi ${firstName || 'there'},</p>
+        <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 24px;">Your agent is live and ready to go. The next step is connecting it to the tools you already use — things like your email, calendar, accounting software, CRM, and more.</p>
+        <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 28px;">Your agent can connect to almost anything. And the best part? <strong>You don't need to do anything technical</strong> — your agent will walk you through it in plain English, step by step.</p>
+
+        <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:20px 24px;margin-bottom:28px;">
+          <p style="color:#1a1a2e;font-weight:700;font-size:1rem;margin:0 0 10px;">💬 Here's all you need to do:</p>
+          <p style="color:#555;font-size:0.95rem;margin:0 0 12px;line-height:1.7;">Open Telegram, message <strong>${botHandle}</strong>, and say something like:</p>
+          <div style="background:#fff;border:1px solid #dde0ff;border-radius:8px;padding:14px 18px;margin-bottom:8px;font-size:14px;color:#1a1a2e;font-style:italic;">&ldquo;What tools can you connect to?&rdquo;</div>
+          <div style="background:#fff;border:1px solid #dde0ff;border-radius:8px;padding:14px 18px;margin-bottom:8px;font-size:14px;color:#1a1a2e;font-style:italic;">&ldquo;I want to connect my Gmail&rdquo;</div>
+          <div style="background:#fff;border:1px solid #dde0ff;border-radius:8px;padding:14px 18px;font-size:14px;color:#1a1a2e;font-style:italic;">&ldquo;Connect my calendar and accounting software&rdquo;</div>
+        </div>
+
+        <p style="color:#555;font-size:0.9rem;line-height:1.7;margin:0 0 24px;">Your agent will ask for the details it needs, handle the connection, and confirm when it's done. Everything happens through your agent — no need to reply to emails.</p>
+
+        <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:14px 20px;margin-bottom:32px;">
+          <p style="color:#1a1a2e;font-weight:700;margin:0 0 4px;">🔒 Your privacy</p>
+          <p style="color:#555;font-size:0.9rem;margin:0;line-height:1.6;">All connections are secure and stored on your private server. Only you control what your agent can access — you can disconnect anything at any time by asking your agent.</p>
+        </div>
+
+        <p style="color:#333;font-size:0.95rem;margin:0;">Any questions — just message your agent or reply here and I'll help.</p>
+        <p style="color:#333;font-size:0.95rem;margin-top:16px;">— <strong>Monty</strong><br><span style="color:#888;font-size:0.85rem;">AI Assistant — My AI Workforce</span></p>
+      </div>
+      <p style="color:#888;font-size:12px;text-align:center;margin-top:24px;">© ${new Date().getFullYear()} My AI Workforce · <a href="https://myaiworkforce.ai" style="color:#c9a84c;">myaiworkforce.ai</a></p>
+    </div>
+    </body></html>
+  `;
+
+  const resendClient = new Resend(process.env.RESEND_API_KEY || 're_Po7ZvpkS_PBzPLvcaGFc8b7DSEaZWCpCA');
+  return resendClient.emails.send({
+    from: 'Monty <monty@myaiworkforce.ai>',
+    replyTo: 'monty@myaiworkforce.ai',
+    to,
+    subject: firstName
+      ? `${firstName}, let's connect your tools 🔌`
+      : `Let's connect your tools 🔌`,
+    html,
+  });
+}
