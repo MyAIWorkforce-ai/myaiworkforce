@@ -69,7 +69,7 @@ const TOOLS_LIST = ["Gmail", "Outlook", "Google Calendar", "Calendly", "Xero", "
 export default function BuildAgentPage() {
   const formRef = useRef<HTMLDivElement>(null);
   const [selectedTools, setSelectedTools] = useState<string[]>([]);
-  const [form, setForm] = useState({ name: "", business: "", email: "", phone: "", description: "" });
+  const [form, setForm] = useState({ name: "", business: "", email: "", phone: "", website: "", description: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -143,7 +143,7 @@ export default function BuildAgentPage() {
                   className="w-full px-4 py-3 rounded-xl text-sm" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }} />
               </div>
               <div>
-                <label className="block text-sm font-semibold mb-1.5">Phone (optional)</label>
+                <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--muted)", fontWeight: 400 }}>Phone <span style={{ fontSize: "0.75rem" }}>(optional)</span></label>
                 <input type="tel" placeholder="0400 000 000" value={form.phone} onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
                   className="w-full px-4 py-3 rounded-xl text-sm" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }} />
               </div>
@@ -154,6 +154,12 @@ export default function BuildAgentPage() {
               <textarea rows={3} placeholder="e.g. Reply to customer enquiries, follow up on invoices, manage my inbox, book appointments..."
                 value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
                 className="w-full px-4 py-3 rounded-xl text-sm resize-none" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }} />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold mb-1.5">Website</label>
+              <input type="url" placeholder="https://yourbusiness.com.au" value={form.website} onChange={e => setForm(f => ({ ...f, website: e.target.value }))}
+                className="w-full px-4 py-3 rounded-xl text-sm" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }} />
             </div>
 
             <div>
