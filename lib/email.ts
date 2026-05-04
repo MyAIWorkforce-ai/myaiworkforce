@@ -279,36 +279,7 @@ export async function sendOnboardingSetup({
             <p style="color:#555;font-size:0.9rem;margin:0;line-height:1.6;"><strong>Step 3:</strong> Reply to this email with your Telegram username so I can connect your agent to you</p>
           </div>
 
-          <!-- Thing 2: AI Brain -->
-          <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:20px 24px;margin-bottom:28px;">
-            <p style="color:#1a1a2e;font-weight:700;font-size:1rem;margin:0 0 8px;">🤖 2. Choose your AI brain</p>
-            <p style="color:#555;font-size:0.9rem;margin:0 0 12px;line-height:1.6;">Your agent can run on either Anthropic or OpenAI — both are excellent. Here's a quick comparison:</p>
-            <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:12px;">
-              <tr style="background:#1a1a2e;color:#fff;">
-                <th style="padding:8px 12px;text-align:left;border-radius:6px 0 0 0;"></th>
-                <th style="padding:8px 12px;text-align:left;">Anthropic — Claude Sonnet ⭐ Recommended</th>
-                <th style="padding:8px 12px;text-align:left;border-radius:0 6px 0 0;">OpenAI — ChatGPT</th>
-              </tr>
-              <tr style="background:#f8f8ff;">
-                <td style="padding:8px 12px;color:#555;font-weight:600;">Best for</td>
-                <td style="padding:8px 12px;color:#333;">Business tasks, emails, analysis</td>
-                <td style="padding:8px 12px;color:#333;">General purpose, coding</td>
-              </tr>
-              <tr>
-                <td style="padding:8px 12px;color:#555;font-weight:600;">Speed</td>
-                <td style="padding:8px 12px;color:#333;">Very fast</td>
-                <td style="padding:8px 12px;color:#333;">Fast</td>
-              </tr>
-              <tr style="background:#f8f8ff;">
-                <td style="padding:8px 12px;color:#555;font-weight:600;">Our pick</td>
-                <td style="padding:8px 12px;color:#c9a84c;font-weight:700;">✓ Yes</td>
-                <td style="padding:8px 12px;color:#333;">Also great</td>
-              </tr>
-            </table>
-            <p style="color:#888;font-size:0.85rem;margin:0;">Not sure? Just say "go with your recommendation" and we'll set up Claude Sonnet for you.</p>
-          </div>
-
-          <p style="color:#333;font-size:0.95rem;margin:0;">Just reply to this email with your Telegram username and your AI brain choice — and we'll take it from there.</p>
+          <p style="color:#333;font-size:0.95rem;margin:0;">Just reply to this email with your Telegram username — and we'll take it from there.</p>
           <p style="color:#333;font-size:0.95rem;margin-top:16px;">— <strong>Monty</strong><br><span style="color:#888;font-size:0.85rem;">AI Assistant — My AI Workforce</span></p>
 
           <div style="border-top:1px solid #e8e8e8;margin-top:32px;padding-top:16px;">
@@ -354,16 +325,17 @@ export async function sendAnthropicSetup({
         <div style="background:#1a1a2e;padding:32px 40px;border-radius:8px 8px 0 0;text-align:center;">
           <p style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin:0 0 10px;">MY AI WORKFORCE</p>
           <h1 style="color:#ffffff;font-size:1.4rem;font-weight:700;margin:0;">One quick step — set up your AI credits 🧠</h1>
-          <p style="color:rgba(255,255,255,0.6);margin:8px 0 0;font-size:0.9rem;">Takes about 5 minutes. No tech knowledge needed.</p>
+          <p style="color:rgba(255,255,255,0.6);margin:8px 0 0;font-size:0.9rem;">We use Claude Sonnet by Anthropic — takes about 5 minutes to set up.</p>
         </div>
         <div style="background:#ffffff;padding:36px 40px;border:1px solid #e8e8e8;border-top:none;border-radius:0 0 8px 8px;">
 
           <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 20px;">${greeting}</p>
-          <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 24px;">Your agent runs on Anthropic's AI — the same technology behind Claude, one of the most advanced AI assistants in the world. To keep your data 100% private and your costs transparent, you'll have your own Anthropic account with your own credits.</p>
+          <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 24px;">Your agent is powered by <strong>Claude Sonnet</strong> — made by Anthropic, and one of the best AI models in the world for business tasks like emails, scheduling, research and more.</p>
+          <p style="color:#333;font-size:0.95rem;line-height:1.7;margin:0 0 24px;">To keep your data 100% private and your costs transparent, you'll need your own Anthropic account. This means your conversations never go through us — they go directly from your agent to Anthropic, and only you can see them.</p>
 
           <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:28px;">
-            <p style="color:#1a1a2e;font-weight:700;margin:0 0 6px;">💡 Why your own account?</p>
-            <p style="color:#555;font-size:0.9rem;margin:0;line-height:1.6;">Your conversations stay completely private — they never go through our systems. You only pay for what you use (most clients spend around $5–$15/month in AI credits).</p>
+            <p style="color:#1a1a2e;font-weight:700;margin:0 0 6px;">💡 What does it cost?</p>
+            <p style="color:#555;font-size:0.9rem;margin:0;line-height:1.6;">Most clients spend around <strong>$5–$15 USD/month</strong> in AI credits depending on how much they use their agent. You top up when you need to — just like a prepaid account.</p>
           </div>
 
           <p style="color:#1a1a2e;font-weight:700;font-size:1rem;margin:0 0 16px;">Here's how to set it up — 5 easy steps:</p>
