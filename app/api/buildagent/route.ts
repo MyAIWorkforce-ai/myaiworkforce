@@ -31,6 +31,14 @@ export async function POST(req: NextRequest) {
         {
           price_data: {
             currency: 'usd',
+            product_data: { name: 'Build My Agent — Setup Fee (one-time)' },
+            unit_amount: 49700,
+          },
+          quantity: 1,
+        },
+        {
+          price_data: {
+            currency: 'usd',
             product_data: { name: 'Build My Agent — Monthly Management' },
             unit_amount: 19900,
             recurring: { interval: 'month' },
@@ -39,15 +47,6 @@ export async function POST(req: NextRequest) {
         },
       ],
       subscription_data: {
-        add_invoice_items: [
-          {
-            price_data: {
-              currency: 'usd',
-              product_data: { name: 'Build My Agent — Setup Fee (one-time)' },
-              unit_amount: 49700,
-            },
-          },
-        ],
         metadata: {
           clientName: name,
           clientBusiness: business || '',
