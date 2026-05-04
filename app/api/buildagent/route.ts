@@ -21,9 +21,9 @@ export async function POST(req: NextRequest) {
       html: buildNotificationEmail({ name, business, email, phone, description, tools }),
     }).catch(e => console.error('Notification failed:', e));
 
-    // Create Stripe checkout — $199/mo subscription
-    // Setup fee ($497) added via add_invoice_items on first invoice
-    const session = await stripe.checkout.sessions.create({
+    // Stripe checkout params — subscription $199/mo + $497 one-time setup on first invoice
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const checkoutParams: any = {
       payment_method_types: ['card'],
       mode: 'subscription',
       customer_email: email,
@@ -38,7 +38,6 @@ export async function POST(req: NextRequest) {
           quantity: 1,
         },
       ],
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       subscription_data: {
         add_invoice_items: [
           {
@@ -48,7 +47,7 @@ export async function POST(req: NextRequest) {
               unit_amount: 49700,
             },
           },
-        ] as never,
+        ],
         metadata: {
           clientName: name,
           clientBusiness: business || '',
@@ -65,7 +64,9 @@ export async function POST(req: NextRequest) {
       },
       success_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://myaiworkforce.ai'}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://myaiworkforce.ai'}/buildagent`,
-    });
+    };
+
+    const session = await stripe.checkout.sessions.create(checkoutParams);
 
     return NextResponse.json({ redirect: session.url });
   } catch (error: unknown) {
