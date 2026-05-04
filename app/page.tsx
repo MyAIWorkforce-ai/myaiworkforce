@@ -239,7 +239,7 @@ function Hero() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/buildagent"
+            href="/get-started"
             className="px-8 py-4 rounded-xl text-lg font-bold text-center text-white glow-yellow"
             style={{ backgroundColor: "#1a1a2e", border: "2px solid #c9a84c" }}
           >
@@ -420,7 +420,7 @@ function HowItWorks() {
             Start Your Free Discovery Call
           </Link>
           <Link
-            href="/buildagent"
+            href="/get-started"
             className="px-8 py-4 rounded-xl text-lg font-bold text-white inline-block glow-yellow"
             style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}
           >
@@ -746,7 +746,7 @@ function PricingTeaser() {
               ))}
             </ul>
             <Link
-              href="/buildagent"
+              href="/get-started"
               className="block w-full text-center py-4 rounded-xl font-bold text-lg glow-yellow"
               style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}
             >
@@ -827,7 +827,7 @@ function CTABanner() {
               Book a Free Call →
             </Link>
             <Link
-              href="/buildagent"
+              href="/get-started"
               className="px-8 py-4 rounded-xl text-lg font-bold transition-all"
               style={{ border: "2px solid #c9a84c", color: "#c9a84c", background: "rgba(201,168,76,0.08)" }}
             >
