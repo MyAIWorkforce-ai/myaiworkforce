@@ -150,16 +150,16 @@ export default function BuildAgentPage() {
             </div>
 
             <div>
+              <label className="block text-sm font-semibold mb-1.5">Website</label>
+              <input type="url" placeholder="https://yourbusiness.com.au" value={form.website} onChange={e => setForm(f => ({ ...f, website: e.target.value }))}
+                className="w-full px-4 py-3 rounded-xl text-sm" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }} />
+            </div>
+
+            <div>
               <label className="block text-sm font-semibold mb-1.5">What do you want your agent to handle?</label>
               <textarea rows={3} placeholder="e.g. Reply to customer enquiries, follow up on invoices, manage my inbox, book appointments..."
                 value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
                 className="w-full px-4 py-3 rounded-xl text-sm resize-none" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }} />
-            </div>
-
-            <div>
-              <label className="block text-sm font-semibold mb-1.5">Website</label>
-              <input type="url" placeholder="https://yourbusiness.com.au" value={form.website} onChange={e => setForm(f => ({ ...f, website: e.target.value }))}
-                className="w-full px-4 py-3 rounded-xl text-sm" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }} />
             </div>
 
             <div>
