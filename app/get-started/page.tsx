@@ -64,7 +64,7 @@ function Footer() {
   );
 }
 
-const TOOLS_LIST = ["Gmail", "Outlook", "Google Calendar", "Calendly", "Xero", "MYOB", "QuickBooks", "Stripe", "HubSpot", "Salesforce", "Slack", "Teams", "Shopify", "WooCommerce", "eBay", "Meta / Facebook", "Instagram", "LinkedIn", "GitHub", "Notion", "Trello", "Airtable", "Zapier", "Other"];
+const TOOLS_LIST = ["Gmail", "Outlook", "Google Calendar", "Calendly", "Xero", "MYOB", "QuickBooks", "Stripe", "HubSpot", "Salesforce", "Slack", "Teams", "Shopify", "WooCommerce", "eBay", "Meta / Facebook", "Instagram", "LinkedIn", "GitHub", "Notion", "Trello", "Airtable", "Zapier", "Has an API", "Other"];
 
 export default function BuildAgentPage() {
   const formRef = useRef<HTMLDivElement>(null);
