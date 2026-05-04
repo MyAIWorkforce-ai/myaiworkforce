@@ -106,9 +106,9 @@ export async function sendPurchaseConfirmation({
       const filename = path.basename(pdfPath);
       attachments.push(pdfToAttachment(pdfPath, filename));
       pdfAttachedNote = `
-        <div style="background:#0f2a0f;border:1px solid #1a5c1a;border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px;">
+        <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px;">
           <span style="font-size:20px;">📎</span>
-          <span style="color:#4ade80;font-size:14px;font-weight:600;">Your guide PDF is attached to this email.</span>
+          <span style="color:#1a1a2e;font-size:14px;font-weight:600;">Your guide PDF is attached to this email.</span>
         </div>`;
     }
   }
@@ -117,27 +117,29 @@ export async function sendPurchaseConfirmation({
     <!DOCTYPE html>
     <html>
     <head><meta charset="utf-8"></head>
-    <body style="background:#0A0A0A;color:#ffffff;font-family:Arial,sans-serif;margin:0;padding:40px 20px;">
+    <body style="background:#f5f5f5;color:#1a1a2e;font-family:Helvetica Neue,Arial,sans-serif;margin:0;padding:40px 20px;">
       <div style="max-width:600px;margin:0 auto;">
-        ${logoHtml}
-        <div style="background:#111111;border:1px solid #222222;border-radius:16px;padding:40px;">
-          <h1 style="color:#FFD700;font-size:28px;margin:0 0 8px;">🎉 Payment Confirmed!</h1>
-          <p style="color:#888888;margin:0 0 32px;">Thank you for your purchase.</p>
+        <div style="background:#1a1a2e;padding:32px 40px;border-radius:8px 8px 0 0;text-align:center;">
+          <p style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin:0 0 10px;">MY AI WORKFORCE</p>
+          <h1 style="color:#ffffff;font-size:1.5rem;font-weight:700;margin:0;">🎉 Payment Confirmed!</h1>
+          <p style="color:rgba(255,255,255,0.6);margin:8px 0 0;font-size:0.9rem;">Thank you for your purchase.</p>
+        </div>
+        <div style="background:#ffffff;padding:36px 40px;border:1px solid #e8e8e8;border-top:none;border-radius:0 0 8px 8px;">
 
-          <div style="background:#0A0A0A;border:1px solid #333333;border-radius:12px;padding:20px;margin-bottom:32px;">
-            <p style="color:#888888;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;">Your Purchase</p>
-            <p style="color:#ffffff;font-size:18px;font-weight:700;margin:0 0 4px;">${productName}</p>
-            <p style="color:#FFD700;font-size:16px;font-weight:600;margin:0;">${price}</p>
+          <div style="background:#f0f2ff;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:20px 24px;margin-bottom:28px;">
+            <p style="color:#888;font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;margin:0 0 6px;">Your Purchase</p>
+            <p style="color:#1a1a2e;font-size:1.1rem;font-weight:700;margin:0 0 4px;">${productName}</p>
+            <p style="color:#c9a84c;font-size:1rem;font-weight:600;margin:0;">${price}</p>
           </div>
 
           ${pdfAttachedNote}
 
-          <a href="${downloadUrl}" style="display:block;background:#FFD700;color:#0A0A0A;text-align:center;padding:16px 32px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:24px;">
+          <a href="${downloadUrl}" style="display:block;background:#c9a84c;color:#1a1a2e;text-align:center;padding:16px 32px;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;margin-bottom:24px;">
             ${isGuide ? `Download Your ${label} →` : `Download Your ${label} (ZIP) →`}
           </a>
 
-          <p style="color:#666666;font-size:14px;text-align:center;margin:0;">
-            Link expires in 7 days. Questions? Reply to this email or contact <a href="mailto:hi@myaiworkforce.ai" style="color:#FFD700;">hi@myaiworkforce.ai</a>
+          <p style="color:#888;font-size:0.85rem;text-align:center;margin:0;">
+            Link expires in 7 days. Questions? Reply to this email or contact <a href="mailto:monty@myaiworkforce.ai" style="color:#c9a84c;">monty@myaiworkforce.ai</a>
           </p>
         </div>
         ${footerHtml}
