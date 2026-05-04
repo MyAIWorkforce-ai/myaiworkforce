@@ -143,7 +143,7 @@ export default function BuildAgentPage() {
                   className="w-full px-4 py-3 rounded-xl text-sm" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }} />
               </div>
               <div>
-                <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--muted)", fontWeight: 400 }}>Phone <span style={{ fontSize: "0.75rem" }}>(optional)</span></label>
+                <label className="block text-sm font-semibold mb-1.5">Phone</label>
                 <input type="tel" placeholder="0400 000 000" value={form.phone} onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
                   className="w-full px-4 py-3 rounded-xl text-sm" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)", color: "var(--text)", outline: "none" }} />
               </div>
