@@ -10,7 +10,7 @@ function IconX() {
 }
 
 const NAV_LINKS = [
-  { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Build My Agent", href: "/buildmyagent" },
   { label: "Guides", href: "/guides" },
   { label: "Marketplace", href: "/marketplace" },
   { label: "About", href: "/about" },

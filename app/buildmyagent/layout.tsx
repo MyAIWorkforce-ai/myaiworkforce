@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Build My Agent | $497 Setup + First Month Free | MyAIWorkforce.ai',
     description: 'We build, deploy and manage a custom AI agent for your business. $497 setup + first month free. Live in 24 hours.',
-    url: 'https://myaiworkforce.ai/done-for-you',
+    url: 'https://myaiworkforce.ai/buildmyagent',
     siteName: 'My AI Workforce',
     type: 'website',
   },

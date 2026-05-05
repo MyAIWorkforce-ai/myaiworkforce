@@ -161,7 +161,7 @@ The human team didn't lose their jobs. They got their sanity back — and starte
 
 This is what done-for-you AI looks like in practice.
 
-Want similar results? We have limited spots open. 👉 MyAIWorkforce.ai/done-for-you`,
+Want similar results? We have limited spots open. 👉 MyAIWorkforce.ai/buildmyagent`,
     X: `We cut a client's support volume by 70% in 30 days.
 
 400+ weekly tickets → AI handles 70% automatically.
@@ -207,7 +207,7 @@ Nobody lost their job. The team just stopped doing the boring stuff.
 
 This is exactly what we do in our Build My Agent service. Interested in a similar result for your business?
 
-👉 Book a call at MyAIWorkforce.ai/done-for-you`,
+👉 Book a call at MyAIWorkforce.ai/buildmyagent`,
   },
   {
     day: 4,
@@ -464,7 +464,7 @@ If you've been thinking about AI automation but don't know where to start — th
 
 Book a call this week. The spots fill fast and I'm not just saying that.
 
-👉 MyAIWorkforce.ai/done-for-you`,
+👉 MyAIWorkforce.ai/buildmyagent`,
     X: `2 Done-For-You spots open this month.
 
 We build custom AI agents directly into your business.
@@ -474,7 +474,7 @@ Results in 30 days or we keep working.
 
 Not many. Not for long.
 
-👉 MyAIWorkforce.ai/done-for-you`,
+👉 MyAIWorkforce.ai/buildmyagent`,
     Instagram: `Two spots. This month. That's it. ⚡
 
 Our Build My Agent service is exactly what it sounds like — we build custom AI agents and deploy them directly into your business.
@@ -512,7 +512,7 @@ This month's spots usually go by the second week.
 
 If you've been thinking about AI automation for your business — don't sit on it. Book a free 20-minute discovery call this week.
 
-👉 MyAIWorkforce.ai/done-for-you`,
+👉 MyAIWorkforce.ai/buildmyagent`,
   },
 ];
 

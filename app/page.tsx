@@ -64,7 +64,8 @@ function ThemeToggle() {
 // ─── Nav ──────────────────────────────────────────────────────────────────────
 
 const NAV_LINKS = [
-  { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Build My Agent", href: "/buildmyagent" },
+  { label: "Integrations", href: "/integrations" },
   { label: "Guides", href: "/guides" },
   { label: "Marketplace", href: "/marketplace" },
   { label: "About", href: "/about" },
@@ -165,7 +166,7 @@ function Footer() {
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
-              { label: "Build My Agent", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/buildmyagent" },
   { label: "Guides", href: "/guides" },
   { label: "Marketplace", href: "/marketplace" },
               { label: "Dashboard", href: "/dashboard" },
@@ -297,7 +298,7 @@ function ThreePillars() {
       subtitle: "We build it. We run it.",
       desc: "Hand us your business problems and we'll build a custom AI workforce to solve them. We handle everything — discovery, build, deployment, and ongoing management. You just get results.",
       cta: "Learn More →",
-      href: "/done-for-you",
+      href: "/buildmyagent",
       highlight: true,
     },
     {

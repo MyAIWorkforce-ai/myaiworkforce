@@ -91,7 +91,7 @@ function Nav() {
         </a>
         <div className="hidden md:flex items-center gap-8">
           {[
-            { label: "Build My Agent", href: "/done-for-you" },
+            { label: "Build My Agent", href: "/buildmyagent" },
   { label: "Guides", href: "/guides" },
   { label: "Marketplace", href: "/marketplace" },
             
@@ -137,7 +137,7 @@ function Nav() {
         >
           <div className="px-6 py-4 flex flex-col gap-4">
             {[
-              { label: "Build My Agent", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/buildmyagent" },
   { label: "Guides", href: "/guides" },
   { label: "Marketplace", href: "/marketplace" },
               

@@ -51,7 +51,7 @@ function ThemeToggle() {
 }
 
 const NAV_LINKS = [
-  { label: "Build My Agent", href: "/done-for-you" },
+  { label: "Build My Agent", href: "/buildmyagent" },
   { label: "Guides", href: "/guides" },
   { label: "Marketplace", href: "/marketplace" },
   
@@ -106,7 +106,7 @@ function Footer() {
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
-              { label: "Build My Agent", href: "/done-for-you" },
+              { label: "Build My Agent", href: "/buildmyagent" },
   { label: "Guides", href: "/guides" },
   { label: "Marketplace", href: "/marketplace" },
               { label: "Contact", href: "/contact" },

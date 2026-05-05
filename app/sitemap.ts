@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: baseUrl, priority: 1.0, changeFrequency: 'weekly' as const },
     { url: `${baseUrl}/marketplace`, priority: 0.9, changeFrequency: 'daily' as const },
     { url: `${baseUrl}/guides`, priority: 0.9, changeFrequency: 'weekly' as const },
-    { url: `${baseUrl}/done-for-you`, priority: 0.9, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/buildmyagent`, priority: 0.9, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/pricing`, priority: 0.8, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/about`, priority: 0.7, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/blog`, priority: 0.8, changeFrequency: 'weekly' as const },

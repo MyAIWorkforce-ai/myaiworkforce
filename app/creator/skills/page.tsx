@@ -5,7 +5,7 @@ import Link from "next/link";
 function Nav() {
   const [open, setOpen] = useState(false);
   const links = [
-    { label: "Build My Agent", href: "/done-for-you" },
+    { label: "Build My Agent", href: "/buildmyagent" },
   { label: "Guides", href: "/guides" },
   { label: "Marketplace", href: "/marketplace" },
     
