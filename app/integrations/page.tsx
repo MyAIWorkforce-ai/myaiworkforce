@@ -115,7 +115,7 @@ function Footer() {
               { label: 'Invest with Us', href: '/invest' },
             ].map((link) => (
               <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
-                style={{ color: ['Invest with Us', 'Sell Your Agents'].includes(link.label) ? '#c9a84c' : '#6b7280', fontWeight: ['Invest with Us', 'Sell Your Agents'].includes(link.label) ? '600' : 'normal' }}>
+                style={{ color: link.label === 'Invest with Us' ? '#c9a84c' : '#6b7280', fontWeight: link.label === 'Invest with Us' ? '600' : 'normal' }}>
                 {link.label}
               </Link>
             ))}

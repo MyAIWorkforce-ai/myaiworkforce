@@ -181,7 +181,7 @@ function Footer() {
                 key={link.label}
                 href={link.href}
                 className="text-sm font-medium transition-colors duration-200"
-                style={{ color: ["Invest with Us", "Sell Your Agents"].includes(link.label) ? "var(--yellow)" : "var(--muted)", fontWeight: ["Invest with Us", "Sell Your Agents"].includes(link.label) ? "600" : "normal" }}
+                style={{ color: link.label === "Invest with Us" ? "var(--yellow)" : "var(--muted)", fontWeight: link.label === "Invest with Us" ? "600" : "normal" }}
               >
                 {link.label}
               </Link>
