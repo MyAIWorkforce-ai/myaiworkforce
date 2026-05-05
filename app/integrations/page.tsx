@@ -198,12 +198,12 @@ export default function IntegrationsPage() {
   const filtered = activeCategory === 'All' ? advancedIntegrations : advancedIntegrations.filter(i => i.category === activeCategory);
 
   return (
-    <div style={{ background: '#f9f6f0', minHeight: '100vh', fontFamily: 'Inter, sans-serif' }}>
+    <div style={{ background: '#e8edf5', minHeight: '100vh', fontFamily: 'Inter, sans-serif' }}>
       <Nav />
 
       {/* Hero */}
       <div style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)', padding: '80px 20px 60px', textAlign: 'center', paddingTop: '120px' }}>
-        <p style={{ color: '#c9a84c', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', marginBottom: 12 }}>INTEGRATIONS</p>
+        <p style={{ color: '#c9a84c', fontSize: '1.1rem', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', marginBottom: 12 }}>INTEGRATIONS</p>
         <h1 style={{ color: 'white', fontSize: 'clamp(1.8rem, 5vw, 3rem)', fontWeight: 800, marginBottom: 16, lineHeight: 1.2 }}>
           Connect Your Agent to<br />Every App You Use
         </h1>
