@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 
@@ -9,11 +9,33 @@ function IconMenu() {
 function IconX() {
   return <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>;
 }
+function IconSun() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+  );
+}
+function IconMoon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  );
+}
 function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return <div style={{ width: 36, height: 36 }} />;
+  const isDark = theme === 'dark';
   return (
-    <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className="p-2 rounded-lg transition-colors" style={{ color: 'var(--text-dim)' }} aria-label="Toggle theme">
-      {theme === 'dark' ? '☀️' : '🌙'}
+    <button className="theme-toggle" onClick={() => setTheme(isDark ? 'light' : 'dark')} aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}>
+      {isDark ? <IconSun /> : <IconMoon />}
     </button>
   );
 }
@@ -73,12 +95,12 @@ function Nav() {
 
 function Footer() {
   return (
-    <footer className="py-12 px-6" style={{ borderTop: '1px solid var(--border)', backgroundColor: 'var(--bg)' }}>
+    <footer className="py-12 px-6" style={{ borderTop: '1px solid #e5e7eb', backgroundColor: '#ffffff' }}>
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
             <div className="text-xl font-bold mb-2"><span style={{ color: '#c9a84c' }}>My </span><span style={{ color: '#c9a84c', fontSize: '1.2em' }}>AI </span><span style={{ color: '#c9a84c' }}>Workforce</span></div>
-            <p className="text-sm" style={{ color: 'var(--muted)' }}>The #1 platform for AI workforce automation.</p>
+            <p className="text-sm" style={{ color: '#6b7280' }}>The #1 platform for AI workforce automation.</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
@@ -93,18 +115,18 @@ function Footer() {
               { label: 'Invest with Us', href: '/invest' },
             ].map((link) => (
               <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
-                style={{ color: ['Invest with Us', 'Sell Your Agents'].includes(link.label) ? 'var(--yellow)' : 'var(--muted)', fontWeight: ['Invest with Us', 'Sell Your Agents'].includes(link.label) ? '600' : 'normal' }}>
+                style={{ color: ['Invest with Us', 'Sell Your Agents'].includes(link.label) ? '#c9a84c' : '#6b7280', fontWeight: ['Invest with Us', 'Sell Your Agents'].includes(link.label) ? '600' : 'normal' }}>
                 {link.label}
               </Link>
             ))}
           </div>
         </div>
-        <div className="border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: 'var(--border)' }}>
-          <p className="text-sm" style={{ color: 'var(--muted)' }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
+        <div className="border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: '#e5e7eb' }}>
+          <p className="text-sm" style={{ color: '#6b7280' }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
           <div className="flex gap-4">
-            <Link href="/privacy" className="text-sm" style={{ color: 'var(--muted)' }}>Privacy Policy</Link>
-            <Link href="/terms" className="text-sm" style={{ color: 'var(--muted)' }}>Terms of Service</Link>
-            <Link href="/security" className="text-sm" style={{ color: 'var(--muted)' }}>Security</Link>
+            <Link href="/privacy" className="text-sm" style={{ color: '#6b7280' }}>Privacy Policy</Link>
+            <Link href="/terms" className="text-sm" style={{ color: '#6b7280' }}>Terms of Service</Link>
+            <Link href="/security" className="text-sm" style={{ color: '#6b7280' }}>Security</Link>
           </div>
         </div>
       </div>
@@ -176,12 +198,12 @@ export default function IntegrationsPage() {
   const filtered = activeCategory === 'All' ? advancedIntegrations : advancedIntegrations.filter(i => i.category === activeCategory);
 
   return (
-    <div style={{ background: 'var(--bg, #f9f6f0)', minHeight: '100vh', fontFamily: 'Inter, sans-serif' }}>
+    <div style={{ background: '#f9f6f0', minHeight: '100vh', fontFamily: 'Inter, sans-serif' }}>
       <Nav />
 
       {/* Hero */}
-      <div style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)', padding: '80px 20px 60px', textAlign: 'center' }}>
-        <p style={{ color: '#c9a84c', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', marginBottom: 12 }}>MY AI WORKFORCE</p>
+      <div style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)', padding: '80px 20px 60px', textAlign: 'center', paddingTop: '120px' }}>
+        <p style={{ color: '#c9a84c', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', marginBottom: 12 }}>INTEGRATIONS</p>
         <h1 style={{ color: 'white', fontSize: 'clamp(1.8rem, 5vw, 3rem)', fontWeight: 800, marginBottom: 16, lineHeight: 1.2 }}>
           Connect Your Agent to<br />Every App You Use
         </h1>
