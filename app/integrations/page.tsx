@@ -2,175 +2,59 @@
 import React, { useState } from 'react';
 
 const nativeIntegrations = [
-  {
-    icon: '📧',
-    name: 'Gmail',
-    desc: 'Your agent reads, replies, sends and organises your emails automatically. Never miss an important message.',
-    examples: ['Reply to customer enquiries', 'Send quotes and invoices', 'Organise your inbox', 'Follow up on leads'],
-    works: 'Just ask your agent: "Connect my Gmail"',
-  },
-  {
-    icon: '📅',
-    name: 'Google Calendar',
-    desc: 'Your agent books appointments, reschedules meetings and sends reminders — all from a simple conversation.',
-    examples: ['Book client appointments', 'Set reminders', 'Reschedule meetings', 'Check your availability'],
-    works: 'Just ask your agent: "Connect my Calendar"',
-  },
-  {
-    icon: '📁',
-    name: 'Google Drive',
-    desc: 'Your agent can save, find and share files in your Drive. No more hunting for documents.',
-    examples: ['Save client documents', 'Find old quotes', 'Share files with clients', 'Organise folders'],
-    works: 'Just ask your agent: "Connect my Google Drive"',
-  },
-  {
-    icon: '📊',
-    name: 'Google Sheets',
-    desc: 'Your agent reads and updates your spreadsheets. Great for tracking leads, jobs, stock or anything else.',
-    examples: ['Update job trackers', 'Log new leads', 'Read price lists', 'Track expenses'],
-    works: 'Just ask your agent: "Connect my Google Sheets"',
-  },
-  {
-    icon: '📝',
-    name: 'Google Docs',
-    desc: 'Your agent can write, read and update your documents. Perfect for proposals, reports and templates.',
-    examples: ['Draft proposals', 'Update SOPs', 'Read templates', 'Write reports'],
-    works: 'Just ask your agent: "Connect my Google Docs"',
-  },
-  {
-    icon: '👥',
-    name: 'Google Contacts',
-    desc: 'Your agent can look up, add and update your contacts. Always know who you\'re dealing with.',
-    examples: ['Look up client details', 'Add new contacts', 'Update phone numbers', 'Find past clients'],
-    works: 'Just ask your agent: "Connect my Contacts"',
-  },
+  { icon: '📧', name: 'Gmail', desc: 'Reads, replies, sends and organises your emails. Never miss an important message.', examples: ['Reply to customer enquiries within seconds', 'Send quotes and invoices by email', 'Organise inbox with labels', 'Follow up on leads automatically', 'Draft emails from a voice command', 'Flag and alert you about urgent messages'], works: 'Just ask: "Connect my Gmail"' },
+  { icon: '📅', name: 'Google Calendar', desc: 'Books appointments, reschedules meetings and sends reminders — all from a simple conversation.', examples: ['Book client appointments automatically', 'Set job reminders and deadlines', 'Reschedule without back-and-forth', 'Check availability before confirming jobs', 'Send calendar invites to clients', 'Block travel time between jobs'], works: 'Just ask: "Connect my Calendar"' },
+  { icon: '📁', name: 'Google Drive', desc: 'Save, find and share files in your Drive. No more hunting for documents.', examples: ['Save client documents automatically', 'Find old quotes in seconds', 'Share files with clients via link', 'Organise folders by client or job', 'Upload job photos', 'Create folders for new clients'], works: 'Just ask: "Connect my Drive"' },
+  { icon: '📊', name: 'Google Sheets', desc: 'Reads and updates your spreadsheets. Track leads, jobs, stock or anything else.', examples: ['Update job trackers in real time', 'Log new leads automatically', 'Read price lists when quoting', 'Track expenses and costs', 'Generate weekly summaries', 'Flag rows that need attention'], works: 'Just ask: "Connect my Sheets"' },
+  { icon: '📝', name: 'Google Docs', desc: 'Writes, reads and updates your documents. Perfect for proposals, reports and templates.', examples: ['Draft client proposals from a voice note', 'Update SOPs automatically', 'Write job reports', 'Fill in your own templates', 'Summarise long documents', 'Create instant meeting notes'], works: 'Just ask: "Connect my Docs"' },
+  { icon: '👥', name: 'Google Contacts', desc: 'Look up, add and update your contacts. Always know who you\'re dealing with.', examples: ['Look up client details instantly', 'Add new contacts from emails', 'Update phone numbers and addresses', 'Find past clients by name or job', 'Merge duplicate contacts', 'Tag contacts by category'], works: 'Just ask: "Connect my Contacts"' },
+  { icon: '✅', name: 'Google Tasks', desc: 'Create, manage and complete tasks through your agent. Your to-do list, handled.', examples: ['Create tasks from emails automatically', 'Set job deadlines', 'Mark tasks complete via Telegram', 'Daily task summaries', 'Organise by project', 'Remind you of overdue items'], works: 'Just ask: "Connect my Tasks"' },
+  { icon: '📋', name: 'Google Forms', desc: 'Capture form responses and act on them instantly — follow-ups, alerts, logging.', examples: ['Get notified when a form is submitted', 'Extract client details from responses', 'Auto-reply to new enquiries', 'Add form data to your CRM sheet', 'Trigger follow-up emails', 'Weekly response summaries'], works: 'Just ask: "Connect my Forms"' },
+  { icon: '🎤', name: 'Voice Commands', desc: 'Send a voice message and your agent acts on it instantly. Hands-free on the job.', examples: ['"Send a quote to John for $1,500"', '"What\'s on my calendar tomorrow?"', '"Remind me to call Sarah at 3pm"', '"Draft a follow-up email to last enquiry"', '"What emails came in today?"', '"Log a new lead — plumber in Frankston"'], works: 'Already built in — send a voice note on Telegram' },
+  { icon: '🔍', name: 'Web Research', desc: 'Searches the web for you — competitor prices, supplier info, industry news, anything.', examples: ['Research competitor pricing', 'Find supplier contact details', 'Look up building regulations', 'Check the weather for outdoor jobs', 'Find local subcontractors', 'Research a new client before a meeting'], works: 'Already built in — just ask your agent anything' },
+  { icon: '🖼️', name: 'Image Generation', desc: 'Generate professional images for social media, proposals or marketing. Just describe it.', examples: ['Create social media graphics', 'Generate before/after mockups', 'Design simple flyers', 'Visualise a project concept', 'Create branded images', 'Generate thumbnails for posts'], works: 'Already built in — ask your agent to create an image' },
+  { icon: '🗓️', name: 'Google Slides', desc: 'Create and update presentations automatically. Proposals, pitch decks, reports.', examples: ['Build a client proposal deck', 'Update your company presentation', 'Create a project summary', 'Generate a monthly report deck', 'Add images automatically', 'Share with clients instantly'], works: 'Just ask: "Connect my Slides"' },
+  { icon: '💬', name: 'Google Chat', desc: 'Post updates to your Google Chat spaces — perfect for team alerts and notifications.', examples: ['Post new job alerts to your team', 'Daily summaries to your workspace', 'Alert staff of urgent jobs', 'Share files in team spaces', 'Post automated status updates', 'Notify the team of new bookings'], works: 'Just ask: "Connect my Google Chat"' },
+  { icon: '📈', name: 'Data Analysis & Reports', desc: 'Feed your agent data and it analyses it, spots trends and tells you exactly what matters.', examples: ['Monthly revenue summaries', 'Best performing services', 'Client retention analysis', 'Lead source tracking', 'Job completion time reports', 'Expense breakdowns by category'], works: 'Already built in — share any file and ask for analysis' },
+  { icon: '📱', name: 'Telegram (24/7 Access)', desc: 'Your agent lives on Telegram — messages, voice notes, photos, files. Always available.', examples: ['Chat with your agent any time', 'Send job photos for records', 'Get instant answers', 'Receive alerts for new enquiries', 'Share documents via chat', 'Set up team broadcast messages'], works: 'Already set up — it\'s how you talk to your agent' },
+  { icon: '📧', name: 'Outlook / Microsoft 365', desc: 'Connect your Microsoft email and calendar. Reads, replies and manages your Outlook inbox.', examples: ['Reply to Outlook emails automatically', 'Book meetings via Outlook Calendar', 'Manage shared inboxes', 'Send from your company address', 'Flag important emails', 'Archive and organise automatically'], works: 'Just ask: "Connect my Outlook"' },
 ];
 
 const advancedIntegrations = [
-  {
-    icon: '💼',
-    name: 'Xero',
-    category: 'Accounting',
-    desc: 'Create invoices, track payments and reconcile accounts automatically.',
-    example: '📋 Real example: A plumber finishes a job → agent creates the invoice in Xero → sends it to the client → follows up automatically if unpaid after 7 days.',
-  },
-  {
-    icon: '📒',
-    name: 'MYOB',
-    category: 'Accounting',
-    desc: 'Full accounting automation — invoices, payroll reminders, expense tracking.',
-    example: '📋 Real example: New job booked → agent creates job card in MYOB → tracks time and materials → generates invoice on completion.',
-  },
-  {
-    icon: '💳',
-    name: 'Stripe',
-    category: 'Payments',
-    desc: 'Get notified of payments, send payment links and track outstanding invoices.',
-    example: '📋 Real example: Client pays deposit → agent sends confirmation email → books the job in calendar → alerts you on Telegram.',
-  },
-  {
-    icon: '📱',
-    name: 'WhatsApp Business',
-    category: 'Messaging',
-    desc: 'Your agent handles WhatsApp enquiries — quotes, bookings, follow-ups.',
-    example: '📋 Real example: Client WhatsApps asking for a quote → agent asks the right questions, sends a ballpark price, books a site visit.',
-  },
-  {
-    icon: '📘',
-    name: 'Facebook & Instagram',
-    category: 'Social Media',
-    desc: 'Respond to DMs and comments, capture leads from your social pages.',
-    example: '📋 Real example: Someone comments "How much?" on your Facebook post → agent DMs them a price guide and books a consultation.',
-  },
-  {
-    icon: '🏪',
-    name: 'Shopify',
-    category: 'E-Commerce',
-    desc: 'Manage orders, handle customer enquiries and track stock automatically.',
-    example: '📋 Real example: Customer asks where their order is → agent checks Shopify, finds the order, gives tracking details — without you doing anything.',
-  },
-  {
-    icon: '🔗',
-    name: 'HubSpot CRM',
-    category: 'CRM',
-    desc: 'New leads go straight into HubSpot, with follow-up sequences triggered automatically.',
-    example: '📋 Real example: Someone fills in your contact form → agent adds them to HubSpot → sends a welcome email → books a call.',
-  },
-  {
-    icon: '📋',
-    name: 'Trello / Monday / Asana',
-    category: 'Project Management',
-    desc: 'Create tasks, update job statuses and manage your team\'s work automatically.',
-    example: '📋 Real example: New job confirmed → agent creates a Trello card → assigns it → sets a due date → notifies the team.',
-  },
-  {
-    icon: '💬',
-    name: 'Slack',
-    category: 'Team Communication',
-    desc: 'Your agent posts updates to your team Slack channels automatically.',
-    example: '📋 Real example: Big new job lands → agent posts to your #jobs Slack channel so the whole team sees it instantly.',
-  },
-  {
-    icon: '📆',
-    name: 'Calendly',
-    category: 'Bookings',
-    desc: 'Sync bookings from Calendly into your calendar and trigger follow-up emails.',
-    example: '📋 Real example: Client books via Calendly → agent adds job details to your Google Calendar → sends a prep email 24h before.',
-  },
-  {
-    icon: '🛒',
-    name: 'WooCommerce',
-    category: 'E-Commerce',
-    desc: 'Handle orders, refunds and customer queries from your WooCommerce store.',
-    example: '📋 Real example: Order placed on your website → agent emails a receipt, updates stock count, schedules delivery follow-up.',
-  },
-  {
-    icon: '📊',
-    name: 'Airtable',
-    category: 'Database',
-    desc: 'Read and update your Airtable databases — great for tracking anything.',
-    example: '📋 Real example: New lead comes in → agent adds their details to your Airtable CRM and flags for follow-up.',
-  },
-  {
-    icon: '📬',
-    name: 'Mailchimp',
-    category: 'Email Marketing',
-    desc: 'Add new contacts to your email list and trigger marketing sequences.',
-    example: '📋 Real example: New customer signs up → agent adds them to your Mailchimp list → 3-email welcome sequence fires automatically.',
-  },
-  {
-    icon: '🔧',
-    name: 'ServiceM8 / Tradify',
-    category: 'Trade Management',
-    desc: 'Perfect for tradies — manage jobs, quotes and invoices from your agent.',
-    example: '📋 Real example: Customer calls → agent logs the job in ServiceM8, sends a quote, schedules the work — you just show up.',
-  },
-  {
-    icon: '🌐',
-    name: 'Any Website or Form',
-    category: 'Web',
-    desc: 'Capture leads from any contact form, landing page or booking widget.',
-    example: '📋 Real example: Someone fills in your website contact form → agent responds within 60 seconds, qualifies the lead, books a call.',
-  },
-  {
-    icon: '⚡',
-    name: 'Anything with an API',
-    category: 'Custom',
-    desc: 'If it has an API, your agent can connect to it. We build custom integrations for any tool you use.',
-    example: '📋 Real example: Your industry-specific software, your accounting system, your booking platform — we\'ll connect it.',
-  },
+  { icon: '💼', name: 'Xero', category: 'Accounting', desc: 'Create invoices, track payments, reconcile accounts and manage payroll automatically.', examples: ['Job done → invoice created → sent to client → follow-up if unpaid after 7 days', 'New job booked → create estimate in Xero → convert to invoice on completion', 'Monthly reconciliation report sent to you automatically', 'Overdue invoice alerts with one-click reminder send'] },
+  { icon: '📒', name: 'MYOB', category: 'Accounting', desc: 'Full accounting automation — invoices, payroll reminders, expense tracking, reporting.', examples: ['New client added → MYOB card created → first invoice drafted automatically', 'Track time and materials per job → auto-generate invoice', 'Weekly P&L summary delivered to your Telegram', 'Expense receipt photographed → logged in MYOB automatically'] },
+  { icon: '📗', name: 'QuickBooks', category: 'Accounting', desc: 'Invoice automation, expense tracking and financial reporting through your agent.', examples: ['Quote approved → invoice raised in QuickBooks automatically', 'Bank feed reviewed and categorised by your agent daily', 'GST report prepared at end of quarter', 'Late payment reminders sent without you touching anything'] },
+  { icon: '💳', name: 'Stripe', category: 'Payments', desc: 'Get notified of payments, send payment links, track outstanding invoices and refunds.', examples: ['Client pays deposit → confirmation email sent → job booked in calendar → you\'re alerted', 'Overdue payment → agent sends polite reminder with payment link', 'New subscription signed up → welcome email triggered automatically', 'Refund requested → agent logs it and notifies you for approval'] },
+  { icon: '💰', name: 'PayPal', category: 'Payments', desc: 'Track PayPal payments and trigger follow-up actions when money lands.', examples: ['Payment received → client notified → service delivered automatically', 'Dispute raised → agent flags it and drafts your response', 'Monthly PayPal revenue summary sent to you'] },
+  { icon: '📱', name: 'WhatsApp Business', category: 'Messaging', desc: 'Your agent handles WhatsApp enquiries — quotes, bookings, FAQs, follow-ups.', examples: ['Client WhatsApps "how much?" → agent asks the right questions → sends ballpark price → books site visit', 'After-hours message received → agent replies instantly so client isn\'t left waiting', 'Booking confirmed → WhatsApp reminder sent 24h before', 'Tradie finishes job → agent sends WhatsApp review request'] },
+  { icon: '📘', name: 'Facebook & Instagram', category: 'Social Media', desc: 'Respond to DMs and comments, capture leads from your social pages automatically.', examples: ['Someone comments "How much?" → agent DMs them a price guide and books a consult', 'New Facebook lead form submitted → agent responds within 60 seconds', 'Instagram DM received → agent qualifies the lead and books a call', 'Post goes live → agent monitors comments and flags any that need your attention'] },
+  { icon: '🔗', name: 'HubSpot CRM', category: 'CRM', desc: 'New leads go into HubSpot automatically, with follow-up sequences triggered instantly.', examples: ['Contact form submitted → added to HubSpot → welcome email sent → call booked', 'Deal stage updated → agent sends the right email for that stage', 'Lead goes cold → agent sends re-engagement sequence automatically', 'Meeting booked → HubSpot contact updated → prep email sent'] },
+  { icon: '☁️', name: 'Salesforce', category: 'CRM', desc: 'Keep Salesforce up to date automatically — leads, opportunities, notes and tasks.', examples: ['Email from new prospect → Salesforce lead created automatically', 'Call finished → agent logs call notes in Salesforce via voice', 'Deal won → onboarding sequence triggered automatically', 'Monthly pipeline report generated and sent to your team'] },
+  { icon: '🏪', name: 'Shopify', category: 'E-Commerce', desc: 'Manage orders, handle customer enquiries, track stock and automate fulfilment.', examples: ['Customer asks where their order is → agent checks Shopify and replies with tracking', 'Stock runs low → agent alerts you and drafts a reorder email to supplier', 'Order placed → personalised thank-you email sent instantly', 'Abandoned cart → agent sends a friendly reminder after 1 hour'] },
+  { icon: '🛒', name: 'WooCommerce', category: 'E-Commerce', desc: 'Handle orders, refunds and customer queries from your WooCommerce store.', examples: ['Order placed → receipt sent → stock updated → delivery scheduled', 'Refund requested → agent processes it and sends confirmation', 'New product added → social media post drafted automatically', 'Weekly sales report delivered every Monday morning'] },
+  { icon: '📋', name: 'Trello', category: 'Project Management', desc: 'Create tasks, update job statuses and manage your team\'s work automatically.', examples: ['New job confirmed → Trello card created → assigned to team member → due date set', 'Client emails a change request → new card created in "Changes" column', 'Job completed → card archived → invoice triggered', 'Overdue card → agent alerts the assigned person on Telegram'] },
+  { icon: '📆', name: 'Monday.com', category: 'Project Management', desc: 'Keep your Monday.com boards updated automatically as jobs progress.', examples: ['New lead → Monday item created with all details', 'Status changed to "In Progress" → client notified automatically', 'Deadline approaching → agent sends reminder to team', 'Project complete → client satisfaction email sent'] },
+  { icon: '✅', name: 'Asana', category: 'Project Management', desc: 'Create and update Asana tasks from emails, voice notes or any trigger.', examples: ['Email arrives with action item → Asana task created automatically', 'Voice note: "Create a task to follow up with Tim by Friday" → done', 'Project milestone reached → team notified via Slack and email', 'Overdue task → agent escalates to manager'] },
+  { icon: '💬', name: 'Slack', category: 'Team Communication', desc: 'Your agent posts updates, alerts and summaries to your team Slack channels.', examples: ['New job lands → posted to #jobs channel instantly', 'Daily summary of all new enquiries → posted every morning at 8am', 'Urgent client email → agent pings the right person in Slack', 'Weekly revenue update → posted to #finance every Friday'] },
+  { icon: '📆', name: 'Calendly', category: 'Bookings', desc: 'Sync Calendly bookings into your workflow and trigger follow-ups automatically.', examples: ['Client books via Calendly → added to Google Calendar → confirmation email sent', 'Prep email sent 24h before every meeting automatically', 'No-show → agent sends a reschedule link 30 minutes later', 'Booking cancelled → slot opened back up and waitlist notified'] },
+  { icon: '🔧', name: 'ServiceM8', category: 'Trade Software', desc: 'Perfect for tradies — manage jobs, quotes and invoices from your agent on the go.', examples: ['Call comes in → job logged in ServiceM8 → quote sent → work scheduled automatically', 'Job status updated → client gets an ETA via SMS', 'Job complete → invoice raised and sent within minutes', 'Parts needed → supplier email drafted automatically'] },
+  { icon: '🔨', name: 'Tradify', category: 'Trade Software', desc: 'Run your trade business from your agent — jobs, quotes, timesheets, invoices.', examples: ['Enquiry received → Tradify job created → quote sent within the hour', 'Timesheet submitted → invoice generated automatically', 'Job overrunning → client notified with updated completion time', 'Weekly job summary delivered every Friday afternoon'] },
+  { icon: '🏥', name: 'Cliniko / Health Software', category: 'Health & Allied Health', desc: 'Book appointments, send reminders and manage patient admin automatically.', examples: ['New patient enquiry → booking link sent → appointment created in Cliniko', 'Appointment reminder sent 48h and 2h before', 'No-show → agent follows up with rebooking link', 'Repeat booking due → agent proactively reaches out to patient'] },
+  { icon: '📬', name: 'Mailchimp', category: 'Email Marketing', desc: 'Add new contacts to your email list and trigger marketing sequences automatically.', examples: ['New customer → added to Mailchimp list → 3-email welcome sequence fires', 'Job complete → client added to "happy customers" list for review request', 'Monthly newsletter drafted by agent from your latest updates', 'Unsubscribe detected → agent removes from CRM contact list'] },
+  { icon: '📊', name: 'Airtable', category: 'Database', desc: 'Read and update Airtable databases — great for tracking anything across your business.', examples: ['New lead → added to Airtable CRM with full details', 'Job status updated in Airtable as work progresses', 'Daily database summary delivered to your Telegram', 'Record updated → triggers follow-up email automatically'] },
+  { icon: '📝', name: 'Typeform / Jotform', category: 'Forms & Surveys', desc: 'Capture form and survey responses and act on them instantly.', examples: ['Quote request submitted → agent sends tailored quote within minutes', 'Customer feedback received → logged, summarised and sent to you', 'New booking form submitted → appointment created automatically', 'Survey completed → results added to your tracking sheet'] },
+  { icon: '🌐', name: 'Any Website Contact Form', category: 'Web', desc: 'Capture leads from any website form and have your agent respond within 60 seconds.', examples: ['Contact form submitted → agent responds within 60 seconds — while you\'re sleeping', 'Lead qualified via email → booked into calendar automatically', 'Spam filtered → only real enquiries reach you', 'Lead source tracked so you know what marketing works'] },
+  { icon: '⚡', name: 'Anything with an API', category: 'Custom', desc: 'If it has an API, your agent can connect to it. We build custom integrations for any tool.', examples: ['Your industry-specific software — we\'ll connect it', 'Your booking platform, your POS, your CRM', 'Internal tools and custom databases', 'Any app that\'s not on this list — just ask us'] },
 ];
 
-const categories = ['All', 'Accounting', 'Payments', 'Messaging', 'Social Media', 'E-Commerce', 'CRM', 'Project Management', 'Team Communication', 'Bookings', 'Trade Management', 'Web', 'Custom'];
+const categories = ['All', 'Accounting', 'Payments', 'Messaging', 'Social Media', 'E-Commerce', 'CRM', 'Project Management', 'Team Communication', 'Bookings', 'Trade Software', 'Health & Allied Health', 'Email Marketing', 'Database', 'Forms & Surveys', 'Web', 'Custom'];
 
 export default function IntegrationsPage() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [expandedNative, setExpandedNative] = useState<string | null>(null);
   const [expandedAdvanced, setExpandedAdvanced] = useState<string | null>(null);
 
-  const filtered = activeCategory === 'All'
-    ? advancedIntegrations
-    : advancedIntegrations.filter(i => i.category === activeCategory);
+  const filtered = activeCategory === 'All' ? advancedIntegrations : advancedIntegrations.filter(i => i.category === activeCategory);
 
   return (
     <div style={{ background: '#f9f6f0', minHeight: '100vh', fontFamily: 'Inter, sans-serif' }}>
@@ -181,16 +65,16 @@ export default function IntegrationsPage() {
         <h1 style={{ color: 'white', fontSize: 'clamp(1.8rem, 5vw, 3rem)', fontWeight: 800, marginBottom: 16, lineHeight: 1.2 }}>
           Connect Your Agent to<br />Every App You Use
         </h1>
-        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', maxWidth: 600, margin: '0 auto 32px', lineHeight: 1.7 }}>
-          Your agent works with the tools you already use — emails, calendar, accounting, job management and more. No tech knowledge needed. Just tell your agent what to connect.
+        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', maxWidth: 640, margin: '0 auto 32px', lineHeight: 1.7 }}>
+          Your agent works with the tools you already use — emails, calendar, accounting, job management and more. No tech knowledge needed. Just tell your agent what to connect and it walks you through the rest in plain English.
         </p>
         <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
           <div style={{ background: 'rgba(255,255,255,0.1)', borderRadius: 12, padding: '12px 24px', color: 'white', textAlign: 'center' }}>
-            <div style={{ fontSize: '1.8rem', fontWeight: 700, color: '#c9a84c' }}>6</div>
+            <div style={{ fontSize: '1.8rem', fontWeight: 700, color: '#c9a84c' }}>16</div>
             <div style={{ fontSize: '0.8rem', opacity: 0.7 }}>Built-in (instant)</div>
           </div>
           <div style={{ background: 'rgba(255,255,255,0.1)', borderRadius: 12, padding: '12px 24px', color: 'white', textAlign: 'center' }}>
-            <div style={{ fontSize: '1.8rem', fontWeight: 700, color: '#c9a84c' }}>500+</div>
+            <div style={{ fontSize: '1.8rem', fontWeight: 700, color: '#c9a84c' }}>10,000+</div>
             <div style={{ fontSize: '0.8rem', opacity: 0.7 }}>Advanced integrations</div>
           </div>
           <div style={{ background: 'rgba(255,255,255,0.1)', borderRadius: 12, padding: '12px 24px', color: 'white', textAlign: 'center' }}>
@@ -202,34 +86,23 @@ export default function IntegrationsPage() {
 
       <div style={{ maxWidth: 960, margin: '0 auto', padding: '48px 20px' }}>
 
-        {/* Native Section */}
+        {/* Native */}
         <div style={{ marginBottom: 64 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
-            <span style={{ background: '#22c55e', color: 'white', fontSize: '0.75rem', fontWeight: 700, padding: '4px 12px', borderRadius: 20 }}>✅ BUILT IN — INSTANT</span>
+          <div style={{ marginBottom: 8 }}>
+            <span style={{ background: '#22c55e', color: 'white', fontSize: '0.75rem', fontWeight: 700, padding: '4px 14px', borderRadius: 20 }}>✅ BUILT IN — WORKS INSTANTLY</span>
           </div>
           <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#1a1a2e', marginBottom: 8 }}>Just Ask Your Agent</h2>
-          <p style={{ color: '#666', fontSize: '1rem', marginBottom: 32, lineHeight: 1.7 }}>
-            These apps are built directly into your agent. No setup, no forms, no tech — just tell your agent to connect them and click the link it sends you. Done in 2 minutes.
+          <p style={{ color: '#666', fontSize: '1rem', marginBottom: 32, lineHeight: 1.7, maxWidth: 680 }}>
+            These apps are built directly into your agent. No setup forms, no tech — just tell your agent to connect them and click the link it sends you. Done in 2 minutes.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(270px, 1fr))', gap: 16 }}>
             {nativeIntegrations.map(app => (
-              <div
-                key={app.name}
-                onClick={() => setExpandedNative(expandedNative === app.name ? null : app.name)}
-                style={{
-                  background: 'white',
-                  borderRadius: 12,
-                  padding: 20,
-                  cursor: 'pointer',
-                  border: expandedNative === app.name ? '2px solid #22c55e' : '2px solid transparent',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-                  transition: 'all 0.2s',
-                }}
-              >
+              <div key={app.name} onClick={() => setExpandedNative(expandedNative === app.name ? null : app.name)}
+                style={{ background: 'white', borderRadius: 12, padding: 20, cursor: 'pointer', border: expandedNative === app.name ? '2px solid #22c55e' : '2px solid transparent', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', transition: 'all 0.2s' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
                   <span style={{ fontSize: '1.8rem' }}>{app.icon}</span>
                   <div>
-                    <div style={{ fontWeight: 700, color: '#1a1a2e', fontSize: '1rem' }}>{app.name}</div>
+                    <div style={{ fontWeight: 700, color: '#1a1a2e' }}>{app.name}</div>
                     <span style={{ background: '#f0fdf4', color: '#16a34a', fontSize: '0.7rem', fontWeight: 600, padding: '2px 8px', borderRadius: 10 }}>✅ Built in</span>
                   </div>
                 </div>
@@ -237,10 +110,10 @@ export default function IntegrationsPage() {
                 {expandedNative === app.name && (
                   <div>
                     <div style={{ marginBottom: 12 }}>
-                      {app.examples.map(ex => (
-                        <div key={ex} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: 4 }}>
-                          <span style={{ color: '#22c55e', marginTop: 2 }}>✓</span>
-                          <span style={{ fontSize: '0.85rem', color: '#444' }}>{ex}</span>
+                      {app.examples.map((ex, i) => (
+                        <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: 5 }}>
+                          <span style={{ color: '#22c55e', flexShrink: 0, marginTop: 2 }}>✓</span>
+                          <span style={{ fontSize: '0.85rem', color: '#444', lineHeight: 1.5 }}>{ex}</span>
                         </div>
                       ))}
                     </div>
@@ -249,74 +122,51 @@ export default function IntegrationsPage() {
                     </div>
                   </div>
                 )}
-                <div style={{ marginTop: 8, fontSize: '0.8rem', color: '#999' }}>{expandedNative === app.name ? '▲ Less' : '▼ See what it can do'}</div>
+                <div style={{ marginTop: 8, fontSize: '0.78rem', color: '#aaa' }}>{expandedNative === app.name ? '▲ Less' : '▼ See what it can do'}</div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Advanced Section */}
+        {/* Advanced */}
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
-            <span style={{ background: '#c9a84c', color: '#1a1a2e', fontSize: '0.75rem', fontWeight: 700, padding: '4px 12px', borderRadius: 20 }}>⚡ ADVANCED — WE BUILD IT FOR YOU</span>
+          <div style={{ marginBottom: 8 }}>
+            <span style={{ background: '#c9a84c', color: '#1a1a2e', fontSize: '0.75rem', fontWeight: 700, padding: '4px 14px', borderRadius: 20 }}>⚡ ADVANCED — WE SET IT UP FOR YOU</span>
           </div>
           <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#1a1a2e', marginBottom: 8 }}>Advanced Integrations</h2>
-          <p style={{ color: '#666', fontSize: '1rem', marginBottom: 24, lineHeight: 1.7 }}>
-            These connect your agent to your other business software. We set it all up for you — you just use it. Think of it as automation that runs in the background while you get on with your work.
+          <p style={{ color: '#666', fontSize: '1rem', marginBottom: 24, lineHeight: 1.7, maxWidth: 680 }}>
+            These connect your agent to your other business software and automate entire workflows. We set it all up — you just use it. Think of it as automation running silently in the background while you get on with your work.
           </p>
-
-          {/* Category filter */}
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 24 }}>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 28 }}>
             {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                style={{
-                  padding: '6px 14px',
-                  borderRadius: 20,
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  background: activeCategory === cat ? '#1a1a2e' : '#e8e0d0',
-                  color: activeCategory === cat ? 'white' : '#555',
-                  transition: 'all 0.2s',
-                }}
-              >
+              <button key={cat} onClick={() => setActiveCategory(cat)}
+                style={{ padding: '6px 14px', borderRadius: 20, border: 'none', cursor: 'pointer', fontSize: '0.8rem', fontWeight: 600, background: activeCategory === cat ? '#1a1a2e' : '#e8e0d0', color: activeCategory === cat ? 'white' : '#555', transition: 'all 0.2s' }}>
                 {cat}
               </button>
             ))}
           </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(270px, 1fr))', gap: 16 }}>
             {filtered.map(app => (
-              <div
-                key={app.name}
-                onClick={() => setExpandedAdvanced(expandedAdvanced === app.name ? null : app.name)}
-                style={{
-                  background: 'white',
-                  borderRadius: 12,
-                  padding: 20,
-                  cursor: 'pointer',
-                  border: expandedAdvanced === app.name ? '2px solid #c9a84c' : '2px solid transparent',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-                  transition: 'all 0.2s',
-                }}
-              >
+              <div key={app.name} onClick={() => setExpandedAdvanced(expandedAdvanced === app.name ? null : app.name)}
+                style={{ background: 'white', borderRadius: 12, padding: 20, cursor: 'pointer', border: expandedAdvanced === app.name ? '2px solid #c9a84c' : '2px solid transparent', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', transition: 'all 0.2s' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
                   <span style={{ fontSize: '1.8rem' }}>{app.icon}</span>
                   <div>
-                    <div style={{ fontWeight: 700, color: '#1a1a2e', fontSize: '1rem' }}>{app.name}</div>
+                    <div style={{ fontWeight: 700, color: '#1a1a2e' }}>{app.name}</div>
                     <span style={{ background: '#fef9e7', color: '#b7770d', fontSize: '0.7rem', fontWeight: 600, padding: '2px 8px', borderRadius: 10 }}>{app.category}</span>
                   </div>
                 </div>
                 <p style={{ color: '#555', fontSize: '0.875rem', lineHeight: 1.6, marginBottom: expandedAdvanced === app.name ? 12 : 0 }}>{app.desc}</p>
                 {expandedAdvanced === app.name && (
-                  <div style={{ background: '#fef9e7', borderRadius: 8, padding: '12px 14px', fontSize: '0.85rem', color: '#555', lineHeight: 1.6 }}>
-                    {app.example}
+                  <div>
+                    {app.examples.map((ex, i) => (
+                      <div key={i} style={{ background: '#fef9e7', borderRadius: 8, padding: '10px 14px', fontSize: '0.85rem', color: '#555', lineHeight: 1.6, marginBottom: 6 }}>
+                        📋 {ex}
+                      </div>
+                    ))}
                   </div>
                 )}
-                <div style={{ marginTop: 8, fontSize: '0.8rem', color: '#999' }}>{expandedAdvanced === app.name ? '▲ Less' : '▼ See a real example'}</div>
+                <div style={{ marginTop: 8, fontSize: '0.78rem', color: '#aaa' }}>{expandedAdvanced === app.name ? '▲ Less' : '▼ See real examples'}</div>
               </div>
             ))}
           </div>
@@ -325,26 +175,13 @@ export default function IntegrationsPage() {
         {/* CTA */}
         <div style={{ background: '#1a1a2e', borderRadius: 16, padding: '40px 32px', textAlign: 'center', marginTop: 64 }}>
           <h2 style={{ color: 'white', fontSize: '1.8rem', fontWeight: 800, marginBottom: 12 }}>Ready to connect your tools?</h2>
-          <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 28, fontSize: '1rem', lineHeight: 1.7 }}>
-            Your agent handles the tech. You just tell it what you want connected — and it walks you through the rest in plain English.
+          <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 28, fontSize: '1rem', lineHeight: 1.7, maxWidth: 520, margin: '0 auto 28px' }}>
+            Your agent handles the tech. Just tell it what you want connected — it walks you through the rest in plain English. No forms. No setup calls. No tech knowledge needed.
           </p>
-          <a
-            href="/buildagent"
-            style={{
-              display: 'inline-block',
-              background: '#c9a84c',
-              color: '#1a1a2e',
-              padding: '16px 36px',
-              borderRadius: 8,
-              fontWeight: 700,
-              fontSize: '1rem',
-              textDecoration: 'none',
-            }}
-          >
+          <a href="/buildagent" style={{ display: 'inline-block', background: '#c9a84c', color: '#1a1a2e', padding: '16px 36px', borderRadius: 8, fontWeight: 700, fontSize: '1rem', textDecoration: 'none' }}>
             Get Your AI Agent →
           </a>
         </div>
-
       </div>
     </div>
   );
