@@ -694,6 +694,86 @@ function Testimonials() {
   );
 }
 
+
+// ─── Integrations Preview ─────────────────────────────────────────────────────
+
+function IntegrationsPreview() {
+  const native = [
+    { icon: '📧', name: 'Gmail' },
+    { icon: '📅', name: 'Calendar' },
+    { icon: '📁', name: 'Google Drive' },
+    { icon: '📊', name: 'Google Sheets' },
+    { icon: '📝', name: 'Google Docs' },
+    { icon: '👥', name: 'Contacts' },
+    { icon: '✅', name: 'Tasks' },
+    { icon: '🎤', name: 'Voice Commands' },
+    { icon: '📱', name: 'Telegram' },
+    { icon: '📧', name: 'Outlook' },
+    { icon: '🔍', name: 'Web Research' },
+    { icon: '🖼️', name: 'Image Generation' },
+  ];
+  const advanced = [
+    { icon: '💼', name: 'Xero' },
+    { icon: '💳', name: 'Stripe' },
+    { icon: '📱', name: 'WhatsApp' },
+    { icon: '📘', name: 'Facebook & Instagram' },
+    { icon: '🔧', name: 'GitHub' },
+    { icon: '▲', name: 'Vercel' },
+    { icon: '🔗', name: 'HubSpot' },
+    { icon: '🛒', name: 'Shopify' },
+    { icon: '📋', name: 'Trello' },
+    { icon: '💬', name: 'Slack' },
+    { icon: '📒', name: 'MYOB' },
+    { icon: '⚡', name: '10,000+ more' },
+  ];
+  return (
+    <section className="py-24 px-6" style={{ backgroundColor: "var(--bg)" }}>
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-12">
+          <p style={{ color: "#c9a84c", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", marginBottom: 12 }}>INTEGRATIONS</p>
+          <h2 className="text-4xl font-extrabold mb-4" style={{ color: "var(--text)" }}>Connects to Everything You Use</h2>
+          <p style={{ color: "var(--text-dim)", fontSize: "1.05rem", maxWidth: 580, margin: "0 auto" }}>
+            Your agent works with the tools you already use — no tech knowledge needed. Just tell it what to connect.
+          </p>
+        </div>
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-4">
+            <span style={{ background: "#22c55e", color: "white", fontSize: "0.72rem", fontWeight: 700, padding: "3px 12px", borderRadius: 20 }}>✅ BUILT IN — INSTANT</span>
+            <span style={{ color: "var(--text-dim)", fontSize: "0.85rem" }}>Just ask your agent to connect</span>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            {native.map(a => (
+              <div key={a.name} style={{ background: "var(--bg-section)", border: "1px solid var(--border)", borderRadius: 10, padding: "8px 16px", display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: "1.2rem" }}>{a.icon}</span>
+                <span style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--text)" }}>{a.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="mb-10">
+          <div className="flex items-center gap-3 mb-4">
+            <span style={{ background: "#c9a84c", color: "#1a1a2e", fontSize: "0.72rem", fontWeight: 700, padding: "3px 12px", borderRadius: 20 }}>⚡ ADVANCED — WE SET IT UP</span>
+            <span style={{ color: "var(--text-dim)", fontSize: "0.85rem" }}>Xero, Stripe, social, CRM, trade software & more</span>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            {advanced.map(a => (
+              <div key={a.name} style={{ background: "var(--bg-section)", border: "1px solid var(--border)", borderRadius: 10, padding: "8px 16px", display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: "1.2rem" }}>{a.icon}</span>
+                <span style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--text)" }}>{a.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="text-center">
+          <Link href="/integrations" className="inline-block px-8 py-3 rounded-lg font-semibold text-sm" style={{ background: "var(--bg-section)", border: "1px solid var(--border)", color: "var(--text)" }}>
+            See All Integrations →
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Pricing ──────────────────────────────────────────────────────────────────
 
 function PricingTeaser() {
@@ -872,6 +952,7 @@ export default function HomePage() {
         <FeaturedAgents />
         <SectionDivider />
         <Testimonials />
+        <IntegrationsPreview />
         <PricingTeaser />
         <CTABanner />
       </main>

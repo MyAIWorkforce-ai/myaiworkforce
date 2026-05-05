@@ -589,6 +589,68 @@ export default function DoneForYouPage() {
           </div>
         </section>
       </main>
+
+      {/* Integrations Section */}
+      <section style={{ backgroundColor: "var(--bg-section)", padding: "80px 24px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <p style={{ color: "#c9a84c", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", marginBottom: 12 }}>INTEGRATIONS</p>
+            <h2 style={{ fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontWeight: 800, color: "var(--text)", marginBottom: 12 }}>Connects to Everything You Use</h2>
+            <p style={{ color: "var(--text-dim)", fontSize: "1rem", maxWidth: 560, margin: "0 auto", lineHeight: 1.7 }}>
+              Your agent works with the tools you already use. No tech knowledge needed — just tell it what to connect and it walks you through the rest.
+            </p>
+          </div>
+
+          {/* Native */}
+          <div style={{ marginBottom: 32 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
+              <span style={{ background: "#22c55e", color: "white", fontSize: "0.72rem", fontWeight: 700, padding: "4px 14px", borderRadius: 20 }}>✅ BUILT IN — INSTANT</span>
+              <span style={{ color: "var(--text-dim)", fontSize: "0.875rem" }}>Just ask your agent: "Connect my Gmail" — done in 2 minutes</span>
+            </div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+              {[
+                { icon: "📧", name: "Gmail" }, { icon: "📅", name: "Calendar" }, { icon: "📁", name: "Google Drive" },
+                { icon: "📊", name: "Sheets" }, { icon: "📝", name: "Docs" }, { icon: "👥", name: "Contacts" },
+                { icon: "✅", name: "Tasks" }, { icon: "🎤", name: "Voice Commands" }, { icon: "📱", name: "Telegram" },
+                { icon: "📧", name: "Outlook" }, { icon: "🔍", name: "Web Research" }, { icon: "🖼️", name: "Image Gen" },
+              ].map(a => (
+                <div key={a.name} style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: 10, padding: "8px 14px", display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ fontSize: "1.1rem" }}>{a.icon}</span>
+                  <span style={{ fontSize: "0.82rem", fontWeight: 600, color: "var(--text)" }}>{a.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Advanced */}
+          <div style={{ marginBottom: 36 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
+              <span style={{ background: "#c9a84c", color: "#1a1a2e", fontSize: "0.72rem", fontWeight: 700, padding: "4px 14px", borderRadius: 20 }}>⚡ ADVANCED — WE SET IT ALL UP FOR YOU</span>
+              <span style={{ color: "var(--text-dim)", fontSize: "0.875rem" }}>We connect these in the background — you just use them</span>
+            </div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+              {[
+                { icon: "💼", name: "Xero" }, { icon: "📒", name: "MYOB" }, { icon: "💳", name: "Stripe" },
+                { icon: "📱", name: "WhatsApp" }, { icon: "📘", name: "Facebook" }, { icon: "📸", name: "Instagram" },
+                { icon: "🔧", name: "GitHub" }, { icon: "▲", name: "Vercel" }, { icon: "🔗", name: "HubSpot" },
+                { icon: "🛒", name: "Shopify" }, { icon: "📋", name: "Trello" }, { icon: "💬", name: "Slack" },
+                { icon: "📆", name: "Calendly" }, { icon: "📊", name: "Google Ads" }, { icon: "⚡", name: "10,000+ more" },
+              ].map(a => (
+                <div key={a.name} style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: 10, padding: "8px 14px", display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ fontSize: "1.1rem" }}>{a.icon}</span>
+                  <span style={{ fontSize: "0.82rem", fontWeight: 600, color: "var(--text)" }}>{a.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ textAlign: "center" }}>
+            <a href="/integrations" style={{ display: "inline-block", padding: "12px 32px", borderRadius: 8, fontWeight: 600, fontSize: "0.9rem", border: "1px solid var(--border)", color: "var(--text)", background: "var(--bg)", textDecoration: "none" }}>
+              See All Integrations →
+            </a>
+          </div>
+        </div>
+      </section>
       <Footer />
     </div>
   );
