@@ -443,6 +443,7 @@ function Nav() {
         <div className="hidden md:flex items-center gap-8">
           {[
             { label: "Build My Agent", href: "/buildmyagent" },
+            { label: "Integrations", href: "/integrations" },
   { label: "Guides", href: "/guides" },
   { label: "Marketplace", href: "/marketplace" },
             
@@ -489,6 +490,7 @@ function Nav() {
           <div className="px-6 py-4 flex flex-col gap-4">
             {[
               { label: "Build My Agent", href: "/buildmyagent" },
+              { label: "Integrations", href: "/integrations" },
   { label: "Guides", href: "/guides" },
   { label: "Marketplace", href: "/marketplace" },
               
@@ -528,6 +530,7 @@ function Footer() {
         <p className="text-sm" style={{ color: "var(--text-dim)" }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
         <div className="flex gap-6 text-sm">
           <Link href="/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
+          <Link href="/integrations" style={{ color: "var(--text-dim)" }}>Integrations</Link>
           <Link href="/pricing" style={{ color: "var(--text-dim)" }}>Pricing</Link>
           <Link href="/contact" style={{ color: "var(--text-dim)" }}>Contact</Link>
           <Link href="/invest" style={{ color: "var(--yellow)", fontWeight: "600" }}>Invest with Us</Link>

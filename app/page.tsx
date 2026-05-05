@@ -167,6 +167,7 @@ function Footer() {
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {[
               { label: "Build My Agent", href: "/buildmyagent" },
+              { label: "Integrations", href: "/integrations" },
   { label: "Guides", href: "/guides" },
   { label: "Marketplace", href: "/marketplace" },
               { label: "Dashboard", href: "/dashboard" },

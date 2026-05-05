@@ -124,6 +124,7 @@ function Nav() {
   const [open, setOpen] = useState(false);
   const links = [
     { label: "Build My Agent", href: "/buildmyagent" },
+    { label: "Integrations", href: "/integrations" },
   { label: "Guides", href: "/guides" },
   { label: "Marketplace", href: "/marketplace" },
     

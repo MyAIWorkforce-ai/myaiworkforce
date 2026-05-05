@@ -1,5 +1,116 @@
 'use client';
 import React, { useState } from 'react';
+import Link from 'next/link';
+import { useTheme } from 'next-themes';
+
+function IconMenu() {
+  return <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>;
+}
+function IconX() {
+  return <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>;
+}
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  return (
+    <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className="p-2 rounded-lg transition-colors" style={{ color: 'var(--text-dim)' }} aria-label="Toggle theme">
+      {theme === 'dark' ? '☀️' : '🌙'}
+    </button>
+  );
+}
+
+const NAV_LINKS = [
+  { label: 'Build My Agent', href: '/buildmyagent' },
+  { label: 'Integrations', href: '/integrations' },
+  { label: 'Guides', href: '/guides' },
+  { label: 'Marketplace', href: '/marketplace' },
+  { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
+];
+
+function Nav() {
+  const [open, setOpen] = useState(false);
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ borderBottom: '1px solid var(--nav-border)', backgroundColor: 'var(--nav-bg)' }}>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+        <Link href="/" className="text-xl font-bold" style={{ letterSpacing: '-0.02em' }}>
+          <span style={{ color: '#c9a84c' }}>My </span><span style={{ color: '#ffffff', fontSize: '1.2em' }}>AI </span><span style={{ color: '#c9a84c' }}>Workforce</span>
+        </Link>
+        <div className="hidden md:flex items-center gap-8">
+          {NAV_LINKS.map((link) => (
+            <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200 nav-link"
+              style={link.href === '/integrations' ? { color: '#c9a84c', fontWeight: '600' } : {}}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
+          <Link href="/login" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.3)' }}>Login</Link>
+          <Link href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold glow-yellow" style={{ backgroundColor: '#c9a84c', color: '#0A0A0A' }}>Book a Free Call</Link>
+        </div>
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button style={{ color: 'var(--text-dim)' }} onClick={() => setOpen(!open)} aria-label="Toggle menu">{open ? <IconX /> : <IconMenu />}</button>
+        </div>
+      </div>
+      {open && (
+        <div className="md:hidden border-t" style={{ borderColor: 'var(--nav-border)', backgroundColor: '#1a1a2e' }}>
+          <div className="px-6 py-4 flex flex-col gap-4">
+            {NAV_LINKS.map((link) => (
+              <Link key={link.label} href={link.href} className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.88)' }} onClick={() => setOpen(false)}>{link.label}</Link>
+            ))}
+            <div className="flex gap-2 mt-2">
+              <Link href="/login" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: '1px solid rgba(255,255,255,0.3)', color: 'rgba(255,255,255,0.85)' }} onClick={() => setOpen(false)}>Login</Link>
+              <Link href="/signup" className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center" style={{ border: '1px solid var(--yellow)', color: 'var(--yellow)' }} onClick={() => setOpen(false)}>Sign Up</Link>
+            </div>
+            <Link href="/contact" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2" style={{ backgroundColor: '#c9a84c', color: '#0A0A0A' }} onClick={() => setOpen(false)}>Book a Free Call</Link>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="py-12 px-6" style={{ borderTop: '1px solid var(--border)', backgroundColor: 'var(--bg)' }}>
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
+          <div>
+            <div className="text-xl font-bold mb-2"><span style={{ color: '#c9a84c' }}>My </span><span style={{ color: '#c9a84c', fontSize: '1.2em' }}>AI </span><span style={{ color: '#c9a84c' }}>Workforce</span></div>
+            <p className="text-sm" style={{ color: 'var(--muted)' }}>The #1 platform for AI workforce automation.</p>
+          </div>
+          <div className="flex flex-wrap gap-x-8 gap-y-2">
+            {[
+              { label: 'Build My Agent', href: '/buildmyagent' },
+              { label: 'Integrations', href: '/integrations' },
+              { label: 'Guides', href: '/guides' },
+              { label: 'Marketplace', href: '/marketplace' },
+              { label: 'Dashboard', href: '/dashboard' },
+              { label: 'Sell Your Agents', href: '/creator/agents' },
+              { label: 'Sell Your Skills', href: '/creator/skills' },
+              { label: 'Contact', href: '/contact' },
+              { label: 'Invest with Us', href: '/invest' },
+            ].map((link) => (
+              <Link key={link.label} href={link.href} className="text-sm font-medium transition-colors duration-200"
+                style={{ color: ['Invest with Us', 'Sell Your Agents'].includes(link.label) ? 'var(--yellow)' : 'var(--muted)', fontWeight: ['Invest with Us', 'Sell Your Agents'].includes(link.label) ? '600' : 'normal' }}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: 'var(--border)' }}>
+          <p className="text-sm" style={{ color: 'var(--muted)' }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="text-sm" style={{ color: 'var(--muted)' }}>Privacy Policy</Link>
+            <Link href="/terms" className="text-sm" style={{ color: 'var(--muted)' }}>Terms of Service</Link>
+            <Link href="/security" className="text-sm" style={{ color: 'var(--muted)' }}>Security</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
 
 const nativeIntegrations = [
   { icon: '📧', name: 'Gmail', desc: 'Reads, replies, sends and organises your emails. Never miss an important message.', examples: ['Reply to customer enquiries within seconds', 'Send quotes and invoices by email', 'Organise inbox with labels', 'Follow up on leads automatically', 'Draft emails from a voice command', 'Flag and alert you about urgent messages'], works: 'Just ask: "Connect my Gmail"' },
@@ -65,7 +176,8 @@ export default function IntegrationsPage() {
   const filtered = activeCategory === 'All' ? advancedIntegrations : advancedIntegrations.filter(i => i.category === activeCategory);
 
   return (
-    <div style={{ background: '#f9f6f0', minHeight: '100vh', fontFamily: 'Inter, sans-serif' }}>
+    <div style={{ background: 'var(--bg, #f9f6f0)', minHeight: '100vh', fontFamily: 'Inter, sans-serif' }}>
+      <Nav />
 
       {/* Hero */}
       <div style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)', padding: '80px 20px 60px', textAlign: 'center' }}>
@@ -191,6 +303,7 @@ export default function IntegrationsPage() {
           </a>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
