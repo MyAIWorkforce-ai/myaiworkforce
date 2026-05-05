@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   },
   title: "Build Your AI Workforce Without the Complexity | MyAIWorkforce.ai",
   description:
-    "Build your AI workforce without the complexity. Browse 500+ ready-made AI agents, grab a DIY guide, or let our team build, deploy and manage your entire AI workforce — from $497 setup + first month free.",
+    "Your own AI agent, live in 24 hours. Handles emails, bookings, admin and more — on your own private server. First month free.",
   keywords: ["AI agents", "AI workforce", "AI automation", "no-code AI", "AI marketplace", "done for you AI"],
   openGraph: {
     title: "Build Your AI Workforce Without the Complexity | MyAIWorkforce.ai",
     description:
-      "Build your AI workforce without the complexity. Browse 500+ ready-made AI agents, grab a DIY guide, or let our team build, deploy and manage your entire AI workforce — from $497 setup + first month free.",
+      "Your own AI agent, live in 24 hours. Handles emails, bookings, admin and more — on your own private server. First month free.",
     type: "website",
     url: "https://MyAIWorkforce.ai",
     siteName: "My AI Workforce",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Build Your AI Workforce Without the Complexity | MyAIWorkforce.ai",
-    description: "Browse 500+ ready-made AI agents or let us build your entire AI workforce from $497 setup + first month free.",
+    description: "Your own AI agent, live in 24 hours. Handles emails, bookings, admin and more. First month free.",
   },
 };
 
