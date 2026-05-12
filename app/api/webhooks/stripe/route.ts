@@ -92,6 +92,7 @@ export async function POST(request: NextRequest) {
             await resendClient.emails.send({
               from: 'Monty <monty@myaiworkforce.ai>',
               to: customerEmail,
+              cc: ['toby@myaiworkforce.ai'],
               subject: `Welcome! Let's build your AI agent 🚀`,
               html: buildOnboardingEmail1({ name: clientName, email: customerEmail }),
             }).catch(e => console.error('Onboarding email 1 failed:', e));

@@ -152,6 +152,7 @@ export async function sendPurchaseConfirmation({
     from: 'My AI Workforce <monty@myaiworkforce.ai>',
     replyTo: 'hi@myaiworkforce.ai',
     to,
+    cc: ['toby@myaiworkforce.ai'],
     subject,
     html,
     attachments: attachments.length > 0 ? attachments : undefined,
@@ -236,6 +237,7 @@ export async function sendOnboardingWelcome({
     from: 'Monty <monty@myaiworkforce.ai>',
     replyTo: 'monty@myaiworkforce.ai',
     to,
+    cc: ['toby@myaiworkforce.ai'],
     subject: firstName
       ? `You're in, ${firstName}! Your AI agent is being built 🚀`
       : `You're in! Your AI agent is being built 🚀`,
@@ -309,6 +311,7 @@ export async function sendOnboardingSetup({
     from: 'Monty <monty@myaiworkforce.ai>',
     replyTo: 'monty@myaiworkforce.ai',
     to,
+    cc: ['toby@myaiworkforce.ai'],
     subject: firstName
       ? `${firstName}, two quick things before we go live 👇`
       : `Two quick things before we go live 👇`,
@@ -420,6 +423,7 @@ export async function sendAnthropicSetup({
     from: 'Monty <monty@myaiworkforce.ai>',
     replyTo: 'monty@myaiworkforce.ai',
     to,
+    cc: ['toby@myaiworkforce.ai'],
     subject: firstName
       ? `${firstName}, one quick step — set up your AI credits 🧠`
       : `One quick step — set up your AI credits 🧠`,
@@ -477,6 +481,7 @@ export async function sendModelExplainer({
     from: 'Monty <monty@myaiworkforce.ai>',
     replyTo: 'monty@myaiworkforce.ai',
     to,
+    cc: ['toby@myaiworkforce.ai'],
     subject: firstName
       ? `${firstName}, your AI key is connected — here's what's running 🧠`
       : `Your AI key is connected — here's what's running 🧠`,
@@ -542,6 +547,7 @@ export async function sendConnectTools({
     from: 'Monty <monty@myaiworkforce.ai>',
     replyTo: 'monty@myaiworkforce.ai',
     to,
+    cc: ['toby@myaiworkforce.ai'],
     subject: firstName
       ? `${firstName}, let's connect your tools 🔌`
       : `Let's connect your tools 🔌`,
