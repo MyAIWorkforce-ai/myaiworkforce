@@ -63,6 +63,7 @@ export async function POST(req: NextRequest) {
         clientBusiness: business || '',
       },
       allow_promotion_codes: true,
+      payment_method_collection: 'if_required',
       success_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://myaiworkforce.ai'}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://myaiworkforce.ai'}/buildagent`,
     };
