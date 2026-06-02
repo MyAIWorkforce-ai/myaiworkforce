@@ -125,8 +125,8 @@ function Nav() {
   const links = [
     { label: "Build My Agent", href: "/buildmyagent" },
     { label: "Integrations", href: "/integrations" },
-  { label: "Guides", href: "/guides" },
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Marketplace", href: "https://skillzy.ai/marketplace" },
+  { label: "Integrations", href: "/integrations" },
     
     { label: "About", href: "/about" },
     { label: "Blog", href: "/blog" },

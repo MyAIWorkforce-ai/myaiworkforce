@@ -86,8 +86,8 @@ function Nav() {
           {[
             { label: "Build My Agent", href: "/buildmyagent" },
             { label: "Integrations", href: "/integrations" },
-  { label: "Guides", href: "/guides" },
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Marketplace", href: "https://skillzy.ai/marketplace" },
+  { label: "Integrations", href: "/integrations" },
             
             { label: "About", href: "/about" },
             { label: "Blog", href: "/blog" },
@@ -133,8 +133,8 @@ function Nav() {
             {[
               { label: "Build My Agent", href: "/buildmyagent" },
               { label: "Integrations", href: "/integrations" },
-  { label: "Guides", href: "/guides" },
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Marketplace", href: "https://skillzy.ai/marketplace" },
+  { label: "Integrations", href: "/integrations" },
               { label: "About", href: "/about" },
             ].map((link) => (
               <a
@@ -177,8 +177,8 @@ function Footer() {
             {[
               { label: "Build My Agent", href: "/buildmyagent" },
               { label: "Integrations", href: "/integrations" },
-  { label: "Guides", href: "/guides" },
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Marketplace", href: "https://skillzy.ai/marketplace" },
+  { label: "Integrations", href: "/integrations" },
               { label: "Dashboard", href: "/dashboard" },
               { label: "Sell Your Agents", href: "/creator/agents" },
               { label: "Sell Your Skills", href: "/creator/skills" },

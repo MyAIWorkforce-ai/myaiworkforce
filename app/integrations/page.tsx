@@ -41,12 +41,11 @@ function ThemeToggle() {
 }
 
 const NAV_LINKS = [
-  { label: 'Build My Agent', href: '/buildmyagent' },
-  { label: 'Integrations', href: '/integrations' },
-  { label: 'Guides', href: '/guides' },
-  { label: 'Marketplace', href: '/marketplace' },
-  { label: 'About', href: '/about' },
-  { label: 'Blog', href: '/blog' },
+  { label: "Build My Agent", href: "/buildmyagent" },
+  { label: "Marketplace", href: "https://skillzy.ai/marketplace" },
+  { label: "Integrations", href: "/integrations" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
 ];
 
 function Nav() {

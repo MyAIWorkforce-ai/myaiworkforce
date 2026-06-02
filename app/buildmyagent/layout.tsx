@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Build My Agent | $497 Setup + $199/mo | My AI Workforce',
+    title: 'Build My Agent | $497 Setup + $99/mo | My AI Workforce',
     description: 'Custom AI agent built, deployed and managed for your business. Live in 24 hours.',
   },
 }

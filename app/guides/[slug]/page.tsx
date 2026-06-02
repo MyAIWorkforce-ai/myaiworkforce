@@ -444,8 +444,8 @@ function Nav() {
           {[
             { label: "Build My Agent", href: "/buildmyagent" },
             { label: "Integrations", href: "/integrations" },
-  { label: "Guides", href: "/guides" },
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Marketplace", href: "https://skillzy.ai/marketplace" },
+  { label: "Integrations", href: "/integrations" },
             
             { label: "About", href: "/about" },
             { label: "Blog", href: "/blog" },
@@ -491,8 +491,8 @@ function Nav() {
             {[
               { label: "Build My Agent", href: "/buildmyagent" },
               { label: "Integrations", href: "/integrations" },
-  { label: "Guides", href: "/guides" },
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Marketplace", href: "https://skillzy.ai/marketplace" },
+  { label: "Integrations", href: "/integrations" },
               
               { label: "About", href: "/about" },
               { label: "Blog", href: "/blog" },
@@ -529,7 +529,7 @@ function Footer() {
         <span className="font-bold" style={{ letterSpacing: "-0.02em" }}><span style={{ color: "#c9a84c" }}>My </span><span style={{ color: "#ffffff", fontSize: "1.2em" }}>AI </span><span style={{ color: "#c9a84c" }}>Workforce</span></span>
         <p className="text-sm" style={{ color: "var(--text-dim)" }}>© {new Date().getFullYear()} My AI Workforce. All rights reserved.</p>
         <div className="flex gap-6 text-sm">
-          <Link href="/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
+          <Link href="https://skillzy.ai/marketplace" style={{ color: "var(--text-dim)" }}>Marketplace</Link>
           <Link href="/integrations" style={{ color: "var(--text-dim)" }}>Integrations</Link>
           <Link href="/pricing" style={{ color: "var(--text-dim)" }}>Pricing</Link>
           <Link href="/contact" style={{ color: "var(--text-dim)" }}>Contact</Link>
@@ -731,7 +731,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
               Browse ready-made agents in our marketplace — pre-built, pre-configured, and ready to deploy in minutes.
             </p>
             <Link
-              href="/marketplace"
+              href="https://skillzy.ai/marketplace"
               className="inline-block px-8 py-3 rounded-xl font-bold text-sm"
               style={{ backgroundColor: "#c9a84c", color: "#0A0A0A" }}
             >

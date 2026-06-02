@@ -71,8 +71,8 @@ function Nav() {
         <div className="hidden md:flex items-center gap-8">
           {[
             { label: "Build My Agent", href: "/buildmyagent" },
-  { label: "Guides", href: "/guides" },
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Marketplace", href: "https://skillzy.ai/marketplace" },
+  { label: "Integrations", href: "/integrations" },
             
             { label: "About", href: "/about" },
             { label: "Blog", href: "/blog" },
@@ -117,8 +117,8 @@ function Nav() {
           <div className="px-6 py-4 flex flex-col gap-4">
             {[
               { label: "Build My Agent", href: "/buildmyagent" },
-  { label: "Guides", href: "/guides" },
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Marketplace", href: "https://skillzy.ai/marketplace" },
+  { label: "Integrations", href: "/integrations" },
               { label: "About", href: "/about" },
             ].map((link) => (
               <a
