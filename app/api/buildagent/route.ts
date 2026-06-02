@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
       html: buildNotificationEmail({ name, business, email, phone, description, tools }),
     }).catch(e => console.error('Notification failed:', e));
 
-    // Stripe checkout params — subscription $199/mo + $497 one-time setup on first invoice
+    // Stripe checkout params — subscription $99/mo + $497 one-time setup on first invoice
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const checkoutParams: any = {
       payment_method_types: ['card'],
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
           price_data: {
             currency: 'usd',
             product_data: { name: 'Build My Agent — Monthly Management' },
-            unit_amount: 19900,
+            unit_amount: 9900,
             recurring: { interval: 'month' },
           },
           quantity: 1,

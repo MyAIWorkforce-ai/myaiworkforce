@@ -451,10 +451,10 @@ export default function DoneForYouPage() {
                 <div className="mb-1" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>≈ $770 AUD one-time</div>
                 <div className="mt-3 mb-1 inline-block px-3 py-1 rounded-full text-xs font-bold" style={{ backgroundColor: "rgba(201,168,76,0.2)", color: "#c9a84c", border: "1px solid #c9a84c" }}>🎁 First month FREE</div>
                 <div className="mt-2 mb-1">
-                  <span className="text-3xl font-extrabold text-white">$199</span>
+                  <span className="text-3xl font-extrabold text-white">$99</span>
                   <span className="text-base font-medium ml-2" style={{ color: "#c9a84c" }}>USD / month after that</span>
                 </div>
-                <div className="mb-8" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>≈ $310 AUD / month ongoing</div>
+                <div className="mb-8" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>≈ $155 AUD / month ongoing</div>
                 <ul className="space-y-2 mb-8">
                   {[
                     "Custom AI agent built for your business",
