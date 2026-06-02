@@ -66,8 +66,6 @@ function ThemeToggle() {
 const NAV_LINKS = [
   { label: "Build My Agent", href: "/buildmyagent" },
   { label: "Integrations", href: "/integrations" },
-  { label: "Guides", href: "/guides" },
-  { label: "Marketplace", href: "/marketplace" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
@@ -168,14 +166,9 @@ function Footer() {
             {[
               { label: "Build My Agent", href: "/buildmyagent" },
               { label: "Integrations", href: "/integrations" },
-  { label: "Guides", href: "/guides" },
-  { label: "Marketplace", href: "/marketplace" },
               { label: "Dashboard", href: "/dashboard" },
-              { label: "Sell Your Agents", href: "/creator/agents" },
-              { label: "Sell Your Skills", href: "/creator/skills" },
               { label: "Contact", href: "/contact" },
               { label: "Invest with Us", href: "/invest" },
-              { label: "Website Refresh", href: "https://cheapwebsite-j1k0zcvlh-me-myself-i.vercel.app" },
             ].map((link) => (
               <Link
                 key={link.label}
@@ -242,17 +235,17 @@ function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/get-started"
-            className="px-8 py-4 rounded-xl text-lg font-bold text-center text-white glow-yellow"
-            style={{ backgroundColor: "#1a1a2e", border: "2px solid #c9a84c" }}
+            className="px-8 py-4 rounded-xl text-lg font-bold text-center glow-yellow"
+            style={{ backgroundColor: "#c9a84c", color: "#1a1a2e" }}
           >
             Build Your AI Agent Today →
           </Link>
           <Link
-            href="/marketplace"
+            href="https://calendar.app.google/cEdmSQvEZ66hj4dy7" target="_blank" rel="noopener noreferrer"
             className="px-8 py-4 rounded-xl text-lg font-bold text-center transition-all"
             style={{ border: "2px solid #c9a84c", color: "#c9a84c", background: "rgba(201,168,76,0.08)" }}
           >
-            Browse the Marketplace
+            Book a Free Call
           </Link>
         </div>
         <div className="mt-8">
@@ -298,26 +291,26 @@ function ThreePillars() {
       title: "Build My Agent",
       subtitle: "We build it. We run it.",
       desc: "Hand us your business problems and we'll build a custom AI workforce to solve them. We handle everything — discovery, build, deployment, and ongoing management. You just get results.",
-      cta: "Learn More →",
+      cta: "Get Started →",
       href: "/buildmyagent",
       highlight: true,
     },
     {
-      icon: "🛒",
-      title: "Marketplace",
-      subtitle: "Buy ready-made agents.",
-      desc: "Browse 500+ pre-built AI agents, skill files, and workflows. Download, configure, and deploy in minutes. No technical expertise required.",
-      cta: "Browse Agents →",
-      href: "/marketplace",
+      icon: "🔌",
+      title: "Integrations",
+      subtitle: "Connects to everything.",
+      desc: "Your agent works with the tools you already use — Gmail, Calendar, Xero, Stripe, Slack, WhatsApp, and 10,000+ more. No tech knowledge required.",
+      cta: "See Integrations →",
+      href: "/integrations",
       highlight: false,
     },
     {
-      icon: "📚",
-      title: "Guides",
-      subtitle: "DIY step-by-step.",
-      desc: "Prefer to build it yourself? Our practical guides walk you through building and deploying AI agents from scratch. From beginner to advanced, $9–$19 one-time.",
-      cta: "View Guides →",
-      href: "/guides",
+      icon: "📞",
+      title: "Free Discovery Call",
+      subtitle: "No commitment. Just a conversation.",
+      desc: "Not sure what AI can do for your business? Book a free 30-minute call. We'll map out exactly where AI can save you time and money — no pressure, no sales pitch.",
+      cta: "Book a Free Call →",
+      href: "https://calendar.app.google/cEdmSQvEZ66hj4dy7",
       highlight: false,
     },
   ];
@@ -916,20 +909,6 @@ function CTABanner() {
             >
               Build My Agent →
             </Link>
-            <Link
-              href="/guides"
-              className="px-8 py-4 rounded-xl text-lg font-bold transition-all"
-              style={{ border: "2px solid var(--border)", color: "var(--text-dim)" }}
-            >
-              DIY Guides
-            </Link>
-            <Link
-              href="/marketplace"
-              className="px-8 py-4 rounded-xl text-lg font-bold transition-all"
-              style={{ border: "2px solid var(--border)", color: "var(--text-dim)" }}
-            >
-              Browse Marketplace
-            </Link>
           </div>
         </div>
       </div>
@@ -949,8 +928,6 @@ export default function HomePage() {
         <ThreePillars />
         <HowItWorks />
         <SecuritySection />
-        <SectionDivider />
-        <FeaturedAgents />
         <SectionDivider />
         <Testimonials />
         <IntegrationsPreview />
