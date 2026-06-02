@@ -370,7 +370,7 @@ function HowItWorks() {
       num: "02",
       icon: "🚀",
       title: "Build & Deploy",
-      desc: "Our team builds your custom AI agents on a dedicated, private server. You get status updates every step of the way. Typical go-live: 2 weeks.",
+      desc: "Our team builds your custom AI agents on a dedicated, private server. You get status updates every step of the way. Typical go-live: 24 hours.",
     },
     {
       num: "03",
